@@ -4,15 +4,22 @@
   h1 {
     @apply text-2xl;
     @apply tracking-wide;
-    @apply font-semibold;
+    @apply font-round;
+    @apply text-6xl;
+    @apply leading-[5rem];
   }
   h2 {
     @apply text-xl;
     @apply tracking-wide;
-    @apply font-semibold;
+    @apply font-round;
   }
   h3 {
     @apply text-lg;
+    @apply font-round;
+  }
+  a,
+  p {
+    @apply font-work;
   }
   a {
     @apply text-blue-600 underline;
@@ -20,7 +27,6 @@
 }
 
 @tailwind components;
-
 @tailwind utilities;
 
 html,

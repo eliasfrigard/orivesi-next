@@ -4,7 +4,7 @@ export default function Navbar() {
   const links = [
     { title: 'Home', page: '/' },
     { title: 'Allstars', page: '/about' },
-    { title: 'Uutiset', page: '/about' },
+    { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/about' },
     { title: 'Nuoit', page: '/about' },
     { title: 'Yhteistiedot', page: '/about' },
@@ -17,7 +17,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li key={link.title}>
               <Link href={link.page}>
-                <a className='py-[13px] px-[20px] hover:bg-gray-100 rounded font-sans tracking-wide font-medium'>
+                <a className='py-[13px] px-[20px] hover:bg-hover rounded font-sans tracking-wide font-medium'>
                   {link.title}
                 </a>
               </Link>
