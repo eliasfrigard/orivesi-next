@@ -1,8 +1,11 @@
-import NewsPreview from "./NewsPreview"
+import NewsPreview from './NewsPreview'
 
 export default function NewsHighlights({ data }) {
   return (
-    <div className="flex justify-center gap-20 flex-wrap">
+    <div className='flex justify-between md:justify-center gap-10 xl:gap-y-14 flex-wrap'>
+      <NewsPreview></NewsPreview>
+      <NewsPreview></NewsPreview>
+      <NewsPreview></NewsPreview>
       <NewsPreview></NewsPreview>
     </div>
   )
