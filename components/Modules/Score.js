@@ -34,7 +34,7 @@ export default function Score({ title, type, composer, youtubeVideos }) {
           <div className="w-full relative flex flex-wrap gap-4">
             {youtubeVideos.map((video) => (
               <div
-                className="flex-1 min-w-[calc(25%)] max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg"
+                className="flex-1 overflow-hidden shadow-xl min-w-[calc(25%)] max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg"
                 key={video}
               >
                 <iframe
