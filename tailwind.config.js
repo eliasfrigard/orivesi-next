@@ -33,6 +33,8 @@ module.exports = {
       colors: {
         background: "#fffdf4",
         hover: "#F9F6ED",
+        hoverDark: "#F3F0E7",
+        hoverDarker: "#E5E2D9",
         orange: "#d57b01",
       },
     },
