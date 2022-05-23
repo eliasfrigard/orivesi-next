@@ -7,7 +7,13 @@ export default function Home({ scores }) {
     <Layout>
       <div className="container mt-4 flex flex-col gap-4">
         {scores.map((score) => (
-          <Score key={score.id} title={score.Title} type={score.Dancetype} composer={score.Composer}></Score>
+          <Score
+            key={score.id}
+            title={score.Title}
+            type={score.Dancetype}
+            composer={score.Composer}
+            youtubeVideos={score.Youtube}
+          ></Score>
         ))}
       </div>
     </Layout>

@@ -1,8 +1,17 @@
 import { useState } from "react"
 
-export default function Score({ title, type, composer }) {
+export default function Score({ title, type, composer, youtubeVideos }) {
   const [open, setOpen] = useState(false)
   const onMouseClick = () => setOpen(!open)
+
+  let numberOfVideos = 0
+
+  if (youtubeVideos) {
+    youtubeVideos = youtubeVideos.split("\n")
+    numberOfVideos = youtubeVideos.length
+  } else {
+    youtubeVideos = []
+  }
 
   return (
     <>
@@ -22,12 +31,23 @@ export default function Score({ title, type, composer }) {
             <div className="w-3/5 h-[300px] shadow bg-hover rounded-lg"></div>
             <div className="w-2/5 h-[300px] shadow bg-hover rounded-lg"></div>
           </div>
-          <div className="w-full flex gap-4">
-            <div className="w-1/5 aspect-video shadow bg-hover rounded-lg"></div>
-            <div className="w-1/5 aspect-video shadow bg-hover rounded-lg"></div>
-            <div className="w-1/5 aspect-video shadow bg-hover rounded-lg"></div>
-            <div className="w-1/5 aspect-video shadow bg-hover rounded-lg"></div>
-            <div className="w-1/5 aspect-video shadow bg-hover rounded-lg"></div>
+          <div className="w-full relative flex flex-wrap gap-4">
+            {youtubeVideos.map((video) => (
+              <div
+                className="flex-1 min-w-[calc(25%)] max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg"
+                key={video}
+              >
+                <iframe
+                  className="w-full aspect-16/9"
+                  src={`https://www.youtube.com/embed/${video}`}
+                  title="YouTube video player"
+                  frameBorder={0}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+            ))}
           </div>
         </div>
       ) : (

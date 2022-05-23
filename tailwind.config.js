@@ -26,6 +26,7 @@ module.exports = {
       }),
       aspectRatio: {
         "79/50": "79 / 50",
+        "16/9": "16 / 9",
       },
       scale: {
         102: "1.01",
@@ -60,5 +61,5 @@ module.exports = {
       xl: "1280px",
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")],
 }
