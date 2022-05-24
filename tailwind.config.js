@@ -28,7 +28,22 @@ module.exports = {
         '79/50': '79 / 50',
       },
       colors: {
-        background: '#fffdf4',
+        white: '#FFFFFF',
+        primary: {
+          500: '#FAF9F6',
+          600: '#e2d5c4',
+        },
+        secondary: {
+          300: '#f1715c',
+          400: '#ef5f48',
+          500: '#C3D6E0',
+          600: '#d6462e',
+          700: '#be3e29',
+        },
+        accent: {
+          500: '#638394',
+          600: '#e2d5c4',
+        },
         hover: '#F9F6ED',
         orange: '#d57b01',
       },

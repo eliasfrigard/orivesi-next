@@ -17,7 +17,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li key={link.title}>
               <Link href={link.page}>
-                <a className='py-[13px] px-[20px] hover:bg-hover rounded font-sans tracking-wide font-medium'>
+                <a className='py-[13px] px-[20px] hover:bg-hover focus:scale-125 rounded font-sans tracking-wide font-medium'>
                   {link.title}
                 </a>
               </Link>

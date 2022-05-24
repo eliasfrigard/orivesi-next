@@ -18,7 +18,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
   return (
     <Link href={'/news/' + link}>
       <div
-        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'} cursor-pointer p-2 rounded-lg`}
+        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'}  cursor-pointer p-2 rounded-lg`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
