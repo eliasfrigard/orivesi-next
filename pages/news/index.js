@@ -1,12 +1,12 @@
-import axios from 'axios'
-import Layout from '../../components/Layout'
-import NewsPreview from '../../components/Modules/NewsPreview'
+import axios from "axios"
+import Layout from "../../components/Layout"
+import NewsPreview from "../../components/Modules/NewsPreview"
 
 export default function News({ news }) {
   return (
     <Layout>
-      <div className='flex flex-col	container my-16'>
-        <div className='flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-14'>
+      <div className="flex flex-col	container my-16">
+        <div className="flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-14">
           {news.map((item) => (
             <NewsPreview
               key={item.id}
@@ -20,15 +20,15 @@ export default function News({ news }) {
             ></NewsPreview>
           ))}
 
-          {news.length % 2 === 0 ? '' : <div className='w-90 lg:w-[474px] xl:w-[525px]'></div>}
+          {news.length % 2 === 0 ? "" : <div className="w-90 lg:w-[474px] xl:w-[525px]"></div>}
         </div>
-      </div>{' '}
+      </div>{" "}
     </Layout>
   )
 }
 
 export async function getStaticProps() {
-  const response = await axios.get('https://orivesiadmin.net/posts?_sort=created_at:DESC')
+  const response = await axios.get("https://orivesiadmin.net/posts?_sort=created_at:DESC")
 
   const newsWithSlug = response.data.map((post) => {
     return {

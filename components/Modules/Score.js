@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Score({ title, type, composer, youtubeVideos }) {
+export default function Score({ title, type, composer, youtubeVideos, isHeader = false }) {
   const [open, setOpen] = useState(false)
   const onMouseClick = () => setOpen(!open)
 
@@ -15,21 +15,32 @@ export default function Score({ title, type, composer, youtubeVideos }) {
 
   return (
     <>
-      <div
-        onClick={onMouseClick}
-        className="w-full h-14 px-10 bg-hover backdrop-blur-lg rounded-lg shadow cursor-pointer hover:scale-102 hover:shadow-md hover:bg-hoverDark duration-300 flex gap-20 justify-between items-center"
-      >
-        <p className="font-medium tracking-wider">{title}</p>
-        <div className="hidden font-light md:flex gap-14">
-          <p>{type}</p>
-          <p>{composer}</p>
+      {isHeader ? (
+        <div className="w-full h-14 px-10 flex gap-20 justify-between items-center">
+          <h3 className="flex-1 font-medium tracking-wider">{title}</h3>
+
+          <div className="flex flex-1 font-light md:flex items-center gap-14">
+            <h3 className="flex-1 tracking-wider">{type}</h3>
+            <h3 className="flex-1 tracking-wider">{composer}</h3>
+          </div>
         </div>
-      </div>
-      {open ? (
+      ) : (
+        <div
+          onClick={onMouseClick}
+          className="w-full h-14 px-10 bg-hover backdrop-blur-lg rounded-lg shadow cursor-pointer hover:scale-102 hover:shadow-md hover:bg-hoverDark duration-300 flex gap-20 justify-between items-center"
+        >
+          <p className="flex-1 font-medium tracking-wide">{title}</p>
+          <div className="flex flex-1 font-light md:flex items-center gap-14">
+            <p className="flex-1 tracking-wide">{type}</p>
+            <p className="flex-1 tracking-wide">{composer}</p>
+          </div>
+        </div>
+      )}
+      {/* {open ? (
         <div className="flex flex-col gap-6 mb-8">
-          <div className="flex gap-6">
-            <div className="w-3/5 h-[300px] shadow bg-hover rounded-lg"></div>
-            <div className="w-2/5 h-[300px] shadow bg-hover rounded-lg"></div>
+        <div className="flex gap-6">
+        <div className="w-3/5 h-[300px] shadow bg-hover rounded-lg"></div>
+        <div className="w-2/5 h-[300px] shadow bg-hover rounded-lg"></div>
           </div>
           <div className="w-full relative flex flex-wrap gap-4">
             {youtubeVideos.map((video) => (
@@ -52,7 +63,7 @@ export default function Score({ title, type, composer, youtubeVideos }) {
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </>
   )
 }

@@ -5,7 +5,8 @@ import Score from "../components/Modules/Score"
 export default function Home({ scores }) {
   return (
     <Layout>
-      <div className="container mt-4 flex flex-col gap-4">
+      <div className="container mt-4 flex text-left flex-col gap-4">
+        <Score title="Title" type="Dance Type" composer="Composer" isHeader={true}></Score>
         {scores.map((score) => (
           <Score
             key={score.id}
