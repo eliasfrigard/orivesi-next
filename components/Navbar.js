@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 export default function Navbar() {
   const links = [
+<<<<<<< HEAD
     { title: 'Home', page: '/' },
     { title: 'Allstars', page: '/about' },
     { title: 'Uutiset', page: '/news' },
@@ -9,6 +10,15 @@ export default function Navbar() {
     { title: 'Nuotit', page: '/scores' },
     { title: 'Media', page: '/scores' },
     { title: 'Yhteystiedot', page: '/about' },
+=======
+    { title: "Home", page: "/" },
+    { title: "Allstars", page: "/about" },
+    { title: "Uutiset", page: "/news" },
+    { title: "Tapahtumat", page: "/events" },
+    { title: "Nuotit", page: "/scores" },
+    { title: "Media", page: "/scores" },
+    { title: "Yhteystiedot", page: "/about" },
+>>>>>>> 50aa0f94499edbbc8bc4f76bcc8e030ebe7a5d85
   ]
 
   return (
