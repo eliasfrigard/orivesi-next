@@ -8,18 +8,20 @@ export default function Home({ scores }) {
     <Layout>
       <div className='flex flex-col container gap-16 my-16'>
         <h3 className='text-5xl tracking-wider text-center'>Nuotit</h3>
-        <div className='flex flex-col gap-4'>
+        <div>
           <Search></Search>
-          <Score title='Title' type='Dance Type' composer='Composer' isHeader={true}></Score>
-          {scores.map((score) => (
-            <Score
-              key={score.id}
-              link={score.slug}
-              title={score.Title}
-              type={score.Dancetype}
-              composer={score.Composer}
-            ></Score>
-          ))}
+          <div className='flex flex-col gap-6 mt-6'>
+            <Score title='Title' type='Dance Type' composer='Composer' isHeader={true}></Score>
+            {scores.map((score) => (
+              <Score
+                key={score.id}
+                link={score.slug}
+                title={score.Title}
+                type={score.Dancetype}
+                composer={score.Composer}
+              ></Score>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>

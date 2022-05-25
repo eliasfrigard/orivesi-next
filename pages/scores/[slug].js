@@ -5,11 +5,21 @@ import md from 'markdown-it'
 
 import Layout from '../../components/Layout'
 
-import { BsPerson } from 'react-icons/bs'
 import { BiTimeFive } from 'react-icons/bi'
-import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
+import { GiHighHeel } from 'react-icons/gi'
+import { BsMusicNoteList } from 'react-icons/bs'
+import { FaPlay, FaPencilAlt } from 'react-icons/fa'
 
-export default function ScorePage({ post: score }) {
+export default function ScorePage({ score }) {
+  console.log(score)
+  let youtubeVideos = score?.Youtube
+
+  if (youtubeVideos) {
+    youtubeVideos = youtubeVideos.split('\n')
+  } else {
+    youtubeVideos = []
+  }
+
   const myLoader = ({ src, width, quality }) => {
     return score.Image.url
   }
@@ -17,16 +27,94 @@ export default function ScorePage({ post: score }) {
   return (
     <Layout>
       <div className='container flex my-16 flex-col items-center'>
-        <div className='w-[925px] flex flex-col '>
-          <h1 className='mb-8 break-words'>{score.Title}</h1>
-          <div className='meta flex gap-3 items-center mt-5'>
-            <BiTimeFive className='text-2xl' />
-            <div className='flex gap-1.5'>
-              Last updated
-              <Moment locale='fi' fromNow>
-                {score.updated_at}
-              </Moment>
+        <div className='w-full flex flex-col gap-10'>
+          <div className='mb-8'>
+            <h1 className=' break-words'>{score.Title}</h1>
+            <div className='meta flex gap-8 items-center mt-5'>
+              <div className='flex gap-3'>
+                <BiTimeFive className='text-2xl' />
+                <div className='flex items-center gap-1.5'>
+                  Last updated
+                  <Moment locale='fi' fromNow>
+                    {score.updated_at}
+                  </Moment>
+                </div>
+              </div>
+              <div className='flex items-center gap-3'>
+                <FaPencilAlt></FaPencilAlt>
+                <p>{score.Composer}</p>
+              </div>
+              <div className='flex items-center gap-3'>
+                <GiHighHeel></GiHighHeel>
+                <p>{score.Dancetype}</p>
+              </div>
             </div>
+          </div>
+
+          <div className='flex flex-col gap-10'>
+            <div className='flex flex-col md:flex-row gap-6'>
+              {score.Scores.length > 0 ? (
+                <div
+                  className={`flex flex-col w-full ${
+                    score.Audio.length > 0 ? 'md:w-3/5' : 'md:w-full'
+                  } gap-6`}
+                >
+                  <h3 className='text-4xl font-cursive'>Nuotit</h3>
+                  {score.Scores.map((file) => (
+                    <div
+                      key={file.id}
+                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6'
+                    >
+                      <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
+                      <p className='font-medium tracking-wide break-all	'>{file.name}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              {score.Audio.length > 0 ? (
+                <div
+                  className={`flex flex-col w-full ${
+                    score.Audio.length > 0 ? 'md:w-2/5' : 'md:w-full'
+                  } gap-6`}
+                >
+                  <h3 className='text-4xl font-cursive'>Äänitykset</h3>
+                  {score.Audio.map((file) => (
+                    <div
+                      key={file.id}
+                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6'
+                    >
+                      <FaPlay className='text-xl'></FaPlay>
+                      <p className='font-medium tracking-wide'>{file.name.split('.')[0]}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            {youtubeVideos.length > 0 ? (
+              <>
+                <h3 className='text-4xl font-cursive mb-[-1rem]'>Videot</h3>
+                <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
+                  {youtubeVideos.map((video) => (
+                    <div
+                      className='flex-1 overflow-hidden shadow-xl w-full md:min-w-[calc(25%)] md:max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg'
+                      key={video}
+                    >
+                      <iframe
+                        className='w-full aspect-16/9'
+                        src={`https://www.youtube.com/embed/${video}`}
+                        title='YouTube video player'
+                        frameBorder={0}
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowFullScreen
+                        loading='lazy'
+                      ></iframe>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : null}
           </div>
         </div>
       </div>
@@ -37,9 +125,9 @@ export default function ScorePage({ post: score }) {
 export async function getStaticPaths() {
   const response = await axios.get('https://orivesiadmin.net/music-scores')
 
-  const paths = response.data.map((post) => ({
+  const paths = response.data.map((score) => ({
     params: {
-      slug: post.id.toString(),
+      slug: score.id.toString(),
     },
   }))
 
@@ -54,7 +142,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: {
-      post: response.data,
+      score: response.data,
     },
   }
 }
