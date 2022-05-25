@@ -5,7 +5,7 @@ export default function Navbar() {
     { title: "Home", page: "/" },
     { title: "Allstars", page: "/about" },
     { title: "Uutiset", page: "/news" },
-    { title: "Tapahtumat", page: "/about" },
+    { title: "Tapahtumat", page: "/events" },
     { title: "Nuotit", page: "/scores" },
     { title: "Media", page: "/scores" },
     { title: "Yhteystiedot", page: "/about" },

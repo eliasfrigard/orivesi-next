@@ -13,8 +13,8 @@ export default function EventPreview({ date, title, location, city, country }) {
       </div>
       <h4 className="text-6xl font-bold">17:30</h4>
       <h3 className="text-2xl mt-4 text-center leading-relaxed">{title}</h3>
-      <div className="meta flex flex-col justify-center items-center gap-2 mt-3 opacity-80	">
-        <div className="flex flex-row justify-center items-center gap-2">
+      <div className="flex flex-col justify-center items-center gap-2 mt-3 opacity-80	">
+        <div className=" flex flex-row justify-center items-center gap-2">
           <GiEarthAfricaEurope></GiEarthAfricaEurope>
           <p>Helsinki, FI</p>
         </div>
