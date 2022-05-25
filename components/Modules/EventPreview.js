@@ -3,7 +3,7 @@ import { GiEarthAfricaEurope } from 'react-icons/gi'
 
 export default function EventPreview({ date, title, location, city, country }) {
   return (
-    <div className='flex flex-col w-[335px] items-center gap-1  bg-primary-600 hover:bg-primary-700 p-12 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-300 cursor-pointer'>
+    <div className='flex flex-col w-[335px] items-center gap-1  bg-primary-600 hover:bg-primary-700 p-12 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-300 cursor-pointer active:-translate-y-1'>
       <div className='date flex gap-3 justify-center items-center'>
         <p className='text-7xl'>14</p>
         <div>

@@ -19,10 +19,10 @@ export default function Score({ title, type, composer, link, isHeader = false })
       ) : (
         <div
           onClick={onMouseClick}
-          className='w-full h-14 px-10 bg-hover backdrop-blur-lg rounded-lg shadow cursor-pointer hover:scale-100 hover:shadow-md hover:bg-hoverDark duration-300 flex gap-20 justify-between items-center'
+          className='w-full h-14 px-10 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow cursor-pointer hover:scale-100 hover:shadow-lg hover:bg-accent-600 duration-300 flex gap-20 justify-between items-center'
         >
-          <p className='flex-1 font-medium tracking-wide'>{title}</p>
-          <div className='flex flex-1 font-light md:flex items-center gap-14'>
+          <p className='flex-1 font-medium text-[1.1rem] tracking-wider'>{title}</p>
+          <div className='flex flex-1  md:flex items-center gap-14'>
             <p className='flex-1 tracking-wide'>{type}</p>
             <p className='flex-1 tracking-wide'>{composer}</p>
           </div>
