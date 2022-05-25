@@ -42,7 +42,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
           <p>{author}</p>
         </div>
         <h2 className='text-2xl my-3 leading-[2.3rem]'>{title}</h2>
-        <p className={`leading-7 opacity-80 ${hover ? 'opacity-100' : ''} duration-300`}>
+        <p className={`leading-7 ${hover ? 'opacity-100' : 'opacity-70'} duration-300`}>
           {post.length > 480 ? post.substr(0, 480) + '...' : post}
         </p>
       </div>

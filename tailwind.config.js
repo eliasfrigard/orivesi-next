@@ -26,26 +26,27 @@ module.exports = {
       }),
       aspectRatio: {
         '79/50': '79 / 50',
+        '16/9': '16 / 9',
+      },
+      scale: {
+        102: '1.01',
       },
       colors: {
         white: '#FFFFFF',
         primary: {
           500: '#FAF9F6',
-          600: '#e2d5c4',
+          600: '#F1F0ED',
+          700: '#E7E6E5',
         },
         secondary: {
-          300: '#f1715c',
-          400: '#ef5f48',
           500: '#C3D6E0',
-          600: '#d6462e',
-          700: '#be3e29',
         },
         accent: {
           500: '#638394',
-          600: '#e2d5c4',
+          600: '#4D768C',
         },
         hover: '#F9F6ED',
-        orange: '#d57b01',
+        orange: '#5D7B8A',
       },
     },
     fontFamily: {

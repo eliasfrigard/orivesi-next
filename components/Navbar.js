@@ -6,8 +6,9 @@ export default function Navbar() {
     { title: 'Allstars', page: '/about' },
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/about' },
-    { title: 'Nuoit', page: '/about' },
-    { title: 'Yhteistiedot', page: '/about' },
+    { title: 'Nuotit', page: '/scores' },
+    { title: 'Media', page: '/scores' },
+    { title: 'Yhteystiedot', page: '/about' },
   ]
 
   return (
@@ -17,7 +18,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li key={link.title}>
               <Link href={link.page}>
-                <a className='py-[13px] px-[20px] hover:bg-hover focus:scale-125 rounded font-sans tracking-wide font-medium'>
+                <a className='py-[13px] px-[20px] hover:bg-accent-500 active:bg-accent-600  hover:text-white rounded font-sans tracking-wide font-medium'>
                   {link.title}
                 </a>
               </Link>
