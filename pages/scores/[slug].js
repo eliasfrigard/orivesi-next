@@ -1,17 +1,17 @@
 import axios from 'axios'
-import Image from 'next/image'
 import Moment from 'react-moment'
 import md from 'markdown-it'
+import Link from 'next/link'
 
 import Layout from '../../components/Layout'
 
 import { BiTimeFive } from 'react-icons/bi'
 import { GiHighHeel } from 'react-icons/gi'
+import { FiChevronRight } from 'react-icons/fi'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { FaPlay, FaPencilAlt } from 'react-icons/fa'
 
 export default function ScorePage({ score }) {
-  console.log(score)
   let youtubeVideos = score?.Youtube
 
   if (youtubeVideos) {
@@ -20,14 +20,17 @@ export default function ScorePage({ score }) {
     youtubeVideos = []
   }
 
-  const myLoader = ({ src, width, quality }) => {
-    return score.Image.url
-  }
-
   return (
     <Layout>
       <div className='container flex my-16 flex-col items-center'>
         <div className='w-full flex flex-col gap-10'>
+          <div className='absolute flex items-center gap-3 text-md mt-[-3rem] opacity-60 hover:opacity-100'>
+            <BsMusicNoteList />
+            <Link href='/scores'>Nuotit</Link>
+            <FiChevronRight></FiChevronRight>
+            <p>{score.Title}</p>
+          </div>
+
           <div className='mb-8'>
             <h1 className=' break-words'>{score.Title}</h1>
             <div className='meta flex gap-8 items-center mt-5'>
@@ -63,7 +66,7 @@ export default function ScorePage({ score }) {
                   {score.Scores.map((file) => (
                     <div
                       key={file.id}
-                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6'
+                      className='flex gap-4 items-center w-full bg-accent-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200 rounded-lg py-4 px-6'
                     >
                       <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
                       <p className='font-medium tracking-wide break-all	'>{file.name}</p>
@@ -82,7 +85,7 @@ export default function ScorePage({ score }) {
                   {score.Audio.map((file) => (
                     <div
                       key={file.id}
-                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6'
+                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6 shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200'
                     >
                       <FaPlay className='text-xl'></FaPlay>
                       <p className='font-medium tracking-wide'>{file.name.split('.')[0]}</p>
