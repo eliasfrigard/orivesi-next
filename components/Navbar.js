@@ -1,7 +1,16 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 export default function Navbar() {
   const links = [
+<<<<<<< HEAD
+    { title: 'Home', page: '/' },
+    { title: 'Allstars', page: '/about' },
+    { title: 'Uutiset', page: '/news' },
+    { title: 'Tapahtumat', page: '/about' },
+    { title: 'Nuotit', page: '/scores' },
+    { title: 'Media', page: '/scores' },
+    { title: 'Yhteystiedot', page: '/about' },
+=======
     { title: "Home", page: "/" },
     { title: "Allstars", page: "/about" },
     { title: "Uutiset", page: "/news" },
@@ -9,16 +18,17 @@ export default function Navbar() {
     { title: "Nuotit", page: "/scores" },
     { title: "Media", page: "/scores" },
     { title: "Yhteystiedot", page: "/about" },
+>>>>>>> 50aa0f94499edbbc8bc4f76bcc8e030ebe7a5d85
   ]
 
   return (
-    <div className="lg:flex hidden fixed w-full justify-center py-[10px] bg-opacity-95 backdrop-blur z-50 bg-background">
-      <div className="container flex justify-center items-center h-[75px]">
-        <ul className="flex align-middle gap-3">
+    <div className='lg:flex hidden fixed w-full justify-center py-[10px] bg-opacity-95 backdrop-blur z-50 bg-background'>
+      <div className='container flex justify-center items-center h-[75px]'>
+        <ul className='flex align-middle gap-3'>
           {links.map((link) => (
             <li key={link.title}>
               <Link href={link.page}>
-                <a className="py-[13px] px-[20px] hover:bg-hover rounded font-sans tracking-wide font-medium">
+                <a className='py-[13px] px-[20px] hover:bg-accent-500 active:bg-accent-600  hover:text-white rounded font-sans tracking-wide font-medium'>
                   {link.title}
                 </a>
               </Link>

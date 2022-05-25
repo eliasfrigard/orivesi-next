@@ -8,7 +8,7 @@ export default function Home({ news }) {
   return (
     <Layout>
       <div className='h-[3000px] container'>
-        <HighlightText title='ORIVESI ALLSTARS' subtitle='The Great Happy Orchestra'></HighlightText>
+        <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
         <div className='h-[50px]'></div>
         <NewsHighlights news={news}></NewsHighlights>
         <EventHighlights news={news}></EventHighlights>
