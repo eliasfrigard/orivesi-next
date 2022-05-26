@@ -4,14 +4,17 @@ import md from 'markdown-it'
 import Link from 'next/link'
 
 import Layout from '../../components/Layout'
+import Player from '../../components/Player'
 
 import { BiTimeFive } from 'react-icons/bi'
 import { GiHighHeel } from 'react-icons/gi'
 import { FiChevronRight } from 'react-icons/fi'
 import { BsMusicNoteList } from 'react-icons/bs'
-import { FaPlay, FaPencilAlt } from 'react-icons/fa'
+import { FaPencilAlt } from 'react-icons/fa'
 
 export default function ScorePage({ score }) {
+  console.log(score.Scores)
+
   let youtubeVideos = score?.Youtube
 
   if (youtubeVideos) {
@@ -31,9 +34,9 @@ export default function ScorePage({ score }) {
             <p>{score.Title}</p>
           </div>
 
-          <div className='mb-8'>
+          <div className='lg:mb-8'>
             <h1 className=' break-words'>{score.Title}</h1>
-            <div className='meta flex gap-8 items-center mt-5'>
+            <div className='meta flex flex-col md:flex-row gap-8 items-start md:items-center mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-2xl' />
                 <div className='flex items-center gap-1.5'>
@@ -55,22 +58,21 @@ export default function ScorePage({ score }) {
           </div>
 
           <div className='flex flex-col gap-10'>
-            <div className='flex flex-col md:flex-row gap-6'>
+            <div className='flex flex-col lg:flex-row gap-6'>
               {score.Scores.length > 0 ? (
                 <div
                   className={`flex flex-col w-full ${
-                    score.Audio.length > 0 ? 'md:w-3/5' : 'md:w-full'
+                    score.Audio.length > 0 ? 'lg:w-3/5' : 'lg:w-full'
                   } gap-6`}
                 >
                   <h3 className='text-4xl font-cursive'>Nuotit</h3>
                   {score.Scores.map((file) => (
-                    <div
-                      key={file.id}
-                      className='flex gap-4 items-center w-full bg-accent-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200 rounded-lg py-4 px-6'
-                    >
-                      <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
-                      <p className='font-medium tracking-wide break-all	'>{file.name}</p>
-                    </div>
+                    <a href={file.url} key={file.id}>
+                      <div className='flex gap-4 items-center w-full bg-accent-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200 rounded-lg py-4 px-6'>
+                        <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
+                        <p className='font-medium tracking-wide break-all	'>{file.name}</p>
+                      </div>
+                    </a>
                   ))}
                 </div>
               ) : null}
@@ -78,18 +80,12 @@ export default function ScorePage({ score }) {
               {score.Audio.length > 0 ? (
                 <div
                   className={`flex flex-col w-full ${
-                    score.Audio.length > 0 ? 'md:w-2/5' : 'md:w-full'
+                    score.Audio.length > 0 ? 'lg:w-2/5' : 'lg:w-full'
                   } gap-6`}
                 >
                   <h3 className='text-4xl font-cursive'>Äänitykset</h3>
                   {score.Audio.map((file) => (
-                    <div
-                      key={file.id}
-                      className='flex gap-4 items-center w-full bg-accent-500 text-white rounded-lg py-4 px-6 shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200'
-                    >
-                      <FaPlay className='text-xl'></FaPlay>
-                      <p className='font-medium tracking-wide'>{file.name.split('.')[0]}</p>
-                    </div>
+                    <Player key={file.id} url={file.url} title={file.name.split('.')[0]}></Player>
                   ))}
                 </div>
               ) : null}
@@ -101,7 +97,7 @@ export default function ScorePage({ score }) {
                 <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
                   {youtubeVideos.map((video) => (
                     <div
-                      className='flex-1 overflow-hidden shadow-xl w-full md:min-w-[calc(25%)] md:max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg'
+                      className='flex-1 overflow-hidden shadow-xl w-full md:min-w-[300px] md:max-w-[calc(50%)] aspect-16/9 bg-black rounded-lg'
                       key={video}
                     >
                       <iframe

@@ -34,16 +34,18 @@ module.exports = {
       colors: {
         white: '#FFFFFF',
         primary: {
-          500: '#FAF9F6',
-          600: '#F1F0ED',
-          700: '#E7E6E5',
+          // 500: '#FAF9F6',
+          // 600: '#F1F0ED',
+          // 700: '#E7E6E5',
+          500: '#F4FAF8',
         },
         secondary: {
           500: '#C3D6E0',
         },
         accent: {
-          500: '#638394',
-          600: '#4D768C',
+          // 500: '#638394',
+          500: '#548eb2',
+          600: '#3793CB',
         },
         hover: '#F9F6ED',
         orange: '#5D7B8A',
