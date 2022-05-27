@@ -25,7 +25,7 @@ export default function EventPreview({ date, title, location, city, country, lin
         </div>
 
         {/* Time */}
-        <Moment className="uppercase font-bold text-5xl mt-4 font-cursive" locale="fi" format="kk:mm">
+        <Moment className="uppercase font-bold text-4xl mt-4 font-cursive" locale="fi" format="kk:mm">
           {date}
         </Moment>
 

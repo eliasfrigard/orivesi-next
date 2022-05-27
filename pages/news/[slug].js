@@ -22,7 +22,7 @@ export default function NewsPage({ post }) {
         <div className="w-[925px]">
           <div className="absolute flex items-center gap-3 text-md mt-[-3rem] opacity-60 hover:opacity-100">
             <MdOutlineArticle />
-            <Link href="/scores">Uutiset</Link>
+            <Link href="/news">Uutiset</Link>
             <FiChevronRight></FiChevronRight>
             <p>{post.Title}</p>
           </div>
