@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
-import { FaPlay } from 'react-icons/fa'
-import { GiPauseButton } from 'react-icons/gi'
-import React from 'react'
-import Moment from 'react-moment'
+import { useState, useRef, useEffect } from "react"
+import { FaPlay } from "react-icons/fa"
+import { GiPauseButton } from "react-icons/gi"
+import React from "react"
+import Moment from "react-moment"
 
 export default function Player({ title, url }) {
   const audio = useRef()
@@ -15,8 +15,8 @@ export default function Player({ title, url }) {
   const [duration, setDuration] = useState(0)
 
   const handleOnClick = (event) => {
-    if (isPlaying && event.target.tagName === 'DIV') return
-    if (event.target.tagName === 'INPUT') return
+    if (isPlaying && event.target.tagName === "DIV") return
+    if (event.target.tagName === "INPUT") return
 
     setIsOpen(true)
 
@@ -62,39 +62,39 @@ export default function Player({ title, url }) {
     <div
       name={url}
       onClick={handleOnClick}
-      className={`flex gap-4 items-center w-full min-h-[56px] bg-accent-500 text-white rounded-lg py-4 px-6 shadow-lg ${
-        !isOpen ? 'cursor-pointer' : ''
-      } ${isOpen ? '' : 'hover:bg-accent-600 hover:shadow-xl'} duration-200`}
+      className={`flex gap-4 items-center w-full min-h-[56px] bg-secondary-500 text-white rounded-lg py-4 px-6 shadow-lg ${
+        !isOpen ? "cursor-pointer" : ""
+      } ${isOpen ? "" : "hover:bg-secondary-400 hover:shadow-xl"} duration-200`}
     >
       {isPlaying ? (
-        <GiPauseButton className='text-xl duration-150 cursor-pointer'></GiPauseButton>
+        <GiPauseButton className="text-xl duration-150 cursor-pointer"></GiPauseButton>
       ) : (
-        <FaPlay className='text-xl duration-150 cursor-pointer'></FaPlay>
+        <FaPlay className="text-xl duration-150 cursor-pointer"></FaPlay>
       )}
       <audio src={url} ref={audio} onTimeUpdate={handleTimeUpdate}></audio>
 
-      <div className='w-full'>
-        <div className={`${!isOpen ? 'hidden' : ''} flex w-full h-full gap-4 justify-center items-center`}>
-          <div className='flex gap-1 justify-between'>
+      <div className="w-full">
+        <div className={`${!isOpen ? "hidden" : ""} flex w-full h-full gap-4 justify-center items-center`}>
+          <div className="flex gap-1 justify-between">
             <p>
-              {parseMinutes(currentTime)}:{parseSeconds(currentTime) < 10 ? '0' : null}
+              {parseMinutes(currentTime)}:{parseSeconds(currentTime) < 10 ? "0" : null}
               {parseSeconds(currentTime)}
             </p>
             <p> / </p>
             <p>
-              {parseMinutes(duration)}:{parseSeconds(duration) < 10 ? '0' : null}
+              {parseMinutes(duration)}:{parseSeconds(duration) < 10 ? "0" : null}
               {parseSeconds(duration)}
             </p>
           </div>
           <input
             style={{}}
-            type='range'
+            type="range"
             ref={slider}
             onChange={handleSliderClick}
-            className='slider flex-1 h-1 rounded-lg bg-primary-500 appearance-none cursor-pointer range-sm  duration-300'
+            className="slider flex-1 h-1 rounded-lg bg-primary-500 appearance-none cursor-pointer range-sm  duration-300"
           />
         </div>
-        <p className={`${isOpen ? 'hidden' : ''} font-medium tracking-wide`}>{title}</p>
+        <p className={`${isOpen ? "hidden" : ""} font-medium tracking-wide`}>{title}</p>
       </div>
     </div>
   )

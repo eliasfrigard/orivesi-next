@@ -9,9 +9,6 @@ export default function Score({ title, type, composer, link, isHeader = false })
 
   return (
     <>
-      <div className="absolute top-0 left-[50px]">
-        <BsFillSuitHeartFill></BsFillSuitHeartFill>
-      </div>
       <Link href={"/scores/" + link}>
         {isHeader ? (
           <div className="w-full h-14 px-10 flex gap-20 justify-between items-center">
@@ -25,7 +22,7 @@ export default function Score({ title, type, composer, link, isHeader = false })
         ) : (
           <div
             onClick={onMouseClick}
-            className="w-full h-14 px-10 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200 flex gap-20 justify-between items-center"
+            className="w-full h-14 px-10 bg-secondary-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 flex gap-20 justify-between items-center"
           >
             <p className="flex-1 font-medium text-[1.1rem] tracking-wider">{title}</p>
             <div className="flex flex-1  md:flex items-center gap-14">

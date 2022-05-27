@@ -35,9 +35,9 @@ export default function NewsPage({ post }) {
             <p>{post.Author}</p>
           </div>
         </div>
-        <div className="w-full m-16 aspect-79/50 img relative drop-shadow">
+        <div className="w-full m-16 aspect-79/50 img relative shadow-xl">
           <Image
-            className=" rounded"
+            className="rounded"
             loader={myLoader}
             src={post.Image.url}
             alt="Picture of the author"

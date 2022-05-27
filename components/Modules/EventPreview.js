@@ -8,7 +8,7 @@ import "moment/locale/fi"
 export default function EventPreview({ date, title, location, city, country, link }) {
   return (
     <Link href={"/events/" + link}>
-      <div className="flex flex-col w-[300px] items-center text-primary-500 bg-accent-500 hover:bg-accent-600 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-300 cursor-pointer active:-translate-y-1 tracking-wide">
+      <div className="flex flex-col w-[300px] items-center text-primary-500 bg-secondary-500 hover:bg-secondary-400 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-300 cursor-pointer active:-translate-y-1 tracking-wide">
         {/* Date */}
         <div className="date flex gap-2 justify-center text-left items-center">
           <Moment className="text-6xl font-light" format="DD">
@@ -25,7 +25,7 @@ export default function EventPreview({ date, title, location, city, country, lin
         </div>
 
         {/* Time */}
-        <Moment className="uppercase font-bold text-4xl mt-4 font-cursive" locale="fi" format="kk:mm">
+        <Moment className="uppercase font-bold text-5xl mt-4" locale="fi" format="kk:mm">
           {date}
         </Moment>
 

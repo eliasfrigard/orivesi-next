@@ -7,7 +7,7 @@ import EventHighlights from "../components/Modules/EventHighlights"
 export default function Home({ news, events }) {
   return (
     <Layout>
-      <div className="h-[3000px] container">
+      <div className="container">
         <HighlightText title="ORIVESI ALL STARS" subtitle="The Great Happy Orchestra"></HighlightText>
         <div className="h-[50px]"></div>
         <NewsHighlights news={news}></NewsHighlights>
@@ -19,7 +19,7 @@ export default function Home({ news, events }) {
 
 export async function getStaticProps() {
   const postRes = await axios.get("https://orivesiadmin.net/posts?_limit=4&_sort=created_at:DESC")
-  const eventRes = await axios.get("https://orivesiadmin.net/events?_limit=4&_sort=created_at:DESC")
+  const eventRes = await axios.get("https://orivesiadmin.net/events?_limit=3&_sort=created_at:DESC")
 
   let newsWithSlug = postRes.data.map((post) => {
     return {

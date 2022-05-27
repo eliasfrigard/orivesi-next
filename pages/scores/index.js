@@ -1,17 +1,17 @@
-import axios from 'axios'
-import Layout from '../../components/Layout'
-import Score from '../../components/Modules/Score'
-import Search from '../../components/Search'
+import axios from "axios"
+import Layout from "../../components/Layout"
+import Score from "../../components/Modules/ScorePreview"
+import Search from "../../components/Search"
 
 export default function Home({ scores }) {
   return (
     <Layout>
-      <div className='flex flex-col container gap-16 my-16'>
-        <h3 className='text-5xl tracking-wider text-center'>Nuotit</h3>
+      <div className="flex flex-col container gap-16 my-16">
+        <h3 className="text-5xl tracking-wider text-center">Nuotit</h3>
         <div>
           <Search></Search>
-          <div className='flex flex-col gap-6 mt-6'>
-            <Score title='Title' type='Dance Type' composer='Composer' isHeader={true}></Score>
+          <div className="flex flex-col gap-6 mt-6">
+            <Score title="Title" type="Dance Type" composer="Composer" isHeader={true}></Score>
             {scores.map((score) => (
               <Score
                 key={score.id}
@@ -29,7 +29,7 @@ export default function Home({ scores }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get('https://orivesiadmin.net/music-scores')
+  const response = await axios.get("https://orivesiadmin.net/music-scores")
 
   let scoreWithSlug = response.data.map((score) => {
     return {

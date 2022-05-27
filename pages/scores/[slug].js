@@ -37,8 +37,8 @@ export default function ScorePage({ score }) {
             <div className="meta flex flex-col md:flex-row gap-8 items-start md:items-center mt-5">
               <div className="flex gap-3">
                 <BiTimeFive className="text-2xl" />
-                <div className="flex items-center gap-1.5">
-                  Last updated
+                <div className="flex items-center gap-1.5 tracking-wider">
+                  Viimeksi päivitetty
                   <Moment locale="fi" fromNow>
                     {score.updated_at}
                   </Moment>
@@ -66,7 +66,7 @@ export default function ScorePage({ score }) {
                   <h3 className="text-4xl font-cursive">Nuotit</h3>
                   {score.Scores.map((file) => (
                     <a href={file.url} key={file.id}>
-                      <div className="flex gap-4 items-center w-full bg-accent-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-600 duration-200 rounded-lg py-4 px-6">
+                      <div className="flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 rounded-lg py-4 px-6">
                         <BsMusicNoteList className="text-2xl"></BsMusicNoteList>
                         <p className="font-medium tracking-wide break-all	">{file.name}</p>
                       </div>
