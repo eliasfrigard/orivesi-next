@@ -73,7 +73,12 @@ export default function NewsPage({ event }) {
               <GoLocation className="text-xl" />
               <p>Oodin Kirjasto</p>
             </div>
-            <Button url={"/scores"} color="secondary" rounded="xl">
+            <Button
+              url={"/scores"}
+              color="bg-secondary-500"
+              hoverColor="bg-secondary-400"
+              rounded="rounded-xl"
+            >
               Tapahtuman Sivulle
             </Button>
             <div className="flex gap-5 mt-1 text-3xl text-secondary-600 items-center ml-2">

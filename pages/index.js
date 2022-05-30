@@ -1,3 +1,4 @@
+import Image from "next/image"
 import axios from "axios"
 import Layout from "../components/Layout"
 import HighlightText from "../components/Modules/HighlightText"
@@ -5,11 +6,23 @@ import NewsHighlights from "../components/Modules/NewsHighlights"
 import EventHighlights from "../components/Modules/EventHighlights"
 
 export default function Home({ news, events }) {
+  const highlightLoader = ({ src, width, quality }) => {
+    return post.Image.url
+  }
+
   return (
     <Layout>
       <div className="container">
         <HighlightText title="ORIVESI ALL STARS" subtitle="The Great Happy Orchestra"></HighlightText>
-        <div className="h-[50px]"></div>
+        {/* <div className="w-[calc(80%)] aspect-3344/1253 flex justify-center mb-[100px]">
+          <Image
+            className="rounded-xl"
+            src={"/kaustinen.jpeg"}
+            alt="Picture of the author"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div> */}
         <NewsHighlights news={news}></NewsHighlights>
         <EventHighlights events={events}></EventHighlights>
       </div>
