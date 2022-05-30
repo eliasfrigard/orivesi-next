@@ -1,11 +1,11 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 export default function HighlightText({
   children,
   url,
-  color = "bg-accent-500",
-  hoverColor = "hover:bg-accent-400",
-  rounded = "rounded-full",
+  color = 'bg-accent-500',
+  hoverColor = 'hover:bg-accent-400',
+  rounded = 'rounded-full',
 }) {
   return (
     <Link href={url}>

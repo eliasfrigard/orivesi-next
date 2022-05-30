@@ -1,11 +1,39 @@
-export default function Search({ input }) {
+import { useState } from 'react'
+
+export default function Search({ input, handleSubmit }) {
+  const [sorting, setSorting] = useState('Title')
+  const [direction, setDirection] = useState('asc')
+  const [searchValue, setsearchValue] = useState('')
+  const [disableDirection, setDisableDirection] = useState(true)
+
+  const filteringOptions = ['Title', 'Composer', 'Dancetype', 'Date']
+
+  const handleSortingChange = (event) => {
+    if (filteringOptions.includes(event.target.value)) setDisableDirection(false)
+    else setDisableDirection(true)
+  }
+
+  const handleDirectionChange = (event) => {
+    setDirection(event.target.value)
+  }
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault
+
+    handleSubmit({
+      searchValue,
+      sorting,
+      direction,
+    })
+  }
+
   return (
-    <div className='flex justify-center'>
-      <div className='mb-3 xl:w-1/2'>
+    <form className='flex justify-center' onSubmit={handleOnSubmit({ searchValue, sorting, direction })}>
+      <div className='mb-3 xl:w-2/3'>
         <div className='input-group relative flex flex-wrap items-stretch w-full mb-4 rounded'>
           <input
             type='search'
-            className='form-control relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+            className='form-control relative flex-auto min-w-0 block px-4 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-accent-500 focus:outline-none'
             placeholder='Search'
             aria-label='Search'
             aria-describedby='button-addon2'
@@ -31,7 +59,29 @@ export default function Search({ input }) {
             </svg>
           </span>
         </div>
+        <div className='w-[calc(100%-2.5rem)] px-12 flex gap-4'>
+          <select
+            onChange={handleSortingChange}
+            className='tracking-wide w-3/5 px-4 py-2 text-base font-normal bg-clip-padding border border-solid focus:border-gray-300 rounded transition ease-in-out duration-400 m-0 focus:outline-none'
+          >
+            {filteringOptions.map((option, index) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <select
+            value={direction}
+            onChange={handleDirectionChange}
+            className={`tracking-wide w-2/5 px-4 py-2 text-base font-normal bg-clip-padding border border-solid focus:border-gray-300 rounded transition ease-in-out duration-400 m-0   focus:outline-none disabled:opacity-80 `}
+          >
+            <option defaultValue value='asc'>
+              A - Ö
+            </option>
+            <option value='desc'>Ö - A</option>
+          </select>
+        </div>
       </div>
-    </div>
+    </form>
   )
 }
