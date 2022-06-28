@@ -18,7 +18,9 @@ export default function NewsPreview({ title, post, image, author, date, link, is
   return (
     <Link href={'/news/' + link}>
       <div
-        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'}  cursor-pointer p-2 rounded-lg`}
+        className={`w-90 ${
+          isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
+        }  cursor-pointer p-2 rounded-lg text-grey-500`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
@@ -42,7 +44,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
           <p>{author}</p>
         </div>
         <h2 className='text-2xl my-3 leading-[2.3rem]'>{title}</h2>
-        <p className={`leading-7 ${hover ? 'opacity-100' : 'opacity-70'} duration-300`}>
+        <p className={`leading-7 ${hover ? 'opacity-100' : 'opacity-70'} duration-200`}>
           {post.length > 480 ? post.substr(0, 480) + '...' : post}
         </p>
       </div>
