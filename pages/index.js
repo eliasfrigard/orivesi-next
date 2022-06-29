@@ -9,9 +9,7 @@ import { useState } from 'react'
 export default function Home({ news, events }) {
   return (
     <Layout>
-      <div className='container flex flex-col justify-center items-center'>
-        <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
-      </div>
+      <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
       {/* <div className='w-full flex justify-center items-center'>
         <div className='w-[calc(70%)] relative aspect-3344/1253 shadow-lg flex justify-center items-center mb-[100px]'>
           <Image

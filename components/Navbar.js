@@ -33,9 +33,9 @@ export default function Navbar() {
       } duration-500`}
     >
       <Link href='/'>
-        <div className='leading-6 cursor-pointer flex flex-col justify-center text-center w-1/5 text-secondary-500 hover:text-secondary-800 duration-150'>
-          <p className='font-work font-bold text-4xl '>ORIVESI</p>
-          <p className='font-work text-[27px] '>ALL STARS</p>
+        <div className='leading-4 cursor-pointer flex flex-col justify-center text-center w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 mt-[-4px]'>
+          <p className='font-work font-bold text-3xl'>ORIVESI</p>
+          <p className='font-work text-[23px] '>ALL STARS</p>
         </div>
       </Link>
       <div className='container flex justify-center items-center h-[75px] w-3/5'>
