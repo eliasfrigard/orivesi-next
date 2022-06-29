@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     // <div className="mt-[150px] h-[350px] bg-primary-500 flex justify-center items-center">
     <div
-      className="w-full mt-16 h-[400px] bg-secondary-500 text-primary-500 flex justify-center items-center
+      className="w-full mt-16 bg-secondary-500 text-primary-500 flex justify-center items-center
     "
     >
-      <div className="container h-full flex gap-3 pt-16 tracking-wider justify-between">
+      <div className="container h-full flex gap-3 py-20 tracking-wider justify-between">
         <div id="left" className="h-full w-2/5">
           <Link href="/">
             <div

@@ -5,7 +5,7 @@ export default function NewsHighlights({ news }) {
   return (
     <div className="container flex flex-col	items-center">
       <h3 className="text-5xl text-center leading-[4rem] tracking-wider text-grey-400">TUOREIMMAT UUTISET</h3>
-      <div className="flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-14 my-12 sm:mt-16 sm:mb-20">
+      <div className="flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-14 my-12 sm:mt-16 sm:mb-16">
         {news.map((item) => (
           <NewsPreview
             key={item.id}

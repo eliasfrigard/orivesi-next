@@ -5,7 +5,7 @@ export default function ShortPresentation() {
   return (
     <div className="w-full px-4 flex flex-col justify-center gap-10 md:gap-14 items-center bg-secondary-500 text-primary-500 py-20 md:py-32 mb-32 shadow-xl">
       <h3 className="text-center text-4xl lg:text-6xl tracking-wider font-sketch font-bold">
-        Tervetuloa meidän nettisivuille!
+        Tervetuloa meidän nettisivulle!
       </h3>
       <div
         className="prose max-w-3xl text-md md:text-xl leading-[2.3rem] md:leading-[2.3rem] tracking-wide text-center text-primary-500"

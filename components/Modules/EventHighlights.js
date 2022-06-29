@@ -4,7 +4,7 @@ import Button from "../Button"
 export default function EventHighlights({ events }) {
   console.log(events)
   return (
-    <div className="container flex flex-col	items-center my-32 text-grey-500">
+    <div className="container flex flex-col	items-center mt-32 mb-16 text-grey-500">
       <h3 className="text-5xl text-center leading-[4rem] tracking-wider text-grey-400">
         SEURAAVAT TAPAHTUMAT
       </h3>
