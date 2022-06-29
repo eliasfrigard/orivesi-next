@@ -1,15 +1,17 @@
-import Image from 'next/image'
-import axios from 'axios'
-import Layout from '../components/Layout'
-import HighlightText from '../components/Modules/HighlightText'
-import NewsHighlights from '../components/Modules/NewsHighlights'
-import EventHighlights from '../components/Modules/EventHighlights'
-import { useState } from 'react'
+import Image from "next/image"
+import axios from "axios"
+import Layout from "../components/Layout"
+import HighlightText from "../components/Modules/HighlightText"
+import NewsHighlights from "../components/Modules/NewsHighlights"
+import EventHighlights from "../components/Modules/EventHighlights"
+import ShortPresentation from "../components/Modules/ShortPresentation"
+import { useState } from "react"
 
 export default function Home({ news, events }) {
   return (
     <Layout>
-      <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
+      <HighlightText title="ORIVESI ALL STARS" subtitle="The Great Happy Orchestra"></HighlightText>
+      <ShortPresentation></ShortPresentation>
       {/* <div className='w-full flex justify-center items-center'>
         <div className='w-[calc(70%)] relative aspect-3344/1253 shadow-lg flex justify-center items-center mb-[100px]'>
           <Image
@@ -22,7 +24,7 @@ export default function Home({ news, events }) {
           />
         </div>
       </div> */}
-      <div className='container flex flex-col justify-center items-center'>
+      <div className="container flex flex-col justify-center items-center">
         <NewsHighlights news={news}></NewsHighlights>
         <EventHighlights events={events}></EventHighlights>
       </div>
@@ -31,8 +33,8 @@ export default function Home({ news, events }) {
 }
 
 export async function getStaticProps() {
-  const postRes = await axios.get('https://orivesiadmin.net/posts?_limit=4&_sort=created_at:DESC')
-  const eventRes = await axios.get('https://orivesiadmin.net/events?_limit=3&_sort=created_at:DESC')
+  const postRes = await axios.get("https://orivesiadmin.net/posts?_limit=4&_sort=created_at:DESC")
+  const eventRes = await axios.get("https://orivesiadmin.net/events?_limit=3&_sort=created_at:DESC")
 
   let newsWithSlug = postRes.data.map((post) => {
     return {
