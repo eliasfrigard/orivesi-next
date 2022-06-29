@@ -5,6 +5,7 @@ import HighlightText from "../components/Modules/HighlightText"
 import NewsHighlights from "../components/Modules/NewsHighlights"
 import EventHighlights from "../components/Modules/EventHighlights"
 import ShortPresentation from "../components/Modules/ShortPresentation"
+import SearchModule from "../components/Modules/SearchModule"
 import { useState } from "react"
 
 export default function Home({ news, events }) {
@@ -24,8 +25,9 @@ export default function Home({ news, events }) {
           />
         </div>
       </div> */}
-      <div className="container flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <NewsHighlights news={news}></NewsHighlights>
+        <SearchModule></SearchModule>
         <EventHighlights events={events}></EventHighlights>
       </div>
     </Layout>
