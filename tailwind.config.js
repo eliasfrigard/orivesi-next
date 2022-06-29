@@ -76,6 +76,7 @@ module.exports = {
       cursive: ['Dancing Script', 'cursive'],
       round: ['Crete Round', 'sans'],
       work: ['Work Sans', 'sans-serif'],
+      sketch: ['Cabin Sketch', 'cursive'],
     },
     container: {
       center: true,
