@@ -1,7 +1,7 @@
 import Button from "../Button"
 export default function SearchModule() {
   return (
-    <div className="w-full flex flex-col justify-center items-center py-24 bg-secondary-500 mt-32 text-primary-500">
+    <div className="w-full flex flex-col justify-center items-center py-24 bg-secondary-500 mt-32 text-primary-500 shadow-xl">
       <h3 className="text-center text-4xl lg:text-6xl tracking-wider font-sketch font-bold">
         Hae meidän nuottiarkistosta
       </h3>
@@ -15,11 +15,11 @@ export default function SearchModule() {
           type="text"
           name=""
           id=""
-          className="rounded-full p-4 w-full text-grey-500 outline-none px-8 tracking-wider"
+          className="rounded-full p-4 w-full smz:w-3/5 text-grey-500 outline-none px-8 tracking-wider"
           placeholder="Hae nuottiarkistosta ..."
           autoFocus
         />
-        <Button type="submit" url="/" width="w-full">
+        <Button type="submit" url="/" width="w-full sm:w-2/5">
           Hae
         </Button>
       </form>
