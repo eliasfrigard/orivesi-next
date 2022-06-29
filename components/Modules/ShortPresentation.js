@@ -2,7 +2,7 @@ import Button from "../Button"
 
 export default function ShortPresentation() {
   return (
-    <div className="w-full flex flex-col justify-center gap-14 items-center bg-secondary-500 text-primary-500 py-32">
+    <div className="w-full flex flex-col justify-center gap-14 items-center bg-secondary-500 text-primary-500 py-32 mb-32 shadow-lg">
       <h3 className="text-6xl tracking-wider font-sketch font-bold">Tervetuloa meidän nettisivuille!</h3>
       <div
         className="prose max-w-3xl text-xl leading-[2.3rem] tracking-wide text-center text-primary-500"
