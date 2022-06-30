@@ -2,7 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import Layout from "../../components/Layout"
 import Score from "../../components/Modules/ScorePreview"
-import Search from "../../components/Search"
+import SearchModule from "../../components/Modules/SearchModule"
+import Title from "../../components/Title"
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -34,16 +35,16 @@ export default function Home({ scores }) {
 
   return (
     <Layout>
-      <div className="flex flex-col container gap-16 my-16">
-        <h3 className="text-8xl font-sketch uppercase font-bold tracking-wider text-center">Nuotit</h3>{" "}
+      <div className="flex flex-col gap-16 sm:my-16">
+        <Title>Nuotit</Title>
         <div>
-          <Search handleSubmit={handleSubmit}></Search>
-          <div className="flex flex-col gap-6 mt-16">
+          <SearchModule handleSubmit={handleSubmit}></SearchModule>
+          <div className="container flex flex-col gap-6 my-16">
             <Score
               onChangeFilter={onChangeFilter}
-              title="Title"
-              type="Dance Type"
-              composer="Composer"
+              title="Nimi"
+              type="Tanssilaji"
+              composer="Säveltäjä"
               isHeader={true}
             ></Score>
             {filteredScores.map((score) => (

@@ -11,15 +11,15 @@ export default function Score({ title, type, composer, link, isHeader = false, o
     <>
       {isHeader ? (
         <div className="w-full h-14 px-10 flex gap-20 justify-between items-center" onClick={onChangeFilter}>
-          <h3 id="title" className="flex-1 font-medium tracking-wider">
+          <h3 id="title" className="flex-1 text-2xl font-sketch uppercase font-bold tracking-widest">
             {title}
           </h3>
 
           <div className="flex flex-1 font-light md:flex items-center gap-14">
-            <h3 id="dancetype" className="flex-1 tracking-wider">
+            <h3 id="dancetype" className="flex-1 text-2xl font-sketch uppercase font-bold tracking-widest">
               {type}
             </h3>
-            <h3 id="composer" className="flex-1 tracking-wider">
+            <h3 id="composer" className="flex-1 text-2xl font-sketch uppercase font-bold tracking-widest">
               {composer}
             </h3>
           </div>

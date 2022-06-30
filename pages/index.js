@@ -27,6 +27,7 @@ export default function Home({ news, events }) {
       </div> */}
       <div className="flex flex-col justify-center items-center">
         <NewsHighlights news={news}></NewsHighlights>
+        <div className="h-32"></div>
         <SearchModule></SearchModule>
         <EventHighlights events={events}></EventHighlights>
       </div>

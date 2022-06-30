@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <Link href="/">
         <div
-          className={`leading-4 cursor-pointer flex md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 mt-[-4px] tracking-wider ${
+          className={`leading-4 cursor-pointer flex md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider ${
             scrollPosition > 20 ? "scale-90" : ""
           }`}
         >
@@ -59,12 +59,14 @@ export default function Navbar() {
                     router.pathname === link.page ||
                     (link.page.includes(router.pathname.split("/")[1]) && router.pathname !== "/")
                       ? scrollPosition > 20
-                        ? "bg-accent-500 hover:bg-accent-400 text-white"
-                        : "bg-secondary-500 hover:bg-secondary-400 text-white"
+                        ? "bg-accent-500 hover:bg-accent-400 text-white shadow-lg"
+                        : "bg-secondary-500 hover:bg-secondary-400 text-white shadow-lg"
                       : ""
                   }
                   py-[13px] px-[20px]  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
-                    scrollPosition > 20 ? "text-primary-500 hover:bg-accent-500" : "hover:bg-secondary-500"
+                    scrollPosition > 20
+                      ? "text-primary-500 hover:bg-accent-500 hover:shadow-lg"
+                      : "hover:bg-secondary-500 hover:shadow-lg"
                   }`}
                 >
                   {link.title}
@@ -79,10 +81,10 @@ export default function Navbar() {
           scrollPosition > 20 ? "text-primary-500 scale-90" : "text-secondary-500"
         }`}
       >
-        <BsFacebook className="text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer" />
-        <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer" />
-        <AiFillYoutube className="text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer" />
-        <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer" />
+        <BsFacebook className="text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg" />
+        <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
+        <AiFillYoutube className="text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg" />
+        <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
       </div>
 
       {/* Mobile nav. */}

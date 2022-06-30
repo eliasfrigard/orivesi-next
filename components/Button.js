@@ -11,7 +11,7 @@ export default function HighlightText({
   return (
     <Link href={url}>
       <button
-        className={`${width} ${color} ${hoverColor} text-white font-medium py-4 px-6 ${rounded} tracking-wider text-lg hover:scale-105 duration-150 active:scale-100 active:${color} uppercase font-sketch font-bold`}
+        className={`${width} ${color} ${hoverColor} text-white font-medium py-4 px-6 ${rounded} tracking-wider text-lg hover:scale-105 duration-150 active:scale-100 active:${color} uppercase font-sketch font-bold shadow-lg hover:shadow-xl`}
       >
         {children}
       </button>

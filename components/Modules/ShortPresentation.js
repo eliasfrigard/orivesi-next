@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function ShortPresentation() {
   return (
-    <div className="w-full px-4 flex flex-col justify-center gap-10 md:gap-14 items-center bg-secondary-500 text-primary-500 py-20 md:py-32 mb-32 shadow-xl">
+    <div className="selection:bg-accent-500 w-full px-4 flex flex-col justify-center gap-10 md:gap-14 items-center bg-secondary-500 text-primary-500 py-20 md:py-32 mb-32 shadow-xl">
       <h3 className="text-center text-4xl lg:text-6xl tracking-wider font-sketch font-bold">
         Tervetuloa meidän nettisivulle!
       </h3>

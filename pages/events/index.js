@@ -1,16 +1,15 @@
 import axios from "axios"
 import EventPreview from "../../components/Modules/EventPreview"
 import Layout from "../../components/Layout"
+import Title from "../../components/Title"
 
 export default function Events({ events }) {
   return (
     <Layout>
       <div className="flex flex-col">
         {/* Upcoming */}
-        <div className="flex flex-col items-center gap-16 my-16">
-          <h3 className="text-8xl font-sketch uppercase font-bold tracking-wider text-center">
-            Tulevat Tapahtumat
-          </h3>
+        <div className="flex flex-col items-center gap-16 sm:my-16">
+          <Title>Tulevat Tapahtumat</Title>
           <div className="max-w-full flex flex-wrap gap-10 justify-center mx-8">
             {events.map((item) => (
               <EventPreview
@@ -24,9 +23,7 @@ export default function Events({ events }) {
         </div>
         {/* Previous */}
         <div className="flex flex-col items-center gap-16 my-16">
-          <h3 className="text-8xl font-sketch uppercase font-bold tracking-wider text-center">
-            Aikaisempia Tapahtumia
-          </h3>
+          <Title>Aikaisempia Tapahtumia</Title>
           <div className="max-w-[1400px] flex flex-wrap gap-10 justify-center">
             {events.map((item) => (
               <EventPreview

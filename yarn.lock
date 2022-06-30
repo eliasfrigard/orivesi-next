@@ -2914,6 +2914,11 @@
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
 
+"tailwindcss-selection-variant@^0.1.0":
+  "integrity" "sha512-Y6scDCGhH7ESKn8HhmutJFL/8RO4HvP9RdHvZCYQ5Cr7JGjsUmD/oLx7ax4OVeOE54+Xq4KCRRL8KnlD+e6tFw=="
+  "resolved" "https://registry.npmjs.org/tailwindcss-selection-variant/-/tailwindcss-selection-variant-0.1.0.tgz"
+  "version" "0.1.0"
+
 "tailwindcss@^3.0.24", "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1 || insiders":
   "integrity" "sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig=="
   "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.0.24.tgz"

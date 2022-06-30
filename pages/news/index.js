@@ -1,12 +1,13 @@
 import axios from "axios"
 import Layout from "../../components/Layout"
 import NewsPreview from "../../components/Modules/NewsPreview"
+import Title from "../../components/Title"
 
 export default function News({ news }) {
   return (
     <Layout>
-      <div className="flex flex-col	container my-16 gap-16">
-        <h3 className="text-8xl font-sketch uppercase font-bold tracking-wider text-center">Uutiset</h3>
+      <div className="flex flex-col	container sm:my-16 gap-16">
+        <Title>Uutiset</Title>
         <div className="flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-14">
           {news.map((item) => (
             <NewsPreview
