@@ -1,10 +1,10 @@
 import Button from "../Button"
+import Title from "../Title"
+
 export default function SearchModule() {
   return (
     <div className=" selection:bg-accent-500 w-full flex flex-col justify-center items-center py-24 bg-secondary-500 text-primary-500 shadow-xl">
-      <h3 className="text-center text-4xl md:text-6xl tracking-wider font-sketch font-bold drop-shadow-lg">
-        Hae meidän nuottiarkistosta
-      </h3>
+      <Title version="v2">Hae meidän nuottiarkistosta</Title>
 
       <form
         action=""

@@ -6,9 +6,8 @@ export default function HighlightText({ title, subtitle }) {
           {subtitle}
         </h2>
       ) : null}
-      {/* <p className='text-8xl font-sketch tracking-widest'></p> */}
       <h1 className="text-7xl lg:text-[9rem] sm:leading-[10rem] font-bold font-sketch text-accent-500 drop-shadow-lg">
-        ORIVESI ALL STARS
+        {title}
       </h1>
     </div>
   )

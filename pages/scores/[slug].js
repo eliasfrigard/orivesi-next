@@ -1,6 +1,5 @@
 import axios from "axios"
 import Moment from "react-moment"
-import md from "markdown-it"
 import Link from "next/link"
 
 import Layout from "../../components/Layout"

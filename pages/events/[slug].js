@@ -2,19 +2,17 @@ import axios from "axios"
 import Moment from "react-moment"
 import "moment/locale/fi"
 import md from "markdown-it"
+import Link from "next/link"
 
+import Layout from "../../components/Layout"
 import Button from "../../components/Button"
 import Score from "../../components/Modules/ScorePreview"
 
-import Layout from "../../components/Layout"
-
 import { FiChevronRight } from "react-icons/fi"
-import Link from "next/link"
 import { BiTimeFive } from "react-icons/bi"
 import { GiEarthAfricaEurope } from "react-icons/gi"
 import { GoLocation } from "react-icons/go"
 import { BsFacebook, BsFillPinMapFill } from "react-icons/bs"
-
 import { BsCalendar3 } from "react-icons/bs"
 import { AiOutlineMail, AiOutlineLink } from "react-icons/ai"
 

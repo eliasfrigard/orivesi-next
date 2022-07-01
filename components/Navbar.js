@@ -2,8 +2,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-import { BsFacebook, BsFillPinMapFill } from "react-icons/bs"
-import { AiFillMail, AiOutlineLink, AiFillInstagram, AiFillYoutube } from "react-icons/ai"
+import { BsFacebook } from "react-icons/bs"
+import { AiFillMail, AiFillInstagram, AiFillYoutube } from "react-icons/ai"
 
 export default function Navbar() {
   const router = useRouter()
@@ -101,8 +101,6 @@ export default function Navbar() {
           <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
         </a>
       </div>
-
-      {/* Mobile nav. */}
     </div>
   )
 }

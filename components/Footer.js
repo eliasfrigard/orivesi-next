@@ -1,11 +1,10 @@
 import Link from "next/link"
 
-import { BsFacebook, BsFillPinMapFill } from "react-icons/bs"
-import { AiFillMail, AiOutlineLink, AiFillInstagram, AiFillYoutube } from "react-icons/ai"
+import { BsFacebook } from "react-icons/bs"
+import { AiFillMail, AiFillInstagram, AiFillYoutube } from "react-icons/ai"
 
 export default function Footer() {
   return (
-    // <div className="mt-[150px] h-[350px] bg-primary-500 flex justify-center items-center">
     <div
       className="w-full mt-16 bg-secondary-500 text-primary-500 flex justify-center items-center
     "

@@ -81,8 +81,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log(slug)
-
   const response = await axios.get(`https://orivesiadmin.net/posts/${slug}`)
 
   return {

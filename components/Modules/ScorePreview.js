@@ -1,7 +1,5 @@
 import { useState } from "react"
 import Link from "next/link"
-import md from "markdown-it"
-import { BsFillSuitHeartFill } from "react-icons/bs"
 
 export default function Score({ title, type, composer, link, isHeader = false, onChangeFilter }) {
   const [open, setOpen] = useState(false)
@@ -19,6 +17,7 @@ export default function Score({ title, type, composer, link, isHeader = false, o
             <h3 id="dancetype" className="flex-1 text-2xl font-sketch uppercase font-bold tracking-widest">
               {type}
             </h3>
+
             <h3 id="composer" className="flex-1 text-2xl font-sketch uppercase font-bold tracking-widest">
               {composer}
             </h3>

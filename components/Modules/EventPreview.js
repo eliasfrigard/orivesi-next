@@ -5,7 +5,14 @@ import Link from "next/link"
 import Moment from "react-moment"
 import "moment/locale/fi"
 
-export default function EventPreview({ date, title, location, city, country, link }) {
+export default function EventPreview({
+  date,
+  title,
+  location = "Oodin Kirjasto",
+  city = "Helsinki",
+  country = "FI",
+  link,
+}) {
   return (
     <Link href={"/events/" + link}>
       <div className="flex flex-col w-[300px] items-center text-secondary-800  border-4 border-secondary-500 hover:border-accent-300 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-200 cursor-pointer active:scale-95 tracking-wide">
@@ -36,11 +43,13 @@ export default function EventPreview({ date, title, location, city, country, lin
         <div className="meta flex flex-col justify-center items-center font-medium gap-2 text-secondary-500	">
           <div className="flex flex-row justify-center items-center gap-2">
             <GiEarthAfricaEurope></GiEarthAfricaEurope>
-            <p>Helsinki, FI</p>
+            <p>
+              {city}, {country}
+            </p>
           </div>
           <div className="flex flex-row justify-center items-center gap-2">
             <GoLocation></GoLocation>
-            <p>Oodin Kirjasto</p>
+            <p>{location}</p>
           </div>
         </div>
       </div>
