@@ -10,7 +10,7 @@ export default function Events({ events }) {
         {/* Upcoming */}
         <div className="flex flex-col items-center gap-16 sm:my-16">
           <Title>Tulevat Tapahtumat</Title>
-          <div className="max-w-full flex flex-wrap gap-10 justify-center mx-8">
+          <div className="max-w-full flex flex-wrap gap-10 justify-center items-center mx-8">
             {events.map((item) => (
               <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
             ))}
@@ -19,14 +19,9 @@ export default function Events({ events }) {
         {/* Previous */}
         <div className="flex flex-col items-center gap-16 my-16">
           <Title>Aikaisempia Tapahtumia</Title>
-          <div className="max-w-[1400px] flex flex-wrap gap-10 justify-center">
+          <div className="max-w-[1400px] flex flex-wrap gap-10 justify-center items-center">
             {events.map((item) => (
-              <EventPreview
-                link={item.slug}
-                date={item.Date}
-                title="Jamit Oodin Kirjastossa Kirjastossa"
-                key={item.id}
-              />
+              <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
             ))}
           </div>
         </div>
