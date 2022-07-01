@@ -10,7 +10,7 @@ export default function Footer() {
       className="w-full mt-16 bg-secondary-500 text-primary-500 flex justify-center items-center
     "
     >
-      <div className="container h-full flex flex-col sm:flex-row gap-16 sm:gap-3 py-20 tracking-wider justify-between">
+      <div className="container h-full flex flex-col lg:flex-row gap-16 lg:gap-3 py-20 tracking-wider justify-between">
         <div id="left" className="h-full sm:w-2/5">
           <Link href="/">
             <div
@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
           </Link>
           <h4 className="text-2xl font-sketch font-bold tracking-wider">Hae nuottiarkistosta</h4>
-          <form action="" method="get" className="gap-6 sm:gap-4 w-80 flex flex-col pt-6">
+          <form action="" method="get" className="gap-6 sm:gap-4 w-full lg:w-80 flex flex-col pt-6">
             <input
               type="text"
               name=""
