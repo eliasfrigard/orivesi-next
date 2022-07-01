@@ -2,7 +2,7 @@ import Button from "../Button"
 export default function SearchModule() {
   return (
     <div className=" selection:bg-accent-500 w-full flex flex-col justify-center items-center py-24 bg-secondary-500 text-primary-500 shadow-xl">
-      <h3 className="text-center text-4xl lg:text-6xl tracking-wider font-sketch font-bold">
+      <h3 className="text-center text-4xl lg:text-6xl tracking-wider font-sketch font-bold drop-shadow-lg">
         Hae meidän nuottiarkistosta
       </h3>
 
