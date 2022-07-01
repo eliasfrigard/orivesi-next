@@ -1,13 +1,12 @@
 import EventPreview from "./EventPreview"
 import Button from "../Button"
+import Title from "../Title"
 
 export default function EventHighlights({ events }) {
   console.log(events)
   return (
     <div className="container flex flex-col	items-center mt-32 mb-16 text-grey-500">
-      <h3 className="text-5xl text-center leading-[4rem] tracking-wider text-grey-400">
-        SEURAAVAT TAPAHTUMAT
-      </h3>
+      <Title version="v1">SEURAAVAT TAPAHTUMAT</Title>
 
       {/* <h3 className='text-4xl font-medium text-center'>Seuraavat Tapahtumat</h3> */}
       <div className="flex w-full flex-wrap flex-column justify-center gap-10 items-center my-16 sm:mt-16 sm:mb-20">
