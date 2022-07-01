@@ -38,9 +38,9 @@ export default function Navbar() {
             scrollPosition > 20 ? "scale-90" : ""
           }`}
         >
-          <p className="font-work font-medium text-2xl md:text-3xl text-accent-500">ORIVESI</p>
+          <p className="font-work font-medium text-2xl md:text-3xl text-accent-500 drop-shadow-md">ORIVESI</p>
           <p
-            className={`font-work font-bold text-2xl md:text-[21px] duration-300 ${
+            className={`font-work font-bold text-2xl md:text-[21px] duration-300 drop-shadow-md ${
               scrollPosition > 20 ? "text-primary-500" : ""
             }`}
           >
@@ -49,7 +49,7 @@ export default function Navbar() {
         </div>
       </Link>
       <div className="container hidden md:flex justify-center items-center h-[75px] w-3/5">
-        <ul className="flex align-middle gap-3">
+        <ul className="flex align-middle gap-2">
           {links.map((link) => (
             <li key={link.title}>
               <Link href={link.page}>
@@ -81,10 +81,25 @@ export default function Navbar() {
           scrollPosition > 20 ? "text-primary-500 scale-90" : "text-secondary-500"
         }`}
       >
-        <BsFacebook className="text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg" />
-        <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
-        <AiFillYoutube className="text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg" />
-        <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
+        <a target="_blank" href="https://www.facebook.com/orivesiallstars/" rel="noopener noreferrer">
+          <BsFacebook className="text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg" />
+        </a>
+        <a href="https://www.instagram.com/orivesiallstars/" target="_blank" rel="noopener noreferrer">
+          <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
+        </a>
+        <a
+          href="https://www.youtube.com/results?search_query=orivesi+all+stars"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <AiFillYoutube
+            className="text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 
+        active:scale-110 cursor-pointer drop-shadow-lg"
+          />
+        </a>
+        <a href="mailto:info@orivesiadmin.net">
+          <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg" />
+        </a>
       </div>
 
       {/* Mobile nav. */}

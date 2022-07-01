@@ -12,12 +12,7 @@ export default function Events({ events }) {
           <Title>Tulevat Tapahtumat</Title>
           <div className="max-w-full flex flex-wrap gap-10 justify-center mx-8">
             {events.map((item) => (
-              <EventPreview
-                link={item.slug}
-                date={item.Date}
-                title="Jamit Oodin Kirjastossa Kirjastossa"
-                key={item.id}
-              />
+              <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
             ))}
           </div>
         </div>
