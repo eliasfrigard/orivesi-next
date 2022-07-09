@@ -50,8 +50,6 @@ export default function NewsPage({ about }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/about?populate=Images`)
 
-  console.log(response.data.data.attributes)
-
   return {
     props: {
       about: response.data.data.attributes,

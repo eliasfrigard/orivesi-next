@@ -60,14 +60,14 @@ export default function ScorePage({ score }) {
 
           <div className='flex flex-col gap-10'>
             <div className='flex flex-col lg:flex-row gap-10'>
-              {score.Scores.length > 0 ? (
+              {score.Scores.data.length > 0 ? (
                 <div
                   className={`flex flex-col w-full ${
                     score.Audio.length > 0 ? 'lg:w-3/5' : 'lg:w-full'
                   } gap-6`}
                 >
                   <h3 className='text-4xl font-cursive'>Nuotit</h3>
-                  {score.Scores.map((file) => (
+                  {score.Scores.data.map((file) => (
                     <a href={file.url} key={file.id}>
                       <div className='flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 rounded-lg py-4 px-6'>
                         <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
@@ -125,7 +125,7 @@ export default function ScorePage({ score }) {
 export async function getStaticPaths() {
   const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
 
-  const paths = response.data.map((score) => ({
+  const paths = response.data.data.map((score) => ({
     params: {
       slug: score.id.toString(),
     },
@@ -138,11 +138,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores/${slug}`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores/${slug}?populate=*`)
+
+  console.log(response.data.data)
 
   return {
     props: {
-      score: response.data,
+      score: response.data.data.attributes,
     },
   }
 }

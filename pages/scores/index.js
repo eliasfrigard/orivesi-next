@@ -49,11 +49,11 @@ export default function Home({ scores }) {
             ></Score>
             {filteredScores.map((score) => (
               <Score
-                key={score.id}
+                key={score.slug}
                 link={score.slug}
-                title={score.Title}
-                type={score.Dancetype}
-                composer={score.Composer}
+                title={score.attributes.Title}
+                type={score.attributes.Type}
+                composer={score.attributes.Composer}
               ></Score>
             ))}
           </div>
@@ -66,7 +66,7 @@ export default function Home({ scores }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
 
-  let scoreWithSlug = response.data.map((score) => {
+  let scoreWithSlug = response.data.data.map((score) => {
     return {
       slug: score.id,
       ...score,

@@ -17,8 +17,6 @@ const ScoreSearch = () => {
     },
   })
 
-  console.log(query)
-
   return (
     <Layout>
       <div className='flex flex-col gap-16 sm:my-16'>

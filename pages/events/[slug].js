@@ -96,12 +96,12 @@ export default function NewsPage({ event }) {
       </div>
 
       {/* Connected Scores */}
-      {event.music_scores.length > 0 ? (
+      {event.music_scores.data.length > 0 ? (
         <div className='container flex flex-col gap-3 my-16 mb-28'>
           <h3 className='text-5xl tracking-wider text-left font-cursive'>Nuotit</h3>
           <div className='flex flex-col gap-6 mt-6'>
             {/* <Score title="Title" type="Dance Type" composer="Composer" isHeader={true}></Score> */}
-            {event.music_scores.map((score) => (
+            {event.music_scores.data.map((score) => (
               <Score
                 key={score.id}
                 link={score.slug}
@@ -120,7 +120,7 @@ export default function NewsPage({ event }) {
 export async function getStaticPaths() {
   const response = await axios.get(`${process.env.API_ADDRESS}/events`)
 
-  const paths = response.data.map((event) => ({
+  const paths = response.data.data.map((event) => ({
     params: {
       slug: event.id.toString(),
     },
@@ -133,11 +133,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}?populate=*`)
 
   return {
     props: {
-      event: response.data,
+      event: response.data.data.attributes,
     },
   }
 }

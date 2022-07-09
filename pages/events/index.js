@@ -11,8 +11,13 @@ export default function Events({ events }) {
         <div className='flex flex-col items-center gap-16 sm:my-16'>
           <Title>Tulevat Tapahtumat</Title>
           <div className='max-w-full flex flex-wrap gap-10 justify-center items-center mx-8'>
-            {events.map((item) => (
-              <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
+            {events.map((event) => (
+              <EventPreview
+                link={event.slug}
+                date={event.attributes.Start}
+                title={event.attributes.Title}
+                key={event.attributes.id}
+              />
             ))}
           </div>
         </div>
@@ -20,8 +25,13 @@ export default function Events({ events }) {
         <div className='flex flex-col items-center gap-16 my-16'>
           <Title>Aikaisempia Tapahtumia</Title>
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center'>
-            {events.map((item) => (
-              <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
+            {events.map((event) => (
+              <EventPreview
+                link={event.slug}
+                date={event.attributes.Start}
+                title={event.attributes.Title}
+                key={event.attributes.id}
+              />
             ))}
           </div>
         </div>
@@ -33,12 +43,14 @@ export default function Events({ events }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/events`)
 
-  const eventsWithSlug = response.data.map((event) => {
+  const eventsWithSlug = response.data.data.map((event) => {
     return {
       slug: event.id,
       ...event,
     }
   })
+
+  console.log(eventsWithSlug)
 
   return {
     props: {
