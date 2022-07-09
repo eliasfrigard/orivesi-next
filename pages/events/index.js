@@ -1,25 +1,25 @@
-import axios from "axios"
-import EventPreview from "../../components/Modules/EventPreview"
-import Layout from "../../components/Layout"
-import Title from "../../components/Title"
+import axios from 'axios'
+import EventPreview from '../../components/Modules/EventPreview'
+import Layout from '../../components/Layout'
+import Title from '../../components/Title'
 
 export default function Events({ events }) {
   return (
     <Layout>
-      <div className="flex flex-col">
+      <div className='flex flex-col'>
         {/* Upcoming */}
-        <div className="flex flex-col items-center gap-16 sm:my-16">
+        <div className='flex flex-col items-center gap-16 sm:my-16'>
           <Title>Tulevat Tapahtumat</Title>
-          <div className="max-w-full flex flex-wrap gap-10 justify-center items-center mx-8">
+          <div className='max-w-full flex flex-wrap gap-10 justify-center items-center mx-8'>
             {events.map((item) => (
               <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
             ))}
           </div>
         </div>
         {/* Previous */}
-        <div className="flex flex-col items-center gap-16 my-16">
+        <div className='flex flex-col items-center gap-16 my-16'>
           <Title>Aikaisempia Tapahtumia</Title>
-          <div className="max-w-[1400px] flex flex-wrap gap-10 justify-center items-center">
+          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center'>
             {events.map((item) => (
               <EventPreview link={item.slug} date={item.Date} title={item.Title} key={item.id} />
             ))}
@@ -31,7 +31,7 @@ export default function Events({ events }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get("https://orivesiadmin.net/events")
+  const response = await axios.get(`${process.env.API_ADDRESS}/events`)
 
   const eventsWithSlug = response.data.map((event) => {
     return {

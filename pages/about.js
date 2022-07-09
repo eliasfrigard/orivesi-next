@@ -1,43 +1,45 @@
-import axios from "axios"
-import Image from "next/image"
-import md from "markdown-it"
+import axios from 'axios'
+import Image from 'next/image'
+import md from 'markdown-it'
 
-import Layout from "../components/Layout"
-import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from "react-icons/ai"
-import Title from "../components/Title"
+import Layout from '../components/Layout'
+import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
+import Title from '../components/Title'
 
-export default function NewsPage({ post }) {
+export default function NewsPage({ about }) {
   const myLoader = ({ src, width, quality }) => {
-    return post.Image.url
+    return about.Images.data[0].attributes.url
   }
 
   return (
     <Layout>
-      <div className="container flex flex-col my-16 items-center">
-        <h3 className="text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4">MIKÄ ON</h3>
-        <Title>ORIVESI ALL STARS?</Title>
+      <div className='container flex flex-col my-16 items-center'>
+        <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>
+          {about.Supertitle}
+        </h3>
+        <Title>{about.Title}</Title>
 
-        <div className="w-full my-16 aspect-79/50 img relative shadow-xl">
+        <div className='w-full my-16 aspect-79/50 img relative shadow-xl'>
           <Image
-            className="rounded"
+            className='rounded'
             loader={myLoader}
-            src={post.Image.url}
-            alt="Picture of the author"
-            layout="fill"
+            src={about.Images.data[0].attributes.url}
+            alt='Picture of the author'
+            layout='fill'
           />
         </div>
 
-        <div className="flex gap-16">
-          <div className="flex flex-col gap-5 mt-[5px]">
-            <AiOutlineLink className="text-3xl" />
-            <AiOutlineMail className="text-3xl" />
-            <AiOutlinePrinter className="text-3xl" />
-            <AiOutlineFacebook className="text-3xl" />
+        <div className='flex gap-16'>
+          <div className='flex flex-col gap-5 mt-[5px]'>
+            <AiOutlineLink className='text-3xl' />
+            <AiOutlineMail className='text-3xl' />
+            <AiOutlinePrinter className='text-3xl' />
+            <AiOutlineFacebook className='text-3xl' />
           </div>
 
           <div
-            className="prose max-w-3xl leading-[2rem]"
-            dangerouslySetInnerHTML={{ __html: md().render(post.Post) }}
+            className='prose max-w-3xl leading-[2rem]'
+            dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
           />
         </div>
       </div>
@@ -46,11 +48,13 @@ export default function NewsPage({ post }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`https://orivesiadmin.net/posts/1`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/about?populate=Images`)
+
+  console.log(response.data.data.attributes)
 
   return {
     props: {
-      post: response.data,
+      about: response.data.data.attributes,
     },
   }
 }
