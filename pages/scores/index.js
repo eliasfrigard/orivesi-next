@@ -9,8 +9,6 @@ export default function Home({ scores }) {
   const [filteredBy, setFilteredBy] = useState('title')
 
   useEffect(() => {
-    console.log(filteredBy)
-
     const sortedArray = filteredScores.sort((a, b) => {
       if (a[filteredBy] > b[filteredBy]) {
         return -1
