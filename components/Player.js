@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { FaPlay } from "react-icons/fa"
 import { GiPauseButton } from "react-icons/gi"
 import React from "react"
-import Moment from "react-moment"
 
 export default function Player({ title, url }) {
   const audio = useRef()
