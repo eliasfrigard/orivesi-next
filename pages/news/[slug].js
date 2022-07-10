@@ -63,7 +63,7 @@ export default function NewsPage({ post }) {
             <AiOutlineFacebook className='text-3xl' />
           </div>
           <div
-            className='prose max-w-3xl leading-[2rem]'
+            className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
           />
         </div>

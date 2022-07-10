@@ -16,9 +16,9 @@ module.exports = {
               color: theme('colors.gray.800'),
             },
             a: {
-              color: theme('colors.green.500'),
+              color: theme('colors.accent.500'),
               '&:hover': {
-                color: theme('colors.green.600'),
+                color: theme('colors.accent.600'),
               },
             },
           },

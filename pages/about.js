@@ -34,7 +34,7 @@ export default function NewsPage({ about }) {
 
         <div className='flex gap-16'>
           <div
-            className='prose max-w-3xl leading-[2rem]'
+            className='prose max-w-3xl xl:prose-lg xl:max-w-4xl leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
           />
         </div>
