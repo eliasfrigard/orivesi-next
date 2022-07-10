@@ -30,13 +30,6 @@ export default function NewsPage({ about }) {
         </div>
 
         <div className='flex gap-16'>
-          <div className='flex flex-col gap-5 mt-[5px]'>
-            <AiOutlineLink className='text-3xl' />
-            <AiOutlineMail className='text-3xl' />
-            <AiOutlinePrinter className='text-3xl' />
-            <AiOutlineFacebook className='text-3xl' />
-          </div>
-
           <div
             className='prose max-w-3xl leading-[2rem]'
             dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}

@@ -12,7 +12,6 @@ import { BsMusicNoteList } from 'react-icons/bs'
 import { FaPencilAlt } from 'react-icons/fa'
 
 export default function ScorePage({ score }) {
-  console.log(score.Audio.data)
   let youtubeVideos = score?.Youtube
 
   if (youtubeVideos) {
@@ -136,8 +135,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const response = await axios.get(`${process.env.API_ADDRESS}/music-scores/${slug}?populate=*`)
-
-  console.log(response.data.data)
 
   return {
     props: {

@@ -13,7 +13,7 @@ import { MdOutlineArticle } from 'react-icons/md'
 
 export default function NewsPage({ post }) {
   const myLoader = ({ src, width, quality }) => {
-    return post.Image.url
+    return post.Images.data[0].attributes.url
   }
 
   return (
@@ -43,7 +43,7 @@ export default function NewsPage({ post }) {
           <Image
             className='rounded'
             loader={myLoader}
-            src={post.Image.url}
+            src={post.Images.data[0].attributes.url}
             alt='Picture of the author'
             layout='fill'
           />
@@ -57,7 +57,7 @@ export default function NewsPage({ post }) {
           </div>
           <div
             className='prose max-w-3xl leading-[2rem]'
-            dangerouslySetInnerHTML={{ __html: md().render(post.Post) }}
+            dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function NewsPage({ post }) {
 export async function getStaticPaths() {
   const response = await axios.get(`${process.env.API_ADDRESS}/posts`)
 
-  const paths = response.data.map((post) => ({
+  const paths = response.data.data.map((post) => ({
     params: {
       slug: post.id.toString(),
     },
@@ -81,11 +81,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts/${slug}`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/posts/${slug}?populate=Images`)
 
   return {
     props: {
-      post: response.data,
+      post: response.data.data.attributes,
     },
   }
 }

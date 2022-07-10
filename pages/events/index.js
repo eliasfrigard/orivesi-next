@@ -50,8 +50,6 @@ export async function getStaticProps() {
     }
   })
 
-  console.log(eventsWithSlug)
-
   return {
     props: {
       events: eventsWithSlug,
