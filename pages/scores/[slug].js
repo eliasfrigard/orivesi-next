@@ -12,6 +12,7 @@ import { BsMusicNoteList } from 'react-icons/bs'
 import { FaPencilAlt } from 'react-icons/fa'
 
 export default function ScorePage({ score }) {
+  console.log(score.Audio.data)
   let youtubeVideos = score?.Youtube
 
   if (youtubeVideos) {
@@ -43,7 +44,7 @@ export default function ScorePage({ score }) {
                 <div className='flex items-center gap-1.5 tracking-wider'>
                   Viimeksi päivitetty
                   <Moment locale='fi' fromNow>
-                    {score.updated_at}
+                    {score.updatedAt ? score.updatedAt : score.createdAt}
                   </Moment>
                 </div>
               </div>
@@ -53,7 +54,7 @@ export default function ScorePage({ score }) {
               </div>
               <div className='flex items-center gap-3'>
                 <GiHighHeel></GiHighHeel>
-                <p>{score.Dancetype}</p>
+                <p>{score.Type}</p>
               </div>
             </div>
           </div>
@@ -61,32 +62,28 @@ export default function ScorePage({ score }) {
           <div className='flex flex-col gap-10'>
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data.length > 0 ? (
-                <div
-                  className={`flex flex-col w-full ${
-                    score.Audio.length > 0 ? 'lg:w-3/5' : 'lg:w-full'
-                  } gap-6`}
-                >
+                <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
                   <h3 className='text-4xl font-cursive'>Nuotit</h3>
                   {score.Scores.data.map((file) => (
-                    <a href={file.url} key={file.id}>
+                    <a href={file.attributes.url} key={file.attributes.id}>
                       <div className='flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 rounded-lg py-4 px-6'>
                         <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
-                        <p className='font-medium tracking-wide break-all	'>{file.name}</p>
+                        <p className='font-medium tracking-wide break-all	'>{file.attributes.name}</p>
                       </div>
                     </a>
                   ))}
                 </div>
               ) : null}
 
-              {score.Audio.length > 0 ? (
-                <div
-                  className={`flex flex-col w-full ${
-                    score.Audio.length > 0 ? 'lg:w-2/5' : 'lg:w-full'
-                  } gap-6`}
-                >
+              {score.Audio.data ? (
+                <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-2/5' : 'lg:w-full'} gap-6`}>
                   <h3 className='text-4xl font-cursive'>Äänitykset</h3>
-                  {score.Audio.map((file) => (
-                    <Player key={file.id} url={file.url} title={file.name.split('.')[0]}></Player>
+                  {score.Audio.data.map((file) => (
+                    <Player
+                      key={file.attributes.id}
+                      url={file.attributes.url}
+                      title={file.attributes.name.split('.')[0]}
+                    ></Player>
                   ))}
                 </div>
               ) : null}

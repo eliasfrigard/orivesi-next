@@ -39,7 +39,7 @@ export default function Home({ scores }) {
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-6 my-16'>
+          <div className='container flex flex-col gap-8 my-16'>
             <Score
               onChangeFilter={onChangeFilter}
               title='Nimi'
@@ -64,7 +64,7 @@ export default function Home({ scores }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type`)
 
   let scoreWithSlug = response.data.data.map((score) => {
     return {
