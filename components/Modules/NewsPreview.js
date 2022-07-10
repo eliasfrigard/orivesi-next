@@ -25,7 +25,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
         onMouseLeave={onMouseLeave}
       >
         <div
-          className={`aspect-79/50 img relative shadow-lg ${
+          className={`aspect-79/52 shadow-lg relative ${
             hover ? '-translate-y-1 shadow-xl' : ''
           } duration-300`}
         >
@@ -34,10 +34,13 @@ export default function NewsPreview({ title, post, image, author, date, link, is
             loader={myLoader}
             src={image.url}
             alt={image.alternativeText}
+            width='100%'
+            height='70%'
             layout='fill'
+            objectFit='cover'
           />
         </div>
-        <div className='meta flex wrap gap-3 items-center mt-5 '>
+        <div className='meta flex wrap gap-3 items-center mt-6 '>
           <BiTimeFive className='text-lg' />
           <Moment format={'LL '}>{date}</Moment>
           <BsPerson className='text-lg' />
