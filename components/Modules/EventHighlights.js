@@ -11,9 +11,14 @@ export default function EventHighlights({ events }) {
         {events.map((event) => (
           <EventPreview
             key={event.id}
-            title={event.Title}
-            date={event.Start}
             link={event.slug}
+            title={event.attributes.Title}
+            date={event.attributes.Start}
+            location={event.attributes.Location}
+            city={event.attributes.City}
+            country={event.attributes.Country}
+            startTime={event.attributes.Start}
+            endTime={event.attributes.End}
           ></EventPreview>
         ))}
       </div>

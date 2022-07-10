@@ -1,3 +1,4 @@
+import qs from 'qs'
 import axios from 'axios'
 import Layout from '../components/Layout'
 import HighlightText from '../components/Modules/HighlightText'
@@ -7,6 +8,14 @@ import ShortPresentation from '../components/Modules/ShortPresentation'
 import SearchModule from '../components/Modules/SearchModule'
 
 export default function Home({ welcome, news, events }) {
+  function isPrevious(date) {
+    return new Date(date).getTime() < Date.now()
+  }
+
+  // Remove previous and take the next three events with the earliest date.
+  let nextEvents = events.filter((event) => !isPrevious(event.attributes.Start))
+  nextEvents = nextEvents.slice(0, 3)
+
   return (
     <Layout>
       <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
@@ -21,7 +30,7 @@ export default function Home({ welcome, news, events }) {
         <NewsHighlights news={news}></NewsHighlights>
         <div className='h-32'></div>
         <SearchModule></SearchModule>
-        <EventHighlights events={events}></EventHighlights>
+        <EventHighlights events={nextEvents}></EventHighlights>
       </div>
     </Layout>
   )
@@ -29,10 +38,12 @@ export default function Home({ welcome, news, events }) {
 
 export async function getStaticProps() {
   const welcomeRes = await axios.get(`${process.env.API_ADDRESS}/welcome`)
+
   const postRes = await axios.get(
-    `${process.env.API_ADDRESS}/posts?_limit=4&_sort=created_at:DESC&populate=Images`
+    `${process.env.API_ADDRESS}/posts?_limit=4&sort=createdAt:desc&populate=Images`
   )
-  const eventRes = await axios.get(`${process.env.API_ADDRESS}/events?_limit=3&_sort=created_at:DESC`)
+
+  const eventRes = await axios.get(`${process.env.API_ADDRESS}/events?sort=Start:asc`)
 
   let newsWithSlug = postRes.data.data.map((post) => {
     return {
