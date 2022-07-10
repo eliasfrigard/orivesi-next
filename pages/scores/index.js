@@ -64,7 +64,9 @@ export default function Home({ scores }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type`)
+  const response = await axios.get(
+    `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type&sort=Title:asc`
+  )
 
   let scoreWithSlug = response.data.data.map((score) => {
     return {

@@ -4,6 +4,13 @@ import Layout from '../../components/Layout'
 import Title from '../../components/Title'
 
 export default function Events({ events }) {
+  function isPrevious(date) {
+    return new Date(date).getTime() < Date.now()
+  }
+
+  const upcomingEvents = events.filter((event) => !isPrevious(event.attributes.Start))
+  const previousEvents = events.filter((event) => isPrevious(event.attributes.Start))
+
   return (
     <Layout>
       <div className='flex flex-col'>
@@ -11,7 +18,7 @@ export default function Events({ events }) {
         <div className='flex flex-col items-center gap-16 sm:my-16'>
           <Title>Tulevat Tapahtumat</Title>
           <div className='max-w-full flex flex-wrap gap-10 justify-center items-center mx-8'>
-            {events.map((event) => (
+            {upcomingEvents.map((event) => (
               <EventPreview
                 link={event.slug}
                 date={event.attributes.Start}
@@ -21,11 +28,12 @@ export default function Events({ events }) {
             ))}
           </div>
         </div>
+
         {/* Previous */}
         <div className='flex flex-col items-center gap-16 my-16'>
           <Title>Aikaisempia Tapahtumia</Title>
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center'>
-            {events.map((event) => (
+            {previousEvents.map((event) => (
               <EventPreview
                 link={event.slug}
                 date={event.attributes.Start}

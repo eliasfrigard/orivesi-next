@@ -10,12 +10,12 @@ export default function NewsHighlights({ news }) {
         {news.map((item) => (
           <NewsPreview
             key={item.id}
+            link={item.slug}
             title={item.attributes.Title}
             image={item.attributes.Images.data[0].attributes}
             post={item.attributes.Text}
             author={item.attributes.Author}
             date={item.attributes.createdAt}
-            link={item.attributes.slug}
             isFull={news.length === 1 ? true : false}
           ></NewsPreview>
         ))}

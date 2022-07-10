@@ -12,27 +12,27 @@ export default function News({ news }) {
           {news.map((item) => (
             <NewsPreview
               key={item.id}
-              title={item.Title}
-              image={item.Image}
-              post={item.Post}
-              author={item.Author}
-              date={item.created_at}
               link={item.slug}
+              title={item.attributes.Title}
+              image={item.attributes.Images.data[0].attributes}
+              post={item.attributes.Text}
+              author={item.attributes.Author}
+              date={item.attributes.createdAt}
               isFull={news.length === 1 ? true : false}
             ></NewsPreview>
           ))}
 
           {news.length % 2 === 0 ? '' : <div className='w-90 lg:w-[474px] xl:w-[525px]'></div>}
         </div>
-      </div>{' '}
+      </div>
     </Layout>
   )
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts?_sort=created_at:DESC`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/posts?sort=createdAt:desc&populate=Images`)
 
-  const newsWithSlug = response.data.map((post) => {
+  const newsWithSlug = response.data.data.map((post) => {
     return {
       slug: post.id,
       ...post,

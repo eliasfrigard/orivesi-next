@@ -26,7 +26,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
       >
         <div
           className={`aspect-79/52 shadow-lg relative ${
-            hover ? '-translate-y-1 shadow-xl' : ''
+            hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
           } duration-300`}
         >
           <Image

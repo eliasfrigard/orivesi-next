@@ -19,13 +19,16 @@ export default function NewsPage({ about }) {
         </h3>
         <Title>{about.Title}</Title>
 
-        <div className='w-full my-16 aspect-79/50 img relative shadow-xl'>
+        <div className='w-[90vw] xl:w-[60vw] my-16 aspect-79/52 img relative shadow-xl'>
           <Image
             className='rounded'
             loader={myLoader}
             src={about.Images.data[0].attributes.url}
-            alt='Picture of the author'
+            alt={about.Images.data[0].attributes.alternativeText}
+            width='100%'
+            height='100%'
             layout='fill'
+            objectFit='cover'
           />
         </div>
 

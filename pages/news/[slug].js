@@ -5,6 +5,10 @@ import Link from 'next/link'
 import md from 'markdown-it'
 
 import Layout from '../../components/Layout'
+import Title from '../../components/Title'
+import Score from '../../components/Modules/ScorePreview'
+import EventPreview from '../../components/Modules/EventPreview'
+
 import { BsPerson } from 'react-icons/bs'
 import { BiTimeFive } from 'react-icons/bi'
 import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
@@ -39,13 +43,16 @@ export default function NewsPage({ post }) {
             <p>{post.Author}</p>
           </div>
         </div>
-        <div className='w-full m-16 aspect-79/50 img relative shadow-xl'>
+        <div className='w-[90vw] xl:w-[60vw] m-16 aspect-79/52 img relative shadow-xl'>
           <Image
             className='rounded'
             loader={myLoader}
             src={post.Images.data[0].attributes.url}
-            alt='Picture of the author'
+            alt={post.Images.data[0].attributes.alternativeText}
+            width='100%'
+            height='100%'
             layout='fill'
+            objectFit='cover'
           />
         </div>
         <div className='flex gap-16'>
@@ -61,6 +68,45 @@ export default function NewsPage({ post }) {
           />
         </div>
       </div>
+      {/* Associated Scores */}
+      {post.music_scores.data.length > 0 ? (
+        <div className='container my-32'>
+          <Title version='v2'>Littyviä nuotteja.</Title>
+
+          <div className='flex flex-col gap-8 my-16'>
+            {post.music_scores.data.map((score) => (
+              <Score
+                key={score.slug}
+                link={score.id}
+                title={score.attributes.Title}
+                type={score.attributes.Type}
+                composer={score.attributes.Composer}
+              ></Score>
+            ))}
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
+      {/* Associated Events */}
+      {post.events.data.length > 0 ? (
+        <div className='container my-32'>
+          <Title version='v2'>Littyviä tapahtumia.</Title>
+
+          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-16'>
+            {post.events.data.map((event) => (
+              <EventPreview
+                link={event.id}
+                date={event.attributes.Start}
+                title={event.attributes.Title}
+                key={event.attributes.id}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
     </Layout>
   )
 }
@@ -81,7 +127,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts/${slug}?populate=Images`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/posts/${slug}?populate=*`)
 
   return {
     props: {
