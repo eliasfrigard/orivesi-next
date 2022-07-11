@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
 import Title from '../components/Title'
 
-export default function NewsPage({ about }) {
+export default function About({ about }) {
   const myLoader = ({ src, width, quality }) => {
     return about.Images.data[0].attributes.url
   }

@@ -12,6 +12,7 @@ export default function NewsPreview({ image }) {
   return (
     <Image
       loader={myLoader}
+      className='hover:scale-110 hover:opacity-80 duration-200'
       src={image.formats.medium ? image.formats.medium.url : image.url}
       blurDataURL={image.formats.thumbnail.url}
       alt={image.alternativeText}
