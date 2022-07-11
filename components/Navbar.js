@@ -14,8 +14,8 @@ export default function Navbar() {
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
     { title: 'Nuotit', page: '/scores' },
-    { title: 'Media', page: '/media' },
-    { title: 'Yhteystiedot', page: '/yhteys' },
+    { title: 'Media', page: '/media/images' },
+    { title: 'Yhteystiedot', page: '/contact' },
   ]
 
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -59,14 +59,14 @@ export default function Navbar() {
                     router.pathname === link.page ||
                     (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
                       ? scrollPosition > 20
-                        ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-lg'
-                        : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-lg'
+                        ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-md'
+                        : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-md'
                       : ''
                   }
                   py-[13px] px-[20px]  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
                     scrollPosition > 20
-                      ? 'text-primary-500 hover:bg-accent-500 hover:shadow-lg'
-                      : 'hover:bg-secondary-500 hover:shadow-lg'
+                      ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
+                      : 'hover:bg-secondary-500 hover:shadow-md'
                   }`}
                 >
                   {link.title}
@@ -97,7 +97,7 @@ export default function Navbar() {
         active:scale-110 cursor-pointer drop-shadow-lg'
           />
         </a>
-        <a href='mailto:info@orivesiadmin.net'>
+        <a href='mailto:orivesiallstars@gmail.com'>
           <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg' />
         </a>
       </div>

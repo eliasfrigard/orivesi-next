@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Layout from '../components/Layout'
 import ContactInfo from '../components/Modules/ContactInfo'
+import ContactForm from '../components/Modules/ContactForm'
 import Title from '../components/Title'
 
 export default function Contact({ contacts }) {
@@ -8,6 +9,8 @@ export default function Contact({ contacts }) {
     <Layout>
       <div className='container flex flex-col my-16 items-center'>
         <Title>Yhteystiedot</Title>
+
+        <ContactForm></ContactForm>
         <div className='flex flex-wrap gap-8 justify-center my-16'>
           {contacts.map((contact) => (
             <ContactInfo

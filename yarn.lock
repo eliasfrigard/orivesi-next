@@ -2921,6 +2921,11 @@
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
 
+"tailwind-scrollbar-hide@^1.1.7":
+  "integrity" "sha512-X324n9OtpTmOMqEgDUEA/RgLrNfBF/jwJdctaPZDzB3mppxJk7TLIDmOreEDm1Bq4R9LSPu4Epf8VSdovNU+iA=="
+  "resolved" "https://registry.npmjs.org/tailwind-scrollbar-hide/-/tailwind-scrollbar-hide-1.1.7.tgz"
+  "version" "1.1.7"
+
 "tailwindcss-selection-variant@^0.1.0":
   "integrity" "sha512-Y6scDCGhH7ESKn8HhmutJFL/8RO4HvP9RdHvZCYQ5Cr7JGjsUmD/oLx7ax4OVeOE54+Xq4KCRRL8KnlD+e6tFw=="
   "resolved" "https://registry.npmjs.org/tailwindcss-selection-variant/-/tailwindcss-selection-variant-0.1.0.tgz"

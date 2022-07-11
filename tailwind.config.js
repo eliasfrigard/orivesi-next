@@ -95,7 +95,11 @@ module.exports = {
       xl: '1280px',
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-selection-variant')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-selection-variant'),
+    require('tailwind-scrollbar-hide'),
+  ],
   variants: {
     extend: {
       textColor: ['selection'],
