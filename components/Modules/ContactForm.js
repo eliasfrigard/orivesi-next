@@ -14,6 +14,8 @@ export default function ContactForm({ contacts }) {
     phone: '',
     email: '',
     reciever: '',
+    // Honeypot
+    room: '',
   })
 
   const handleChange = (event) => {
@@ -30,6 +32,8 @@ export default function ContactForm({ contacts }) {
         Phone: formData.phone,
         Sender: formData.email,
         Reciever: formData.reciever,
+        // Honeypot
+        Room: formData.room,
       },
     }
 
@@ -52,6 +56,7 @@ export default function ContactForm({ contacts }) {
             phone: '',
             email: '',
             reciever: '',
+            room: '',
           })
         }
 
@@ -103,7 +108,7 @@ export default function ContactForm({ contacts }) {
             className='block h-[50px] rounded-sm outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 py-3 px-2'
             required
           >
-            <option selected value='orivesiallstars@gmail.com' className='bg-secondary-500'>
+            <option value='orivesiallstars@gmail.com' className='bg-secondary-500'>
               Orivesi All Stars
             </option>
             <option value='oasnuotit@gmail.com' className='bg-secondary-500'>
@@ -164,6 +169,23 @@ export default function ContactForm({ contacts }) {
             name='phone'
             value={formData.phone}
             placeholder='+358 040 ...'
+          />
+        </div>
+
+        {/* Honeypot for bots. */}
+        <div className='absolute top-[-100px] flex flex-col w-full mb-8'>
+          <label
+            htmlFor='room'
+            className='drop-shadow-lg px-2 text-2xl uppercase tracking-wider font-sketch font-bold mt-4'
+          >
+            Room Number
+          </label>
+          <input
+            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent  border-b-2 placeholder-slate-400'
+            type='text'
+            name='room'
+            value={formData.phone}
+            placeholder='1 2 3 ...'
           />
         </div>
 
