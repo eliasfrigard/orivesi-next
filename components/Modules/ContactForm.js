@@ -32,8 +32,16 @@ export default function ContactForm({ contacts }) {
 
     formattedData = JSON.stringify(formattedData)
 
+    console.log(formattedData)
+
     const sendData = async () => {
-      const response = await axios.post(`https://orivesiallstars.net/api/emails`, formattedData)
+      const response = await axios.post(`http://localhost:1337/api/emails`, formattedData, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:
+            'Bearer d8067e87f46161dcf8fa2c3f5be08124f457e4cab59bfff9081769f440e934eefba05fe56160cc46252f7cd95b8618516019c89ac34225118b2ea36cc15615527b8c8304941210c3f78b16ad0a43c18e1e69721f799fd4f1cf62c97f8027cae01de6663f79c090cb9e3bb084486253c8f568f6eda6dca7dd983e0f1b23814d8b',
+        },
+      })
     }
 
     sendData()
@@ -88,7 +96,7 @@ export default function ContactForm({ contacts }) {
             </option>
             {contacts.map((contact) => (
               <option key={contact.id} value={contact.attributes.Email} className='bg-secondary-500'>
-                {contact.attributes.Name}
+                {contact.attributes.Name} ({contact.attributes.Role})
               </option>
             ))}{' '}
           </select>
@@ -132,7 +140,8 @@ export default function ContactForm({ contacts }) {
             htmlFor='title'
             className='drop-shadow-lg px-2 text-2xl uppercase tracking-wider font-sketch font-bold mt-4'
           >
-            Puhelinnumero
+            Puhelinnumero{' '}
+            <p className='inline-block opacity-80 text-[12px] ml-1 font-medium lowercase'>(ei pakollinen)</p>
           </label>
           <input
             className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent  border-b-2 placeholder-slate-300'

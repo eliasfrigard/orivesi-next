@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Dropdown from './Dropdown'
+
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -14,7 +16,15 @@ export default function Navbar() {
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
     { title: 'Nuotit', page: '/scores' },
-    { title: 'Media', page: '/media/images' },
+    {
+      title: 'Media',
+      page: '/media',
+      type: 'dropdown',
+      links: [
+        { title: 'Kuvat', page: '/media/images' },
+        { title: 'Äänitykset', page: '/media/audio' },
+      ],
+    },
     { title: 'Yhteystiedot', page: '/contact' },
   ]
 
@@ -49,12 +59,25 @@ export default function Navbar() {
         </div>
       </Link>
       <div className='container hidden md:flex justify-center items-center h-[75px] w-3/5'>
-        <ul className='flex align-middle gap-2'>
+        <ul className='flex align-middle justify-center items-center gap-2'>
           {links.map((link) => (
             <li key={link.title}>
-              <Link href={link.page}>
-                <a
-                  className={`
+              {link.type === 'dropdown' ? (
+                <>
+                  <Dropdown
+                    title={link.title}
+                    items={link.links}
+                    active={
+                      router.pathname === link.page ||
+                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                    }
+                    scrollPosition={scrollPosition}
+                  ></Dropdown>
+                </>
+              ) : (
+                <Link href={link.page}>
+                  <a
+                    className={`
                   ${
                     router.pathname === link.page ||
                     (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
@@ -63,15 +86,16 @@ export default function Navbar() {
                         : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-md'
                       : ''
                   }
-                  py-[13px] px-[20px]  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
-                    scrollPosition > 20
-                      ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
-                      : 'hover:bg-secondary-500 hover:shadow-md'
-                  }`}
-                >
-                  {link.title}
-                </a>
-              </Link>
+                    py-[13px] px-[20px]  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
+                      scrollPosition > 20
+                        ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
+                        : 'hover:bg-secondary-500 hover:shadow-md'
+                    }`}
+                  >
+                    {link.title}
+                  </a>
+                </Link>
+              )}
             </li>
           ))}
         </ul>
