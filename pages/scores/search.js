@@ -15,7 +15,7 @@ export default function ScoreSearch() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`https://orivesiadmin.net/api/music-scores/search?query=${query}`)
+      const response = await axios.get(`${process.env.API_ADDRESS}/music-scores/search?query=${query}`)
 
       setScores(response.data)
     }

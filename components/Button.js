@@ -7,6 +7,7 @@ export default function HighlightText({
   hoverColor = 'hover:bg-accent-500',
   rounded = 'rounded-full',
   width = 'w-[230px]',
+  disabled = false,
 }) {
   return url ? (
     <Link href={url}>
@@ -18,7 +19,9 @@ export default function HighlightText({
     </Link>
   ) : (
     <button
-      className={`${width} ${color} ${hoverColor} text-white font-medium py-4 px-6 ${rounded} tracking-wider text-lg hover:scale-105 duration-150 active:scale-100 active:${color} uppercase font-sketch font-bold shadow-md hover:shadow-lg`}
+      className={`${width} ${color} ${hoverColor} text-white font-medium py-4 px-6 ${rounded} tracking-wider text-lg  duration-150 active:scale-100 active:${color} uppercase font-sketch font-bold shadow-md  ${
+        disabled ? 'opacity-70 cursor-default' : 'hover:shadow-lg hover:scale-105 cursor-pointer'
+      }`}
     >
       {children}
     </button>

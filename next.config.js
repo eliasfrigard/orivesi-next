@@ -4,6 +4,8 @@ const nextConfig = {
   env: {
     API_ADDRESS: process.env.API_ADDRESS,
     API_TOKEN: process.env.API_TOKEN,
+    API_DEV_ADDRESS: process.env.API_ADDRESS,
+    API_DEV_TOKEN: process.env.API_TOKEN,
   },
 }
 

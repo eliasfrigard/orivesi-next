@@ -5,6 +5,9 @@ import Button from '../Button'
 import Title from '../Title'
 
 export default function ContactForm({ contacts }) {
+  const [submitWasAttempted, setSubmitWasAttempted] = useState(false)
+  const [submitWasSuccess, setSubmitWasSuccess] = useState()
+
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -33,11 +36,27 @@ export default function ContactForm({ contacts }) {
     formattedData = JSON.stringify(formattedData)
 
     const sendData = async () => {
-      const response = await axios.post(`https://orivesiadmin.net/api/emails`, formattedData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
+      if (!submitWasSuccess) {
+        const response = await axios.post(`${process.env.API_ADDRESS}/emails`, formattedData, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+
+        setSubmitWasSuccess(response.status === 200)
+
+        if (submitWasSuccess) {
+          setFormData({
+            title: '',
+            body: '',
+            phone: '',
+            email: '',
+            reciever: '',
+          })
+        }
+
+        setSubmitWasAttempted(true)
+      }
     }
 
     sendData()
@@ -63,7 +82,7 @@ export default function ContactForm({ contacts }) {
             Otsikko *
           </label>
           <input
-            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-300'
+            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400'
             type='text'
             name='title'
             value={formData.title}
@@ -81,7 +100,7 @@ export default function ContactForm({ contacts }) {
           </label>
           <select
             name='reciever'
-            className='block h-[50px] rounded-sm outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-300 py-3 px-2'
+            className='block h-[50px] rounded-sm outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 py-3 px-2'
             required
           >
             <option selected value='orivesiallstars@gmail.com' className='bg-secondary-500'>
@@ -106,7 +125,7 @@ export default function ContactForm({ contacts }) {
             Viesti *
           </label>
           <textarea
-            className='h-[100px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-300 scrollbar-hide'
+            className='h-[100px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 scrollbar-hide'
             name='body'
             value={formData.body}
             placeholder='Minkälaista asiaa sinulla olisi?'
@@ -122,7 +141,7 @@ export default function ContactForm({ contacts }) {
             Sähköposti *
           </label>
           <input
-            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-300'
+            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400'
             type='email'
             name='email'
             value={formData.email}
@@ -140,7 +159,7 @@ export default function ContactForm({ contacts }) {
             <p className='inline-block opacity-80 text-[12px] ml-1 font-medium lowercase'>(ei pakollinen)</p>
           </label>
           <input
-            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent  border-b-2 placeholder-slate-300'
+            className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent  border-b-2 placeholder-slate-400'
             type='tel'
             name='phone'
             value={formData.phone}
@@ -148,7 +167,19 @@ export default function ContactForm({ contacts }) {
           />
         </div>
 
-        <Button type='submit' width='w-full md:w-2/3'>
+        {submitWasAttempted ? (
+          <div className='text-center font-bold text-2xl tracking-wider'>
+            {submitWasSuccess ? (
+              <p className='text-green-500 font-round'>Viesti lähetettiin onnistuneesti!</p>
+            ) : (
+              <p className='text-red-500 font-round'>Viestin lähettäminen epäonnistui.</p>
+            )}
+          </div>
+        ) : (
+          ''
+        )}
+
+        <Button type='submit' width='w-full md:w-2/3' disabled={submitWasSuccess}>
           Lähetä Viesti
         </Button>
       </form>
