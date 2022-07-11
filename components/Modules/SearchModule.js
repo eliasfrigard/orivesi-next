@@ -35,7 +35,6 @@ export default function SearchModule({ title = 'Hae meidän nuottiarkistosta' })
           name='query'
           className='rounded-full p-4 w-full lg:w-3/5 text-grey-500 outline-none px-8 tracking-wider shadow-lg'
           placeholder='Hae nuottiarkistosta ...'
-          autoFocus
         />
         <Button type='submit' className='w-full mt-6 lg:mt-0 md:w-1/2 lg:w-2/5'>
           Hae
