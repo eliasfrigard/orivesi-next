@@ -1,9 +1,26 @@
 import Link from 'next/link'
+import Router from 'next/router'
 
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube } from 'react-icons/ai'
 
+import { useState } from 'react'
+
 export default function Footer() {
+  const [searchInfo, setSearchInfo] = useState({
+    query: '',
+  })
+
+  const handleChange = (event) => {
+    setSearchInfo({ ...searchInfo, [event.target.name]: event.target.value })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    Router.push(`/scores/search?query=${searchInfo.query}`)
+  }
+
   return (
     <div
       className='w-full mt-16 bg-secondary-500 text-primary-500 flex justify-center items-center
@@ -20,11 +37,17 @@ export default function Footer() {
             </div>
           </Link>
           <h4 className='text-2xl font-sketch font-bold tracking-wider'>Hae nuottiarkistosta</h4>
-          <form action='' method='get' className='gap-6 sm:gap-4 w-full lg:w-80 flex flex-col pt-6'>
+          <form
+            onSubmit={handleSubmit}
+            action=''
+            method='get'
+            className='gap-6 sm:gap-4 w-full lg:w-80 flex flex-col pt-6'
+          >
             <input
+              value={searchInfo.query}
+              onChange={handleChange}
               type='text'
-              name=''
-              id=''
+              name='query'
               className='rounded-full p-4 w-full text-grey-500 outline-none px-8 tracking-wider shadow-lg'
               placeholder='Hae nuottiarkistosta ...'
             />
