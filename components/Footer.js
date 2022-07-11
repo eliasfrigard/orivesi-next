@@ -27,7 +27,6 @@ export default function Footer() {
               id=''
               className='rounded-full p-4 w-full text-grey-500 outline-none px-8 tracking-wider shadow-lg'
               placeholder='Hae nuottiarkistosta ...'
-              autoFocus
             />
           </form>
         </div>
