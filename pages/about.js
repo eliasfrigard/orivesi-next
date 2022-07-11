@@ -2,9 +2,8 @@ import axios from 'axios'
 import Image from 'next/image'
 import md from 'markdown-it'
 
-import Layout from '../components/Layout'
-import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
 import Title from '../components/Title'
+import Layout from '../components/Layout'
 
 export default function About({ about }) {
   const myLoader = ({ src, width, quality }) => {
@@ -34,7 +33,7 @@ export default function About({ about }) {
 
         <div className='flex gap-16'>
           <div
-            className='prose max-w-3xl xl:prose-lg xl:max-w-4xl leading-[2.1rem]'
+            className='prose max-w-3xl xl:prose xl:max-w-3xl leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
           />
         </div>

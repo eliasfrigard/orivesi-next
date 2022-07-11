@@ -10,7 +10,7 @@ export default function Contact({ contacts }) {
       <div className='container flex flex-col my-16 items-center'>
         <Title>Yhteystiedot</Title>
 
-        <ContactForm></ContactForm>
+        <ContactForm contacts={contacts}></ContactForm>
         <div className='flex flex-wrap gap-8 justify-center my-16'>
           {contacts.map((contact) => (
             <ContactInfo
@@ -29,8 +29,6 @@ export default function Contact({ contacts }) {
 
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/contacts`)
-
-  console.log(response.data.data)
 
   return {
     props: {
