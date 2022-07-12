@@ -1,5 +1,6 @@
 import qs from 'qs'
 import axios from 'axios'
+import Image from 'next/image'
 import Layout from '../components/Layout'
 import HighlightText from '../components/Modules/HighlightText'
 import NewsHighlights from '../components/Modules/NewsHighlights'
@@ -18,6 +19,16 @@ export default function Home({ welcome, news, events }) {
 
   return (
     <Layout>
+      <div className='container sm:hidden mb-7'>
+        <Image
+          src='/qVHC0VqQ.jpeg'
+          alt='Orivesi All Stars'
+          width='6581'
+          height='3060'
+          layout='responsive'
+          objectFit='cover'
+        />
+      </div>
       <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
       <ShortPresentation
         title={welcome.Title}
@@ -28,7 +39,7 @@ export default function Home({ welcome, news, events }) {
 
       <div className='flex flex-col justify-center items-center'>
         <NewsHighlights news={news}></NewsHighlights>
-        <div className='h-32'></div>
+        <div className='h-16 sm:h-32'></div>
         <SearchModule></SearchModule>
         <EventHighlights events={nextEvents}></EventHighlights>
       </div>

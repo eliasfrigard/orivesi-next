@@ -6,7 +6,7 @@ export default function NewsHighlights({ news }) {
   return (
     <div className='container flex flex-col	items-center'>
       <Title version='v1'>TUOREIMMAT UUTISET</Title>
-      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-10 xl:gap-y-14 my-12 sm:my-16'>
+      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-10 xl:gap-y-14 mt-12 sm:my-16'>
         {news.map((item) => (
           <NewsPreview
             key={item.id}
