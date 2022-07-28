@@ -5,7 +5,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 import { BsFacebook } from 'react-icons/bs'
-import { AiFillMail, AiFillInstagram, AiFillYoutube } from 'react-icons/ai'
+import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
+import { ImCross } from 'react-icons/im'
 
 export default function Navbar() {
   const router = useRouter()
@@ -152,11 +153,15 @@ export default function Navbar() {
           </div>
         </Link>
         <div className='Hamburger' onClick={handleHamburgerClick}>
-          <div className='space-y-2'>
-            <span className='block w-8 h-0.5 bg-primary-500'></span>
-            <span className='block w-8 h-0.5 bg-primary-500'></span>
-            <span className='block w-8 h-0.5 bg-primary-500'></span>
-          </div>
+          {!isMobileNavOpen ? (
+            <div className='space-y-2'>
+              <span className='block w-8 h-0.5 bg-primary-500'></span>
+              <span className='block w-8 h-0.5 bg-primary-500'></span>
+              <span className='block w-8 h-0.5 bg-primary-500'></span>
+            </div>
+          ) : (
+            <AiOutlineClose className='text-4xl text-primary-500' />
+          )}
         </div>
       </div>
       {isMobileNavOpen ? (
