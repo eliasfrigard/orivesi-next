@@ -163,10 +163,10 @@ export default function Navbar() {
         <div
           className={`w-full h-full bg-secondary-500 fixed top-0 z-20 ${
             isMobileNavOpen ? 'flex' : 'hidden'
-          }, duation-300`}
+          }, duration-300`}
         >
           <div>
-            <ul className='flex align-middle justify-center flex-col pt-[75px] items-center gap-8'>
+            <ul className='flex align-middle justify-center flex-col pt-[85px] items-center gap-8'>
               {links.map((link) => (
                 <li key={link.title}>
                   {link.type === 'dropdown' ? (
@@ -178,7 +178,7 @@ export default function Navbar() {
                     ${
                       router.pathname === link.page ||
                       (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                        ? 'text-secondary-500'
+                        ? 'text-accent-500 font-bold'
                         : 'text-primary-500'
                     }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}

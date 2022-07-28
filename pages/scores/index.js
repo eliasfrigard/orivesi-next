@@ -39,7 +39,7 @@ export default function Home({ scores }) {
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-8 my-16'>
+          <div className='container flex flex-col gap-8 mt-16 mb-8 md:my-16'>
             <Score
               onChangeFilter={onChangeFilter}
               title='Nimi'

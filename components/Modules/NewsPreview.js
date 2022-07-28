@@ -40,11 +40,17 @@ export default function NewsPreview({ title, post, image, author, date, link, is
             objectFit='cover'
           />
         </div>
-        <div className='meta flex wrap gap-3 items-center mt-6 '>
-          <BiTimeFive className='text-lg' />
-          <Moment format={'LL '}>{date}</Moment>
-          <BsPerson className='text-lg' />
-          <p>{author}</p>
+        <div className='meta flex flex-col md:flex-row gap-2 md:gap-6 items-start mt-6 mb-4'>
+          <div className='flex gap-4 md:gap-2 items-center justify-center'>
+            <BiTimeFive className='text-lg' />
+            <Moment className='font-work text-lg' format={'LL '}>
+              {post.created_at}
+            </Moment>
+          </div>
+          <div className='flex gap-4 md:gap-2 items-center justify-center'>
+            <BsPerson className='text-lg' />
+            <p className='font-work text-lg'>{author}</p>
+          </div>
         </div>
         <h2 className='text-2xl my-3 leading-[2.3rem]'>{title}</h2>
         <p className={`leading-7 ${hover ? 'opacity-100' : 'opacity-70'} duration-200`}>

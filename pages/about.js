@@ -12,7 +12,7 @@ export default function About({ about }) {
 
   return (
     <Layout>
-      <div className='container flex flex-col my-16 items-center'>
+      <div className='container flex flex-col my-4 md:my-16 items-center'>
         <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>
           {about.Supertitle}
         </h3>

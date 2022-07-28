@@ -22,7 +22,7 @@ export default function ScorePage({ score }) {
 
   return (
     <Layout>
-      <div className='container flex my-16 flex-col items-center'>
+      <div className='container flex my-6 md:my-16 flex-col items-center'>
         <div className='w-full flex flex-col gap-10'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
@@ -36,7 +36,7 @@ export default function ScorePage({ score }) {
           </div>
 
           <div className='lg:mb-8'>
-            <h1 className=' break-words'>{score.Title}</h1>
+            <h1>{score.Title}</h1>
             <div className='meta flex flex-col md:flex-row gap-8 items-start md:items-center mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-2xl' />
@@ -47,11 +47,11 @@ export default function ScorePage({ score }) {
                   </Moment>
                 </div>
               </div>
-              <div className='flex items-center gap-3'>
+              <div className='flex items-center gap-3 text-lg'>
                 <FaPencilAlt></FaPencilAlt>
                 <p>{score.Composer}</p>
               </div>
-              <div className='flex items-center gap-3'>
+              <div className='flex items-center gap-3 text-lg'>
                 <GiHighHeel></GiHighHeel>
                 <p>{score.Type}</p>
               </div>
