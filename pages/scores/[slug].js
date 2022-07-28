@@ -36,7 +36,7 @@ export default function ScorePage({ score }) {
           </div>
 
           <div className='lg:mb-8'>
-            <h1>{score.Title}</h1>
+            <h1 className='break-all'>{score.Title}</h1>
             <div className='meta flex flex-col md:flex-row gap-8 items-start md:items-center mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-2xl' />
