@@ -38,14 +38,20 @@ export default function NewsPage({ post }) {
           <Title className='mb-8' version='v3'>
             {post.Title}
           </Title>
-          <div className='meta flex gap-3 items-center mt-5'>
-            <BiTimeFive className='text-2xl' />
-            <Moment format={'LL '}>{post.created_at}</Moment>
-            <BsPerson className='text-2xl' />
-            <p>{post.Author}</p>
+          <div className='meta flex flex-col md:flex-row gap-4 md:gap-6 items-start mt-8'>
+            <div className='flex gap-4 md:gap-2 items-center justify-center'>
+              <BiTimeFive className='text-2xl' />
+              <Moment className='font-work text-lg' format={'LL '}>
+                {post.created_at}
+              </Moment>
+            </div>
+            <div className='flex gap-4 md:gap-2 items-center justify-center'>
+              <BsPerson className='text-2xl' />
+              <p className='font-work text-lg'>{post.Author}</p>
+            </div>
           </div>
         </div>
-        <div className='w-[90vw] xl:w-[60vw] mb-6 md:mb-16 m-10 md:m-16 aspect-79/52 img relative shadow-xl'>
+        <div className='w-[90vw] xl:w-[60vw] mb-10 md:mb-16 m-10 md:m-16 aspect-79/52 img relative shadow-xl'>
           <Image
             className='rounded'
             loader={myLoader}

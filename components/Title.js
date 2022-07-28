@@ -11,7 +11,7 @@ export default function Title({ children, version, color }) {
         </h3>
       )}
 
-      {version === 'v3' && <h1 className='text-6xl tracking-wider drop-shadow-lg'>{children}</h1>}
+      {version === 'v3' && <h1 className='text-6xl tracking-wider'>{children}</h1>}
 
       {(!version || version === '') && (
         <div className='flex justify-center items-center'>
