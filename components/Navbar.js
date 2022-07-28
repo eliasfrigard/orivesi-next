@@ -161,7 +161,7 @@ export default function Navbar() {
       </div>
       {isMobileNavOpen ? (
         <div
-          className={`w-full min-h-[calc(100vh-75px)] flex-col justify-center gap-20 bg-secondary-500 fixed top-[75px] py-6 z-20 ${
+          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${
             isMobileNavOpen ? 'flex' : 'hidden'
           } duration-300`}
         >
