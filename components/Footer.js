@@ -82,20 +82,20 @@ export default function Footer() {
         <div id='right' className='h-full grow flex flex-col gap-4'>
           <div className='flex gap-6 text-[2rem] duration-500 items-center text-primary-500'>
             <a target='_blank' href='https://www.facebook.com/orivesiallstars/' rel='noopener noreferrer'>
-              <BsFacebook className='text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg' />
+              <BsFacebook className='text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
             </a>
             <a href='https://www.instagram.com/orivesiallstars/' target='_blank' rel='noopener noreferrer'>
-              <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg' />
+              <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
             </a>
             <a
               href='https://www.youtube.com/results?search_query=orivesi+all+stars'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <AiFillYoutube className='text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow-lg' />
+              <AiFillYoutube className='text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
             </a>
             <a href='mailto:orivesiallstars@gmail.com'>
-              <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow-lg' />
+              <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
             </a>
           </div>
 
