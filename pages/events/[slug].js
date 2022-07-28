@@ -24,6 +24,7 @@ export default function NewsPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
+  console.log(event)
   return (
     <Layout>
       <div className='container flex mt-8 md:mt-28 flex-col items-start text-grey-500'>
@@ -47,21 +48,31 @@ export default function NewsPage({ event }) {
           {/* DESCRIPTION */}
           {event.Description ? (
             <div
-              className='prose leading-[2rem]'
+              className='prose leading-[2rem] order-2 md:order-1'
               dangerouslySetInnerHTML={{ __html: md().render(event.Description) }}
             />
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='flex flex-col flex-1 w-full text-xl p-9 gap-6 border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
+          <div className='order-1 md:order-2 flex flex-col flex-1 w-full text-xl p-9 gap-6 border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
             <p className='text-6xl font-cursive'>Tiedot</p>
             <div className='flex flex-col gap-5 mt-2'>
               <div className='flex gap-3 items-center'>
                 <BiTimeFive className='text-3xl' />
                 {/* TODO: Implement duration! */}
                 <Moment format='kk:mm' locale='fi' className='capistalize text-3xl font-bold font-sketch'>
-                  {event.Date}
+                  {event.Start}
                 </Moment>
+                {event.End ? (
+                  <>
+                    -
+                    <Moment format='kk:mm' locale='fi' className='capistalize text-3xl font-bold font-sketch'>
+                      {event.End}
+                    </Moment>
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
               <div className='flex gap-3 items-center'>
                 <BsCalendar3 className='text-3xl' />
@@ -70,7 +81,7 @@ export default function NewsPage({ event }) {
                   locale='fi'
                   className='capitalize text-2xl font-bold font-sketch'
                 >
-                  {event.Date}
+                  {event.Start}
                 </Moment>
               </div>
             </div>
