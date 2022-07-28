@@ -78,7 +78,7 @@ export default function NewsPage({ post }) {
       </div>
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 ? (
-        <div className='container my-32'>
+        <div className='container my-12 md:my-32'>
           <Title version='v2'>Littyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-8 my-16'>
@@ -98,7 +98,7 @@ export default function NewsPage({ post }) {
       )}
       {/* Associated Events */}
       {post.events.data.length > 0 ? (
-        <div className='container my-32'>
+        <div className='container my-12 md:my-32'>
           <Title version='v2'>Littyviä tapahtumia.</Title>
 
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-16'>
