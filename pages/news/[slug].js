@@ -22,8 +22,8 @@ export default function NewsPage({ post }) {
 
   return (
     <Layout>
-      <div className='container flex my-28 flex-col items-center'>
-        <div className='w-[925px]'>
+      <div className='container flex my-8 md:my-28 flex-col items-center'>
+        <div className='md:w-[925px]'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
               <MdOutlineArticle />
@@ -35,7 +35,9 @@ export default function NewsPage({ post }) {
             </div>
           </div>
 
-          <h1 className='mb-8 '>{post.Title}</h1>
+          <Title className='mb-8' version='v3'>
+            {post.Title}
+          </Title>
           <div className='meta flex gap-3 items-center mt-5'>
             <BiTimeFive className='text-2xl' />
             <Moment format={'LL '}>{post.created_at}</Moment>
@@ -43,7 +45,7 @@ export default function NewsPage({ post }) {
             <p>{post.Author}</p>
           </div>
         </div>
-        <div className='w-[90vw] xl:w-[60vw] m-16 aspect-79/52 img relative shadow-xl'>
+        <div className='w-[90vw] xl:w-[60vw] mb-6 md:mb-16 m-10 md:m-16 aspect-79/52 img relative shadow-xl'>
           <Image
             className='rounded'
             loader={myLoader}
@@ -55,8 +57,8 @@ export default function NewsPage({ post }) {
             objectFit='cover'
           />
         </div>
-        <div className='flex gap-16'>
-          <div className='flex flex-col gap-5 mt-[5px]'>
+        <div className='flex flex-col md:flex-row gap-6 md:gap-16'>
+          <div className='flex md:flex-col gap-5 md:mt-[5px] my-2 md:my-0'>
             <AiOutlineLink className='text-3xl' />
             <AiOutlineMail className='text-3xl' />
             <AiOutlinePrinter className='text-3xl' />
