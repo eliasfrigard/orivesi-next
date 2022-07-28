@@ -2,6 +2,7 @@ import axios from 'axios'
 import Moment from 'react-moment'
 import 'moment/locale/fi'
 import md from 'markdown-it'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import Layout from '../../components/Layout'
@@ -17,6 +18,14 @@ import { BsCalendar3 } from 'react-icons/bs'
 import { AiOutlineMail, AiOutlineLink } from 'react-icons/ai'
 
 export default function NewsPage({ event }) {
+  const router = useRouter()
+
+  const copyLink = () => {
+    navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
+  }
+
+  console.log(event)
+
   return (
     <Layout>
       <div className='container flex mt-8 md:mt-28 flex-col items-start text-grey-500'>
@@ -70,11 +79,13 @@ export default function NewsPage({ event }) {
             <div className='flex flex-col gap-4 font-medium text-secondary-800'>
               <div className='flex gap-3 items-center mt-2'>
                 <GiEarthAfricaEurope className='text-xl' />
-                <p>Helsinki, FI</p>
+                <p>
+                  {event.City}, {event.Country}
+                </p>
               </div>
               <div className='flex gap-3 items-center mb-2'>
                 <GoLocation className='text-xl' />
-                <p>Oodin Kirjasto</p>
+                <p>{event.Location}</p>
               </div>
             </div>
             <Button
@@ -87,9 +98,23 @@ export default function NewsPage({ event }) {
             </Button>
             <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-3 md:mt-0'>
               <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
-              <AiOutlineLink className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
-              <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
-              <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+              <AiOutlineLink
+                onClick={copyLink}
+                className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
+              />
+
+              <a
+                href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${
+                  'https://orivesiallstars.net' + router.asPath
+                }`}
+              >
+                <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
+              >
+                <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+              </a>
             </div>
           </div>
         </div>
