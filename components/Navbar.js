@@ -161,12 +161,12 @@ export default function Navbar() {
       </div>
       {isMobileNavOpen ? (
         <div
-          className={`w-full h-full bg-secondary-500 fixed top-0 z-20 ${
+          className={`w-full min-h-[calc(100vh-75px)] flex-col justify-center gap-20 bg-secondary-500 fixed top-[75px] py-6 z-20 ${
             isMobileNavOpen ? 'flex' : 'hidden'
-          }, duration-300`}
+          } duration-300`}
         >
           <div>
-            <ul className='flex align-middle justify-center flex-col pt-[85px] items-center gap-8'>
+            <ul className='flex align-middle justify-center flex-col items-center gap-8'>
               {links.map((link) => (
                 <li key={link.title}>
                   {link.type === 'dropdown' ? (
@@ -190,6 +190,30 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div id='right' className='flex flex-col gap-4 text-primary-500 items-center'>
+            <div className='flex gap-6 text-[2rem] duration-500 items-center text-primary-500'>
+              <a target='_blank' href='https://www.facebook.com/orivesiallstars/' rel='noopener noreferrer'>
+                <BsFacebook className='text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+              </a>
+              <a href='https://www.instagram.com/orivesiallstars/' target='_blank' rel='noopener noreferrer'>
+                <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
+              </a>
+              <a
+                href='https://www.youtube.com/results?search_query=orivesi+all+stars'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <AiFillYoutube className='text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+              </a>
+              <a href='mailto:orivesiallstars@gmail.com'>
+                <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
+              </a>
+            </div>
+
+            <p>Copyright © 2022 Orivesi All Stars</p>
+            <p>Website created by Elias Frigård</p>
           </div>
         </div>
       ) : (
