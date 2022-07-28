@@ -19,7 +19,7 @@ import { AiOutlineMail, AiOutlineLink } from 'react-icons/ai'
 export default function NewsPage({ event }) {
   return (
     <Layout>
-      <div className='container flex mt-28 flex-col items-start text-grey-500'>
+      <div className='container flex mt-8 md:mt-28 flex-col items-start text-grey-500'>
         <div className=''>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
@@ -32,7 +32,7 @@ export default function NewsPage({ event }) {
             </div>
           </div>
 
-          <h1 className='mb-8 '>{event.Title}</h1>
+          <h1 className='mb-8 break-all'>{event.Title}</h1>
         </div>
 
         {/* CONTENT */}
@@ -85,7 +85,7 @@ export default function NewsPage({ event }) {
             >
               Tapahtuman Sivulle
             </Button>
-            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2'>
+            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-3 md:mt-0'>
               <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
               <AiOutlineLink className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
               <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
