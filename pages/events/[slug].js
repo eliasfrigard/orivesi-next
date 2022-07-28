@@ -24,8 +24,6 @@ export default function NewsPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
-  console.log(event)
-
   return (
     <Layout>
       <div className='container flex mt-8 md:mt-28 flex-col items-start text-grey-500'>
@@ -88,16 +86,25 @@ export default function NewsPage({ event }) {
                 <p>{event.Location}</p>
               </div>
             </div>
-            <Button
-              url={'/scores'}
-              color='bg-accent-500'
-              hoverColor='hover:bg-accent-400'
-              rounded='rounded-xl'
-            >
-              Tapahtuman Sivulle
-            </Button>
-            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-3 md:mt-0'>
-              <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+
+            {event.Link ? (
+              <Button
+                url={'/scores'}
+                color='bg-accent-500'
+                hoverColor='hover:bg-accent-400'
+                rounded='rounded-xl'
+              >
+                Tapahtuman Sivulle
+              </Button>
+            ) : (
+              ''
+            )}
+            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1 md:mt-0'>
+              {event.Facebook ? (
+                <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+              ) : (
+                ''
+              )}
               <AiOutlineLink
                 onClick={copyLink}
                 className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
