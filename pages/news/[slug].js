@@ -81,7 +81,7 @@ export default function NewsPage({ post }) {
         <div className='container my-12 md:my-32'>
           <Title version='v2'>Littyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-8 my-16'>
+          <div className='flex flex-col gap-8 my-8 md:my-16'>
             {post.music_scores.data.map((score) => (
               <Score
                 key={score.slug}
@@ -101,7 +101,7 @@ export default function NewsPage({ post }) {
         <div className='container my-12 md:my-32'>
           <Title version='v2'>Littyviä tapahtumia.</Title>
 
-          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-16'>
+          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 md:my-16'>
             {post.events.data.map((event) => (
               <EventPreview
                 link={event.id}

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Layout from '../../components/Layout'
 import Button from '../../components/Button'
 import Score from '../../components/Modules/ScorePreview'
+import Title from '../../components/Title'
 
 import { FiChevronRight } from 'react-icons/fi'
 import { BiTimeFive } from 'react-icons/bi'
@@ -140,17 +141,17 @@ export default function NewsPage({ event }) {
 
       {/* Connected Scores */}
       {event.music_scores.data.length > 0 ? (
-        <div className='container flex flex-col gap-3 my-16 mb-28'>
-          <h3 className='text-5xl tracking-wider text-left font-cursive'>Nuotit</h3>
-          <div className='flex flex-col gap-6 mt-6'>
-            {/* <Score title="Title" type="Dance Type" composer="Composer" isHeader={true}></Score> */}
+        <div className='container my-12 md:my-32'>
+          <Title version='v2'>Littyviä nuotteja.</Title>
+
+          <div className='flex flex-col gap-8 my-8'>
             {event.music_scores.data.map((score) => (
               <Score
-                key={score.id}
-                link={score.slug}
-                title={score.Title}
-                type={score.Dancetype}
-                composer={score.Composer}
+                key={score.slug}
+                link={score.id}
+                title={score.attributes.Title}
+                type={score.attributes.Type}
+                composer={score.attributes.Composer}
               ></Score>
             ))}
           </div>
