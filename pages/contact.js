@@ -7,11 +7,11 @@ import Title from '../components/Title'
 export default function Contact({ contacts }) {
   return (
     <Layout>
-      <div className='container flex flex-col my-16 items-center'>
+      <div className='container flex flex-col my-3 md:my-16 items-center'>
         <Title>Yhteystiedot</Title>
 
         <ContactForm contacts={contacts}></ContactForm>
-        <div className='flex flex-wrap gap-8 justify-center my-16'>
+        <div className='flex flex-wrap gap-8 justify-center md:my-16'>
           {contacts.map((contact) => (
             <ContactInfo
               key={contact.id}
