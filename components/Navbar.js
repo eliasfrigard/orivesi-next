@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
-import { ImCross } from 'react-icons/im'
 
 export default function Navbar() {
   const router = useRouter()
@@ -17,15 +16,16 @@ export default function Navbar() {
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
     { title: 'Nuotit', page: '/scores' },
-    {
-      title: 'Media',
-      page: '/media',
-      type: 'dropdown',
-      links: [
-        { title: 'Kuvat', page: '/media/images' },
-        { title: 'Äänitykset', page: '/media/audio' },
-      ],
-    },
+    // {
+    //   title: 'Media',
+    //   page: '/media',
+    //   type: 'dropdown',
+    //   links: [
+    //     { title: 'Kuvat', page: '/media/images' },
+    //     { title: 'Äänitykset', page: '/media/audio' },
+    //   ],
+    // },
+    { title: 'Jäsenyydet', page: '/membership' },
     { title: 'Yhteystiedot', page: '/contact' },
   ]
 
