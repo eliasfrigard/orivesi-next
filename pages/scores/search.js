@@ -35,7 +35,7 @@ export default function ScoreSearch() {
               {scores.map((score) => (
                 <Score
                   key={score.id}
-                  link={score.slug}
+                  link={score.id}
                   title={score.Title}
                   type={score.Type}
                   composer={score.Composer}

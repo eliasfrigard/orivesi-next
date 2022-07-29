@@ -5,7 +5,6 @@ import Title from '../../components/Title'
 import Player from '../../components/Player'
 
 export default function Images({ audio }) {
-  console.log(audio)
   return (
     <Layout>
       <div className='sm:my-16'>
