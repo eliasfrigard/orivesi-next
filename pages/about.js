@@ -33,7 +33,7 @@ export default function About({ about }) {
 
         <div className='flex gap-16'>
           <div
-            className='prose max-w-3xl xl:prose xl:max-w-3xl leading-[2.1rem]'
+            className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
           />
         </div>
