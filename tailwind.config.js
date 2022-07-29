@@ -99,6 +99,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('tailwindcss-selection-variant'),
     require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/line-clamp'),
   ],
   variants: {
     extend: {
