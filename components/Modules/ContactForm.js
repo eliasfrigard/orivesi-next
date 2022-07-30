@@ -130,7 +130,7 @@ export default function ContactForm({ contacts }) {
             Viesti *
           </label>
           <textarea
-            className='h-[100px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 scrollbar-hide'
+            className='h-[75px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 scrollbar-hide'
             name='body'
             value={formData.body}
             placeholder='Minkälaista asiaa sinulla olisi?'
