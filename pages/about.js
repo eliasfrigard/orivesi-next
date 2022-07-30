@@ -13,10 +13,16 @@ export default function About({ about }) {
   return (
     <Layout>
       <div className='container flex flex-col mb-24 mt-2 md:mt-16 items-center'>
-        <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>
-          {about.Supertitle}
-        </h3>
-        <Title>{about.Title}</Title>
+        <div className='hidden md:block'>
+          <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>
+            {about.Supertitle}
+          </h3>
+          <Title>{about.Title}</Title>
+        </div>
+
+        <div className='md:hidden'>
+          <Title>{about.Supertitle + ' ' + about.Title}</Title>
+        </div>
 
         <div className='w-[90vw] xl:w-[60vw] my-16 aspect-79/52 img relative shadow-xl'>
           <Image
