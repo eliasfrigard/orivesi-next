@@ -40,6 +40,17 @@
   background: #006992;
 }
 
+pre {
+  max-width: 90vw !important;
+  overflow: scroll !important;
+  padding: 20px !important;
+  overflow-wrap: break-word !important;
+}
+
+code {
+  overflow-wrap: break-word !important;
+}
+
 html,
 body {
   background-color: #faf9f6;
