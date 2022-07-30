@@ -22,7 +22,7 @@ export default function Membership({ membership }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/about?populate=Images`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/membership`)
 
   return {
     props: {
