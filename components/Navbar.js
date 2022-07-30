@@ -121,7 +121,7 @@ export default function Navbar() {
             <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
           </a>
           <a
-            href='https://www.youtube.com/results?search_query=orivesi+all+stars'
+            href='https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ'
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -206,7 +206,7 @@ export default function Navbar() {
                 <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
               </a>
               <a
-                href='https://www.youtube.com/results?search_query=orivesi+all+stars'
+                href='https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ'
                 target='_blank'
                 rel='noopener noreferrer'
               >

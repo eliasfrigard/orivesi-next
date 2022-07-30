@@ -25,6 +25,8 @@ export default function NewsPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
+  console.log(event)
+
   return (
     <Layout>
       <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>

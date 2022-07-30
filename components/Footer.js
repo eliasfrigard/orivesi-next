@@ -59,22 +59,25 @@ export default function Footer() {
             <Link href='/'>
               <p className='hover:text-accent-500 cursor-pointer'>Home</p>
             </Link>
-            <Link href='/'>
+            <Link href='/about'>
               <p className='hover:text-accent-500 cursor-pointer'>All Stars</p>
             </Link>
-            <Link href='/'>
+            <Link href='/news'>
               <p className='hover:text-accent-500 cursor-pointer'>Uutiset</p>
             </Link>
-            <Link href='/'>
+            <Link href='/events'>
               <p className='hover:text-accent-500 cursor-pointer'>Tapahtumat</p>
             </Link>
-            <Link href='/'>
+            <Link href='/scores'>
               <p className='hover:text-accent-500 cursor-pointer'>Nuotit</p>
             </Link>
-            <Link href='/'>
-              <p className='hover:text-accent-500 cursor-pointer'>Media</p>
+            <Link href='/membership'>
+              <p className='hover:text-accent-500 cursor-pointer'>Jäsenyydet</p>
             </Link>
-            <Link href='/'>
+            {/* <Link href='/media'>
+              <p className='hover:text-accent-500 cursor-pointer'>Media</p>
+            </Link> */}
+            <Link href='/contact'>
               <p className='hover:text-accent-500 cursor-pointer'>Yhteystiedot</p>
             </Link>
           </div>
@@ -88,7 +91,7 @@ export default function Footer() {
               <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
             </a>
             <a
-              href='https://www.youtube.com/results?search_query=orivesi+all+stars'
+              href='https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ'
               target='_blank'
               rel='noopener noreferrer'
             >
