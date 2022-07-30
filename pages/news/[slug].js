@@ -64,12 +64,13 @@ export default function NewsPage({ post }) {
           />
         </div>
         <div className='flex flex-col lg:flex-row gap-6 lg:gap-16'>
-          <div className='flex lg:flex-col gap-5 lg:mt-[5px] my-2 lg:my-0'>
+          {/* SIDEBAR IS DISABLED FOR NOW UNTIL BETTER CONTENT. */}
+          {/* <div className='flex lg:flex-col gap-5 lg:mt-[5px] my-2 lg:my-0'>
             <AiOutlineLink className='text-3xl' />
             <AiOutlineMail className='text-3xl' />
             <AiOutlinePrinter className='text-3xl' />
             <AiOutlineFacebook className='text-3xl' />
-          </div>
+          </div> */}
           <div
             className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
