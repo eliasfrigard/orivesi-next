@@ -22,7 +22,7 @@ export default function NewsPage({ post }) {
 
   return (
     <Layout>
-      <div className='container flex my-8 lg:my-28 flex-col items-center'>
+      <div className='container flex my-8 lg:my-24 flex-col items-center'>
         <div className='md:container lg:w-[925px]'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>

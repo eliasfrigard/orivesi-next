@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Moment from 'react-moment'
 import Link from 'next/link'
+import md from 'markdown-it'
 
 import Layout from '../../components/Layout'
 import Player from '../../components/Player'
@@ -22,7 +23,7 @@ export default function ScorePage({ score }) {
 
   return (
     <Layout>
-      <div className='container flex my-6 md:my-16 flex-col items-center'>
+      <div className='container flex my-6 md:my-24 flex-col items-center'>
         <div className='w-full flex flex-col gap-10'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
@@ -58,11 +59,11 @@ export default function ScorePage({ score }) {
             </div>
           </div>
 
-          <div className='flex flex-col gap-10'>
+          <div className='flex flex-col gap-10 lg:gap-16'>
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data.length > 0 ? (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
-                  <h3 className='text-4xl font-cursive'>Nuotit</h3>
+                  <h3 className='text-4xl font-cursive font-bold'>Nuotit</h3>
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id}>
                       <div className='flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 rounded-lg py-4 px-6'>
@@ -76,7 +77,7 @@ export default function ScorePage({ score }) {
 
               {score.Audio.data ? (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-2/5' : 'lg:w-full'} gap-6`}>
-                  <h3 className='text-4xl font-cursive'>Äänitykset</h3>
+                  <h3 className='text-4xl font-cursive font-bold'>Äänitykset</h3>
                   {score.Audio.data.map((file) => (
                     <Player
                       key={file.attributes.id}
@@ -89,8 +90,8 @@ export default function ScorePage({ score }) {
             </div>
 
             {youtubeVideos.length > 0 ? (
-              <>
-                <h3 className='text-4xl font-cursive mb-[-1rem]'>Videot</h3>
+              <div>
+                <h3 className='text-4xl font-cursive font-bold mb-6'>Videot</h3>
                 <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
                   {youtubeVideos.map((video) => (
                     <div
@@ -109,8 +110,22 @@ export default function ScorePage({ score }) {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             ) : null}
+
+            {score.Description ? (
+              <div className='flex justify-center items-center lg:my-6'>
+                <div>
+                  <h3 className='text-4xl font-cursive font-bold mb-6'>Esittely</h3>
+                  <div
+                    className='prose max-w-3xl xl:prose-md leading-[2.1rem]'
+                    dangerouslySetInnerHTML={{ __html: md().render(score.Description) }}
+                  />
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>
