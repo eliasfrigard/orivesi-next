@@ -7,7 +7,7 @@ import Title from '../components/Title'
 export default function Contact({ contacts }) {
   return (
     <Layout>
-      <div className='container flex flex-col mb-24 mt-3 md:mt-16 items-center'>
+      <div className='container flex flex-col mb-24 mt-3 lg:mt-16 items-center'>
         <Title>Yhteystiedot</Title>
 
         <ContactForm contacts={contacts}></ContactForm>

@@ -35,7 +35,7 @@ export default function Home({ scores }) {
 
   return (
     <Layout>
-      <div className='flex flex-col gap-16 sm:my-16'>
+      <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>

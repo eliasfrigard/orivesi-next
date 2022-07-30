@@ -26,7 +26,7 @@ export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', s
       <form
         onSubmit={handleSubmit}
         method='get'
-        className='w-full lg:w-[900px] gap-10 sm:gap-4 container flex flex-col lg:flex-row justify-center items-center pt-10'
+        className='w-full lg:w-[900px] gap-10 lg:gap-4 container flex flex-col lg:flex-row justify-center items-center pt-10'
       >
         <input
           value={searchInfo.query}
@@ -36,7 +36,7 @@ export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', s
           className='rounded-full p-4 w-full lg:w-3/5 text-grey-500 outline-none px-8 tracking-wider shadow-lg'
           placeholder='Hae nuottiarkistosta ...'
         />
-        <Button type='submit' className='mt-6 lg:mt-0 ' width={`w-full md:w-1/2 lg:w-2/5`}>
+        <Button type='submit' className='mt-6 lg:mt-0 ' width={`w-full lg:w-2/5`}>
           Hae
         </Button>
         {/* Replace with actual stats. */}

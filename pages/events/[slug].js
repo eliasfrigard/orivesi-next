@@ -25,11 +25,10 @@ export default function NewsPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
-  console.log(event)
   return (
     <Layout>
-      <div className='container flex mt-8 md:mt-28 flex-col items-start text-grey-500'>
-        <div className=''>
+      <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>
+        <div>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
               <BiTimeFive />
@@ -45,17 +44,17 @@ export default function NewsPage({ event }) {
         </div>
 
         {/* CONTENT */}
-        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start'>
+        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start justify-center lg:justify-start'>
           {/* DESCRIPTION */}
           {event.Description ? (
             <div
-              className='prose leading-[2rem] order-2 md:order-1'
+              className='prose leading-[2rem] order-2 lg:order-1'
               dangerouslySetInnerHTML={{ __html: md().render(event.Description) }}
             />
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='order-1 md:order-2 flex flex-col flex-1 w-full text-xl p-9 gap-6 border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
+          <div className='order-1 lg:order-2 flex flex-col flex-1 w-full text-xl p-9 gap-6 border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
             <p className='text-6xl font-cursive'>Tiedot</p>
             <div className='flex flex-col gap-5 mt-2'>
               <div className='flex gap-3 items-center'>

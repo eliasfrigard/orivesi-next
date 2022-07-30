@@ -19,7 +19,7 @@ export default function Home({ welcome, news, events }) {
 
   return (
     <Layout>
-      <div className='container sm:hidden mb-7 drop-shadow rounded-xl'>
+      <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
         <Image
           className='rounded'
           src='/qVHC0VqQ.jpeg'

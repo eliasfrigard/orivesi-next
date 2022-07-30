@@ -45,13 +45,13 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`hidden md:flex fixed w-full justify-center py-[10px]  backdrop-blur z-50  pt-10 ${
+        className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-50  pt-10 ${
           scrollPosition > 20 ? 'shadow-xl pt-[10px] bg-secondary-500' : 'bg-primary-500'
         } duration-500`}
       >
         <Link href='/'>
           <div
-            className={`leading-4 cursor-pointer flex md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider ${
+            className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider ${
               scrollPosition > 20 ? 'scale-90' : ''
             }`}
           >
@@ -67,7 +67,7 @@ export default function Navbar() {
             </p>
           </div>
         </Link>
-        <div className='container hidden md:flex justify-center items-center h-[75px] w-3/5'>
+        <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
           <ul className='flex align-middle justify-center items-center gap-2'>
             {links.map((link) => (
               <li key={link.title}>
@@ -95,7 +95,7 @@ export default function Navbar() {
                           : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-md'
                         : ''
                     }
-                    py-[13px] px-[20px]  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
+                    py-[13px] px-[20px] whitespace-nowrap	 active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
                       scrollPosition > 20
                         ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
                         : 'hover:bg-secondary-500 hover:shadow-md'
@@ -110,7 +110,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div
-          className={`hidden md:flex w-1/5 gap-6 text-[2rem] justify-center items-center duration-500 ${
+          className={`hidden xl:flex w-1/5 gap-6 text-[2rem] justify-center items-center duration-500 ${
             scrollPosition > 20 ? 'text-primary-500 scale-90' : 'text-secondary-500'
           }`}
         >
@@ -136,7 +136,7 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 md:hidden, ${
+        className={`w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
           isMobileNavOpen ? '' : 'shadow-lg'
         }`}
       >

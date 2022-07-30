@@ -22,8 +22,8 @@ export default function NewsPage({ post }) {
 
   return (
     <Layout>
-      <div className='container flex my-8 md:my-28 flex-col items-center'>
-        <div className='md:w-[925px]'>
+      <div className='container flex my-8 lg:my-28 flex-col items-center'>
+        <div className='md:container lg:w-[925px]'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
               <MdOutlineArticle />
@@ -38,20 +38,20 @@ export default function NewsPage({ post }) {
           <Title className='mb-8' version='v3'>
             {post.Title}
           </Title>
-          <div className='meta flex flex-col md:flex-row gap-4 md:gap-6 items-start mt-8'>
-            <div className='flex gap-4 md:gap-2 items-center justify-center'>
+          <div className='meta flex flex-col lg:flex-row gap-4 lg:gap-6 items-start mt-8'>
+            <div className='flex gap-4 lg:gap-2 items-center justify-center'>
               <BiTimeFive className='text-2xl' />
               <Moment className='font-work text-lg' format={'LL '}>
                 {post.created_at}
               </Moment>
             </div>
-            <div className='flex gap-4 md:gap-2 items-center justify-center'>
+            <div className='flex gap-4 lg:gap-2 items-center justify-center'>
               <BsPerson className='text-2xl' />
               <p className='font-work text-lg'>{post.Author}</p>
             </div>
           </div>
         </div>
-        <div className='w-[90vw] xl:w-[60vw] mb-10 md:mb-16 m-10 md:m-16 aspect-79/52 img relative shadow-xl'>
+        <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-79/52 img relative shadow-xl'>
           <Image
             className='rounded'
             loader={myLoader}
@@ -63,8 +63,8 @@ export default function NewsPage({ post }) {
             objectFit='cover'
           />
         </div>
-        <div className='flex flex-col md:flex-row gap-6 md:gap-16'>
-          <div className='flex md:flex-col gap-5 md:mt-[5px] my-2 md:my-0'>
+        <div className='flex flex-col lg:flex-row gap-6 lg:gap-16'>
+          <div className='flex lg:flex-col gap-5 lg:mt-[5px] my-2 lg:my-0'>
             <AiOutlineLink className='text-3xl' />
             <AiOutlineMail className='text-3xl' />
             <AiOutlinePrinter className='text-3xl' />
@@ -78,10 +78,10 @@ export default function NewsPage({ post }) {
       </div>
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 ? (
-        <div className='container my-12 md:my-32'>
+        <div className='container my-12 lg:my-32'>
           <Title version='v2'>Littyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-8 my-8 md:my-16'>
+          <div className='flex flex-col gap-8 my-8 lg:my-16'>
             {post.music_scores.data.map((score) => (
               <Score
                 key={score.slug}
@@ -98,10 +98,10 @@ export default function NewsPage({ post }) {
       )}
       {/* Associated Events */}
       {post.events.data.length > 0 ? (
-        <div className='container my-12 md:my-32'>
+        <div className='container my-12 lg:my-32'>
           <Title version='v2'>Littyviä tapahtumia.</Title>
 
-          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 md:my-16'>
+          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
             {post.events.data.map((event) => (
               <EventPreview
                 link={event.id}

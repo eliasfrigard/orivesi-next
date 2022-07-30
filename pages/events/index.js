@@ -15,7 +15,7 @@ export default function Events({ events }) {
     <Layout>
       <div className='flex flex-col'>
         {/* Upcoming */}
-        <div className='flex flex-col items-center gap-16 sm:my-16'>
+        <div className='flex flex-col items-center gap-16 lg:my-16'>
           <Title>Tulevat Tapahtumat</Title>
           <div className='max-w-full flex flex-wrap gap-10 justify-center items-center mx-8'>
             {upcomingEvents.map((event) => (
