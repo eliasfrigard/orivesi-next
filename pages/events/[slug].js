@@ -67,7 +67,7 @@ export default function NewsPage({ event }) {
                   </Moment>
                 </div>
                 <div className='flex gap-4 items-center'>
-                  <BiCalendar className='text-3xl' />
+                  <BiCalendarCheck className='text-3xl' />
                   <Moment
                     format='DD MMM YYYY'
                     locale='fi'
