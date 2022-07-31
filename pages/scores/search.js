@@ -25,12 +25,15 @@ export default function ScoreSearch() {
 
   return (
     <Layout>
-      <div className='flex flex-col gap-16 sm:my-16'>
+      <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Hakutulokset</Title>
         <div>
           <SearchModule title='Etsitkö jotain muuta?'></SearchModule>
           {scores.length > 0 ? (
-            <div className='container flex flex-col gap-8 my-16'>
+            <div className='container flex flex-col gap-8 mt-16 mb-8 md:my-16'>
+              <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
+                Hakuehdoilla löytyi <b>{scores.length}</b> nuottia.
+              </p>
               <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true}></Score>
               {scores.map((score) => (
                 <Score
