@@ -63,7 +63,7 @@ export default function Home({ scores }) {
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
           <div className='container flex flex-col gap-8 mt-16 mb-8 md:my-16'>
             <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
-              Arkistosta löydät <b>{filteredScores.length}</b> nuottia.
+              Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
             </p>
             <Score
               onChangeFilter={onChangeFilter}
