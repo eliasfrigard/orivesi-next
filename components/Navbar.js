@@ -71,7 +71,7 @@ export default function Navbar() {
           </div>
         </Link>
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
-          <ul className='flex align-middle justify-center items-center gap-2'>
+          <ul className='flex align-middle justify-center items-center gap-1'>
             {links.map((link) => (
               <li key={link.title}>
                 {link.type === 'dropdown' ? (

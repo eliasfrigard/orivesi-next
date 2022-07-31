@@ -36,7 +36,7 @@ export default function Title({ title, items, active, scrollPosition }) {
           {items.map((item) => (
             <Link href={item.page} key={item.title}>
               <div
-                className={`bg-secondary-500 hover:bg-accent-700 duration-100 rounded-lg py-[13px] px-[20px] font-sans tracking-wide font-medium text-primary-500 cursor-pointer border-4 border-primary-500 shadow-lg`}
+                className={`bg-secondary-500 hover:bg-accent-500 duration-100 rounded-lg py-[13px] px-[20px] font-sans tracking-wide font-medium text-primary-500 cursor-pointer border-4 border-primary-500 shadow-lg`}
               >
                 {item.title}
               </div>

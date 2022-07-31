@@ -127,7 +127,9 @@ export default function NewsPage({ event }) {
 
             <iframe
               className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
-              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Location}+${event.City}+${event.Country}&z=14&output=embed`}
+              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
+                event.Address ? event.Address : event.Location
+              }+${event.City}+${event.Country}&z=14&output=embed`}
               allowFullScreen=''
               loading='lazy'
               referrerpolicy='no-referrer-when-downgrade'

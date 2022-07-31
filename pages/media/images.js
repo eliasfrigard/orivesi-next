@@ -12,7 +12,7 @@ export default function Images({ images }) {
           {images.map((image) => (
             <div
               key={image.id}
-              className='aspect-79/52 relative md:w-[20vw] min-w-[300px] overflow-hidden rounded-lg shadow-md hover:shadow-lg duration-200 cursor-pointer'
+              className='aspect-79/52 relative md:w-[20vw] min-w-[300px] overflow-hidden rounded-lg shadow-xl hover:shadow-lg duration-200 cursor-pointer'
             >
               <ImagePreview image={image} />
             </div>
