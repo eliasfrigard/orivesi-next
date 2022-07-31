@@ -101,9 +101,16 @@ export default function Footer() {
               <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
             </a>
           </div>
-
           <p>Copyright © 2022 Orivesi All Stars</p>
-          <p>Website created by Elias Frigård</p>
+          <p>
+            Website by{' '}
+            <a
+              className='text-accent-500 font-bold underline text-md'
+              href='mailto:elias_frigard@hotmail.com'
+            >
+              Elias Frigård
+            </a>
+          </p>
         </div>
       </div>
     </div>

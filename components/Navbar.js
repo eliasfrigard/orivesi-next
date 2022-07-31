@@ -218,7 +218,15 @@ export default function Navbar() {
             </div>
 
             <p>Copyright © 2022 Orivesi All Stars</p>
-            <p>Website created by Elias Frigård</p>
+            <p>
+              Website by{' '}
+              <a
+                className='text-accent-500 font-bold underline text-md'
+                href='mailto:elias_frigard@hotmail.com'
+              >
+                Elias Frigård
+              </a>
+            </p>
           </div>
         </div>
       ) : (
