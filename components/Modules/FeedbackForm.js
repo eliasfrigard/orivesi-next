@@ -63,7 +63,7 @@ export default function HighlightText({ title, subtitle }) {
         onSubmit={handleSubmit}
       >
         <textarea
-          className='w-full lg:w-[750px] h-[400px] p-6 tracking-wider text-lg outline-none focus:rounded-xl mt-4 focus:border-accent-500 bg-transparent rounded-lg border-4 border-secondary-500 resize-none duration-300'
+          className='w-full lg:w-[750px] h-[400px] p-6 tracking-wider text-lg outline-none focus:rounded-xl mt-4 focus:border-accent-500 bg-transparent rounded-lg border-4 border-secondary-500 resize-none duration-300 shadow-lg'
           name='body'
           value={formData.body}
           placeholder='Mitä mieltä olet nettisivusta?'

@@ -39,20 +39,20 @@ export default function Home({ scores }) {
     <Layout>
       <InfoModule>
         <div className='flex flex-col gap-6'>
-          <FaHeart className='text-xl text-secondary-500' />
+          <FaHeart className='text-xl text-red-500' />
           <p className='inline'>
             Yhdellä sydämellä merkityt kappaleet ovat aktiivisoitossa tällä hetkellä. Niistä on siis hyvä
             aloittaa, jos olet uusi materiaalin parissa.
           </p>
           <div className='flex gap-2'>
-            <FaHeart className='text-xl text-secondary-500' />
-            <FaHeart className='text-xl text-secondary-500' />
+            <FaHeart className='text-xl text-red-500' />
+            <FaHeart className='text-xl text-red-500' />
           </div>
           <p>
             Kahdella sydämellä merkityt ovat monelle vanhaa tuttua ohjelmistoa, joilla tarvittaessa
             täydennnetään esimerkiksi keikkasettiä.
           </p>
-          <FaStar className='text-xl text-accent-500' />
+          <FaStar className='text-xl text-yellow-500' />
           <p>Tähdellä merkityt ovat uusimpia tuttavuuksia!</p>
         </div>
       </InfoModule>

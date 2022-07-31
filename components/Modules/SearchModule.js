@@ -26,7 +26,7 @@ export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', s
       <form
         onSubmit={handleSubmit}
         method='get'
-        className='w-full lg:w-[900px] gap-10 lg:gap-4 container flex flex-col lg:flex-row justify-center items-center pt-10'
+        className='w-full lg:w-[900px] gap-8 lg:gap-4 container flex flex-col lg:flex-row justify-center items-center pt-10'
       >
         <input
           value={searchInfo.query}

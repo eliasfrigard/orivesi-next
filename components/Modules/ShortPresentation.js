@@ -7,7 +7,7 @@ export default function ShortPresentation({ title, text, linkText, linkUrl }) {
       <Title version='v2'>{title}</Title>
 
       <div
-        className='prose max-w-3xl text-md md:text-xl leading-[2.3rem] md:leading-[2.3rem] tracking-wide text-center text-primary-500 drop-shadow-lg'
+        className='prose max-w-3xl text-lg md:text-xl leading-[2.5rem] md:leading-[2.3rem] tracking-wide text-center text-primary-500 drop-shadow-lg'
         dangerouslySetInnerHTML={{
           __html: text,
         }}

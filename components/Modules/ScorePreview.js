@@ -46,22 +46,22 @@ export default function Score({
                 data-tooltip-target='tooltip-default'
                 className='absolute left-[-40px] text-black flex gap-1'
               >
-                <FaHeart className='text-sm text-secondary-500' />
+                <FaHeart className='text-sm text-red-500 drop-shadow' />
               </div>
             ) : (
               ''
             )}
             {status === 'Vanhaa Tuttua Ohjelmistoa' ? (
               <div className='absolute left-[-55px] text-black flex gap-1'>
-                <FaHeart className='text-sm text-secondary-500' />
-                <FaHeart className='text-sm text-secondary-500' />
+                <FaHeart className='text-sm text-red-500 drop-shadow' />
+                <FaHeart className='text-sm text-red-500 drop-shadow' />
               </div>
             ) : (
               ''
             )}
             {status === 'Uusi Biisi' ? (
               <div className='absolute left-[-40px] text-black flex gap-1'>
-                <FaStar className='text-sm text-accent-500' />
+                <FaStar className='text-sm text-yellow-500 drop-shadow' />
               </div>
             ) : (
               ''
