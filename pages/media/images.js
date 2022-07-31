@@ -8,11 +8,11 @@ export default function Images({ images }) {
     <Layout>
       <div className='sm:my-16'>
         <Title>Kuvat</Title>
-        <div className='flex flex-wrap my-16 gap-6 items-center justify-center w-full'>
+        <div className='flex flex-wrap my-16 gap-12 items-center justify-center w-full'>
           {images.map((image) => (
             <div
               key={image.id}
-              className='aspect-79/52 relative w-[20vw] overflow-hidden rounded-lg shadow-md hover:shadow-lg duration-200 cursor-pointer'
+              className='aspect-79/52 relative w-full md:w-[20vw] min-w-[300px] overflow-hidden rounded-lg shadow-md hover:shadow-lg duration-200 cursor-pointer'
             >
               <ImagePreview image={image} />
             </div>
