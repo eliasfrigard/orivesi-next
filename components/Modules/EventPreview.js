@@ -40,10 +40,10 @@ export default function EventPreview({
               <Moment locale='fi' format='kk:mm'>
                 {startTime}
               </Moment>
-              -
+              {/* -
               <Moment locale='fi' format='kk:mm'>
                 {endTime}
-              </Moment>
+              </Moment> */}
             </p>
           </div>
         ) : (
@@ -58,14 +58,14 @@ export default function EventPreview({
         {/* Metadata */}
         <div className='meta flex flex-col justify-center items-center font-medium gap-2 text-secondary-500	'>
           <div className='flex flex-row justify-center items-center gap-2'>
+            <GoLocation></GoLocation>
+            <p>{location}</p>
+          </div>
+          <div className='flex flex-row justify-center items-center gap-2'>
             <GiEarthAfricaEurope></GiEarthAfricaEurope>
             <p>
               {city}, {country}
             </p>
-          </div>
-          <div className='flex flex-row justify-center items-center gap-2'>
-            <GoLocation></GoLocation>
-            <p>{location}</p>
           </div>
         </div>
       </div>

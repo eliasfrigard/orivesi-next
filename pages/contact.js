@@ -2,6 +2,7 @@ import axios from 'axios'
 import Layout from '../components/Layout'
 import ContactInfo from '../components/Modules/ContactInfo'
 import ContactForm from '../components/Modules/ContactForm'
+import FeedbackForm from '../components/Modules/FeedbackForm'
 import Title from '../components/Title'
 
 export default function Contact({ contacts }) {
@@ -22,6 +23,8 @@ export default function Contact({ contacts }) {
             ></ContactInfo>
           ))}
         </div>
+
+        <FeedbackForm></FeedbackForm>
       </div>
     </Layout>
   )

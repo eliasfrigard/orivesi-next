@@ -11,7 +11,7 @@ import Score from '../../components/Modules/ScorePreview'
 import Title from '../../components/Title'
 
 import { FiChevronRight } from 'react-icons/fi'
-import { BiTimeFive } from 'react-icons/bi'
+import { BiTimeFive, BiCalendarCheck, BiCalendar, BiCalendarX } from 'react-icons/bi'
 import { GiEarthAfricaEurope } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 import { BsFacebook, BsFillPinMapFill } from 'react-icons/bs'
@@ -56,49 +56,74 @@ export default function NewsPage({ event }) {
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='order-1 lg:order-2 flex flex-col flex-1 w-full text-xl p-9 gap-6 border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
+          <div className='order-1 lg:order-2 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
             <p className='text-6xl font-cursive'>Tiedot</p>
-            <div className='flex flex-col gap-5 mt-2'>
-              <div className='flex gap-3 items-center'>
-                <BiTimeFive className='text-3xl' />
-                {/* TODO: Implement duration! */}
-                <Moment format='kk:mm' locale='fi' className='capistalize text-3xl font-bold font-sketch'>
-                  {event.Start}
-                </Moment>
-                {event.End ? (
-                  <>
-                    -
-                    <Moment format='kk:mm' locale='fi' className='capistalize text-3xl font-bold font-sketch'>
+            <div className='flex gap-6 flex-wrap'>
+              <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
+                <h3 className='text-2xl font-medium tracking-wide font-work'>Alkaa:</h3>
+                <div className='flex gap-4 items-center'>
+                  <BiTimeFive className='text-3xl' />
+                  {/* TODO: Implement duration! */}
+                  <Moment format='kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
+                    {event.Start}
+                  </Moment>
+                </div>
+                <div className='flex gap-4 items-center'>
+                  <BiCalendar className='text-3xl' />
+                  <Moment
+                    format='DD MMM YYYY'
+                    locale='fi'
+                    className='capitalize text-2xl font-bold font-work'
+                  >
+                    {event.Start}
+                  </Moment>
+                </div>
+              </div>
+              {event.End ? (
+                <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
+                  <h3 className='text-2xl font-medium tracking-wide font-work'>Loppuu:</h3>
+                  <div className='flex gap-4 items-center'>
+                    <BiTimeFive className='text-3xl' />
+                    {/* TODO: Implement duration! */}
+                    <Moment format='kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
                       {event.End}
                     </Moment>
-                  </>
-                ) : (
-                  ''
-                )}
-              </div>
-              <div className='flex gap-3 items-center'>
-                <BsCalendar3 className='text-3xl' />
-                <Moment
-                  format='DD MMMM YYYY'
-                  locale='fi'
-                  className='capitalize text-2xl font-bold font-sketch'
-                >
-                  {event.Start}
-                </Moment>
-              </div>
+                  </div>
+                  <div className='flex gap-4 items-center'>
+                    <BiCalendarX className='text-3xl' />
+                    <Moment
+                      format='DD MMM YYYY'
+                      locale='fi'
+                      className='capitalize text-2xl font-bold font-work'
+                    >
+                      {event.End}
+                    </Moment>
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
             </div>
             <div className='flex flex-col gap-4 font-medium text-secondary-800'>
               <div className='flex gap-3 items-center mt-2'>
+                <GoLocation className='text-xl' />
+                <p>{event.Location}</p>
+              </div>
+              <div className='flex gap-3 items-center mb-2'>
                 <GiEarthAfricaEurope className='text-xl' />
                 <p>
                   {event.City}, {event.Country}
                 </p>
               </div>
-              <div className='flex gap-3 items-center mb-2'>
-                <GoLocation className='text-xl' />
-                <p>{event.Location}</p>
-              </div>
             </div>
+
+            <iframe
+              className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
+              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Location}+${event.City}+${event.Country}&z=14&output=embed`}
+              allowFullScreen=''
+              loading='lazy'
+              referrerpolicy='no-referrer-when-downgrade'
+            ></iframe>
 
             {event.Link ? (
               <Button
@@ -112,7 +137,7 @@ export default function NewsPage({ event }) {
             ) : (
               ''
             )}
-            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1 md:mt-0'>
+            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1'>
               {event.Facebook ? (
                 <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
               ) : (
@@ -132,6 +157,8 @@ export default function NewsPage({ event }) {
               </a>
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
+                target='_blank'
+                rel='noreferrer'
               >
                 <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
               </a>

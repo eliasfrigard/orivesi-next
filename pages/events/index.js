@@ -23,10 +23,20 @@ export default function Events({ events }) {
                 link={event.slug}
                 date={event.attributes.Start}
                 title={event.attributes.Title}
+                location={event.attributes.Location}
+                city={event.attributes.City}
+                country={event.attributes.Country}
                 key={event.attributes.id}
               />
             ))}
           </div>
+          {upcomingEvents.length <= 0 ? (
+            <div className='mb-4'>
+              <Title version='v2'>Ei tulevia tapahtumia.</Title>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
 
         {/* Previous */}
@@ -38,10 +48,20 @@ export default function Events({ events }) {
                 link={event.slug}
                 date={event.attributes.Start}
                 title={event.attributes.Title}
+                location={event.attributes.Location}
+                city={event.attributes.City}
+                country={event.attributes.Country}
                 key={event.attributes.id}
               />
             ))}
           </div>
+          {previousEvents.length <= 0 ? (
+            <div className='mb-4'>
+              <Title version='v2'>Ei tulevia tapahtumia.</Title>
+            </div>
+          ) : (
+            ''
+          )}{' '}
         </div>
       </div>
     </Layout>

@@ -21,6 +21,13 @@ export default function EventHighlights({ events }) {
             endTime={event.attributes.End}
           ></EventPreview>
         ))}
+        {events.length <= 0 ? (
+          <div className=''>
+            <Title version='v2'>Ei tulevia tapahtumia.</Title>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
 
       <Button url='/events'>Lisää Tapahtumia</Button>
