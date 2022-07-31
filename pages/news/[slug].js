@@ -36,9 +36,7 @@ export default function NewsPage({ post }) {
             </div>
           </div>
 
-          <Title className='mb-8' version='v3'>
-            {post.Title}
-          </Title>
+          <Title version='v3'>{post.Title}</Title>
           <div className='meta flex flex-col lg:flex-row gap-4 lg:gap-6 items-start mt-8'>
             <div className='flex gap-4 lg:gap-2 items-center justify-center'>
               <BiTimeFive className='text-2xl' />

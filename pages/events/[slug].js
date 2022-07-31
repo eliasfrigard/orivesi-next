@@ -11,11 +11,10 @@ import Score from '../../components/Modules/ScorePreview'
 import Title from '../../components/Title'
 
 import { FiChevronRight } from 'react-icons/fi'
-import { BiTimeFive, BiCalendarCheck, BiCalendar, BiCalendarX } from 'react-icons/bi'
+import { BiTimeFive, BiCalendarCheck, BiCalendarX } from 'react-icons/bi'
 import { GiEarthAfricaEurope, GiHouse } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 import { BsFacebook, BsFillPinMapFill } from 'react-icons/bs'
-import { BsCalendar3 } from 'react-icons/bs'
 import { AiOutlineMail, AiOutlineLink } from 'react-icons/ai'
 
 export default function NewsPage({ event }) {
@@ -39,12 +38,11 @@ export default function NewsPage({ event }) {
               <p>{event.Title}</p>
             </div>
           </div>
-
-          <h1 className='mb-8 break-all'>{event.Title}</h1>
+          <Title version='v3'>{event.Title}</Title>
         </div>
 
         {/* CONTENT */}
-        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start justify-center lg:justify-start'>
+        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start justify-center lg:justify-start mt-8'>
           {/* DESCRIPTION */}
           {event.Description ? (
             <div

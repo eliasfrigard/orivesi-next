@@ -5,6 +5,7 @@ import md from 'markdown-it'
 
 import Layout from '../../components/Layout'
 import Player from '../../components/Player'
+import Title from '../../components/Title'
 
 import { BiTimeFive } from 'react-icons/bi'
 import { GiHighHeel } from 'react-icons/gi'
@@ -37,7 +38,7 @@ export default function ScorePage({ score }) {
           </div>
 
           <div className='lg:mb-8'>
-            <h1 className='break-all'>{score.Title}</h1>
+            <Title version='v3'>{score.Title}</Title>
             <div className='meta flex flex-col md:flex-row gap-6 lg:gap-8 items-start md:items-center mt-8 lg:mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-2xl' />
