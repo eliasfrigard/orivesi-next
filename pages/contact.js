@@ -4,27 +4,36 @@ import ContactInfo from '../components/Modules/ContactInfo'
 import ContactForm from '../components/Modules/ContactForm'
 import FeedbackForm from '../components/Modules/FeedbackForm'
 import Title from '../components/Title'
+import AnimateIn from '../components/AnimateIn'
 
 export default function Contact({ contacts }) {
   return (
     <Layout>
       <div className='container flex flex-col mb-24 mt-3 lg:mt-16 items-center'>
-        <Title>Yhteystiedot</Title>
+        <AnimateIn distance={0}>
+          <Title>Yhteystiedot</Title>
+        </AnimateIn>
 
-        <ContactForm contacts={contacts}></ContactForm>
+        <AnimateIn distance={0} opacityDuration={1000}>
+          <ContactForm contacts={contacts}></ContactForm>
+        </AnimateIn>
+
         <div className='flex flex-wrap gap-8 justify-center md:my-16'>
           {contacts.map((contact) => (
-            <ContactInfo
-              key={contact.id}
-              name={contact.attributes.Name}
-              role={contact.attributes.Role}
-              email={contact.attributes.Email}
-              phone={contact.attributes.Phone}
-            ></ContactInfo>
+            <AnimateIn key={contact.id} classes='flex flex-wrap gap-8 justify-center'>
+              <ContactInfo
+                name={contact.attributes.Name}
+                role={contact.attributes.Role}
+                email={contact.attributes.Email}
+                phone={contact.attributes.Phone}
+              ></ContactInfo>
+            </AnimateIn>
           ))}
         </div>
 
-        <FeedbackForm></FeedbackForm>
+        <AnimateIn distance={0} threshold={0.5} opacityDuration={1000}>
+          <FeedbackForm></FeedbackForm>
+        </AnimateIn>
       </div>
     </Layout>
   )

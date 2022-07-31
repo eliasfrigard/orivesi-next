@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Title from '../Title'
 import Button from '../Button'
+import AnimateIn from '../AnimateIn'
 
 export default function HighlightText({ title, subtitle }) {
   const [submitWasAttempted, setSubmitWasAttempted] = useState(false)
@@ -71,7 +72,7 @@ export default function HighlightText({ title, subtitle }) {
         ></textarea>
 
         {/* Honeypot for bots. */}
-        <div className='absolute top-[-100px] flex flex-col w-full mb-8'>
+        <div className='absolute top-[-100px] flex flex-col w-full mb-8 opacity-0'>
           <label
             htmlFor='rating'
             className='drop-shadow-lg px-2 text-2xl uppercase tracking-wider font-sketch font-bold mt-4'

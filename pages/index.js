@@ -7,6 +7,7 @@ import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
 import SearchModule from '../components/Modules/SearchModule'
+import AnimateIn from '../components/AnimateIn'
 
 export default function Home({ welcome, news, events }) {
   function isPrevious(date) {
@@ -30,7 +31,9 @@ export default function Home({ welcome, news, events }) {
           objectFit='cover'
         />
       </div>
-      <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
+      <AnimateIn distance={0}>
+        <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
+      </AnimateIn>
       <ShortPresentation
         title={welcome.Title}
         text={welcome.Text}
