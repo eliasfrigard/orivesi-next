@@ -25,8 +25,6 @@ export default function NewsPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
-  console.log(event)
-
   return (
     <Layout>
       <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>
@@ -60,7 +58,7 @@ export default function NewsPage({ event }) {
             <p className='text-6xl font-cursive'>Tiedot</p>
             <div className='flex gap-6 flex-wrap'>
               <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
-                <h3 className='text-2xl font-medium tracking-wide font-work'>Alkaa:</h3>
+                <h3 className='text-2xl font-medium font-work'>Alkaa:</h3>
                 <div className='flex gap-4 items-center'>
                   <BiTimeFive className='text-3xl' />
                   {/* TODO: Implement duration! */}
@@ -81,7 +79,7 @@ export default function NewsPage({ event }) {
               </div>
               {event.End ? (
                 <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
-                  <h3 className='text-2xl font-medium tracking-wide font-work'>Loppuu:</h3>
+                  <h3 className='text-2xl font-medium font-work'>Loppuu:</h3>
                   <div className='flex gap-4 items-center'>
                     <BiTimeFive className='text-3xl' />
                     {/* TODO: Implement duration! */}
