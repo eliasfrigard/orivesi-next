@@ -14,10 +14,8 @@ export default function Title({ title, links }) {
 
   return (
     <div className='flex flex-col justify-center items-center gap-4'>
-      <div className='flex items-center gap-2 text-primary-500 pl-8'>
-        <p className='text-primary-500 text-2xl font-medium' onClick={handleCLick}>
-          {title}
-        </p>
+      <div className='flex items-center gap-2 text-primary-500 pl-8' onClick={handleCLick}>
+        <p className='text-primary-500 text-2xl font-medium'>{title}</p>
 
         {isOpen ? (
           <HiChevronUp className='right-24 text-2xl' />
