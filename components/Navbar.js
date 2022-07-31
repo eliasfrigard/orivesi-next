@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import Dropdown from './Dropdown'
+import DropdownMobile from './DropdownMobile'
 
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi'
 
 export default function Navbar() {
   const router = useRouter()
@@ -44,6 +46,7 @@ export default function Navbar() {
 
   return (
     <>
+      {/* DESKTOP NAV BELOW */}
       <div
         className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-20  pt-10 ${
           scrollPosition > 20 ? 'shadow-xl pt-[10px] bg-secondary-500' : 'bg-primary-500'
@@ -135,6 +138,7 @@ export default function Navbar() {
           </a>
         </div>
       </div>
+      {/* MOBILE NAV BELOW */}
       <div
         className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
           isMobileNavOpen ? '' : 'shadow-lg'
@@ -175,7 +179,7 @@ export default function Navbar() {
               {links.map((link) => (
                 <li key={link.title}>
                   {link.type === 'dropdown' ? (
-                    <p className='text-primary-500 text-2xl font-medium'>{link.title}</p>
+                    <DropdownMobile title={link.title} links={link.links} />
                   ) : (
                     <Link href={link.page}>
                       <a
