@@ -1,7 +1,16 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { FaHeart, FaStar } from 'react-icons/fa'
 
-export default function Score({ title, type, composer, link, isHeader = false, onChangeFilter }) {
+export default function Score({
+  title,
+  type,
+  composer,
+  link,
+  isHeader = false,
+  onChangeFilter,
+  status = null,
+}) {
   const [open, setOpen] = useState(false)
   const onMouseClick = () => setOpen(!open)
 
@@ -32,6 +41,31 @@ export default function Score({ title, type, composer, link, isHeader = false, o
             onClick={onMouseClick}
             className='w-full lg:h-14 px-10 py-5 lg:py-8 bg-secondary-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-accent-500 duration-200 flex flex-col lg:flex-row gap-2 lg:gap-20 justify-between items-center'
           >
+            {status === 'Aktiivisoitossa' ? (
+              <div
+                data-tooltip-target='tooltip-default'
+                className='absolute left-[-40px] text-black flex gap-1'
+              >
+                <FaHeart className='text-sm text-secondary-500' />
+              </div>
+            ) : (
+              ''
+            )}
+            {status === 'Vanhaa Tuttua Ohjelmistoa' ? (
+              <div className='absolute left-[-55px] text-black flex gap-1'>
+                <FaHeart className='text-sm text-secondary-500' />
+                <FaHeart className='text-sm text-secondary-500' />
+              </div>
+            ) : (
+              ''
+            )}
+            {status === 'Uusi Biisi' ? (
+              <div className='absolute left-[-40px] text-black flex gap-1'>
+                <FaStar className='text-sm text-accent-500' />
+              </div>
+            ) : (
+              ''
+            )}
             <p className='flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider text-center lg:text-left leading-relaxed'>
               {title}
             </p>

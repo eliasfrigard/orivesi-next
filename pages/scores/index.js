@@ -4,6 +4,8 @@ import Layout from '../../components/Layout'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
+import InfoModule from '../../components/Modules/InfoModule'
+import { FaHeart, FaStar } from 'react-icons/fa'
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -35,6 +37,26 @@ export default function Home({ scores }) {
 
   return (
     <Layout>
+      <InfoModule>
+        <div className='flex flex-col gap-6'>
+          <FaHeart className='text-xl text-secondary-500' />
+          <p className='inline'>
+            Yhdellä sydämellä merkityt kappaleet ovat aktiivisoitossa tällä hetkellä. Niistä on siis hyvä
+            aloittaa, jos olet uusi materiaalin parissa.
+          </p>
+          <div className='flex gap-2'>
+            <FaHeart className='text-xl text-secondary-500' />
+            <FaHeart className='text-xl text-secondary-500' />
+          </div>
+          <p>
+            Kahdella sydämellä merkityt ovat monelle vanhaa tuttua ohjelmistoa, joilla tarvittaessa
+            täydennnetään esimerkiksi keikkasettiä.
+          </p>
+          <FaStar className='text-xl text-accent-500' />
+          <p>Tähdellä merkityt ovat uusimpia tuttavuuksia!</p>
+        </div>
+      </InfoModule>
+
       <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Nuotit</Title>
         <div>
@@ -54,6 +76,7 @@ export default function Home({ scores }) {
                 title={score.attributes.Title}
                 type={score.attributes.Type}
                 composer={score.attributes.Composer}
+                status={score.attributes.Status}
               ></Score>
             ))}
           </div>
@@ -65,7 +88,7 @@ export default function Home({ scores }) {
 
 export async function getStaticProps() {
   const response = await axios.get(
-    `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type&sort=Title:asc`
+    `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type,Status&sort=Title:asc`
   )
 
   let scoreWithSlug = response.data.data.map((score) => {
