@@ -2,7 +2,6 @@ import axios from 'axios'
 import EventPreview from '../../components/Modules/EventPreview'
 import Layout from '../../components/Layout'
 import Title from '../../components/Title'
-import InfoModule from '../../components/Modules/InfoModule'
 
 export default function Events({ events }) {
   function isPrevious(date) {
@@ -14,8 +13,6 @@ export default function Events({ events }) {
 
   return (
     <Layout>
-      <InfoModule></InfoModule>
-
       <div className='flex flex-col'>
         {/* Upcoming */}
         <div className='flex flex-col items-center gap-16 lg:my-16'>

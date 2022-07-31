@@ -184,7 +184,7 @@ export default function ContactForm({ contacts }) {
             className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent  border-b-2 placeholder-slate-400'
             type='text'
             name='room'
-            value={formData.phone}
+            value={formData.room}
             placeholder='1 2 3 ...'
           />
         </div>
