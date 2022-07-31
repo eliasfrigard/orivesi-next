@@ -4,14 +4,12 @@ import Link from 'next/link'
 export default function Title({ title, items, active, scrollPosition }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleClick = () => {
-    setIsOpen(!isOpen)
-  }
+  const open = () => setIsOpen(true)
+  const close = () => setIsOpen(false)
 
   return (
-    <div>
+    <div onMouseEnter={open} onMouseLeave={close}>
       <a
-        onClick={handleClick}
         className={`
         ${isOpen ? 'bg-accent-500 text-primary-500' : ''}
           ${
@@ -31,14 +29,14 @@ export default function Title({ title, items, active, scrollPosition }) {
       </a>
       {isOpen ? (
         <div
-          className={`absolute flex flex-col gap-3 mt-6 translate-x-[-3.9rem] w-[220px] p-4 rounded-lg duration-300 bg-secondary-600 ${
-            scrollPosition > 20 ? 'mt-12' : ''
+          className={`absolute flex flex-col gap-1 mt-2 translate-x-[-3.9rem] w-[220px] p-4 rounded-lg duration-300  ${
+            scrollPosition > 20 ? 'pt-8' : ''
           }`}
         >
           {items.map((item) => (
             <Link href={item.page} key={item.title}>
               <div
-                className={`bg-accent-500 hover:bg-accent-700 duration-100 rounded py-[13px] px-[20px] font-sans tracking-wide font-medium text-primary-500 cursor-pointer `}
+                className={`bg-secondary-500 hover:bg-accent-700 duration-100 rounded-lg py-[13px] px-[20px] font-sans tracking-wide font-medium text-primary-500 cursor-pointer border-4 border-primary-500 shadow-lg`}
               >
                 {item.title}
               </div>
