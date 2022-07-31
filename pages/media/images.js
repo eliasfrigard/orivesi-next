@@ -1,7 +1,4 @@
 import axios from 'axios'
-import Image from 'next/image'
-import md from 'markdown-it'
-
 import Layout from '../../components/Layout'
 import Title from '../../components/Title'
 import ImagePreview from '../../components/Modules/ImagePreview'
@@ -11,7 +8,7 @@ export default function Images({ images }) {
     <Layout>
       <div className='sm:my-16'>
         <Title>Kuvat</Title>
-        <div className='flex  flex-wrap my-16 gap-6 items-center justify-center w-full'>
+        <div className='flex flex-wrap my-16 gap-6 items-center justify-center w-full'>
           {images.map((image) => (
             <div
               key={image.id}

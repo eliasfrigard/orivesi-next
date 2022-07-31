@@ -8,6 +8,9 @@ import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
 import SearchModule from '../components/Modules/SearchModule'
 
+// Test
+import Modal from '../components/Modules/Modal'
+
 export default function Home({ welcome, news, events }) {
   function isPrevious(date) {
     return new Date(date).getTime() < Date.now()
@@ -19,6 +22,8 @@ export default function Home({ welcome, news, events }) {
 
   return (
     <Layout>
+      <Modal></Modal>
+
       <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
         <Image
           className='rounded'

@@ -12,7 +12,7 @@ import Title from '../../components/Title'
 
 import { FiChevronRight } from 'react-icons/fi'
 import { BiTimeFive, BiCalendarCheck, BiCalendar, BiCalendarX } from 'react-icons/bi'
-import { GiEarthAfricaEurope } from 'react-icons/gi'
+import { GiEarthAfricaEurope, GiHouse } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 import { BsFacebook, BsFillPinMapFill } from 'react-icons/bs'
 import { BsCalendar3 } from 'react-icons/bs'
@@ -59,10 +59,10 @@ export default function NewsPage({ event }) {
             <div className='flex gap-6 flex-wrap'>
               <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
                 <h3 className='text-2xl font-medium font-work'>Alkaa:</h3>
-                <div className='flex gap-4 items-center'>
+                <div className='flex capitalize gap-4 items-center'>
                   <BiTimeFive className='text-3xl' />
                   {/* TODO: Implement duration! */}
-                  <Moment format='kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
+                  <Moment format='dd kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
                     {event.Start}
                   </Moment>
                 </div>
@@ -80,10 +80,14 @@ export default function NewsPage({ event }) {
               {event.End ? (
                 <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
                   <h3 className='text-2xl font-medium font-work'>Loppuu:</h3>
-                  <div className='flex gap-4 items-center'>
+                  <div className='flex capitalize gap-4 items-center'>
                     <BiTimeFive className='text-3xl' />
                     {/* TODO: Implement duration! */}
-                    <Moment format='kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
+                    <Moment
+                      format='dd kk:mm'
+                      locale='fi'
+                      className='capistalize text-2xl font-bold font-work'
+                    >
                       {event.End}
                     </Moment>
                   </div>
@@ -107,6 +111,14 @@ export default function NewsPage({ event }) {
                 <GoLocation className='text-xl' />
                 <p>{event.Location}</p>
               </div>
+              {event.Address ? (
+                <div className='flex gap-3 items-center my-2'>
+                  <GiHouse className='text-xl' />
+                  <p>{event.Address}</p>
+                </div>
+              ) : (
+                ''
+              )}
               <div className='flex gap-3 items-center mb-2'>
                 <GiEarthAfricaEurope className='text-xl' />
                 <p>

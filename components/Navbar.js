@@ -45,7 +45,7 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-50  pt-10 ${
+        className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-20  pt-10 ${
           scrollPosition > 20 ? 'shadow-xl pt-[10px] bg-secondary-500' : 'bg-primary-500'
         } duration-500`}
       >
@@ -136,7 +136,7 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
+        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
           isMobileNavOpen ? '' : 'shadow-lg'
         }`}
       >
