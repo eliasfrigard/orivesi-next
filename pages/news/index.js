@@ -8,7 +8,7 @@ export default function News({ news }) {
     <Layout>
       <div className='flex flex-col	container lg:my-16 gap-12 md:gap-16'>
         <Title>Uutiset</Title>
-        <div className='flex flex-wrap flex-row justify-between md:justify-center gap-10 xl:gap-y-20'>
+        <div className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'>
           {news.map((item) => (
             <NewsPreview
               key={item.id}

@@ -20,7 +20,7 @@ export default function NewsPreview({ title, post, image, author, date, link, is
       <div
         className={`w-90 ${
           isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
-        }  cursor-pointer p-2 rounded-lg text-grey-500`}
+        }  cursor-pointer p-2 text-grey-500 pb-8 border-b-4 border-secondary-400 hover:border-accent-400 border-opacity-50 duration-300`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
