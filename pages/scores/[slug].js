@@ -38,10 +38,10 @@ export default function ScorePage({ score }) {
 
           <div className='lg:mb-8'>
             <h1 className='break-all'>{score.Title}</h1>
-            <div className='meta flex flex-col md:flex-row gap-8 items-start md:items-center mt-5'>
+            <div className='meta flex flex-col md:flex-row gap-6 lg:gap-8 items-start md:items-center mt-8 lg:mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-2xl' />
-                <div className='flex items-center gap-1.5 tracking-wider'>
+                <div className='flex items-center gap-1.5 tracking-wider text-lg'>
                   Viimeksi päivitetty
                   <Moment locale='fi' fromNow>
                     {score.updatedAt ? score.updatedAt : score.createdAt}
