@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { FaHeart, FaStar } from 'react-icons/fa'
 import Layout from '../../components/Layout'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
-import { FaHeart, FaStar } from 'react-icons/fa'
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)

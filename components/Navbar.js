@@ -11,20 +11,20 @@ export default function Navbar() {
   const router = useRouter()
 
   const links = [
-    { title: 'Home', page: '/' },
+    { title: 'Koti', page: '/' },
     { title: 'All Stars', page: '/about' },
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
     { title: 'Nuotit', page: '/scores' },
-    // {
-    //   title: 'Media',
-    //   page: '/media',
-    //   type: 'dropdown',
-    //   links: [
-    //     { title: 'Kuvat', page: '/media/images' },
-    //     { title: 'Äänitykset', page: '/media/audio' },
-    //   ],
-    // },
+    {
+      title: 'Media',
+      page: '/media',
+      type: 'dropdown',
+      links: [
+        { title: 'Kuvat', page: '/media/images' },
+        { title: 'Äänitykset', page: '/media/audio' },
+      ],
+    },
     { title: 'Jäsenyydet', page: '/membership' },
     { title: 'Yhteystiedot', page: '/contact' },
   ]

@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 
 export default function InfoModule({ children }) {
-  const [scrollPosition, setScrollPosition] = useState(0)
+  const [scrollPosition, setScrollPosition] = useState(1)
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = () => {
     setIsOpen(!isOpen)
   }
 
-  useEffect(() => {
-    window.onscroll = () => {
-      setScrollPosition(window.scrollY)
-    }
-  })
+  // useEffect(() => {
+  //   window.onscroll = () => {
+  //     setScrollPosition(window.scrollY)
+  //   }
+  // })
 
   return (
     <>
