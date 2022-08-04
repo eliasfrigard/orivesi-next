@@ -59,7 +59,6 @@ export default function NewsPage({ event }) {
                 <h3 className='text-2xl font-medium font-work'>Alkaa:</h3>
                 <div className='flex capitalize gap-4 items-center'>
                   <BiTimeFive className='text-3xl' />
-                  {/* TODO: Implement duration! */}
                   <Moment format='dd kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
                     {event.Start}
                   </Moment>
