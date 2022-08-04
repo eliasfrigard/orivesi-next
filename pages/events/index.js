@@ -74,7 +74,7 @@ export default function Events({ events }) {
           </div>
           {previousEvents.length <= 0 ? (
             <div className='mb-4 mt-[-50px] sm:mt-0'>
-              <Title version='v2'>Ei tulevia tapahtumia.</Title>
+              <Title version='v2'>Ei aikaisempia tapahtumia.</Title>
             </div>
           ) : (
             ''
