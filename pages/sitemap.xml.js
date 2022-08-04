@@ -1,6 +1,6 @@
-const EXTERNAL_DATA_URL = 'https://jsonplaceholder.typicode.com/posts'
+import axios from 'axios'
 
-function generateSiteMap(posts) {
+function generateSiteMap({ news, events, scores }) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -30,11 +30,29 @@ function generateSiteMap(posts) {
      <url>
        <loc>https://orivesiallstars.net/contact</loc>
      </url>
-     ${posts
+     ${news
        .map(({ id }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+           <loc>${`https://orivesiallstars.net/news/${id}`}</loc>
+       </url>
+     `
+       })
+       .join('')}
+     ${scores
+       .map(({ id }) => {
+         return `
+       <url>
+           <loc>${`https://orivesiallstars.net/scores/${id}`}</loc>
+       </url>
+     `
+       })
+       .join('')}
+     ${events
+       .map(({ id }) => {
+         return `
+       <url>
+           <loc>${`https://orivesiallstars.net/events/${id}`}</loc>
        </url>
      `
        })
@@ -48,15 +66,19 @@ function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  // We make an API call to gather the URLs for our site
-  const request = await fetch(EXTERNAL_DATA_URL)
-  const posts = await request.json()
+  // Get all posts.
+  const news = await axios.get(`${process.env.API_ADDRESS}/posts`)
+  const scores = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
+  const events = await axios.get(`${process.env.API_ADDRESS}/events`)
 
   // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(posts)
+  const sitemap = generateSiteMap({
+    scores: scores.data.data,
+    news: news.data.data,
+    events: events.data.data,
+  })
 
   res.setHeader('Content-Type', 'text/xml')
-  // we send the XML to the browser
   res.write(sitemap)
   res.end()
 
