@@ -31,28 +31,31 @@ function generateSiteMap({ news, events, scores }) {
        <loc>https://orivesiallstars.net/contact</loc>
      </url>
      ${news
-       .map(({ id }) => {
+       .map((post) => {
          return `
        <url>
-           <loc>${`https://orivesiallstars.net/news/${id}`}</loc>
+           <loc>${`https://orivesiallstars.net/news/${post.id}`}</loc>
+           <lastmod>${new Date(post.attributes.updatedAt).toLocaleDateString('se')}</lastmod>
        </url>
      `
        })
        .join('')}
      ${scores
-       .map(({ id }) => {
+       .map((score) => {
          return `
        <url>
-           <loc>${`https://orivesiallstars.net/scores/${id}`}</loc>
+           <loc>${`https://orivesiallstars.net/scores/${score.id}`}</loc>
+           <lastmod>${new Date(score.attributes.updatedAt).toLocaleDateString('se')}</lastmod>
        </url>
      `
        })
        .join('')}
      ${events
-       .map(({ id }) => {
+       .map((event) => {
          return `
        <url>
-           <loc>${`https://orivesiallstars.net/events/${id}`}</loc>
+           <loc>${`https://orivesiallstars.net/events/${event.id}`}</loc>
+           <lastmod>${new Date(event.attributes.updatedAt).toLocaleDateString('se')}</lastmod>
        </url>
      `
        })
@@ -71,12 +74,16 @@ export async function getServerSideProps({ res }) {
   const scores = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
   const events = await axios.get(`${process.env.API_ADDRESS}/events`)
 
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap({
+  const data = {
     scores: scores.data.data,
     news: news.data.data,
     events: events.data.data,
-  })
+  }
+
+  // We generate the XML sitemap with the posts data
+  const sitemap = generateSiteMap(data)
+
+  console.log(new Date(data.scores[0].attributes.updatedAt).toLocaleDateString('se'))
 
   res.setHeader('Content-Type', 'text/xml')
   res.write(sitemap)
