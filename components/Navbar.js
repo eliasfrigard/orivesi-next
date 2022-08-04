@@ -71,7 +71,7 @@ export default function Navbar() {
           </div>
         </Link>
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
-          <ul className='flex align-middle justify-center items-center gap-1'>
+          <ul className='flex align-middle justify-center items-center gap-2'>
             {links.map((link) => (
               <li key={link.title}>
                 {link.type === 'dropdown' ? (
@@ -94,14 +94,14 @@ export default function Navbar() {
                       router.pathname === link.page ||
                       (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
                         ? scrollPosition > 20
-                          ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-md'
-                          : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-md'
+                          ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
+                          : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-sm'
                         : ''
                     }
-                    py-[13px] px-[20px] whitespace-nowrap	 active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
+                    py-[13px] px-[16px] whitespace-nowrap	 active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
                       scrollPosition > 20
-                        ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
-                        : 'hover:bg-secondary-500 hover:shadow-md'
+                        ? 'text-primary-500 hover:bg-accent-500 hover:shadow-sm'
+                        : 'hover:bg-secondary-500 hover:shadow-sm'
                     }`}
                     >
                       {link.title}

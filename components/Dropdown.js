@@ -15,14 +15,14 @@ export default function Title({ title, items, active, scrollPosition }) {
           ${
             active
               ? scrollPosition > 20
-                ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-md'
-                : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-md'
+                ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
+                : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-sm'
               : ''
           }
-            py-[13px] px-[20px] cursor-pointer  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
+            py-[13px] px-[16px] cursor-pointer  active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
               scrollPosition > 20
-                ? 'text-primary-500 hover:bg-accent-500 hover:shadow-md'
-                : 'hover:bg-secondary-500 hover:shadow-md'
+                ? 'text-primary-500 hover:bg-accent-500 hover:shadow-sm'
+                : 'hover:bg-secondary-500 hover:shadow-sm'
             }`}
       >
         {title}
