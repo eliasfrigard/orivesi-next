@@ -10,7 +10,7 @@ export default function NewsHighlights({ news }) {
         <Title version='v1'>TUOREIMMAT UUTISET</Title>
       </AnimateIn>
       {/* // Change back to mt-12 / mt-24 when more news. */}
-      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 xl:mb-12 mt-12 sm:my-16'>
+      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 mb-6 xl:mb-12 mt-12 sm:my-16'>
         {news.map((item) => (
           <AnimateIn key={item.id} classes='flex flex-row flex-wrap justify-between md:justify-centers'>
             <NewsPreview
