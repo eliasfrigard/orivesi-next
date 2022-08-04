@@ -14,10 +14,13 @@ export default function EventPreview({
   link,
   startTime,
   endTime,
+  important = true,
 }) {
   return (
     <Link href={'/events/' + link}>
-      <div className='flex flex-col w-[300px] items-center text-secondary-800  border-4 border-secondary-500 hover:border-accent-300 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-200 cursor-pointer active:scale-95 tracking-wide'>
+      <div
+        className={`flex flex-col w-[300px] items-center text-secondary-800  border-4 border-secondary-500 hover:border-accent-300 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-200 cursor-pointer active:scale-95 tracking-wide`}
+      >
         {/* Date */}
         <div className='date font-sketch font-bold flex gap-2 justify-center text-left items-center text-secondary-800'>
           <Moment className='text-[4.2rem] leading-[10px] font-light' format='DD'>
@@ -51,6 +54,10 @@ export default function EventPreview({
             {date}
           </Moment>
         )}
+
+        <Moment className='font-sketch text-xl leading-[10px] font-light mt-7' format='dddd'>
+          {date}
+        </Moment>
 
         {/* Title */}
         <h3 className='text-xl text-center leading-relaxed tracking-wide my-5'>{title}</h3>
