@@ -20,7 +20,7 @@ export default function EventHighlights({ events }) {
               city={event.attributes.City}
               country={event.attributes.Country}
               startTime={event.attributes.Start}
-              endTime={event.attributes.End}
+              // endTime={event.attributes.End}
             ></EventPreview>
           </AnimateIn>
         ))}
