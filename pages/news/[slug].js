@@ -107,6 +107,9 @@ export default function NewsPage({ post }) {
                 link={event.id}
                 date={event.attributes.Start}
                 title={event.attributes.Title}
+                location={event.attributes.Location}
+                city={event.attributes.City}
+                country={event.attributes.Country}
                 key={event.attributes.id}
               />
             ))}
