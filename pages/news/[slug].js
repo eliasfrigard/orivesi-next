@@ -99,7 +99,7 @@ export default function NewsPage({ post }) {
       {/* Associated Events */}
       {post.events.data.length > 0 ? (
         <div className='container my-12 lg:my-32'>
-          <Title version='v2'>Littyviä tapahtumia.</Title>
+          <Title version='v2'>Liittyviä tapahtumia.</Title>
 
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
             {post.events.data.map((event) => (
