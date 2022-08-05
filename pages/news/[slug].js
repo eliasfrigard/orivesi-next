@@ -79,7 +79,7 @@ export default function NewsPage({ post }) {
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 ? (
         <div className='container my-12 lg:my-32'>
-          <Title version='v2'>Littyviä nuotteja.</Title>
+          <Title version='v2'>Liittyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-8 my-8 lg:my-16'>
             {post.music_scores.data.map((score) => (
