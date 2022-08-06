@@ -84,7 +84,7 @@ export default function NewsPage({ post }) {
           <div className='flex flex-col gap-8 my-8 lg:my-16'>
             {post.music_scores.data.map((score) => (
               <Score
-                key={score.slug}
+                key={score.id}
                 link={score.id}
                 title={score.attributes.Title}
                 type={score.attributes.Type}

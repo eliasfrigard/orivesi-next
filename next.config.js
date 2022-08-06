@@ -8,7 +8,7 @@ const nextConfig = {
     API_DEV_TOKEN: process.env.API_TOKEN,
   },
   i18n: {
-    locales: ['en', 'fi'],
+    locales: ['fi'],
     defaultLocale: 'fi',
   },
 }
