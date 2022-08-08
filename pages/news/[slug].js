@@ -79,12 +79,12 @@ export default function NewsPage({ post }) {
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 ? (
         <div className='container my-12 lg:my-32'>
-          <Title version='v2'>Littyviä nuotteja.</Title>
+          <Title version='v2'>Liittyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-8 my-8 lg:my-16'>
             {post.music_scores.data.map((score) => (
               <Score
-                key={score.slug}
+                key={score.id}
                 link={score.id}
                 title={score.attributes.Title}
                 type={score.attributes.Type}
@@ -99,7 +99,7 @@ export default function NewsPage({ post }) {
       {/* Associated Events */}
       {post.events.data.length > 0 ? (
         <div className='container my-12 lg:my-32'>
-          <Title version='v2'>Littyviä tapahtumia.</Title>
+          <Title version='v2'>Liittyviä tapahtumia.</Title>
 
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
             {post.events.data.map((event) => (
@@ -107,6 +107,9 @@ export default function NewsPage({ post }) {
                 link={event.id}
                 date={event.attributes.Start}
                 title={event.attributes.Title}
+                location={event.attributes.Location}
+                city={event.attributes.City}
+                country={event.attributes.Country}
                 key={event.attributes.id}
               />
             ))}
