@@ -51,10 +51,7 @@ export default function NewsPage({ post }) {
           </div>
         </div>
         {post.Youtube ? (
-          <div
-            className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-16/9 overflow-hidden rounded-xl shadow-xl'
-            key={post.Youtube}
-          >
+          <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-16/9 overflow-hidden rounded-xl shadow-xl'>
             <iframe
               className='w-full aspect-16/9'
               src={`https://www.youtube.com/embed/${post.Youtube}`}
