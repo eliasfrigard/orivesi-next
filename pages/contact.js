@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Layout from '../components/Layout'
-import ContactInfo from '../components/Modules/ContactInfo'
+import ContactCard from '../components/Modules/ContactCard'
 import ContactForm from '../components/Modules/ContactForm'
 import FeedbackForm from '../components/Modules/FeedbackForm'
 import Title from '../components/Title'
@@ -21,12 +21,12 @@ export default function Contact({ contacts }) {
         <div className='flex flex-wrap gap-8 justify-center md:my-16'>
           {contacts.map((contact) => (
             <AnimateIn key={contact.id} classes='flex flex-wrap gap-8 justify-center'>
-              <ContactInfo
+              <ContactCard
                 name={contact.attributes.Name}
                 role={contact.attributes.Role}
                 email={contact.attributes.Email}
                 phone={contact.attributes.Phone}
-              ></ContactInfo>
+              ></ContactCard>
             </AnimateIn>
           ))}
         </div>
