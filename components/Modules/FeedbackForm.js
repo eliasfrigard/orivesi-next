@@ -3,11 +3,8 @@ import axios from 'axios'
 
 import Title from '../Title'
 import Button from '../Button'
-import AnimateIn from '../AnimateIn'
 
-export default function HighlightText({ title, subtitle }) {
-  const [submitWasAttempted, setSubmitWasAttempted] = useState(false)
-  const [submitWasSuccess, setSubmitWasSuccess] = useState()
+export default function FeedbackForm() {
   const [formData, setFormData] = useState({
     body: '',
     // Honeypot
@@ -44,8 +41,6 @@ export default function HighlightText({ title, subtitle }) {
       } else {
         console.log('fail')
       }
-
-      setSubmitWasAttempted(true)
     }
 
     sendData()

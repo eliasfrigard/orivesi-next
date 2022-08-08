@@ -6,16 +6,7 @@ import { BsPerson } from 'react-icons/bs'
 import { BiTimeFive } from 'react-icons/bi'
 import { useState } from 'react'
 
-export default function NewsPreview({
-  title,
-  post,
-  image,
-  author,
-  date,
-  link,
-  youtube = 'tAiafYUs02U',
-  isFull = false,
-}) {
+export default function NewsPreview({ title, post, image, author, date, link, youtube, isFull = false }) {
   const [hover, setHover] = useState(false)
   const onMouseEnter = () => setHover(true)
   const onMouseLeave = () => setHover(false)

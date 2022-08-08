@@ -5,6 +5,7 @@ import NewsPreview from '../../components/Modules/NewsPreview'
 import Title from '../../components/Title'
 
 export default function News({ news }) {
+  console.log(news)
   return (
     <Layout>
       <div className='flex flex-col	container lg:my-16 gap-12 md:gap-16'>
@@ -21,6 +22,7 @@ export default function News({ news }) {
                 link={item.slug}
                 title={item.attributes.Title}
                 image={item.attributes.Images.data[0].attributes}
+                youtube={item.attributes.Youtube}
                 post={item.attributes.Text}
                 author={item.attributes.Author}
                 date={item.attributes.createdAt}
