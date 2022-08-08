@@ -84,7 +84,7 @@ export default function ContactForm({ contacts }) {
             htmlFor='title'
             className='drop-shadow-lg px-2 text-2xl uppercase tracking-wider font-sketch font-bold mt-4'
           >
-            Otsikko *
+            Aihe *
           </label>
           <input
             className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400'
@@ -143,7 +143,7 @@ export default function ContactForm({ contacts }) {
             htmlFor='title'
             className='drop-shadow-lg px-2 text-2xl uppercase tracking-wider font-sketch font-bold mt-4 '
           >
-            Sähköposti *
+            Oma Sähköposti *
           </label>
           <input
             className='h-[50px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400'
