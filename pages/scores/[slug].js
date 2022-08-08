@@ -66,7 +66,7 @@ export default function ScorePage({ score }) {
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
                   <h3 className='text-4xl font-cursive font-bold'>Nuotit</h3>
                   {score.Scores.data.map((file) => (
-                    <a href={file.attributes.url} key={file.attributes.id} target="_blank" rel="noreferrer">
+                    <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
                       <div className='selection:bg-accent-500 flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:scale-100 hover:shadow-xl hover:bg-secondary-400 duration-200 rounded-lg py-4 px-6'>
                         <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
                         <p className='font-medium tracking-wide break-all	'>{file.attributes.name}</p>
