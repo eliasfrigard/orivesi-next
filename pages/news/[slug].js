@@ -16,7 +16,7 @@ import { FiChevronRight } from 'react-icons/fi'
 import { MdOutlineArticle } from 'react-icons/md'
 
 export default function NewsPage({ post }) {
-  const myLoader = ({ src, width, quality }) => {
+  const myLoader = () => {
     return post.Images.data[0].attributes.url
   }
 
@@ -50,18 +50,32 @@ export default function NewsPage({ post }) {
             </div>
           </div>
         </div>
-        <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-79/52 img relative shadow-xl'>
-          <Image
-            className='rounded'
-            loader={myLoader}
-            src={post.Images.data[0].attributes.url}
-            alt={post.Images.data[0].attributes.alternativeText}
-            width='100%'
-            height='100%'
-            layout='fill'
-            objectFit='cover'
-          />
-        </div>
+        {post.Youtube ? (
+          <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-16/9 overflow-hidden rounded-xl shadow-xl'>
+            <iframe
+              className='w-full aspect-16/9'
+              src={`https://www.youtube.com/embed/${post.Youtube}`}
+              title='YouTube video player'
+              frameBorder={0}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+              loading='lazy'
+            ></iframe>
+          </div>
+        ) : (
+          <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-79/52 img relative shadow-xl'>
+            <Image
+              className='rounded'
+              loader={myLoader}
+              src={post.Images.data[0].attributes.url}
+              alt={post.Images.data[0].attributes.alternativeText}
+              width='100%'
+              height='100%'
+              layout='fill'
+              objectFit='cover'
+            />
+          </div>
+        )}
         <div className='flex flex-col lg:flex-row gap-6 lg:gap-16'>
           {/* SIDEBAR IS DISABLED FOR NOW UNTIL BETTER CONTENT. */}
           {/* <div className='flex lg:flex-col gap-5 lg:mt-[5px] my-2 lg:my-0'>

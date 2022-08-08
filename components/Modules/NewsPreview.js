@@ -6,7 +6,16 @@ import { BsPerson } from 'react-icons/bs'
 import { BiTimeFive } from 'react-icons/bi'
 import { useState } from 'react'
 
-export default function NewsPreview({ title, post, image, author, date, link, isFull = false }) {
+export default function NewsPreview({
+  title,
+  post,
+  image,
+  author,
+  date,
+  link,
+  youtube = 'tAiafYUs02U',
+  isFull = false,
+}) {
   const [hover, setHover] = useState(false)
   const onMouseEnter = () => setHover(true)
   const onMouseLeave = () => setHover(false)
@@ -24,22 +33,40 @@ export default function NewsPreview({ title, post, image, author, date, link, is
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <div
-          className={`aspect-79/52 shadow-lg relative ${
-            hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
-          } duration-300`}
-        >
-          <Image
-            className={`rounded ${hover ? 'rounded-xl' : ''} duration-300`}
-            loader={myLoader}
-            src={image.url}
-            alt={image.alternativeText}
-            width='100%'
-            height='70%'
-            layout='fill'
-            objectFit='cover'
-          />
-        </div>
+        {youtube ? (
+          <div
+            className={`w-full aspect-79/52 overflow-hidden rounded-xl shadow-xl ${
+              hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
+            } duration-300`}
+          >
+            <iframe
+              className='w-full aspect-79/52'
+              src={`https://www.youtube.com/embed/${youtube}`}
+              title='YouTube video player'
+              frameBorder={0}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+              loading='lazy'
+            ></iframe>
+          </div>
+        ) : (
+          <div
+            className={`aspect-79/52 shadow-lg relative ${
+              hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
+            } duration-300`}
+          >
+            <Image
+              className={`rounded ${hover ? 'rounded-xl' : ''} duration-300`}
+              loader={myLoader}
+              src={image.url}
+              alt={image.alternativeText}
+              width='100%'
+              height='70%'
+              layout='fill'
+              objectFit='cover'
+            />
+          </div>
+        )}
         <div className='meta flex flex-col md:flex-row gap-2 md:gap-6 items-start mt-6 mb-4'>
           <div className='flex gap-4 md:gap-2 items-center justify-center'>
             <BiTimeFive className='text-lg' />
