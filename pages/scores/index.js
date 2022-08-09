@@ -6,7 +6,6 @@ import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
-import AnimateIn from '../../components/AnimateIn'
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -74,10 +73,9 @@ export default function Home({ scores }) {
               isHeader={true}
             ></Score>
             {filteredScores.map((score) => (
-              <AnimateIn
+              <div
                 key={score.id}
-                opacityDuration={200}
-                classes='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+                className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
               >
                 <Score
                   key={score.slug}
@@ -87,7 +85,7 @@ export default function Home({ scores }) {
                   composer={score.attributes.Composer}
                   status={score.attributes.Status}
                 ></Score>
-              </AnimateIn>
+              </div>
             ))}
           </div>
         </div>

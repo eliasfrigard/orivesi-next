@@ -24,10 +24,10 @@ export default function Navbar() {
       type: 'dropdown',
       links: [
         { title: 'Kuvat', page: '/media/images' },
-        { title: 'Äänitykset', page: '/media/audio' },
+        { title: 'Äänitteet', page: '/media/audio' },
       ],
     },
-    { title: 'Jäsenyydet', page: '/membership' },
+    { title: 'Jäsenyys', page: '/membership' },
     { title: 'Yhteystiedot', page: '/contact' },
   ]
 

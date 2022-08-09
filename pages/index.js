@@ -40,9 +40,8 @@ export default function Home({ welcome, news, events }) {
           objectFit='cover'
         />
       </div>
-      <AnimateIn distance={0}>
-        <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
-      </AnimateIn>
+      <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
+
       <ShortPresentation
         title={welcome.Title}
         text={welcome.Text}
