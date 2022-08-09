@@ -16,11 +16,7 @@ import { FiChevronRight } from 'react-icons/fi'
 import { MdOutlineArticle } from 'react-icons/md'
 import SEO from '../../components/SEO/index'
 
-<<<<<<< HEAD
 export default function NewsPage({ id, post }) {
-=======
-export default function NewsPage({ post }) {
->>>>>>> 54e1a6fd3979d9848419310a002033645145d8dc
   const myLoader = () => {
     return post.Images.data[0].attributes.url
   }
@@ -76,7 +72,7 @@ export default function NewsPage({ post }) {
             ></iframe>
           </div>
         ) : (
-          <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-79/52 img relative shadow-xl'>
+          <div className='w-[90vw] xl:w-[60vw] mb-10 lg:mb-16 m-10 lg:m-16 aspect-79/52 img relative shadow-md'>
             <Image
               className='rounded'
               loader={myLoader}
@@ -97,15 +93,17 @@ export default function NewsPage({ post }) {
             <AiOutlinePrinter className='text-3xl' />
             <AiOutlineFacebook className='text-3xl' />
           </div> */}
-          <div
-            className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
-            dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
-          />
+          <div className='md:container md:border-2 border-secondary-500 rounded-xl md:px-8 lg:px-16 md:py-12 lg:py-16 md:shadow-xl'>
+            <div
+              className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
+              dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
+              />
+          </div>
         </div>
       </div>
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 ? (
-        <div className='container my-12 lg:my-32'>
+        <div className='container my-16 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-8 my-8 lg:my-16'>
@@ -125,7 +123,7 @@ export default function NewsPage({ post }) {
       )}
       {/* Associated Events */}
       {post.events.data.length > 0 ? (
-        <div className='container my-12 lg:my-32'>
+        <div className='container my-12 lg:mt-24 lg:mb-32'>
           <Title version='v2'>Liittyviä tapahtumia.</Title>
 
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
