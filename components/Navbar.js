@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Dropdown from './Dropdown'
 import DropdownMobile from './DropdownMobile'
+import LoginBtn from './LoginBtn'
+import Button from './Button'
 
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -112,6 +114,9 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
+        {/* <div className='w-1/5 flex justify-center items-center'> */}
+        <LoginBtn classes={`duration-300 ${scrollPosition > 20 ? 'bg-accent-500' : 'bg-secondary-500'}`} />
+        {/* </div> */}
         <div
           className={`hidden xl:flex w-1/5 gap-6 text-[2rem] justify-center items-center duration-500 ${
             scrollPosition > 20 ? 'text-primary-500 scale-90' : 'text-secondary-500'
