@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth'
-import AppleProvider from 'next-auth/providers/apple'
-import FacebookProvider from 'next-auth/providers/facebook'
+// import AppleProvider from 'next-auth/providers/apple'
+// import FacebookProvider from 'next-auth/providers/facebook'
 import GoogleProvider from 'next-auth/providers/google'
 
 export default NextAuth({
@@ -18,4 +18,5 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
+  secret: process.env.SECRET,
 })
