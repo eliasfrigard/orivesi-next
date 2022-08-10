@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Dropdown from './Dropdown'
 import DropdownMobile from './DropdownMobile'
+import LoginBtn from './LoginBtn'
+import Button from './Button'
 
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -112,7 +114,10 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-        <div
+        <div className='w-1/5 flex justify-center items-center'>
+          <LoginBtn classes={`duration-300 ${scrollPosition > 20 ? 'bg-accent-500' : 'bg-secondary-500'}`} />
+        </div>
+        {/* <div
           className={`hidden xl:flex w-1/5 gap-6 text-[2rem] justify-center items-center duration-500 ${
             scrollPosition > 20 ? 'text-primary-500 scale-90' : 'text-secondary-500'
           }`}
@@ -136,7 +141,7 @@ export default function Navbar() {
           <a href='mailto:orivesiallstars@gmail.com'>
             <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
           </a>
-        </div>
+        </div> */}
       </div>
       {/* MOBILE NAV BELOW */}
       <div
