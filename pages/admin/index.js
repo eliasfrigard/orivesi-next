@@ -1,36 +1,32 @@
-import { unstable_getServerSession } from 'next-auth/next'
-import { authOptions } from '../api/auth/[...nextauth]'
-import { useSession } from 'next-auth/react'
+import AdminLayout from '../../components/Admin/AdminLayout'
 import Layout from '../../components/Layout'
+import { useSession } from 'next-auth/react'
+import axios from 'axios'
 
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      session: await unstable_getServerSession(context.req, context.res, authOptions),
-    },
-  }
-}
-
-export default function Admin() {
+export default function About({ about }) {
   const { data: session } = useSession()
-
-  if (typeof window === 'undefined') return null
 
   if (session) {
     return (
-      <Layout>
-        <div className='w-full h-[60vh] flex justify-center items-center'>
-          <h1 className='uppercase text-green-500'>Secret Admin Page</h1>
-        </div>
-      </Layout>
+      <AdminLayout>
+        <h1>text</h1>
+      </AdminLayout>
     )
   }
 
   return (
     <Layout>
-      <div className='w-full h-[60vh] flex justify-center items-center'>
-        <h1 className='uppercase text-red-500'>Access Denied</h1>
-      </div>
+      <h1>Access Denied</h1>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const response = await axios.get(`${process.env.API_ADDRESS}/about?populate=Images`)
+
+  return {
+    props: {
+      about: response.data.data.attributes,
+    },
+  }
 }

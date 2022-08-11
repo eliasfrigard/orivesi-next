@@ -1,22 +1,35 @@
-import NextAuth from 'next-auth'
-// import AppleProvider from 'next-auth/providers/apple'
-// import FacebookProvider from 'next-auth/providers/facebook'
+import NextAuth, { NextAuthOptions } from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 
-export default NextAuth({
+const authOptions = {
+  session: {
+    strategy: 'jwt',
+  },
   providers: [
-    // AppleProvider({
-    //   clientId: process.env.APPLE_ID,
-    //   clientSecret: process.env.APPLE_SECRET
-    // }),
-    // FacebookProvider({
-    //   clientId: process.env.FACEBOOK_ID,
-    //   clientSecret: process.env.FACEBOOK_SECRET
-    // }),
+    CredentialsProvider({
+      type: 'credentials',
+      credentials: {
+        email: { label: 'Sähköposti', type: 'email', placeholder: 'info@orivesiallstars.net' },
+        password: { label: 'Salasana', type: 'password', placeholder: '***********' },
+      },
+      async authorize(credentials, req) {
+        const { email, password } = credentials
+
+        if (!email || !password) throw new Error('email/password missing!')
+
+        if (email === 'elias_frigard@hotmail.com' && password === 'password')
+          return { username: 'John', id: '123' }
+
+        throw new Error('username/password do not match!')
+      },
+    }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
   secret: process.env.SECRET,
-})
+}
+
+export default NextAuth(authOptions)
