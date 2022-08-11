@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react'
 import axios from 'axios'
 import Moment from 'react-moment'
 
-export default function Posts({ news }) {
+export default function Posts({ events }) {
   const { data: session } = useSession()
 
   if (session) {
@@ -15,20 +15,25 @@ export default function Posts({ news }) {
             <tr>
               <th className='pl-8 w-32'>ID</th>
               <th>Title</th>
-              <th>Author</th>
+              <th>Location</th>
               <th>Created</th>
               <th>Last Updated</th>
             </tr>
           </thead>
           <tbody>
-            {news.map((item) => (
+            {events.map((item) => (
               <tr
                 key={item.id}
                 className=' h-[60px] border-b-2 hover:bg-secondary-200 hover:text-primary-500 hover:border-primary-500 cursor-pointer duration-100'
               >
                 <td className='pl-8'>#{item.slug}</td>
                 <td>{item.attributes.Title}</td>
-                <td>{item.attributes.Author}</td>
+                <td>
+                  {item.attributes.Location}{' '}
+                  <p className='inline text-xs font-medium opacity-70'>
+                    ({item.attributes.City}, {item.attributes.Country})
+                  </p>
+                </td>
                 <td>
                   <Moment format={'DD.MM.YYYY'}>{item.attributes.createdAt}</Moment>
                 </td>
@@ -51,18 +56,18 @@ export default function Posts({ news }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts?sort=createdAt:desc&populate=Images`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/events`)
 
-  const newsWithSlug = response.data.data.map((post) => {
+  const eventsWithSlug = response.data.data.map((event) => {
     return {
-      slug: post.id,
-      ...post,
+      slug: event.id,
+      ...event,
     }
   })
 
   return {
     props: {
-      news: newsWithSlug,
+      events: eventsWithSlug,
     },
   }
 }
