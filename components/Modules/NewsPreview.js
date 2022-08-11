@@ -62,7 +62,7 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
           <div className='flex gap-4 md:gap-2 items-center justify-center'>
             <BiTimeFive className='text-lg' />
             <Moment className='font-work text-lg' format={'LL '}>
-              {post.created_at}
+              {date}
             </Moment>
           </div>
           <div className='flex gap-4 md:gap-2 items-center justify-center'>

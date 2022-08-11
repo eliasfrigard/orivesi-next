@@ -50,7 +50,7 @@ export default function NewsPage({ id, post }) {
             <div className='flex gap-4 lg:gap-2 items-center justify-center'>
               <BiTimeFive className='text-2xl' />
               <Moment className='font-work text-lg' format={'LL '}>
-                {post.created_at}
+                {post.createdAt}
               </Moment>
             </div>
             <div className='flex gap-4 lg:gap-2 items-center justify-center'>
