@@ -50,7 +50,7 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAV BELOW */}
       <div
-        className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-20  pt-10 ${
+        className={`hidden lg:flex fixed w-full justify-center py-[10px] backdrop-blur z-20  pt-10 ${
           scrollPosition > 20 ? 'shadow-xl pt-[10px] bg-secondary-500' : 'bg-primary-500'
         } duration-500`}
       >

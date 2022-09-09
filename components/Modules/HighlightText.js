@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Navbar from '../NavbarHome'
 
 export default function HighlightText({ title, subtitle }) {
   return (
@@ -13,12 +14,13 @@ export default function HighlightText({ title, subtitle }) {
         layout='responsive'
         objectFit='contain'
       />
-      <div className='py-10 sm:pt-4 lg:pt-24 lg:pb-32 text-center w-full px-4'>
-        <h1 className='text-4xl lg:text-[9rem] lg:leading-[10rem] font-bold font-sketch text-accent-500 drop-shadow-lg'>
+      <Navbar></Navbar>
+      <div className='py-10 sm:pt-4 lg:pt-6 lg:pb-32 text-center w-full px-4'>
+        <h1 className='text-4xl lg:text-[8rem] lg:leading-[8rem] font-medium font-work tracking-normal text-accent-500 drop-shadow'>
           {title}
         </h1>
         {subtitle ? (
-          <h2 className='font-cursive text-[1.8rem] sm:text-4xl sm:leading-tight my-4 font-medium text-accent-400 drop-shadow-md'>
+          <h2 className='font-cursive text-[1.8rem] pt-1 lg:text-[5.5rem] sm:text-4xl sm:leading-tight my-4 text-grey-400 drop-shadow lowercase'>
             {subtitle}
           </h2>
         ) : null}
