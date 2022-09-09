@@ -76,5 +76,5 @@ input[type='range']::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: rgb(236, 100, 26);
+  background: #ec641a;
 }
