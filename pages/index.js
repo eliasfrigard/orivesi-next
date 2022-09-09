@@ -7,7 +7,6 @@ import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
 import SearchModule from '../components/Modules/SearchModule'
-import AnimateIn from '../components/AnimateIn'
 import SEO from '../components/SEO/index'
 
 export default function Home({ welcome, news, events }) {
@@ -21,12 +20,12 @@ export default function Home({ welcome, news, events }) {
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         url={`https://orivesiallstars.net/`}
-        openGraphType="website"
-        schemaType="article"
-        title="Orivesi All Stars"
-        description="Suomen suurin pelimanniorkesteri."
+        openGraphType='website'
+        schemaType='article'
+        title='Orivesi All Stars'
+        description='Suomen suurin pelimanniorkesteri.'
         image={`https://orivesiadmin.net/oas_image.jpg`}
       ></SEO>
       <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
@@ -40,6 +39,7 @@ export default function Home({ welcome, news, events }) {
           objectFit='cover'
         />
       </div>
+
       <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
 
       <ShortPresentation

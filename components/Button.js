@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function HighlightText({
+export default function Button({
   children,
   url,
   color = 'bg-accent-500',
