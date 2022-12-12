@@ -58,9 +58,9 @@ const AnimateIn = ({
       className={classes}
       ref={ref}
       style={{
-        transition: `opacity ${500}ms`,
-        // transitionDelay: `${delay}ms`,
-        // transform: `${translateDirection}(${inView ? 0 : translateDistance}px)`,
+        transition: `opacity ${opacityDuration}ms`,
+        transitionDelay: `${delay}ms`,
+        transform: `${translateDirection}(${inView ? 0 : translateDistance}px)`,
         opacity: inView ? 1 : 0,
       }}
     >
