@@ -31,13 +31,13 @@ export default function Home({ welcome, news, events }) {
         image={`https://orivesiadmin.net/oas_image.jpg`}
       ></SEO>
       <AnimateIn opacityDuration={1000} delay={1000}>
-        <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
+        <div className='container lg:hidden mb-7 drop-shadow rounded-lg -mt-2'>
           <Image
             className='rounded-xl'
-            src='/qVHC0VqQ.jpeg'
+            src='/kaustinen.jpg'
             alt='Orivesi All Stars'
             width='6581'
-            height='3060'
+            height='3900'
             layout='responsive'
             objectFit='cover'
           />
@@ -52,7 +52,7 @@ export default function Home({ welcome, news, events }) {
         text={welcome.Text}
         linkText={welcome.Link_Text}
         linkUrl={welcome.Link_URL}
-      ></ShortPresentation>
+      />
 
       <div className='flex flex-col justify-center items-center'>
         <NewsHighlights news={news}></NewsHighlights>
