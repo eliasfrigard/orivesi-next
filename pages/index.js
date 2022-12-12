@@ -30,17 +30,19 @@ export default function Home({ welcome, news, events }) {
         description='Suomen suurin pelimanniorkesteri.'
         image={`https://orivesiadmin.net/oas_image.jpg`}
       ></SEO>
-      <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
-        <Image
-          className='rounded'
-          src='/qVHC0VqQ.jpeg'
-          alt='Orivesi All Stars'
-          width='6581'
-          height='3060'
-          layout='responsive'
-          objectFit='cover'
-        />
-      </div>
+      <AnimateIn opacityDuration={1000} delay={1000}>
+        <div className='container lg:hidden mb-7 drop-shadow rounded-xl'>
+          <Image
+            className='rounded-xl'
+            src='/qVHC0VqQ.jpeg'
+            alt='Orivesi All Stars'
+            width='6581'
+            height='3060'
+            layout='responsive'
+            objectFit='cover'
+          />
+        </div>
+      </AnimateIn>
       <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
 
       <TiltedImages></TiltedImages>

@@ -20,15 +20,15 @@ export default function Navbar() {
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
     { title: 'Nuotit', page: '/scores' },
-    {
-      title: 'Media',
-      page: '/media',
-      type: 'dropdown',
-      links: [
-        { title: 'Kuvat', page: '/media/images' },
-        { title: 'Äänitteet', page: '/media/audio' },
-      ],
-    },
+    // {
+    //   title: 'Media',
+    //   page: '/media',
+    //   type: 'dropdown',
+    //   links: [
+    //     { title: 'Kuvat', page: '/media/images' },
+    //     { title: 'Äänitteet', page: '/media/audio' },
+    //   ],
+    // },
     { title: 'Jäsenyys', page: '/membership' },
     { title: 'Yhteystiedot', page: '/contact' },
   ]
