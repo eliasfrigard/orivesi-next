@@ -74,12 +74,6 @@ export default function Footer() {
             <Link href='/membership'>
               <p className='hover:text-accent-500 cursor-pointer'>Jäsenyys</p>
             </Link>
-            <Link href='/media/images'>
-              <p className='hover:text-accent-500 cursor-pointer'>Kuvat</p>
-            </Link>
-            <Link href='/media/audio'>
-              <p className='hover:text-accent-500 cursor-pointer'>Äänitteet</p>
-            </Link>
             <Link href='/contact'>
               <p className='hover:text-accent-500 cursor-pointer'>Yhteystiedot</p>
             </Link>
