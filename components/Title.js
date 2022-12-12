@@ -6,7 +6,7 @@ export default function Title({ children, version, color }) {
       )}
 
       {version === 'v2' && (
-        <h3 className='text-center text-4xl md:text-6xl tracking-wider font-sketch font-bold drop-shadow-lg'>
+        <h3 className='text-center text-4xl md:text-5xl tracking-wider font-sketch font-bold drop-shadow-lg'>
           {children}
         </h3>
       )}

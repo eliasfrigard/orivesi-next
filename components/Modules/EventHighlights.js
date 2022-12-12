@@ -21,7 +21,7 @@ export default function EventHighlights({ events }) {
           ></EventPreview>
         ))}
         {events.length <= 0 ? (
-          <div className=''>
+          <div className='-mt-2'>
             <Title version='v2'>Ei tulevia tapahtumia.</Title>
           </div>
         ) : (
