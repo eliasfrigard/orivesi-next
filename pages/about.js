@@ -26,7 +26,7 @@ export default function About({ about }) {
 
         <div distance={0} className='w-[90vw] xl:w-[60vw] my-16 aspect-79/52 img relative shadow-xl'>
           <Image
-            className='rounded'
+            className='rounded-lg'
             loader={myLoader}
             src={about.Images.data[0].attributes.url}
             alt={about.Images.data[0].attributes.alternativeText}
