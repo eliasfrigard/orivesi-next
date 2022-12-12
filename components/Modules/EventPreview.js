@@ -55,7 +55,10 @@ export default function EventPreview({
           </Moment>
         )}
 
-        <Moment className='font-sketch text-xl leading-[10px] font-light mt-7' format='dddd'>
+        <Moment
+          className='font-sketch text-2xl leading-[10px] tracking-wide font-light mt-7 mb-1'
+          format='dddd'
+        >
           {date}
         </Moment>
 
