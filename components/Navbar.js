@@ -188,7 +188,7 @@ export default function Navbar() {
                   ) : (
                     <Link href={link.page}>
                       <a
-                        className={`text-primary-500
+                        className={`
                     ${
                       router.pathname === link.page ||
                       (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
