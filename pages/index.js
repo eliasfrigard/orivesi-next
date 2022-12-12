@@ -43,7 +43,7 @@ export default function Home({ welcome, news, events }) {
           />
         </div>
       </AnimateIn>
-      <HighlightText title='ORIVESI ALL STARS' subtitle='The Great Happy Orchestra'></HighlightText>
+      <HighlightText title='ORIVESI ALL STARS' subtitle='Suomen Suurin Pelimanniorkesteri'></HighlightText>
 
       <TiltedImages></TiltedImages>
 

@@ -6,7 +6,7 @@ export default function HighlightText({
   color = 'bg-accent-500',
   hoverColor = 'hover:bg-accent-500',
   rounded = 'rounded-full',
-  width = 'w-[230px]',
+  width = 'min-w-[230px]',
   height,
   disabled = false,
 }) {

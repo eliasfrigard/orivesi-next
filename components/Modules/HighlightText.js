@@ -5,7 +5,7 @@ export default function HighlightText({ title, subtitle }) {
     <AnimateIn delay={1000} opacityDuration={1000} className='hidden md:block'>
       <div className='pb-16 sm:pt-4 lg:pt-24 lg:pb-24 text-center w-full px-4'>
         {subtitle ? (
-          <h2 className='text-2xl sm:text-4xl leading-10 sm:leading-tight my-4 font-work font-medium text-grey-400 uppercase drop-shadow-md'>
+          <h2 className='text-2xl sm:text-4xl leading-10 sm:leading-tight my-4 mb-6 font-work text-grey-300 uppercase drop-shadow-sm'>
             {subtitle}
           </h2>
         ) : null}

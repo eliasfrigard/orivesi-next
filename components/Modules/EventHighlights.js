@@ -29,7 +29,7 @@ export default function EventHighlights({ events }) {
         )}
       </div>
 
-      <Button url='/events'>Lisää Tapahtumia</Button>
+      <Button url='/events'>Katso Kaikki Tapahtumat</Button>
     </div>
   )
 }
