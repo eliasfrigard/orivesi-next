@@ -80,6 +80,7 @@ export async function getStaticProps() {
     }
   })
 
+  //
   let eventsWithSlug = eventRes.data.data.map((event) => {
     return {
       slug: event.id,
