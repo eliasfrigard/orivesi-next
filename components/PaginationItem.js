@@ -44,7 +44,7 @@ export default function paginationItem({
     return (
       <a
         href={link}
-        className='relative z-10 inline-flex items-center border border-secondary-200 bg-secondary-200 px-4 py-2 text-sm font-medium text-primary-600 focus:z-20'
+        className='relative z-10 inline-flex items-center border border-secondary-500 bg-secondary-500 px-4 py-2 text-sm font-medium text-primary-600 focus:z-20'
       >
         {children}
       </a>
