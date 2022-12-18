@@ -137,11 +137,19 @@ export default function ScorePage({ score }) {
 export async function getStaticPaths() {
   const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
 
-  const paths = response.data.data.map((score) => ({
-    params: {
-      slug: score.id.toString(),
-    },
-  }))
+  const paths = []
+
+  for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
+    const res = await axios.get(`${process.env.API_ADDRESS}/music-scores?pagination[page]=${i + 1}`)
+
+    res.data.data.forEach(score => {
+      paths.push({
+        params: {
+          slug: score.id.toString(),
+        },
+      })
+    })
+  }
 
   return {
     paths: paths,
