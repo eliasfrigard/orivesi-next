@@ -14,15 +14,14 @@ export default function Title({ title, links }) {
 
   useEffect(() => {
     if (router.pathname.includes(title.toLowerCase())) setIsOpen(true)
-  }, [])
+  }, [router.pathname, title])
 
   return (
     <div className='flex flex-col justify-center items-center gap-4'>
       <div className='flex items-center gap-2 text-primary-500 pl-8' onClick={handleCLick}>
         <p
-          className={`text-primary-500 text-2xl font-medium                     ${
-            router.pathname.includes(title.toLowerCase()) ? 'text-accent-500 font-bold' : 'text-primary-500'
-          }`}
+          className={`text-primary-500 text-2xl font-medium                     ${router.pathname.includes(title.toLowerCase()) ? 'text-accent-500 font-bold' : 'text-primary-500'
+            }`}
         >
           {title}
         </p>
@@ -39,9 +38,8 @@ export default function Title({ title, links }) {
           {links.map((link) => (
             <Link key={link.title} href={link.page}>
               <p
-                className={`${
-                  router.pathname === link.page ? 'text-accent-500' : 'text-primary-500'
-                } font-medium`}
+                className={`${router.pathname === link.page ? 'text-accent-500' : 'text-primary-500'
+                  } font-medium`}
               >
                 {link.page}
               </p>
