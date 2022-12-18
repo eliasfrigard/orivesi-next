@@ -62,7 +62,7 @@ export default function ScorePage({ score }) {
 
           <div className='flex flex-col gap-10 lg:gap-16'>
             <div className='flex flex-col lg:flex-row gap-10'>
-              {score.Scores.data.length > 0 ? (
+              {score.Scores.data && score.Scores.data.length > 0 ? (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
                   <h3 className='text-4xl font-cursive font-bold'>Nuotit</h3>
                   {score.Scores.data.map((file) => (
@@ -90,7 +90,7 @@ export default function ScorePage({ score }) {
               ) : null}
             </div>
 
-            {youtubeVideos.length > 0 ? (
+            {youtubeVideos && youtubeVideos.length > 0 ? (
               <div>
                 <h3 className='text-4xl font-cursive font-bold mb-6'>Videot</h3>
                 <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
@@ -142,7 +142,7 @@ export async function getStaticPaths() {
   for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
     const res = await axios.get(`${process.env.API_ADDRESS}/music-scores?pagination[page]=${i + 1}`)
 
-    res.data.data.forEach(score => {
+    res.data.data.forEach((score) => {
       paths.push({
         params: {
           slug: score.id.toString(),
