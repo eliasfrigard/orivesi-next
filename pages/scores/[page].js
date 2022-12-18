@@ -6,8 +6,9 @@ import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
+import Pagination from '../../components/Pagination'
 
-export default function Home({ scores }) {
+export default function Home({ scores, page, pageCount, pageSize, totalScores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
   const [filteredBy, setFilteredBy] = useState('title')
 
@@ -87,6 +88,13 @@ export default function Home({ scores }) {
                 ></Score>
               </div>
             ))}
+            <Pagination
+              currentPage={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              total={totalScores}
+              elementsOnPage={scores.length}
+            ></Pagination>
           </div>
         </div>
       </div>
@@ -101,7 +109,7 @@ export async function getStaticPaths() {
 
   for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
     paths.push({
-      params: { page: (i + 1).toString() }
+      params: { page: (i + 1).toString() },
     })
   }
 
@@ -110,7 +118,6 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
-
 
 export async function getStaticProps({ params: { page } }) {
   const response = await axios.get(
@@ -126,7 +133,10 @@ export async function getStaticProps({ params: { page } }) {
 
   return {
     props: {
-      page: page,
+      page: response.data.meta.pagination.page,
+      pageCount: response.data.meta.pagination.pageCount,
+      totalScores: response.data.meta.pagination.total,
+      pageSize: response.data.meta.pagination.pageSize,
       scores: scoreWithSlug,
     },
   }

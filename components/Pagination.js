@@ -1,7 +1,21 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import PaginationItem from './PaginationItem'
 
-export default function Pagination({ pages, pageLength = 50, total = 163, currentPage = 1 }) {
+export default function Pagination({ pageCount, pageSize, total, currentPage, elementsOnPage }) {
+  console.log(typeof pageSize)
+  const paginationItems = () => {
+    const items = []
+
+    for (let i = 0; i < pageCount; i++) {
+      items.push(
+        <PaginationItem link={`/scores/${i + 1}`} highlighted={i + 1 === currentPage}>
+          {i + 1}
+        </PaginationItem>
+      )
+    }
+
+    return items
+  }
+
   return (
     <div className='flex items-center justify-between bg-primary px-4 py-3 sm:px-6'>
       <div className='flex flex-1 justify-between sm:hidden'>
@@ -21,19 +35,16 @@ export default function Pagination({ pages, pageLength = 50, total = 163, curren
       <div className='hidden sm:flex sm:flex-1 sm:items-center sm:justify-between'>
         <div>
           <p className='text-sm text-gray-700'>
-            Showing <span className='font-medium'>{(currentPage - 1) * pageLength + 1}</span> to{' '}
-            <span className='font-medium'>{currentPage * pageLength}</span> of{' '}
+            Showing <span className='font-medium'>{(currentPage - 1) * pageSize + 1}</span> to{' '}
+            <span className='font-medium'>{(currentPage - 1) * pageSize + elementsOnPage}</span> of{' '}
             <span className='font-medium'>{total}</span> results
           </p>
         </div>
         <div>
           <nav className='isolate inline-flex -space-x-px rounded-md shadow-sm' aria-label='Pagination'>
-            <PaginationItem>
-              <ChevronLeftIcon className='h-5 w-5' aria-hidden='true' />
-            </PaginationItem>
-            <PaginationItem>
-              <ChevronRightIcon className='h-5 w-5' aria-hidden='true' />
-            </PaginationItem>
+            <PaginationItem link={`/scores/${currentPage - 1}`} arrowLeft></PaginationItem>
+            {paginationItems()}
+            <PaginationItem link={`/scores/${currentPage + 1}`} arrowRight></PaginationItem>
           </nav>
         </div>
       </div>
