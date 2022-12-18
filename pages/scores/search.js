@@ -36,13 +36,18 @@ export default function ScoreSearch() {
               </p>
               <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true}></Score>
               {scores.map((score) => (
-                <Score
+                <div
                   key={score.id}
-                  link={score.id}
-                  title={score.Title}
-                  type={score.Type}
-                  composer={score.Composer}
-                ></Score>
+                  className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-y-16'
+                >
+                  <Score
+                    key={score.id}
+                    link={score.id}
+                    title={score.Title}
+                    type={score.Type}
+                    composer={score.Composer}
+                  ></Score>
+                </div>
               ))}
             </div>
           ) : (
