@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d "
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "@popperjs/core": "^2.11.5",
     "@tailwindcss/line-clamp": "^0.4.0",
     "axios": "^0.27.2",
