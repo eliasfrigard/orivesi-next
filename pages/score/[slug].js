@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Moment from 'react-moment'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import md from 'markdown-it'
 
 import Layout from '../../components/Layout'
@@ -14,6 +15,8 @@ import { BsMusicNoteList } from 'react-icons/bs'
 import { FaPencilAlt } from 'react-icons/fa'
 
 export default function ScorePage({ score }) {
+  const router = useRouter()
+
   let youtubeVideos = score?.Youtube
 
   if (youtubeVideos) {
@@ -27,9 +30,14 @@ export default function ScorePage({ score }) {
       <div className='container flex my-6 md:my-24 flex-col items-center'>
         <div className='w-full flex flex-col gap-10'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
-            <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
+            <div className='flex items-center gap-2 duration-75'>
               <BsMusicNoteList />
-              <Link href='/scores'>Nuotit</Link>
+              <span
+                className='cursor-pointer hover:text-grey-800 hover:font-medium'
+                onClick={() => router.back()}
+              >
+                Nuotit
+              </span>
             </div>
             <div className='flex items-center gap-2'>
               <FiChevronRight></FiChevronRight>
