@@ -76,7 +76,7 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
             {filteredScores.map((score) => (
               <div
                 key={score.id}
-                className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+                className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-y-16'
               >
                 <Score
                   key={score.slug}

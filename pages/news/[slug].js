@@ -23,11 +23,11 @@ export default function NewsPage({ id, post }) {
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         url={`https://orivesiallstars.net/news/${id}`}
         image={post.Images.data[0].attributes.url}
-        openGraphType="website"
-        schemaType="article"
+        openGraphType='website'
+        schemaType='article'
         Title='Orivesi All Stars'
         description={post.Title}
       ></SEO>
@@ -97,7 +97,7 @@ export default function NewsPage({ id, post }) {
             <div
               className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
               dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
-              />
+            />
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function NewsPage({ id, post }) {
         <div className='container my-16 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-8 my-8 lg:my-16'>
+          <div className='flex flex-col gap-6 my-8 lg:my-16'>
             {post.music_scores.data.map((score) => (
               <Score
                 key={score.id}

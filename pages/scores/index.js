@@ -61,7 +61,7 @@ export default function Home({ scores }) {
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-8 mt-16 mb-8 md:my-16'>
+          <div className='container flex flex-col gap-6 mt-16 mb-8 md:my-16'>
             <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
               Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
             </p>
@@ -75,7 +75,7 @@ export default function Home({ scores }) {
             {filteredScores.map((score) => (
               <div
                 key={score.id}
-                className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+                className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-y-16'
               >
                 <Score
                   key={score.slug}

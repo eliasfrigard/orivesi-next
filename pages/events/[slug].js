@@ -181,7 +181,7 @@ export default function NewsPage({ event }) {
         <div className='container my-12 md:my-32'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-8 my-8'>
+          <div className='flex flex-col gap-6 my-8'>
             {event.music_scores.data.map((score) => (
               <Score
                 key={score.slug}
