@@ -36,7 +36,7 @@ export default function Score({
           </div>
         </div>
       ) : (
-        <Link href={'/scores/' + link}>
+        <Link href={'/score/' + link}>
           <div
             onClick={onMouseClick}
             className='selection:bg-accent-500 w-full lg:h-14 px-10 py-5 lg:py-8 bg-secondary-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 flex flex-col lg:flex-row gap-2 lg:gap-20 justify-between items-center'
