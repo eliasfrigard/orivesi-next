@@ -6,7 +6,7 @@ export default function Pagination({ pageCount, pageSize, total, currentPage, el
 
     for (let i = 0; i < pageCount; i++) {
       items.push(
-        <PaginationItem link={(i + 1).toString()} highlighted={i + 1 === currentPage}>
+        <PaginationItem link={`${process.env.BASE_URL}/scores/${i + 1}`} highlighted={i + 1 === currentPage}>
           {i + 1}
         </PaginationItem>
       )

@@ -19,7 +19,7 @@ export default function Navbar() {
     { title: 'All Stars', page: '/about' },
     { title: 'Uutiset', page: '/news' },
     { title: 'Tapahtumat', page: '/events' },
-    { title: 'Nuotit', page: '/scores' },
+    { title: 'Nuotit', page: '/scores/1' },
     // {
     //   title: 'Media',
     //   page: '/media',
