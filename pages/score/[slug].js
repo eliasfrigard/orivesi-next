@@ -28,9 +28,9 @@ export default function ScorePage({ score }) {
   return (
     <Layout>
       <div className='container flex my-6 md:my-24 flex-col items-center'>
-        <div className='w-full flex flex-col gap-8 lg:gap-6'>
+        <div className='w-full flex flex-col gap-10 lg:gap-6'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
-            <div className='flex items-center gap-2 duration-75'>
+            <div className='flex items-center gap-3 duration-75'>
               <BsMusicNoteList />
               <span
                 className='cursor-pointer hover:text-grey-800 hover:font-medium'
@@ -45,9 +45,9 @@ export default function ScorePage({ score }) {
             </div>
           </div>
 
-          <div className='lg:mb-8'>
+          <div className='lg:mb-8 lg:mt-2'>
             <Title version='v3'>{score.Title}</Title>
-            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-5'>
+            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-4'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-xl mt-[4px]' />
                 <div className='gap-1.5 tracking-wider text-lg'>

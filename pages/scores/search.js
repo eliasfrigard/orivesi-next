@@ -30,7 +30,7 @@ export default function ScoreSearch() {
         <div>
           <SearchModule title='Etsitkö jotain muuta?'></SearchModule>
           {scores.length > 0 ? (
-            <div className='container flex flex-col gap-6 mt-16 mb-8 md:my-16'>
+            <div className='container flex flex-col gap-4 lg:gap-6 mt-16 mb-8 md:my-16'>
               <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
                 Hakuehdoilla löytyi <b>{scores.length}</b> nuottia.
               </p>
