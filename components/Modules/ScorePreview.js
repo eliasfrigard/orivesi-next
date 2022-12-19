@@ -39,7 +39,7 @@ export default function Score({
         <Link href={'/score/' + link}>
           <div
             onClick={onMouseClick}
-            className='selection:bg-accent-500 w-full lg:h-14 px-8 py-5 lg:py-8 bg-secondary-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 flex flex-col lg:flex-row gap-2 lg:gap-20 justify-between items-center'
+            className='selection:bg-accent-500 w-full lg:h-14 px-4 lg:px-8 py-3 lg:py-8 bg-secondary-500 text-white backdrop-blur-lg rounded-lg shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 flex flex-col lg:flex-row gap-2 lg:gap-20 justify-between items-center'
           >
             {status === 'Aktiivisoitossa' ? (
               <div
@@ -69,7 +69,7 @@ export default function Score({
             <p className='flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider text-center lg:text-left leading-relaxed'>
               {title}
             </p>
-            <div className='flex flex-col lg:flex-row flex-1 items-center gap-2 lg:gap-14'>
+            <div className='hidden lg:flex flex-col lg:flex-row flex-1 items-center gap-2 lg:gap-14'>
               <p className='flex-1 tracking-wide'>{type}</p>
               <p className='flex-1 tracking-wide leading-relaxed'>{composer}</p>
             </div>

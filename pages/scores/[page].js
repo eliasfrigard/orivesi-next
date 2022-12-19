@@ -62,7 +62,7 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-6 mt-16 mb-8 md:my-16'>
+          <div className='container flex flex-col gap-4 lg:gap-6 mt-16 mb-8 md:my-16'>
             <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
               Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
             </p>
