@@ -28,7 +28,7 @@ export default function ScorePage({ score }) {
   return (
     <Layout>
       <div className='container flex my-6 md:my-24 flex-col items-center'>
-        <div className='w-full flex flex-col gap-10'>
+        <div className='w-full flex flex-col gap-8 lg:gap-6'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 duration-75'>
               <BsMusicNoteList />
@@ -73,7 +73,6 @@ export default function ScorePage({ score }) {
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data && score.Scores.data.length > 0 ? (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
-                  <h3 className='text-4xl font-cursive font-bold'>Nuotit</h3>
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
                       <div className='selection:bg-accent-500 flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 rounded-lg py-4 px-6'>
@@ -101,7 +100,6 @@ export default function ScorePage({ score }) {
 
             {youtubeVideos && youtubeVideos.length > 0 ? (
               <div>
-                <h3 className='text-4xl font-cursive font-bold mb-6'>Videot</h3>
                 <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
                   {youtubeVideos.map((video) => (
                     <div
