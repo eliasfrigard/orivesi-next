@@ -15,11 +15,12 @@ export default function Navbar() {
   const router = useRouter()
 
   const links = [
-    { title: 'Koti', page: '/' },
-    { title: 'All Stars', page: '/about' },
-    { title: 'Uutiset', page: '/news' },
-    { title: 'Tapahtumat', page: '/events' },
-    { title: 'Nuotit', page: '/scores/1' },
+    { title: 'Koti', page: '/', type: 'all' },
+    { title: 'All Stars', page: '/about', type: 'all' },
+    { title: 'Uutiset', page: '/news', type: 'all' },
+    { title: 'Tapahtumat', page: '/events', type: 'all' },
+    { title: 'Nuotit', page: '/scores/1', type: 'desktop' },
+    { title: 'Nuotit', page: '/scores', type: 'mobile' },
     // {
     //   title: 'Media',
     //   page: '/media',
@@ -29,8 +30,8 @@ export default function Navbar() {
     //     { title: 'Äänitteet', page: '/media/audio' },
     //   ],
     // },
-    { title: 'Jäsenyys', page: '/membership' },
-    { title: 'Yhteystiedot', page: '/contact' },
+    { title: 'Jäsenyys', page: '/membership', type: 'all' },
+    { title: 'Yhteystiedot', page: '/contact', type: 'all' },
   ]
 
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -74,44 +75,47 @@ export default function Navbar() {
         </Link>
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
           <ul className='flex align-middle justify-center items-center gap-2'>
-            {links.map((link) => (
-              <li key={link.title}>
-                {link.type === 'dropdown' ? (
-                  <>
-                    <Dropdown
-                      title={link.title}
-                      items={link.links}
-                      active={
+            {links.map(
+              (link) =>
+                (link.type === 'desktop' || link.type === 'all') && (
+                  <li key={link.title}>
+                    {link.type === 'dropdown' ? (
+                      <>
+                        <Dropdown
+                          title={link.title}
+                          items={link.links}
+                          active={
+                            router.pathname === link.page ||
+                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                          }
+                          scrollPosition={scrollPosition}
+                        ></Dropdown>
+                      </>
+                    ) : (
+                      <Link href={link.page}>
+                        <a
+                          className={`
+                      ${
                         router.pathname === link.page ||
                         (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                          ? scrollPosition > 20
+                            ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
+                            : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-sm'
+                          : ''
                       }
-                      scrollPosition={scrollPosition}
-                    ></Dropdown>
-                  </>
-                ) : (
-                  <Link href={link.page}>
-                    <a
-                      className={`
-                    ${
-                      router.pathname === link.page ||
-                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                        ? scrollPosition > 20
-                          ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
-                          : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-sm'
-                        : ''
-                    }
                     py-[13px] px-[16px] whitespace-nowrap	 active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
                       scrollPosition > 20
                         ? 'text-primary-500 hover:bg-accent-500 hover:shadow-sm'
                         : 'hover:bg-secondary-500 hover:shadow-sm'
                     }`}
-                    >
-                      {link.title}
-                    </a>
-                  </Link>
-                )}
-              </li>
-            ))}
+                        >
+                          {link.title}
+                        </a>
+                      </Link>
+                    )}
+                  </li>
+                )
+            )}
           </ul>
         </div>
         {/* <div className='w-1/5 flex justify-center items-center'> */}
@@ -181,14 +185,16 @@ export default function Navbar() {
         >
           <div>
             <ul className='flex align-middle justify-center flex-col items-center gap-8'>
-              {links.map((link) => (
-                <li key={link.title}>
-                  {link.type === 'dropdown' ? (
-                    <DropdownMobile title={link.title} links={link.links} />
-                  ) : (
-                    <Link href={link.page}>
-                      <a
-                        className={`
+              {links.map(
+                (link) =>
+                  (link.type === 'mobile' || link.type === 'all') && (
+                    <li key={link.title}>
+                      {link.type === 'dropdown' ? (
+                        <DropdownMobile title={link.title} links={link.links} />
+                      ) : (
+                        <Link href={link.page}>
+                          <a
+                            className={`
                     ${
                       router.pathname === link.page ||
                       (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
@@ -196,13 +202,14 @@ export default function Navbar() {
                         : 'text-primary-500'
                     }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}
-                      >
-                        {link.title}
-                      </a>
-                    </Link>
-                  )}
-                </li>
-              ))}
+                          >
+                            {link.title}
+                          </a>
+                        </Link>
+                      )}
+                    </li>
+                  )
+              )}
             </ul>
           </div>
 

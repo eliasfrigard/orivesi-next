@@ -6,10 +6,26 @@ import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
   const [filteredBy, setFilteredBy] = useState('title')
+
+  const [hasMore, setHasMore] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(24)
+  const [scoreSublist, setScoreSublist] = useState(scores.slice(0, 24))
+
+  const fetchMore = () => {
+    if (scoreSublist.length >= scores.length) {
+      setHasMore(false)
+    } else {
+      const nextIndex = currentIndex + 25
+
+      setScoreSublist(scoreSublist.concat(scores.slice(currentIndex, nextIndex)))
+      setCurrentIndex(nextIndex)
+    }
+  }
 
   useEffect(() => {
     const sortedArray = filteredScores.sort((a, b) => {
@@ -61,33 +77,25 @@ export default function Home({ scores }) {
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-6 mt-16 mb-8 md:my-16'>
-            <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
-              Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
-            </p>
-            <Score
-              onChangeFilter={onChangeFilter}
-              title='Nimi'
-              type='Tanssilaji'
-              composer='Säveltäjä'
-              isHeader={true}
-            ></Score>
-            {filteredScores.map((score) => (
-              <div
-                key={score.id}
-                className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-y-16'
-              >
-                <Score
-                  key={score.slug}
-                  link={score.slug}
-                  title={score.attributes.Title}
-                  type={score.attributes.Type}
-                  composer={score.attributes.Composer}
-                  status={score.attributes.Status}
-                ></Score>
-              </div>
-            ))}
-          </div>
+          <InfiniteScroll dataLength={scoreSublist.length} next={fetchMore} hasMore={hasMore}>
+            <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
+              {scoreSublist.map((score) => (
+                <div
+                  key={score.id}
+                  className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-16'
+                >
+                  <Score
+                    key={score.slug}
+                    link={score.slug}
+                    title={score.attributes.Title}
+                    type={score.attributes.Type}
+                    composer={score.attributes.Composer}
+                    status={score.attributes.Status}
+                  ></Score>
+                </div>
+              ))}
+            </div>
+          </InfiniteScroll>
         </div>
       </div>
     </Layout>
@@ -95,11 +103,22 @@ export default function Home({ scores }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(
-    `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type,Status&sort=Title:asc`
-  )
+  let page = 0
+  let hasNextPage = true
+  let scores = []
 
-  let scoreWithSlug = response.data.data.map((score) => {
+  while (hasNextPage) {
+    page += 1
+
+    const res = await axios.get(
+      `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type,Status&sort=Title:asc&pagination[page]=${page}`
+    )
+
+    scores = [...scores, ...res.data.data]
+    hasNextPage = page < res.data.meta.pagination.pageCount
+  }
+
+  let scoreWithSlug = scores.map((score) => {
     return {
       slug: score.id,
       ...score,

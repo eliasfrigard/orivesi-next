@@ -21,18 +21,22 @@ export default function Pagination({ pageCount, pageSize, total, currentPage, el
 
   return (
     <div className='flex items-center justify-between bg-primary px-4 py-3 sm:px-6'>
-      <div className='flex flex-1 justify-between sm:hidden'>
+      <div className='flex flex-1 justify-between sm:hidden mt-2'>
         <a
-          href='#'
-          className='relative inline-flex items-center rounded-md border border-gray-300 bg-primary px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
+          href={`/scores/${currentPage - 1}`}
+          className={`relative ml-3 inline-flex w-1/2 items-center justify-center rounded-md border-2 border-secondary-300 bg-primary px-3 py-3 text font-medium hover:border-accent-500 ${
+            currentPage === 1 ? 'pointer-events-none opacity-50' : ''
+          }`}
         >
-          Previous
+          Edellinen
         </a>
         <a
-          href='#'
-          className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-primary px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
+          href={`/scores/${currentPage + 1}`}
+          className={`relative ml-3 inline-flex w-1/2 items-center justify-center rounded-md border-2 border-secondary-300 bg-primary px-3 py-3 text font-medium hover:border-accent-500 ${
+            currentPage + 1 > pageCount ? 'pointer-events-none opacity-50' : ''
+          }`}
         >
-          Next
+          Seuraava
         </a>
       </div>
       <div className='hidden sm:flex sm:flex-1 sm:items-center sm:justify-between'>

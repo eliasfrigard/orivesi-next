@@ -7,6 +7,7 @@ import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
 import Pagination from '../../components/Pagination'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 export default function Home({ scores, page, pageCount, pageSize, totalScores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -62,10 +63,10 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-4 lg:gap-6 mt-16 mb-8 md:my-16'>
-            <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
+          <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
+            {/* <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
               Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
-            </p>
+            </p> */}
             <Score
               onChangeFilter={onChangeFilter}
               title='Nimi'
