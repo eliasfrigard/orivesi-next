@@ -47,7 +47,7 @@ export default function ScorePage({ score }) {
 
           <div className='lg:mb-8 lg:mt-2'>
             <Title version='v3'>{score.Title}</Title>
-            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-4'>
+            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-xl mt-[4px]' />
                 <div className='gap-1.5 tracking-wider text-lg'>
