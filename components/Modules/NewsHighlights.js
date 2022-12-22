@@ -9,7 +9,7 @@ export default function NewsHighlights({ news }) {
       {/* // Change back to mt-12 / mt-24 when more news. */}
       <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 mb-6 xl:mb-12 mt-12 sm:my-16'>
         {news.map((item) => (
-          <div key={item.id} classes='flex flex-row flex-wrap justify-between md:justify-centers'>
+          <div key={item.id} className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'>
             <NewsPreview
               key={item.id}
               link={item.slug}
