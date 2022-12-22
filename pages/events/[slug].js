@@ -17,13 +17,14 @@ import { GoLocation } from 'react-icons/go'
 import { BsFacebook, BsFillPinMapFill } from 'react-icons/bs'
 import { AiOutlineMail, AiOutlineLink } from 'react-icons/ai'
 
-export default function NewsPage({ event }) {
+export default function EventPage({ event }) {
   const router = useRouter()
 
   const copyLink = () => {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
+  console.log(event);
   return (
     <Layout>
       <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>
@@ -126,17 +127,16 @@ export default function NewsPage({ event }) {
 
             <iframe
               className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
-              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
-                event.Address ? event.Address : event.Location
-              }+${event.City}+${event.Country}&z=14&output=embed`}
+              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
+                }+${event.City}+${event.Country}&z=14&output=embed`}
               allowFullScreen=''
               loading='lazy'
-              referrerpolicy='no-referrer-when-downgrade'
+              referrerPolicy='no-referrer-when-downgrade'
             ></iframe>
 
             {event.Link ? (
               <Button
-                url={'/scores'}
+                url={event.Link}
                 color='bg-accent-500'
                 hoverColor='hover:bg-accent-400'
                 rounded='rounded-xl'
@@ -158,9 +158,8 @@ export default function NewsPage({ event }) {
               />
 
               <a
-                href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${
-                  'https://orivesiallstars.net' + router.asPath
-                }`}
+                href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${'https://orivesiallstars.net' + router.asPath
+                  }`}
               >
                 <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
               </a>
