@@ -134,42 +134,48 @@ export default function EventPage({ event }) {
               referrerPolicy='no-referrer-when-downgrade'
             ></iframe>
 
-            {event.Link ? (
-              <Button
-                url={event.Link}
-                color='bg-accent-500'
-                hoverColor='hover:bg-accent-400'
-                rounded='rounded-xl'
-              >
-                Tapahtuman Sivulle
-              </Button>
-            ) : (
-              ''
-            )}
-            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1'>
-              {event.Facebook ? (
-                <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+            <div className='flex flex-col md:flex-row gap-6 md:gap-4'>
+              {event.Link ? (
+                <div className='my-2 width-full'>
+                  <Button
+                    url={event.Link}
+                    color='bg-accent-500'
+                    hoverColor='hover:bg-accent-400'
+                    rounded='rounded-xl'
+                    width='w-full max-w-[500px]'
+                  >
+                    Tapahtuman Sivulle
+                  </Button>
+                </div>
               ) : (
                 ''
               )}
-              <AiOutlineLink
-                onClick={copyLink}
-                className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
-              />
 
-              <a
-                href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${'https://orivesiallstars.net' + router.asPath
-                  }`}
-              >
-                <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
-              </a>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
-                target='_blank'
-                rel='noreferrer'
-              >
-                <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
-              </a>
+              <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1'>
+                {event.Facebook ? (
+                  <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+                ) : (
+                  ''
+                )}
+                <AiOutlineLink
+                  onClick={copyLink}
+                  className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
+                />
+
+                <a
+                  href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${'https://orivesiallstars.net' + router.asPath
+                    }`}
+                >
+                  <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
+                </a>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+                </a>
+              </div>
             </div>
           </div>
         </div>
