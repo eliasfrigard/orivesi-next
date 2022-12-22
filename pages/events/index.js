@@ -8,8 +8,8 @@ export default function Events({ events }) {
     return new Date(date).getTime() < Date.now()
   }
 
-  const upcomingEvents = events.filter((event) => !isPrevious(event.attributes.Start))
-  const previousEvents = events.filter((event) => isPrevious(event.attributes.Start))
+  const upcomingEvents = events.filter((event) => !isPrevious(event.attributes.End))
+  const previousEvents = events.filter((event) => isPrevious(event.attributes.End))
 
   return (
     <Layout>
