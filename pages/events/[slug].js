@@ -46,13 +46,13 @@ export default function EventPage({ event }) {
           {/* DESCRIPTION */}
           {event.Description ? (
             <div
-              className='prose leading-[2rem] order-2 lg:order-1'
+              className='prose leading-[2rem] order-2'
               dangerouslySetInnerHTML={{ __html: md().render(event.Description) }}
             />
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='order-1 lg:order-2 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
+          <div className='order-1 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
             <p className='text-6xl font-cursive'>Tiedot</p>
             <div className='flex gap-6 flex-wrap'>
               <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
