@@ -69,7 +69,7 @@ export default function EventPreview({
         <div className='meta flex flex-col justify-center items-center font-medium gap-2 text-secondary-500	'>
           <div className='flex flex-row justify-center items-center gap-2'>
             <GoLocation></GoLocation>
-            <p>{location}</p>
+            <p>{location.length > 25 ? location.substring(0, 22) + '...' : location}</p>
           </div>
           <div className='flex flex-row justify-center items-center gap-2'>
             <GiEarthAfricaEurope></GiEarthAfricaEurope>
