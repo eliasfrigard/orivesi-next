@@ -1781,6 +1781,11 @@
   "resolved" "https://registry.npmjs.org/markdown-extensions/-/markdown-extensions-1.1.1.tgz"
   "version" "1.1.1"
 
+"markdown-it-style@^1.0.0":
+  "integrity" "sha512-FPXnDboB+VK+R2Ofs0HoMyGTE10KYEGiTYFpdKn3Pt9YfYYnQip8+QA86Q1suMHR5skj1WXjCx7pGOxAJvHs5A=="
+  "resolved" "https://registry.npmjs.org/markdown-it-style/-/markdown-it-style-1.0.0.tgz"
+  "version" "1.0.0"
+
 "markdown-it@^13.0.1":
   "integrity" "sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q=="
   "resolved" "https://registry.npmjs.org/markdown-it/-/markdown-it-13.0.1.tgz"
