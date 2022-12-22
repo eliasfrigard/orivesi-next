@@ -24,7 +24,6 @@ export default function EventPage({ event }) {
     navigator.clipboard.writeText('https://orivesiallstars.net' + router.asPath)
   }
 
-  console.log(event);
   return (
     <Layout>
       <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>
@@ -43,7 +42,7 @@ export default function EventPage({ event }) {
         </div>
 
         {/* CONTENT */}
-        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start justify-center lg:justify-start mt-8'>
+        <div className='flex w-full flex-wrap gap-14 xl:gap-14 items-start justify-center lg:justify-start mt-10'>
           {/* DESCRIPTION */}
           {event.Description ? (
             <div
@@ -183,7 +182,7 @@ export default function EventPage({ event }) {
 
       {/* Connected Scores */}
       {event.music_scores.data.length > 0 ? (
-        <div className='container my-12 md:my-32'>
+        <div className='container my-12 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-6 my-8'>
