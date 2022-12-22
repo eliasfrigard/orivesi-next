@@ -137,6 +137,7 @@ export default function EventPage({ event }) {
               {event.Link ? (
                 <div className='my-2 width-full'>
                   <Button
+                    externalUrl
                     url={event.Link}
                     color='bg-accent-500'
                     hoverColor='hover:bg-accent-400'
