@@ -4,6 +4,7 @@ import ContactCard from '../components/Modules/ContactCard'
 import ContactForm from '../components/Modules/ContactForm'
 import FeedbackForm from '../components/Modules/FeedbackForm'
 import Title from '../components/Title'
+import { validateEmail } from '../util/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
@@ -35,9 +36,11 @@ export default function Contact({ contacts }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/contacts`)
 
+  const contacts = response.data.data.filter((contact) => validateEmail(contact.attributes.Email))
+
   return {
     props: {
-      contacts: response.data.data,
+      contacts,
     },
   }
 }
