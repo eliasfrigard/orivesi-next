@@ -115,12 +115,9 @@ export default function ContactForm({ contacts }) {
               Orivesi All Stars Nuotit
             </option>
             {contacts.map((contact) => (
-              (
-                contact.attributes.Email.includes('@') &&
-                <option key={contact.id} value={contact.attributes.Email} className='bg-secondary-500'>
-                  {contact.attributes.Name} ({contact.attributes.Role})
-                </option>
-              )
+              <option key={contact.id} value={contact.attributes.Email} className='bg-secondary-500'>
+                {contact.attributes.Name} ({contact.attributes.Role})
+              </option>
             ))}{' '}
           </select>
         </div>
