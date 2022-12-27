@@ -83,8 +83,6 @@ export async function getServerSideProps({ res }) {
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(data)
 
-  console.log(new Date(data.scores[0].attributes.updatedAt).toLocaleDateString('se'))
-
   res.setHeader('Content-Type', 'text/xml')
   res.write(sitemap)
   res.end()

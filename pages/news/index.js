@@ -4,7 +4,6 @@ import NewsPreview from '../../components/Modules/NewsPreview'
 import Title from '../../components/Title'
 
 export default function News({ news }) {
-  console.log(news)
   return (
     <Layout>
       <div className='flex flex-col	container lg:my-16 gap-12 md:gap-16'>
