@@ -57,7 +57,7 @@ export default function Footer() {
           <h4 className='text-2xl font-sketch font-bold tracking-wider'>Linkit</h4>
           <div className='flex flex-col gap-3 text-md mt-3'>
             <Link href='/'>
-              <p className='hover:text-accent-500 cursor-pointer'>Home</p>
+              <p className='hover:text-accent-500 cursor-pointer'>Koti</p>
             </Link>
             <Link href='/about'>
               <p className='hover:text-accent-500 cursor-pointer'>All Stars</p>
