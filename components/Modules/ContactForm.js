@@ -91,7 +91,7 @@ export default function ContactForm({ contacts }) {
             type='text'
             name='title'
             value={formData.title}
-            placeholder='Mistä asiasta on kyse?'
+            placeholder='Mistä on kyse?'
             required
           />
         </div>
@@ -115,9 +115,12 @@ export default function ContactForm({ contacts }) {
               Orivesi All Stars Nuotit
             </option>
             {contacts.map((contact) => (
-              <option key={contact.id} value={contact.attributes.Email} className='bg-secondary-500'>
-                {contact.attributes.Name} ({contact.attributes.Role})
-              </option>
+              (
+                contact.attributes.Email.includes('@') &&
+                <option key={contact.id} value={contact.attributes.Email} className='bg-secondary-500'>
+                  {contact.attributes.Name} ({contact.attributes.Role})
+                </option>
+              )
             ))}{' '}
           </select>
         </div>
@@ -133,7 +136,7 @@ export default function ContactForm({ contacts }) {
             className='h-[75px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 scrollbar-hide'
             name='body'
             value={formData.body}
-            placeholder='Minkälaista asiaa sinulla olisi?'
+            placeholder='Kirjoita viestisi tähän.'
             required
           ></textarea>
         </div>
@@ -150,7 +153,7 @@ export default function ContactForm({ contacts }) {
             type='email'
             name='email'
             value={formData.email}
-            placeholder='sähköposti@gmail ...'
+            placeholder='sähköposti@gmail...'
             required
           />
         </div>

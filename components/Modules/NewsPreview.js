@@ -18,17 +18,15 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
   return (
     <Link href={'/news/' + link}>
       <div
-        className={`w-90 ${
-          isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
-        }  cursor-pointer p-2 text-grey-500 pb-8 border-b-2 border-secondary-400 hover:border-accent-400 border-opacity-40 duration-300`}
+        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
+          }  cursor-pointer p-2 text-grey-500 pb-8 border-b-2 border-secondary-400 hover:border-accent-400 border-opacity-40 duration-300`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         {youtube ? (
           <div
-            className={`w-full aspect-79/52 overflow-hidden rounded-xl shadow-xl ${
-              hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
-            } duration-300`}
+            className={`w-full aspect-79/52 overflow-hidden ${hover ? '-translate-y-1 rounded-xl shadow-xl' : 'rounded shadow-lg'
+              } duration-300`}
           >
             <iframe
               className='w-full aspect-79/52'
@@ -42,12 +40,11 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
           </div>
         ) : (
           <div
-            className={`aspect-79/52 shadow-lg relative ${
-              hover ? '-translate-y-1 rounded-xl shadow-xl' : ''
-            } duration-300`}
+            className={`aspect-79/52 relative ${hover ? '-translate-y-1 rounded-xl shadow-xl' : 'shadow-lg'
+              } duration-300`}
           >
             <Image
-              className={`rounded ${hover ? 'rounded-xl' : ''} duration-300`}
+              className={`${hover ? 'rounded-xl' : 'rounded'} duration-300`}
               loader={myLoader}
               src={image.url}
               alt={image.alternativeText}

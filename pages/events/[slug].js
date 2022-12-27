@@ -17,7 +17,7 @@ import { GoLocation } from 'react-icons/go'
 import { BsFacebook, BsFillPinMapFill } from 'react-icons/bs'
 import { AiOutlineMail, AiOutlineLink } from 'react-icons/ai'
 
-export default function NewsPage({ event }) {
+export default function EventPage({ event }) {
   const router = useRouter()
 
   const copyLink = () => {
@@ -42,17 +42,17 @@ export default function NewsPage({ event }) {
         </div>
 
         {/* CONTENT */}
-        <div className='flex w-full flex-wrap gap-14 xl:gap-24 items-start justify-center lg:justify-start mt-8'>
+        <div className='flex w-full flex-wrap gap-14 xl:gap-14 items-start justify-center lg:justify-start mt-10'>
           {/* DESCRIPTION */}
           {event.Description ? (
             <div
-              className='prose leading-[2rem] order-2 lg:order-1'
+              className='prose leading-[2rem] order-2'
               dangerouslySetInnerHTML={{ __html: md().render(event.Description) }}
             />
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='order-1 lg:order-2 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
+          <div className='order-1 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
             <p className='text-6xl font-cursive'>Tiedot</p>
             <div className='flex gap-6 flex-wrap'>
               <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
@@ -126,51 +126,56 @@ export default function NewsPage({ event }) {
 
             <iframe
               className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
-              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
-                event.Address ? event.Address : event.Location
-              }+${event.City}+${event.Country}&z=14&output=embed`}
+              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
+                }+${event.City}+${event.Country}&z=14&output=embed`}
               allowFullScreen=''
               loading='lazy'
-              referrerpolicy='no-referrer-when-downgrade'
+              referrerPolicy='no-referrer-when-downgrade'
             ></iframe>
 
-            {event.Link ? (
-              <Button
-                url={'/scores'}
-                color='bg-accent-500'
-                hoverColor='hover:bg-accent-400'
-                rounded='rounded-xl'
-              >
-                Tapahtuman Sivulle
-              </Button>
-            ) : (
-              ''
-            )}
-            <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1'>
-              {event.Facebook ? (
-                <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+            <div className='flex flex-col md:flex-row gap-6 md:gap-4'>
+              {event.Link ? (
+                <div className='my-2 width-full'>
+                  <Button
+                    externalUrl
+                    url={event.Link}
+                    color='bg-accent-500'
+                    hoverColor='hover:bg-accent-400'
+                    rounded='rounded-xl'
+                    width='w-full max-w-[500px]'
+                  >
+                    Tapahtuman Sivulle
+                  </Button>
+                </div>
               ) : (
                 ''
               )}
-              <AiOutlineLink
-                onClick={copyLink}
-                className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
-              />
 
-              <a
-                href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${
-                  'https://orivesiallstars.net' + router.asPath
-                }`}
-              >
-                <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
-              </a>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
-                target='_blank'
-                rel='noreferrer'
-              >
-                <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
-              </a>
+              <div className='flex gap-5 text-3xl text-secondary-800 items-center ml-2 mt-1'>
+                {event.Facebook ? (
+                  <BsFacebook className='text-[1.6rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+                ) : (
+                  ''
+                )}
+                <AiOutlineLink
+                  onClick={copyLink}
+                  className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer'
+                />
+
+                <a
+                  href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${'https://orivesiallstars.net' + router.asPath
+                    }`}
+                >
+                  <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
+                </a>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${event.Location}+${event.City}+${event.Country}`}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  <BsFillPinMapFill className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer' />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -178,7 +183,7 @@ export default function NewsPage({ event }) {
 
       {/* Connected Scores */}
       {event.music_scores.data.length > 0 ? (
-        <div className='container my-12 md:my-32'>
+        <div className='container my-12 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
           <div className='flex flex-col gap-6 my-8'>

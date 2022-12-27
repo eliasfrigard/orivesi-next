@@ -47,7 +47,7 @@ export default function ScorePage({ score }) {
 
           <div className='lg:mb-8 lg:mt-2'>
             <Title version='v3'>{score.Title}</Title>
-            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-4'>
+            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-5'>
               <div className='flex gap-3'>
                 <BiTimeFive className='text-xl mt-[4px]' />
                 <div className='gap-1.5 tracking-wider text-lg'>
@@ -72,7 +72,7 @@ export default function ScorePage({ score }) {
           <div className='flex flex-col gap-10 lg:gap-16'>
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data && score.Scores.data.length > 0 ? (
-                <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-6`}>
+                <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'} gap-4`}>
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
                       <div className='selection:bg-accent-500 flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 rounded-lg py-4 px-6'>
