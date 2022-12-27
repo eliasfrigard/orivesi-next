@@ -126,8 +126,9 @@ export default function EventPage({ event }) {
 
             <iframe
               className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
-              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
-                }+${event.City}+${event.Country}&z=14&output=embed`}
+              src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
+                event.Address ? event.Address : event.Location
+              }+${event.City}+${event.Country}&z=14&output=embed`}
               allowFullScreen=''
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'
@@ -163,8 +164,9 @@ export default function EventPage({ event }) {
                 />
 
                 <a
-                  href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${'https://orivesiallstars.net' + router.asPath
-                    }`}
+                  href={`mailto:?subject=OAS Tapahtuma: ${event.Title}&body=Linkki tapahtuman sivulle: ${
+                    'https://orivesiallstars.net' + router.asPath
+                  }`}
                 >
                   <AiOutlineMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer' />
                 </a>
@@ -186,7 +188,7 @@ export default function EventPage({ event }) {
         <div className='container my-12 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-6 my-8'>
+          <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
             {event.music_scores.data.map((score) => (
               <Score
                 key={score.slug}

@@ -78,7 +78,7 @@ export default function Home({ scores }) {
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
           <InfiniteScroll dataLength={scoreSublist.length} next={fetchMore} hasMore={hasMore}>
-            <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
+            <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
               {scoreSublist.map((score) => (
                 <div
                   key={score.id}

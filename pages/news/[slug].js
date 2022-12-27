@@ -106,7 +106,7 @@ export default function NewsPage({ id, post }) {
         <div className='container my-16 md:my-24'>
           <Title version='v2'>Liittyviä nuotteja.</Title>
 
-          <div className='flex flex-col gap-6 my-8 lg:my-16'>
+          <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
             {post.music_scores.data.map((score) => (
               <Score
                 key={score.id}
