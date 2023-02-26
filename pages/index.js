@@ -1,4 +1,3 @@
-import qs from 'qs'
 import axios from 'axios'
 import Image from 'next/image'
 import Layout from '../components/Layout'
@@ -19,6 +18,9 @@ export default function Home({ welcome, news, events }) {
   // Remove previous and take the next three events with the earliest date.
   let nextEvents = events.filter((event) => !isPrevious(event.attributes.End))
   nextEvents = nextEvents.slice(0, 3)
+
+  // Take the 4 newest news.
+  let latestNews = news.slice(0, 4)
 
   return (
     <Layout>
@@ -55,7 +57,7 @@ export default function Home({ welcome, news, events }) {
       />
 
       <div className='flex flex-col justify-center items-center'>
-        <NewsHighlights news={news}></NewsHighlights>
+        <NewsHighlights news={latestNews}></NewsHighlights>
         <div className='h-16 sm:h-32'></div>
         <SearchModule></SearchModule>
         <EventHighlights events={nextEvents}></EventHighlights>
