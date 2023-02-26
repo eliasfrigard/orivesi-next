@@ -5,11 +5,14 @@ import Title from '../Title'
 export default function NewsHighlights({ news }) {
   return (
     <div className='container flex flex-col	items-center'>
-      <Title version='v1'>TUOREIMMAT UUTISET</Title>
+      <h3 className='text-5xl text-center leading-[4rem] tracking-wider text-grey-400'>TUOREIMMAT UUTISET</h3>
       {/* // Change back to mt-12 / mt-24 when more news. */}
-      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 mb-6 xl:mb-14 mt-12 sm:my-16'>
+      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 xl:mb-14 my-12 sm:my-16'>
         {news.map((item) => (
-          <div key={item.id} className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'>
+          <div
+            key={item.id}
+            className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+          >
             <NewsPreview
               key={item.id}
               link={item.slug}
