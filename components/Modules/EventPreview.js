@@ -19,60 +19,36 @@ export default function EventPreview({
   return (
     <Link href={'/events/' + link}>
       <div
-        className={`flex flex-col w-[300px] items-center text-secondary-800  border-4 border-secondary-500 hover:border-accent-300 py-9 px-4 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-xl duration-200 cursor-pointer active:scale-95 tracking-wide`}
+        className={`flex flex-col w-[380px] items-center text-secondary-800  border border-secondary-500 hover:border-opacity-100 border-opacity-30 py-10 px-10 rounded-xl shadow hover:shadow-lg duration-200 cursor-pointer active:scale-98 tracking-wide`}
       >
         {/* Date */}
-        <div className='date font-sketch font-bold flex gap-2 justify-center text-left items-center text-secondary-800'>
-          <Moment className='text-[4.2rem] leading-[10px] font-light' format='DD'>
+        <div className='date font-work flex gap-3 justify-center text-left items-center text-secondary-800 border-b pb-5 border-accent-500 border-opacity-30'>
+          <Moment className='text-[4.15rem] leading-[10px] font-medium' format='DD'>
             {date}
           </Moment>
-          <div className='flex flex-col pb-[4px] ml-[2px]'>
-            <Moment className='text-2xl' locale='fi' format='YYYY'>
+          <div className='flex flex-col pb-[0px] font-medium'>
+            <Moment className='uppercase' locale='fi' format='MMMM'>
               {date}
             </Moment>
-            <Moment className='uppercase' locale='fi' format='MMM'>
+            <Moment className='text-2xl' locale='fi' format='YYYY'>
               {date}
             </Moment>
           </div>
         </div>
 
-        {/* Time */}
-        {endTime ? (
-          <div>
-            <p className='flex gap-1 uppercase font-bold text-4xl mt-4'>
-              <Moment locale='fi' format='kk:mm'>
-                {startTime}
-              </Moment>
-              {/* -
-              <Moment locale='fi' format='kk:mm'>
-                {endTime}
-              </Moment> */}
-            </p>
-          </div>
-        ) : (
-          <Moment className='uppercase font-bold text-5xl mt-4' locale='fi' format='kk:mm'>
-            {date}
-          </Moment>
-        )}
-
-        <Moment
-          className='font-sketch text-2xl leading-[10px] tracking-wide font-light mt-7 mb-1'
-          format='dddd'
-        >
-          {date}
-        </Moment>
-
         {/* Title */}
-        <h3 className='text-xl text-center leading-relaxed tracking-wide my-5'>{title}</h3>
+        <h3 className='text-lg font-work font-medium text-center leading-relaxed tracking-wide my-5'>
+          {title}
+        </h3>
 
         {/* Metadata */}
-        <div className='meta flex flex-col justify-center items-center font-medium gap-2 text-secondary-500	'>
-          <div className='flex flex-row justify-center items-center gap-2'>
-            <GoLocation></GoLocation>
+        <div className='text-[15px] meta flex -mt-1 flex-col justify-center items-center font gap-2 text-accent-500	'>
+          <div className='flex flex-row justify-center items-center gap-3'>
+            <GoLocation className='text-secondary-500'></GoLocation>
             <p>{location.length > 25 ? location.substring(0, 22) + '...' : location}</p>
           </div>
-          <div className='flex flex-row justify-center items-center gap-2'>
-            <GiEarthAfricaEurope></GiEarthAfricaEurope>
+          <div className='flex flex-row justify-center items-center gap-3'>
+            <GiEarthAfricaEurope className='text-secondary-500'></GiEarthAfricaEurope>
             <p>
               {city}, {country}
             </p>

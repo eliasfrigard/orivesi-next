@@ -32,6 +32,7 @@ module.exports = {
       },
       scale: {
         102: '1.01',
+        98: '0.98',
       },
       colors: {
         white: '#FFFFFF',
@@ -89,12 +90,12 @@ module.exports = {
         lg: '1140px',
       },
     },
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1055px',
-      xl: '1280px',
-    },
+    // screens: {
+    //   sm: '640px',
+    //   md: '768px',
+    //   lg: '1055px',
+    //   xl: '1280px',
+    // },
   },
   plugins: [
     require('@tailwindcss/typography'),
