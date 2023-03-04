@@ -52,48 +52,43 @@ export default function EventPage({ event }) {
           ) : null}
 
           {/* INFO CONTAINER */}
-          <div className='order-1 flex flex-col flex-1 gap-6 w-full text-xl p-9  border-secondary-800 text-secondary-800 border-4 rounded-2xl shadow-lg'>
-            <p className='text-6xl font-cursive'>Tiedot</p>
+          <div className='order-1 flex flex-col flex-1 gap-6 w-full text-xl p-9 border-secondary-800 text-secondary-800 border rounded-2xl shadow'>
             <div className='flex gap-6 flex-wrap'>
-              <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
-                <h3 className='text-2xl font-medium font-work'>Alkaa:</h3>
+              <div className='flex flex-col grow gap-4 mt-2 border-b border-accent-400 border-opacity-30 pb-7'>
+                <h3 className='text-xl font-medium font-work'>Alkaa:</h3>
                 <div className='flex capitalize gap-4 items-center'>
-                  <BiTimeFive className='text-3xl' />
-                  <Moment format='dd kk:mm' locale='fi' className='capistalize text-2xl font-bold font-work'>
+                  <BiTimeFive className='text-2xl' />
+                  <Moment format='dd kk:mm' locale='fi' className='capistalize text-xl font-bold font-work'>
                     {event.Start}
                   </Moment>
                 </div>
                 <div className='flex gap-4 items-center'>
-                  <BiCalendarCheck className='text-3xl' />
+                  <BiCalendarCheck className='text-2xl' />
                   <Moment
-                    format='DD MMM YYYY'
+                    format='DD MMMM YYYY'
                     locale='fi'
-                    className='capitalize text-2xl font-bold font-work'
+                    className='capitalize text-xl font-bold font-work'
                   >
                     {event.Start}
                   </Moment>
                 </div>
               </div>
               {event.End ? (
-                <div className='flex flex-col grow gap-4 mt-2 border-b-2 pb-6'>
-                  <h3 className='text-2xl font-medium font-work'>Loppuu:</h3>
+                <div className='flex flex-col grow gap-4 mt-2 border-b border-accent-400 border-opacity-30 pb-8'>
+                  <h3 className='text-xl font-medium font-work'>Loppuu:</h3>
                   <div className='flex capitalize gap-4 items-center'>
-                    <BiTimeFive className='text-3xl' />
+                    <BiTimeFive className='text-2xl' />
                     {/* TODO: Implement duration! */}
-                    <Moment
-                      format='dd kk:mm'
-                      locale='fi'
-                      className='capistalize text-2xl font-bold font-work'
-                    >
+                    <Moment format='dd kk:mm' locale='fi' className='capistalize text-xl font-bold font-work'>
                       {event.End}
                     </Moment>
                   </div>
                   <div className='flex gap-4 items-center'>
-                    <BiCalendarX className='text-3xl' />
+                    <BiCalendarX className='text-2xl' />
                     <Moment
-                      format='DD MMM YYYY'
+                      format='DD MMMM YYYY'
                       locale='fi'
-                      className='capitalize text-2xl font-bold font-work'
+                      className='capitalize text-xl font-bold font-work'
                     >
                       {event.End}
                     </Moment>
@@ -103,21 +98,21 @@ export default function EventPage({ event }) {
                 ''
               )}
             </div>
-            <div className='flex flex-col gap-4 font-medium text-secondary-800'>
+            <div className='flex flex-col gap-4 text-lg font-medium text-secondary-800'>
               <div className='flex gap-3 items-center mt-2'>
-                <GoLocation className='text-xl' />
+                <GoLocation />
                 <p>{event.Location}</p>
               </div>
               {event.Address ? (
                 <div className='flex gap-3 items-center my-2'>
-                  <GiHouse className='text-xl' />
+                  <GiHouse />
                   <p>{event.Address}</p>
                 </div>
               ) : (
                 ''
               )}
               <div className='flex gap-3 items-center mb-2'>
-                <GiEarthAfricaEurope className='text-xl' />
+                <GiEarthAfricaEurope />
                 <p>
                   {event.City}, {event.Country}
                 </p>
@@ -125,7 +120,7 @@ export default function EventPage({ event }) {
             </div>
 
             <iframe
-              className='my-2 aspect-3/4 max-w-[500px] border-4 border-secondary-800 rounded-lg'
+              className='my-2 aspect-3/4 max-w-[500px] rounded-lg shadow-md'
               src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
                 event.Address ? event.Address : event.Location
               }+${event.City}+${event.Country}&z=14&output=embed`}
