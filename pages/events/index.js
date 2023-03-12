@@ -10,7 +10,11 @@ export default function Events({ events }) {
   const previousEvents = events.filter((event) => isPrevious(event.attributes.End))
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Events"
+      pageDescription="Orivesi All Stars upcoming and past events"
+      pageUrl={router.asPath}
+    >
       <div className='flex flex-col'>
         {/* Upcoming */}
         <div className='flex flex-col items-center gap-16 lg:my-16'>

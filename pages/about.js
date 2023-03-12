@@ -11,7 +11,11 @@ export default function About({ about }) {
   }
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="About"
+      pageDescription="Orivesi All Stars biography and information"
+      pageUrl="/about"
+    >
       <div className='container flex flex-col mb-24 mt-2 lg:mt-16 items-center'>
         <div className='hidden lg:block'>
           <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>

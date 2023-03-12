@@ -5,7 +5,11 @@ import Title from '../../components/Title'
 
 export default function News({ news }) {
   return (
-    <Layout>
+    <Layout
+      pageTitle="News"
+      pageDescription="Orivesi All Stars latest news"
+      pageUrl="/news"
+    >
       <div className='flex flex-col	container lg:my-16 gap-12 md:gap-16'>
         <Title>Uutiset</Title>
         <div className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16 mb-8'>

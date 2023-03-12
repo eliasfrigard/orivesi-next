@@ -14,7 +14,7 @@ import { FiChevronRight } from 'react-icons/fi'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { FaPencilAlt } from 'react-icons/fa'
 
-export default function ScorePage({ score }) {
+export default function ScorePage({ score, slug }) {
   const router = useRouter()
 
   let youtubeVideos = score?.Youtube
@@ -26,7 +26,11 @@ export default function ScorePage({ score }) {
   }
 
   return (
-    <Layout>
+    <Layout
+      pageTitle={score.Title}
+      pageDescription={score.Description}
+      pageUrl={`/score/${slug}`}
+    >
       <div className='container flex my-6 md:my-24 flex-col items-center'>
         <div className='w-full flex flex-col gap-10 lg:gap-6'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
@@ -72,9 +76,8 @@ export default function ScorePage({ score }) {
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data && score.Scores.data.length > 0 ? (
                 <div
-                  className={`flex flex-col w-full ${
-                    score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
-                  } gap-3 md:gap-4`}
+                  className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
+                    } gap-3 md:gap-4`}
                 >
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
@@ -172,6 +175,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: {
+      slug,
       score: response.data.data.attributes,
     },
   }

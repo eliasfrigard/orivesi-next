@@ -38,7 +38,11 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
   }
 
   return (
-    <Layout>
+    <Layout
+      pageTitle={`Scores ${page}`}
+      pageDescription={`Page ${page} of Orivesi All Stars music scores`}
+      pageUrl={`/scores/${page}`}
+    >
       <InfoModule>
         <div className='flex flex-col gap-6'>
           <FaHeart className='text-xl text-red-500' />
