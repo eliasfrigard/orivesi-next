@@ -27,7 +27,7 @@ export default function EventPage({ event }) {
   return (
     <Layout
       pageTitle={event.Title}
-      pageDescription={event.Description.substring(0, 100)}
+      pageDescription={event.Description?.substring(0, 100)}
       pageUrl={router.asPath}
     >
       <div className='container flex mt-8 lg:mt-28 flex-col items-start text-grey-500'>
