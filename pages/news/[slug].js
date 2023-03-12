@@ -14,7 +14,6 @@ import { BiTimeFive } from 'react-icons/bi'
 import { AiOutlineMail, AiOutlineFacebook, AiOutlineLink, AiOutlinePrinter } from 'react-icons/ai'
 import { FiChevronRight } from 'react-icons/fi'
 import { MdOutlineArticle } from 'react-icons/md'
-import SEO from '../../components/SEO/index'
 
 export default function NewsPage({ id, post }) {
   const myLoader = () => {
@@ -22,15 +21,12 @@ export default function NewsPage({ id, post }) {
   }
 
   return (
-    <Layout>
-      <SEO
-        url={`https://orivesiallstars.net/news/${id}`}
-        image={post.Images.data[0].attributes.url}
-        openGraphType='website'
-        schemaType='article'
-        Title='Orivesi All Stars'
-        description={post.Title}
-      ></SEO>
+    <Layout
+      pageTitle={post.Title}
+      pageDescription={post.Text.substring(0, 100)}
+      pageImage={post.Images.data[0].attributes.url}
+      pageUrl={`/news/${id}`}
+    >
       <div className='container flex my-8 lg:my-24 flex-col items-center'>
         <div className='md:container lg:w-[925px] max-w-full'>
           <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>

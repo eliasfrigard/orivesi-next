@@ -7,7 +7,6 @@ import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
 import SearchModule from '../components/Modules/SearchModule'
 import AnimateIn from '../components/AnimateIn'
-import SEO from '../components/SEO/index'
 import TiltedImages from '../components/Modules/TiltedImages'
 
 export default function Home({ welcome, news, events }) {
@@ -23,15 +22,12 @@ export default function Home({ welcome, news, events }) {
   let latestNews = news.slice(0, 4)
 
   return (
-    <Layout>
-      <SEO
-        url={`https://orivesiallstars.net/`}
-        openGraphType='website'
-        schemaType='article'
-        title='Orivesi All Stars'
-        description='Suomen suurin pelimanniorkesteri.'
-        image={`https://orivesiadmin.net/oas_image.jpg`}
-      ></SEO>
+    <Layout
+      pageTitle="Home"
+      pageDescription="Home Page"
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
+      pageUrl="/"
+    >
       <AnimateIn opacityDuration={1000} delay={1000}>
         <div className='container lg:hidden mb-7 drop-shadow rounded-lg -mt-2'>
           <Image
