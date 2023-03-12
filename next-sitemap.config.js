@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://polentamusic.com',
+  siteUrl: 'https://orivesiallstars.net',
   generateRobotsTxt: true,
 }
