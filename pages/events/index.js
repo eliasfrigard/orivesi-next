@@ -13,7 +13,7 @@ export default function Events({ events }) {
     <Layout
       pageTitle="Events"
       pageDescription="Orivesi All Stars upcoming and past events"
-      pageUrl={router.asPath}
+      pageUrl="/events"
     >
       <div className='flex flex-col'>
         {/* Upcoming */}
