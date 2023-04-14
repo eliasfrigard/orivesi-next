@@ -18,7 +18,7 @@ export default function Title({ children, version, color }) {
       {(!version || version === '') && (
         <div className='flex justify-center items-center'>
           <h3
-            className={`w-[90vw] text-5xl md:text-8xl font-sketch uppercase font-bold tracking-wider text-center break-words drop-shadow-lg leading-tight`}
+            className={`w-[90vw] text-5xl md:text-7xl font-sketch text-secondary-700 uppercase font-bold tracking-wider text-center break-words drop-shadow-lg leading-tight`}
           >
             {children}
           </h3>
