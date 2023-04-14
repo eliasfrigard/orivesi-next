@@ -22,7 +22,7 @@ export default function EventPreview({
         className={`flex flex-col w-[380px] items-center text-secondary-800 border border-secondary-800 hover:border-opacity-100 border-opacity-40 py-10 px-10 rounded-xl shadow hover:shadow-lg duration-200 cursor-pointer active:scale-98 tracking-wide`}
       >
         {/* Date */}
-        <div className='date font-work flex gap-3 justify-center text-left items-center text-secondary-800 border-b pb-5 border-accent-500 border-opacity-30'>
+        <div className='date font-work flex gap-3 justify-center text-left items-center text-secondary-800 border-b pb-5 border-accent-600 border-opacity-30'>
           <Moment className='text-[4.15rem] leading-[10px] font-medium' format='DD'>
             {date}
           </Moment>
@@ -42,7 +42,7 @@ export default function EventPreview({
         </h3>
 
         {/* Metadata */}
-        <div className='text-[15px] meta flex -mt-1 flex-col justify-center items-center font gap-2 text-accent-500	'>
+        <div className='text-[15px] meta flex -mt-1 flex-col justify-center items-center font gap-2 text-accent-600	'>
           <div className='flex flex-row justify-center items-center gap-3'>
             <GoLocation className='text-secondary-500'></GoLocation>
             <p>{location.length > 25 ? location.substring(0, 22) + '...' : location}</p>
