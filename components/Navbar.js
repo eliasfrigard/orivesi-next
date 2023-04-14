@@ -51,23 +51,17 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAV BELOW */}
       <div
-        className={`hidden lg:flex fixed w-full justify-center py-[10px]  backdrop-blur z-20  pt-10 ${
-          scrollPosition > 20 ? 'shadow-xl pt-[10px] bg-secondary-500' : 'bg-primary-500'
-        } duration-500`}
+        className={`hidden lg:flex fixed w-full justify-center py-1 backdrop-blur bg-opacity-90 z-20 shadow-xl bg-[#003c52]`}
       >
         <Link href='/'>
           <div
-            className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider ${
-              scrollPosition > 20 ? 'scale-90' : ''
-            }`}
+            className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 tracking-wider scale-90`}
           >
-            <p className='font-work font-medium text-2xl md:text-3xl text-accent-500 drop-shadow-md'>
+            <p className='font-work font-bold text-2xl md:text-[28px] text-accent-500 leading-none'>
               ORIVESI
             </p>
             <p
-              className={`font-work font-bold text-2xl md:text-[21px] duration-300 drop-shadow-md ${
-                scrollPosition > 20 ? 'text-primary-500' : ''
-              }`}
+              className={`font-work font-bold text-2xl md:text-xl duration-300 leading-none text-primary-500`}
             >
               ALL STARS
             </p>
@@ -95,19 +89,13 @@ export default function Navbar() {
                       <Link href={link.page}>
                         <a
                           className={`
-                      ${
-                        router.pathname === link.page ||
-                        (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                          ? scrollPosition > 20
-                            ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
-                            : 'bg-secondary-500 hover:bg-secondary-400 text-white shadow-sm'
-                          : ''
-                      }
-                    py-[13px] px-[16px] whitespace-nowrap	 active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide font-medium ${
-                      scrollPosition > 20
-                        ? 'text-primary-500 hover:bg-accent-500 hover:shadow-sm'
-                        : 'hover:bg-secondary-500 hover:shadow-sm'
-                    }`}
+                          ${
+                            router.pathname === link.page ||
+                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                              ? 'bg-accent-500 hover:bg-accent-400 text-white shadow-sm'
+                              : ''
+                          }
+                    py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-500 hover:shadow-sm`}
                         >
                           {link.title}
                         </a>
@@ -119,15 +107,13 @@ export default function Navbar() {
           </ul>
         </div>
         {/* <div className='w-1/5 flex justify-center items-center'> */}
-        <LoginBtn classes={`duration-300 ${scrollPosition > 20 ? 'bg-accent-500' : 'bg-secondary-500'}`} />
+        <LoginBtn classes={`duration-300 bg-accent-500`} />
         {/* </div> */}
         <div
-          className={`hidden xl:flex w-1/5 gap-6 text-[2rem] justify-center items-center duration-500 ${
-            scrollPosition > 20 ? 'text-primary-500 scale-90' : 'text-secondary-500'
-          }`}
+          className={`hidden xl:flex w-1/5 gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
         >
           <a target='_blank' href='https://www.facebook.com/orivesiallstars/' rel='noopener noreferrer'>
-            <BsFacebook className='text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+            <BsFacebook className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 active:scale-110 cursor-pointer drop-shadow' />
           </a>
           <a href='https://www.instagram.com/orivesiallstars/' target='_blank' rel='noopener noreferrer'>
             <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-500 active:scale-110 cursor-pointer drop-shadow' />
@@ -138,7 +124,7 @@ export default function Navbar() {
             rel='noopener noreferrer'
           >
             <AiFillYoutube
-              className='text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 
+              className='text-[2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-500 duration-150 
             active:scale-110 cursor-pointer drop-shadow'
             />
           </a>
