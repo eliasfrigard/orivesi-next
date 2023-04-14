@@ -4,7 +4,7 @@ export default function Button({
   children,
   url,
   openInTab = true,
-  color = 'bg-accent-500',
+  color = 'bg-accent-600',
   hoverColor = 'hover:bg-accent-500',
   rounded = 'rounded-full',
   width = 'min-w-[200px]',
