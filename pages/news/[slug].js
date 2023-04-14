@@ -80,7 +80,7 @@ export default function NewsPage({ id, post }) {
             />
           </div>
         )}
-        <div className='flex flex-col lg:flex-row gap-6 lg:gap-16 justify-center items-center md:border border-secondary-500 border-opacity-40 rounded-xl md:shadow md:px-8 lg:px-12 md:py-12 lg:py-12'>
+        <div className='flex flex-col lg:flex-row gap-6 lg:gap-16 mt-4 justify-center items-center md:border border-secondary-500 border-opacity-40 rounded-xl md:shadow md:px-8 lg:px-12 md:py-12'>
           <div
             className='prose max-w-4xl leading-[2.1rem]'
             dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
@@ -90,9 +90,7 @@ export default function NewsPage({ id, post }) {
 
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 && (
-        <div className='container my-16 md:my-24'>
-          <Title version='v2'>Liittyviä nuotteja.</Title>
-
+        <div className='container my-16'>
           <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
             {post.music_scores.data.map((score) => (
               <Score
@@ -109,7 +107,7 @@ export default function NewsPage({ id, post }) {
 
       {/* Associated Events */}
       {post.events.data.length > 0 && (
-        <div className='container my-12 lg:mb-24'>
+        <div className='container my-16'>
           <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
             {post.events.data.map((event) => (
               <EventPreview
