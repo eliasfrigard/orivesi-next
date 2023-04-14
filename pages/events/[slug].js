@@ -129,10 +129,13 @@ export default function EventPage({ event }) {
               referrerPolicy='no-referrer-when-downgrade'
             ></iframe>
 
-            <div className='flex flex-col md:flex-row gap-6 md:gap-4'>
+            <div className='flex flex-col flex-wrap md:flex-row gap-6 md:gap-4'>
               {event.Link ? (
-                <div className='my-2 width-full'>
-                  <Button
+                <div className='my-2 w-full'>
+                  <button className='border border-accent-500 w-full py-4 rounded-lg shadow'>
+                    Tapahtuman Sivulle
+                  </button>
+                  {/* <Button
                     externalUrl
                     url={event.Link}
                     color='bg-accent-500'
@@ -141,7 +144,7 @@ export default function EventPage({ event }) {
                     width='w-full max-w-[500px]'
                   >
                     Tapahtuman Sivulle
-                  </Button>
+                  </Button> */}
                 </div>
               ) : (
                 ''
