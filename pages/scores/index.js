@@ -52,7 +52,11 @@ export default function Home({ scores }) {
   }
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Scores"
+      pageDescription="Orivesi All Stars scores mobile view"
+      pageUrl="/scores"
+    >
       <InfoModule>
         <div className='flex flex-col gap-6'>
           <FaHeart className='text-xl text-red-500' />

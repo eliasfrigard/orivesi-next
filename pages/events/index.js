@@ -3,9 +3,18 @@ import EventPreview from '../../components/Modules/EventPreview'
 import Layout from '../../components/Layout'
 import Title from '../../components/Title'
 
-export default function Events({ upcomingEvents, previousEvents }) {
+export default function Events({ events }) {
+  const isPrevious = (date) => new Date(date).getTime() < Date.now()
+
+  const upcomingEvents = events.filter((event) => !isPrevious(event.attributes.End))
+  const previousEvents = events.filter((event) => isPrevious(event.attributes.End))
+
   return (
-    <Layout>
+    <Layout
+      pageTitle="Events"
+      pageDescription="Orivesi All Stars upcoming and past events"
+      pageUrl="/events"
+    >
       <div className='flex flex-col'>
         {/* Upcoming */}
         <div className='flex flex-col items-center gap-16 lg:my-16'>
@@ -81,17 +90,9 @@ export async function getStaticProps() {
     }
   })
 
-  function isPrevious(date) {
-    return new Date(date).getTime() < Date.now()
-  }
-
-  const upcomingEvents = eventsWithSlug.filter((event) => !isPrevious(event.attributes.End))
-  const previousEvents = eventsWithSlug.filter((event) => isPrevious(event.attributes.End))
-
   return {
     props: {
-      upcomingEvents,
-      previousEvents: previousEvents.reverse(),
+      events: eventsWithSlug,
     },
   }
 }

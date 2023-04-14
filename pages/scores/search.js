@@ -24,7 +24,11 @@ export default function ScoreSearch() {
   }, [query])
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Search"
+      pageDescription={`Orivesi All Stars score search and results`}
+      pageUrl="/scores/search"
+    >
       <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Hakutulokset</Title>
         <div>
