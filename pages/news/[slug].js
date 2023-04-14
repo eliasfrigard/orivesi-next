@@ -43,7 +43,7 @@ export default function NewsPage({ id, post }) {
           <Title version='v3'>{post.Title}</Title>
 
           <div className='meta flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-accent-600'>
-            <div className='flex gap-4 lg:gap-2 items-center justify-center text-accent-600'>
+            <div className='flex gap-4 lg:gap-2 items-center justify-center'>
               <BiTimeFive className='text-xl text-secondary-600' />
               <Moment className='font-work text-lg' format={'LL '}>
                 {post.createdAt}

@@ -26,34 +26,31 @@ export default function ScorePage({ score, slug }) {
   }
 
   return (
-    <Layout
-      pageTitle={score.Title}
-      pageDescription={score.Description}
-      pageUrl={`/score/${slug}`}
-    >
-      <div className='container flex my-6 md:my-24 flex-col items-center'>
+    <Layout pageTitle={score.Title} pageDescription={score.Description} pageUrl={`/score/${slug}`}>
+      <div className='container flex my-12 pt-[53px] flex-col items-center'>
         <div className='w-full flex flex-col gap-10 lg:gap-6'>
-          <div className='absolute flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
-            <div className='flex items-center gap-3 duration-75'>
-              <BsMusicNoteList />
-              <span
-                className='cursor-pointer hover:text-grey-800 hover:font-medium'
-                onClick={() => router.back()}
-              >
-                Nuotit
-              </span>
+          <div className='lg:mb-8 lg:mt-2 text-accent-600 flex flex-col gap-4 md:gap-5'>
+            <div className='flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
+              <div className='flex items-center gap-3 duration-75'>
+                <BsMusicNoteList />
+                <span
+                  className='cursor-pointer hover:text-grey-800 hover:font-medium'
+                  onClick={() => router.back()}
+                >
+                  Nuotit
+                </span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <FiChevronRight></FiChevronRight>
+                <p>{score.Title}</p>
+              </div>
             </div>
-            <div className='flex items-center gap-2'>
-              <FiChevronRight></FiChevronRight>
-              <p>{score.Title}</p>
-            </div>
-          </div>
 
-          <div className='lg:mb-8 lg:mt-2'>
             <Title version='v3'>{score.Title}</Title>
-            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center mt-8 lg:mt-5'>
+
+            <div className='meta flex flex-col md:flex-row gap-4 lg:gap-6 items-start md:items-center'>
               <div className='flex gap-3'>
-                <BiTimeFive className='text-xl mt-[4px]' />
+                <BiTimeFive className='text-xl mt-[4px] text-secondary-600' />
                 <div className='gap-1.5 tracking-wider text-lg'>
                   Päivitetty{' '}
                   <Moment locale='fi' fromNow>
@@ -62,11 +59,11 @@ export default function ScorePage({ score, slug }) {
                 </div>
               </div>
               <div className='flex items-center gap-3 text-lg'>
-                <FaPencilAlt></FaPencilAlt>
+                <FaPencilAlt className='text-secondary-600'></FaPencilAlt>
                 <p>{score.Composer}</p>
               </div>
               <div className='flex items-center gap-3 text-lg'>
-                <GiHighHeel></GiHighHeel>
+                <GiHighHeel className='text-secondary-600'></GiHighHeel>
                 <p>{score.Type}</p>
               </div>
             </div>
@@ -76,8 +73,9 @@ export default function ScorePage({ score, slug }) {
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data && score.Scores.data.length > 0 ? (
                 <div
-                  className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
-                    } gap-3 md:gap-4`}
+                  className={`flex flex-col w-full ${
+                    score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
+                  } gap-3 md:gap-4`}
                 >
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
@@ -92,7 +90,6 @@ export default function ScorePage({ score, slug }) {
 
               {score.Audio.data ? (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-2/5' : 'lg:w-full'} gap-6`}>
-                  <h3 className='text-4xl font-cursive font-bold'>Äänitykset</h3>
                   {score.Audio.data.map((file) => (
                     <Player
                       key={file.attributes.id}
