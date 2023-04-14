@@ -12,7 +12,9 @@ export default function Title({ children, version, color }) {
       )}
 
       {version === 'v3' && (
-        <h1 className='text-5xl md:text-6xl tracking-wider break-words leading-tight'>{children}</h1>
+        <h1 className='text-5xl md:text-5xl tracking-wider break-words leading-tight font-medium text-secondary-700'>
+          {children}
+        </h1>
       )}
 
       {(!version || version === '') && (
