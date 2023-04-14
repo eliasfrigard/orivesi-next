@@ -20,11 +20,11 @@ export default function About({ about }) {
           layout='fill'
           objectFit='cover'
         />
-        <AnimateIn>
+        <div>
           <h1 className='hidden lg:block absolute text-white font-bold font-sketch opacity-80 text-6xl xl:text-8xl text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
             Suomen suurin pelimanniorkesteri!
           </h1>
-        </AnimateIn>
+        </div>
       </div>
       <div
         className='container mb-24 mt-2 lg:mt-16 items-center prose max-w-4xl leading-loose prose-img:roundedShadow font-work'
