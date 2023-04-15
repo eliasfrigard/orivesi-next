@@ -18,17 +18,15 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
   return (
     <Link href={'/news/' + link}>
       <div
-        className={`w-90 ${
-          isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
-        }  cursor-pointer p-2 text-grey-500 pb-8 border-b border-secondary-400 hover:border-accent-400 border-opacity-40 duration-300`}
+        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
+          }  cursor-pointer p-2 text-grey-500 pb-8 border-b border-secondary-400 hover:border-accent-400 border-opacity-40 duration-300`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         {youtube ? (
           <div
-            className={`w-full aspect-79/52 overflow-hidden ${
-              hover ? '-translate-y-1 rounded-xl shadow-xl' : 'rounded shadow-lg'
-            } duration-300`}
+            className={`w-full aspect-79/52 overflow-hidden ${hover ? 'rounded-xl shadow-lg' : 'rounded shadow'
+              } duration-300`}
           >
             <iframe
               className='w-full aspect-79/52'
@@ -42,9 +40,8 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
           </div>
         ) : (
           <div
-            className={`aspect-79/52 relative ${
-              hover ? '-translate-y-1 rounded-xl shadow-xl' : 'shadow-lg'
-            } duration-300`}
+            className={`aspect-79/52 relative ${hover ? 'rounded-xl shadow-lg' : 'shadow'
+              } duration-300`}
           >
             <Image
               className={`${hover ? 'rounded-xl' : 'rounded'} duration-300`}
@@ -61,13 +58,13 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
         <div className='meta flex flex-col md:flex-row gap-2 md:gap-6 items-start mt-6 mb-4'>
           <div className='flex gap-4 md:gap-2 items-center justify-center'>
             <BiTimeFive className='text-lg' />
-            <Moment className='font-work text-lg' format={'LL '}>
+            <Moment className='font-work text-lg text-accent-600' format={'LL '}>
               {date}
             </Moment>
           </div>
           <div className='flex gap-4 md:gap-2 items-center justify-center'>
             <BsPerson className='text-lg' />
-            <p className='font-work text-lg'>{author}</p>
+            <p className='font-work text-lg text-accent-600'>{author}</p>
           </div>
         </div>
         <h2 className='text-2xl my-3 leading-[2.3rem]'>{title}</h2>
