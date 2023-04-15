@@ -56,7 +56,7 @@ export default function EventPage({ event }) {
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
-                className='aspect-3/4 w-full h-full rounded-lg shadow-md'
+                className='aspect-3/4 w-full h-full rounded-lg'
                 src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
                   event.Address ? event.Address : event.Location
                 }+${event.City}+${event.Country}&z=14&output=embed`}
