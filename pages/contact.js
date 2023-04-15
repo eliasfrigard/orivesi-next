@@ -3,16 +3,27 @@ import Layout from '../components/Layout'
 import ContactCard from '../components/Modules/ContactCard'
 import Title from '../components/Title'
 import { validateEmail } from '../util/utilFunctions'
+import EmailForm from '../components/Modules/EmailForm'
+import Modal from '../components/Modules/Modal'
+import React from 'react'
 
 export default function Contact({ contacts }) {
+  const [modalIsOpen, setModalIsOpen] = React.useState(true)
+
+  const handleModalClose = () => {
+    setModalIsOpen(false)
+  };
+
   return (
     <Layout
       pageTitle="Contact"
       pageDescription="Orivesi All Stars contact information"
       pageUrl="/contact"
     >
+      <Modal isOpen={modalIsOpen} onClose={handleModalClose}><EmailForm /></Modal>
       <div className='container flex flex-col mt-3 lg:mt-16 items-center'>
         <Title>Yhteystiedot</Title>
+
 
         <div className='flex flex-wrap gap-8 justify-center md:my-16'>
           {contacts.map((contact) => (
