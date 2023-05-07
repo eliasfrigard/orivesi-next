@@ -10,14 +10,10 @@ export default function Events({ events }) {
   const previousEvents = events.filter((event) => isPrevious(event.attributes.End))
 
   return (
-    <Layout
-      pageTitle="Events"
-      pageDescription="Orivesi All Stars upcoming and past events"
-      pageUrl="/events"
-    >
+    <Layout pageTitle='Events' pageDescription='Orivesi All Stars upcoming and past events' pageUrl='/events'>
       <div className='flex flex-col'>
         {/* Upcoming */}
-        <div className='flex flex-col items-center gap-16 lg:my-16'>
+        <div className='flex flex-col items-center gap-16'>
           <Title>Tulevat Tapahtumat</Title>
           <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
             {upcomingEvents.map((event) => (
@@ -47,7 +43,7 @@ export default function Events({ events }) {
         </div>
 
         {/* Previous */}
-        <div className='flex flex-col items-center gap-16 my-16'>
+        <div className='flex flex-col items-center gap-16 mt-16'>
           <Title>Aikaisempia Tapahtumia</Title>
           <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
             {previousEvents.map((event) => (

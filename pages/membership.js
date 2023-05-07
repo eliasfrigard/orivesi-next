@@ -7,11 +7,11 @@ import Layout from '../components/Layout'
 export default function Membership({ membership }) {
   return (
     <Layout
-      pageTitle="Membership"
-      pageDescription="Orivesi All Stars membership information"
-      pageUrl="/membership"
+      pageTitle='Membership'
+      pageDescription='Orivesi All Stars membership information'
+      pageUrl='/membership'
     >
-      <div className='container flex flex-col mb-24 mt-2 lg:mt-16 items-center gap-16'>
+      <div className='container flex flex-col mt-2 items-center gap-16'>
         <Title>Liity Jäseneksi</Title>
         <div className='flex gap-16'>
           <div
