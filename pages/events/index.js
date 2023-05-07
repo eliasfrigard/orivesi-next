@@ -54,7 +54,7 @@ export default function Events({ events }) {
         {/* Previous */}
         <div className='flex flex-col items-center gap-16 mt-16'>
           <Title>Aikaisempia Tapahtumia</Title>
-          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
+          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {previousEvents.map((event) => (
               <div
                 key={event.id}
