@@ -23,7 +23,7 @@ export default function EventPage({ event }) {
       pageDescription={event.Description?.substring(0, 100)}
       pageUrl={router.asPath}
     >
-      <div className='container flex my-12 pt-[53px] flex-col items-start text-grey-500'>
+      <div className='container flex pt-10 flex-col items-start text-grey-500'>
         <div className='flex flex-col gap-4 md:gap-5'>
           <div className=' flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
