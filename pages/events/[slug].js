@@ -43,23 +43,21 @@ export default function EventPage({ event }) {
           {/* DESCRIPTION */}
           {event.Description && (
             <div
-              className='prose max-w-5xl leading-loose order-2'
+              className='md:px-10 prose max-w-5xl leading-loose order-2'
               dangerouslySetInnerHTML={{ __html: md().render(event.Description) }}
             />
           )}
 
           {/* INFO */}
           <div
-            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${
-              event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
-            }`}
+            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
+              }`}
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
-                className='aspect-3/4 w-full h-full rounded-lg shadow-md'
-                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
-                  event.Address ? event.Address : event.Location
-                }+${event.City}+${event.Country}&z=14&output=embed`}
+                className='aspect-3/4 w-full h-full rounded-lg'
+                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
+                  }+${event.City}+${event.Country}&z=14&output=embed`}
                 allowFullScreen=''
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'

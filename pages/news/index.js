@@ -1,7 +1,6 @@
 import axios from 'axios'
 import Layout from '../../components/Layout'
 import NewsPreview from '../../components/Modules/NewsPreview'
-import Title from '../../components/Title'
 
 export default function News({ news }) {
   return (

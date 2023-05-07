@@ -4,10 +4,19 @@ import Layout from '../../components/Layout'
 import Title from '../../components/Title'
 
 export default function Events({ events }) {
-  const isPrevious = (date) => new Date(date).getTime() < Date.now()
+  const isPrevious = (event) => {
+    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start);
+    return endDate.getTime() < Date.now();
+  };
 
-  const upcomingEvents = events.filter((event) => !isPrevious(event.attributes.End))
-  const previousEvents = events.filter((event) => isPrevious(event.attributes.End))
+  const upcomingEvents = events.filter((event) => !isPrevious(event));
+  const previousEvents = events.filter((event) => isPrevious(event));
+
+  previousEvents.sort((a, b) => {
+    const endDateA = a.attributes.End ? new Date(a.attributes.End) : new Date(a.attributes.Start);
+    const endDateB = b.attributes.End ? new Date(b.attributes.End) : new Date(b.attributes.Start);
+    return endDateB.getTime() - endDateA.getTime();
+  })
 
   return (
     <Layout pageTitle='Events' pageDescription='Orivesi All Stars upcoming and past events' pageUrl='/events'>
