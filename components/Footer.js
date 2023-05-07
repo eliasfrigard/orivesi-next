@@ -99,7 +99,7 @@ export default function Footer() {
             </a>
           </div>
           <p>Copyright © 2022 Orivesi All Stars</p>
-          <p>
+          <p className='text-sm'>
             Website by{' '}
             <a
               className='text-accent-500 font-bold underline text-md'

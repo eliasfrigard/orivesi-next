@@ -209,7 +209,7 @@ export default function Navbar() {
             </div>
 
             <p>Copyright © 2022 Orivesi All Stars</p>
-            <p>
+            <p className='text-sm'>
               Website by{' '}
               <a
                 className='text-accent-600 font-bold underline text-md'
