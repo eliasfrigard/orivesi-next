@@ -5,17 +5,17 @@ import Title from '../../components/Title'
 
 export default function Events({ events }) {
   const isPrevious = (event) => {
-    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start);
-    return endDate.getTime() < Date.now();
-  };
+    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start)
+    return endDate.getTime() < Date.now()
+  }
 
-  const upcomingEvents = events.filter((event) => !isPrevious(event));
-  const previousEvents = events.filter((event) => isPrevious(event));
+  const upcomingEvents = events.filter((event) => !isPrevious(event))
+  const previousEvents = events.filter((event) => isPrevious(event))
 
   previousEvents.sort((a, b) => {
-    const endDateA = a.attributes.End ? new Date(a.attributes.End) : new Date(a.attributes.Start);
-    const endDateB = b.attributes.End ? new Date(b.attributes.End) : new Date(b.attributes.Start);
-    return endDateB.getTime() - endDateA.getTime();
+    const endDateA = a.attributes.End ? new Date(a.attributes.End) : new Date(a.attributes.Start)
+    const endDateB = b.attributes.End ? new Date(b.attributes.End) : new Date(b.attributes.Start)
+    return endDateB.getTime() - endDateA.getTime()
   })
 
   return (
@@ -24,7 +24,7 @@ export default function Events({ events }) {
         {/* Upcoming */}
         <div className='flex flex-col items-center gap-16'>
           <Title>Tulevat Tapahtumat</Title>
-          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
+          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {upcomingEvents.map((event) => (
               <div
                 key={event.id}
