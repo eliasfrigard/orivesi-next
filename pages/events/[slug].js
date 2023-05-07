@@ -50,14 +50,16 @@ export default function EventPage({ event }) {
 
           {/* INFO */}
           <div
-            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
-              }`}
+            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${
+              event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
+            }`}
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
                 className='aspect-3/4 w-full h-full rounded-lg'
-                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
-                  }+${event.City}+${event.Country}&z=14&output=embed`}
+                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
+                  event.Address ? event.Address : event.Location
+                }+${event.City}+${event.Country}&z=14&output=embed`}
                 allowFullScreen=''
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
@@ -135,17 +137,13 @@ export default function EventPage({ event }) {
                 </div>
               </div>
 
-              <div className='flex flex-col flex-wrap md:flex-row gap-6 md:gap-4'>
-                {event.Link ? (
-                  <div className='my-2 w-full'>
-                    <button className='border border-accent-500 w-full py-4 rounded-lg shadow'>
-                      Tapahtuman Sivulle
-                    </button>
-                  </div>
-                ) : (
-                  ''
-                )}
-              </div>
+              {event.Link && (
+                <a href={event.Link} target='_blank' rel='noreferrer'>
+                  <button className='mt-8 text-base border border-accent-500 w-full p-4 rounded-lg shadow duration-100 hover:bg-accent-500 hover:text-primary-500'>
+                    Tapahtuman Sivulle
+                  </button>
+                </a>
+              )}
             </div>
           </div>
         </div>
