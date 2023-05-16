@@ -40,7 +40,7 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAV BELOW */}
       <div
-        className={`hidden lg:flex fixed w-full justify-center py-1 backdrop-blur bg-opacity-90 z-20 shadow-xl bg-[#003c52]`}
+        className={`hidden lg:flex fixed w-full justify-center py-1 backdrop-blur bg-opacity-100 z-20 shadow-xl bg-[#003c52]`}
       >
         <Link href='/'>
           <div
@@ -209,7 +209,7 @@ export default function Navbar() {
             </div>
 
             <p>Copyright © 2022 Orivesi All Stars</p>
-            <p>
+            <p className='text-sm'>
               Website by{' '}
               <a
                 className='text-accent-600 font-bold underline text-md'

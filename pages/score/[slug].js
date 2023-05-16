@@ -27,7 +27,7 @@ export default function ScorePage({ score, slug }) {
 
   return (
     <Layout pageTitle={score.Title} pageDescription={score.Description} pageUrl={`/score/${slug}`}>
-      <div className='container flex my-12 pt-[53px] flex-col items-center'>
+      <div className='container flex pt-10 flex-col items-center'>
         <div className='w-full flex flex-col gap-10 lg:gap-6'>
           <div className='lg:mb-8 lg:mt-2 text-accent-600 flex flex-col gap-4 md:gap-5'>
             <div className='flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>

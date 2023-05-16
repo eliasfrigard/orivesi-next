@@ -12,7 +12,10 @@ export default function About({ about }) {
 
   return (
     <Layout>
-      <div distance={0} className='md:w-[90vw] xl:w-full h-screen md:aspect-79/52 mb-8 img shadow relative -mt-[135px]'>
+      <div
+        distance={0}
+        className='md:w-[90vw] xl:w-full h-screen md:aspect-79/52 mb-8 img shadow relative -mt-[135px]'
+      >
         <Image
           loader={myLoader}
           src={about.Images.data[0].attributes.url}
@@ -21,7 +24,7 @@ export default function About({ about }) {
           objectFit='cover'
         />
         <div>
-          <h1 className='block absolute text-white font-bold font-sketch opacity-80 text-4xl md:text-6xl xl:text-8xl text-center top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2'>
+          <h1 className='block absolute text-white font-bold font-sketch opacity-90 text-4xl md:text-6xl xl:text-8xl text-center top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2'>
             Suomen suurin pelimanniorkesteri!
           </h1>
         </div>

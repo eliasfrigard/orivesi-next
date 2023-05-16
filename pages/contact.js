@@ -6,15 +6,11 @@ import { validateEmail } from '../utils/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
-    <Layout
-      pageTitle="Contact"
-      pageDescription="Orivesi All Stars contact information"
-      pageUrl="/contact"
-    >
-      <div className='container flex flex-col mt-3 lg:mt-16 items-center'>
+    <Layout pageTitle='Contact' pageDescription='Orivesi All Stars contact information' pageUrl='/contact'>
+      <div className='container flex flex-col mt-3 items-center'>
         <Title>Yhteystiedot</Title>
 
-        <div className='flex flex-wrap gap-8 justify-center md:my-16'>
+        <div className='flex flex-wrap gap-8 justify-center md:mt-16'>
           {contacts.map((contact) => (
             <div key={contact.id} className='flex flex-wrap gap-8 justify-center'>
               <ContactCard

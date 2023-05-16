@@ -5,30 +5,26 @@ import Title from '../../components/Title'
 
 export default function Events({ events }) {
   const isPrevious = (event) => {
-    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start);
-    return endDate.getTime() < Date.now();
-  };
+    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start)
+    return endDate.getTime() < Date.now()
+  }
 
-  const upcomingEvents = events.filter((event) => !isPrevious(event));
-  const previousEvents = events.filter((event) => isPrevious(event));
+  const upcomingEvents = events.filter((event) => !isPrevious(event))
+  const previousEvents = events.filter((event) => isPrevious(event))
 
   previousEvents.sort((a, b) => {
-    const endDateA = a.attributes.End ? new Date(a.attributes.End) : new Date(a.attributes.Start);
-    const endDateB = b.attributes.End ? new Date(b.attributes.End) : new Date(b.attributes.Start);
-    return endDateB.getTime() - endDateA.getTime();
+    const endDateA = a.attributes.End ? new Date(a.attributes.End) : new Date(a.attributes.Start)
+    const endDateB = b.attributes.End ? new Date(b.attributes.End) : new Date(b.attributes.Start)
+    return endDateB.getTime() - endDateA.getTime()
   })
 
   return (
-    <Layout
-      pageTitle="Events"
-      pageDescription="Orivesi All Stars upcoming and past events"
-      pageUrl="/events"
-    >
+    <Layout pageTitle='Events' pageDescription='Orivesi All Stars upcoming and past events' pageUrl='/events'>
       <div className='flex flex-col'>
         {/* Upcoming */}
-        <div className='flex flex-col items-center gap-16 lg:my-16'>
+        <div className='flex flex-col items-center gap-16'>
           <Title>Tulevat Tapahtumat</Title>
-          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
+          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {upcomingEvents.map((event) => (
               <div
                 key={event.id}
@@ -56,9 +52,9 @@ export default function Events({ events }) {
         </div>
 
         {/* Previous */}
-        <div className='flex flex-col items-center gap-16 my-16'>
+        <div className='flex flex-col items-center gap-16 mt-16'>
           <Title>Aikaisempia Tapahtumia</Title>
-          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center items-center mx-8'>
+          <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {previousEvents.map((event) => (
               <div
                 key={event.id}

@@ -63,11 +63,11 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
         </div>
       </InfoModule>
 
-      <div className='flex flex-col gap-16 lg:my-16'>
+      <div className='flex flex-col gap-16'>
         <Title>Nuotit</Title>
         <div>
           <SearchModule handleSubmit={handleSubmit}></SearchModule>
-          <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-0 md:mt-16 md:mb-6'>
+          <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-0 md:mt-16'>
             {/* <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
               Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
             </p> */}
