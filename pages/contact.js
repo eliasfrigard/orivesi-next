@@ -2,7 +2,7 @@ import axios from 'axios'
 import Layout from '../components/Layout'
 import ContactCard from '../components/Modules/ContactCard'
 import Title from '../components/Title'
-import { validateEmail } from '../util/utilFunctions'
+import { validateEmail } from '../utils/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
