@@ -12,9 +12,6 @@ export default function EventPreview({
   city = 'Helsinki',
   country = 'FI',
   link,
-  startTime,
-  endTime,
-  important = true,
 }) {
   return (
     <Link href={'/events/' + link}>

@@ -1,6 +1,4 @@
 import NewsPreview from './NewsPreview'
-import Button from '../Button'
-import Title from '../Title'
 
 export default function NewsHighlights({ news }) {
   return (

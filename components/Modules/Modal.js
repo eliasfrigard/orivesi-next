@@ -3,10 +3,6 @@ import { useState } from 'react'
 export default function Modal({ children }) {
   const [isOpen, setIsOpen] = useState(true)
 
-  const open = () => {
-    setIsOpen(true)
-  }
-
   const close = (event) => {
     if (event.target.id !== 'wrapper') return
 

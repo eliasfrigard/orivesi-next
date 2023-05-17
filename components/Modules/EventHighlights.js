@@ -18,12 +18,10 @@ export default function EventHighlights({ events }) {
             key={event.attributes.id}
           ></EventPreview>
         ))}
-        {events.length <= 0 ? (
+        {events.length <= 0 && (
           <div className='-mt-2'>
             <Title version='v2'>Ei tulevia tapahtumia.</Title>
           </div>
-        ) : (
-          ''
         )}
       </div>
 

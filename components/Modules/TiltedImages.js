@@ -2,14 +2,6 @@ import Image from 'next/image'
 import AnimateIn from '../AnimateIn'
 
 export default function ShortPresentation() {
-  const myLoader = () => {
-    if (image.formats.medium) {
-      return image.formats.medium.url
-    }
-
-    return image.url
-  }
-
   return (
     <div className='hidden lg:block mb-32'>
       <div className='-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8'>

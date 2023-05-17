@@ -189,7 +189,7 @@ export default function ContactForm({ contacts }) {
           />
         </div>
 
-        {submitWasAttempted ? (
+        {submitWasAttempted && (
           <div className='text-center font-bold text-2xl tracking-wider'>
             {submitWasSuccess ? (
               <p className='text-green-500 font-round'>Viesti lähetettiin onnistuneesti!</p>
@@ -197,8 +197,6 @@ export default function ContactForm({ contacts }) {
               <p className='text-red-500 font-round'>Viestin lähettäminen epäonnistui.</p>
             )}
           </div>
-        ) : (
-          ''
         )}
 
         <Button type='submit' width='w-full md:w-2/3' disabled={submitWasSuccess}>
