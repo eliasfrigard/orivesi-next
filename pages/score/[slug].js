@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Moment from 'react-moment'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 
@@ -77,7 +76,7 @@ export default function ScorePage({ score, slug }) {
                     } gap-3 md:gap-4`}
                 >
                   {score.Scores.data.map((file) => (
-                    <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
+                    <a href={file.attributes.url} key={file.id} target='_blank' rel='noreferrer'>
                       <div className='selection:bg-accent-500 flex gap-4 items-center w-full bg-secondary-500 text-white shadow-lg cursor-pointer hover:shadow-xl hover:bg-accent-500 duration-150 rounded-lg py-4 px-6'>
                         <BsMusicNoteList className='text-2xl'></BsMusicNoteList>
                         <p className='font-medium tracking-wide break-all	'>{file.attributes.name}</p>
@@ -91,7 +90,7 @@ export default function ScorePage({ score, slug }) {
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-2/5' : 'lg:w-full'} gap-6`}>
                   {score.Audio.data.map((file) => (
                     <Player
-                      key={file.attributes.id}
+                      key={file.id}
                       url={file.attributes.url}
                       title={file.attributes.name.split('.')[0]}
                     ></Player>
