@@ -41,16 +41,6 @@ export default function Home({ scores }) {
     setFilteredScores(sortedArray)
   }, [filteredBy, filteredScores])
 
-  const onChangeFilter = (event) => {
-    const capitalized = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
-
-    setFilteredBy(capitalized)
-  }
-
-  const handleSubmit = (values) => {
-    //
-  }
-
   return (
     <Layout
       pageTitle="Scores"
