@@ -61,11 +61,8 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
       <div className='flex flex-col gap-16'>
         <Title>Nuotit</Title>
         <div>
-          <SearchModule handleSubmit={handleSubmit}></SearchModule>
+          <SearchModule />
           <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-0 md:mt-16'>
-            {/* <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
-              Arkistosta löytyy <b>{filteredScores.length}</b> nuottia.
-            </p> */}
             <Score
               onChangeFilter={onChangeFilter}
               title='Nimi'

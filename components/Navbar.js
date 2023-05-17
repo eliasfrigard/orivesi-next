@@ -49,24 +49,24 @@ export default function Navbar() {
         </Link>
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
           <ul className='flex align-middle justify-center items-center gap-2'>
-            {links.map(
-              (link) =>
+            {links
+              .filter(link => link.type !== 'mobile')
+              .map(link => (
                 <li key={link.title}>
                   <Link href={link.page}>
                     <a
                       className={`
-                          ${router.pathname === link.page ||
-                          (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                          ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
-                          : ''
+            ${router.pathname === link.page ||
+                        (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                        && 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
                         }
-                    py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
+          py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
                     >
                       {link.title}
                     </a>
                   </Link>
                 </li>
-            )}
+              ))}
           </ul>
         </div>
         <LoginBtn classes={`duration-300 bg-accent-600`} />
@@ -130,24 +130,26 @@ export default function Navbar() {
         >
           <div>
             <ul className='flex align-middle justify-center flex-col items-center gap-8'>
-              {links.map(
-                (link) =>
-                  <li key={link.title}>
-                    <Link href={link.page}>
-                      <a
-                        className={`
+              {links
+                .filter(link => link.type !== 'desktop')
+                .map(
+                  (link) =>
+                    <li key={link.title}>
+                      <Link href={link.page}>
+                        <a
+                          className={`
                     ${router.pathname === link.page ||
-                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                            ? 'text-accent-600 font-bold'
-                            : 'text-primary-500'
-                          }
+                              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                              ? 'text-accent-600 font-bold'
+                              : 'text-primary-500'
+                            }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}
-                      >
-                        {link.title}
-                      </a>
-                    </Link>
-                  </li>
-              )}
+                        >
+                          {link.title}
+                        </a>
+                      </Link>
+                    </li>
+                )}
             </ul>
           </div>
 

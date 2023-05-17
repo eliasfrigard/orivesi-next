@@ -70,7 +70,7 @@ export default function Home({ scores }) {
       <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Nuotit</Title>
         <div>
-          <SearchModule handleSubmit={handleSubmit}></SearchModule>
+          <SearchModule />
           <InfiniteScroll dataLength={scoreSublist.length} next={fetchMore} hasMore={hasMore}>
             <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
               {scoreSublist.map((score) => (
