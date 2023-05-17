@@ -57,8 +57,8 @@ export default function Navbar() {
                     <a
                       className={`
             ${router.pathname === link.page ||
-                        (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                        && 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
+                          (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                          ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm' : ''
                         }
           py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
                     >
