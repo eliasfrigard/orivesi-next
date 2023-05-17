@@ -3,7 +3,6 @@ import Button from '../Button'
 import Title from '../Title'
 
 export default function EventHighlights({ events }) {
-  console.log(events);
   return (
     <div className='flex flex-col	items-center mt-16 md:mt-32 md:mb-16 text-grey-500'>
       <Title version='v1'>SEURAAVAT TAPAHTUMAT</Title>
