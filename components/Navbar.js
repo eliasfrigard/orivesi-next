@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import LoginBtn from './LoginBtn'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -69,7 +68,6 @@ export default function Navbar() {
               ))}
           </ul>
         </div>
-        <LoginBtn classes={`duration-300 bg-accent-600`} />
         <div
           className={`hidden xl:flex w-1/5 gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
         >
