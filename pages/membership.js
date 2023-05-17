@@ -2,7 +2,7 @@ import axios from 'axios'
 import md from 'markdown-it'
 
 import Title from '../components/Title'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 
 export default function Membership({ membership }) {
   return (

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FaHeart, FaStar } from 'react-icons/fa'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'

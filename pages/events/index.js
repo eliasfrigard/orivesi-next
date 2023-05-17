@@ -1,6 +1,6 @@
 import axios from 'axios'
 import EventPreview from '../../components/Modules/EventPreview'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Title from '../../components/Title'
 
 export default function Events({ events }) {

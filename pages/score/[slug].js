@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Player from '../../components/Player'
 import Title from '../../components/Title'
 

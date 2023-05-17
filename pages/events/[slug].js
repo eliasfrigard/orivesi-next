@@ -5,7 +5,7 @@ import md from 'markdown-it'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import Title from '../../components/Title'
 

@@ -37,9 +37,6 @@ module.exports = {
       colors: {
         white: '#FFFFFF',
         primary: {
-          // 500: '#FAF9F6',
-          // 600: '#F1F0ED',
-          // 700: '#E7E6E5',
           500: '#F3F3F3',
           600: '#F8FCFB',
         },
@@ -90,12 +87,6 @@ module.exports = {
         lg: '1140px',
       },
     },
-    // screens: {
-    //   sm: '640px',
-    //   md: '768px',
-    //   lg: '1055px',
-    //   xl: '1280px',
-    // },
   },
   plugins: [
     require('@tailwindcss/typography'),

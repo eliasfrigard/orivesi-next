@@ -2,8 +2,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import md from 'markdown-it'
 
-import AnimateIn from '../components/AnimateIn'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 
 export default function About({ about }) {
   const myLoader = () => {
