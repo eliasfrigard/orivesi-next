@@ -9,21 +9,19 @@ export default function EventHighlights({ events }) {
       <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 w-full gap-8 md:gap-10 items-center justify-center my-16 sm:mb-20 '>
         {events.map((event) => (
           <EventPreview
+            key={event.id}
             link={event.slug}
             date={event.attributes.Start}
             title={event.attributes.Title}
             location={event.attributes.Location}
             city={event.attributes.City}
             country={event.attributes.Country}
-            key={event.attributes.id}
           ></EventPreview>
         ))}
-        {events.length <= 0 ? (
+        {events.length <= 0 && (
           <div className='-mt-2'>
             <Title version='v2'>Ei tulevia tapahtumia.</Title>
           </div>
-        ) : (
-          ''
         )}
       </div>
 

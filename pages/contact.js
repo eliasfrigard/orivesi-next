@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 import ContactCard from '../components/Modules/ContactCard'
 import Title from '../components/Title'
 import { validateEmail } from '../utils/utilFunctions'

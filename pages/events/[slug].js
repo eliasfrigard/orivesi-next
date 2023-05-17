@@ -5,7 +5,7 @@ import md from 'markdown-it'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import Title from '../../components/Title'
 
@@ -50,16 +50,14 @@ export default function EventPage({ event }) {
 
           {/* INFO */}
           <div
-            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${
-              event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
-            }`}
+            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
+              }`}
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
                 className='aspect-3/4 w-full h-full rounded-lg'
-                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
-                  event.Address ? event.Address : event.Location
-                }+${event.City}+${event.Country}&z=14&output=embed`}
+                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
+                  }+${event.City}+${event.Country}&z=14&output=embed`}
                 allowFullScreen=''
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
@@ -121,13 +119,11 @@ export default function EventPage({ event }) {
                   <GoLocation />
                   <p>{event.Location}</p>
                 </div>
-                {event.Address ? (
+                {event.Address && (
                   <div className='flex gap-3 items-center my-2'>
                     <GiHouse />
                     <p>{event.Address}</p>
                   </div>
-                ) : (
-                  ''
                 )}
                 <div className='flex gap-3 items-center'>
                   <GiEarthAfricaEurope />
@@ -150,7 +146,7 @@ export default function EventPage({ event }) {
       </div>
 
       {/* Connected Scores */}
-      {event.music_scores.data.length > 0 ? (
+      {event.music_scores.data.length > 0 && (
         <div className='container my-12 md:my-16'>
           <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
             {event.music_scores.data.map((score) => (
@@ -164,7 +160,7 @@ export default function EventPage({ event }) {
             ))}
           </div>
         </div>
-      ) : null}
+      )}
     </Layout>
   )
 }

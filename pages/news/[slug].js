@@ -4,7 +4,7 @@ import Moment from 'react-moment'
 import Link from 'next/link'
 import md from 'markdown-it'
 
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Title from '../../components/Title'
 import Score from '../../components/Modules/ScorePreview'
 import EventPreview from '../../components/Modules/EventPreview'

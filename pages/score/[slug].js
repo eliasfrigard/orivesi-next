@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Player from '../../components/Player'
 import Title from '../../components/Title'
 
@@ -71,11 +71,10 @@ export default function ScorePage({ score, slug }) {
 
           <div className='flex flex-col gap-10 lg:gap-16'>
             <div className='flex flex-col lg:flex-row gap-10'>
-              {score.Scores.data && score.Scores.data.length > 0 ? (
+              {score.Scores.data && score.Scores.data.length > 0 && (
                 <div
-                  className={`flex flex-col w-full ${
-                    score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
-                  } gap-3 md:gap-4`}
+                  className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
+                    } gap-3 md:gap-4`}
                 >
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>
@@ -86,9 +85,9 @@ export default function ScorePage({ score, slug }) {
                     </a>
                   ))}
                 </div>
-              ) : null}
+              )}
 
-              {score.Audio.data ? (
+              {score.Audio.data && (
                 <div className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-2/5' : 'lg:w-full'} gap-6`}>
                   {score.Audio.data.map((file) => (
                     <Player
@@ -98,10 +97,10 @@ export default function ScorePage({ score, slug }) {
                     ></Player>
                   ))}
                 </div>
-              ) : null}
+              )}
             </div>
 
-            {youtubeVideos && youtubeVideos.length > 0 ? (
+            {youtubeVideos && youtubeVideos.length > 0 && (
               <div>
                 <div className='w-full flex flex-col md:flex-row flex-wrap gap-6'>
                   {youtubeVideos.map((video) => (
@@ -122,9 +121,9 @@ export default function ScorePage({ score, slug }) {
                   ))}
                 </div>
               </div>
-            ) : null}
+            )}
 
-            {score.Description ? (
+            {score.Description && (
               <div className='flex justify-center items-center lg:my-6'>
                 <div>
                   <h3 className='text-4xl font-cursive font-bold mb-6'>Esittely</h3>
@@ -134,8 +133,6 @@ export default function ScorePage({ score, slug }) {
                   />
                 </div>
               </div>
-            ) : (
-              ''
             )}
           </div>
         </div>

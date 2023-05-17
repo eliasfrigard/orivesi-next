@@ -1,10 +1,7 @@
 import Link from 'next/link'
-import Dropdown from './Dropdown'
-import DropdownMobile from './DropdownMobile'
-import LoginBtn from './LoginBtn'
 
+import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
@@ -23,18 +20,11 @@ export default function Navbar() {
     { title: 'Yhteystiedot', page: '/contact', type: 'all' },
   ]
 
-  const [scrollPosition, setScrollPosition] = useState(0)
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
 
   const handleHamburgerClick = () => {
     setIsMobileNavOpen(!isMobileNavOpen)
   }
-
-  useEffect(() => {
-    window.onscroll = () => {
-      setScrollPosition(window.scrollY)
-    }
-  })
 
   return (
     <>
@@ -58,46 +48,26 @@ export default function Navbar() {
         </Link>
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
           <ul className='flex align-middle justify-center items-center gap-2'>
-            {links.map(
-              (link) =>
-                (link.type === 'desktop' || link.type === 'all') && (
-                  <li key={link.title}>
-                    {link.type === 'dropdown' ? (
-                      <>
-                        <Dropdown
-                          title={link.title}
-                          items={link.links}
-                          active={
-                            router.pathname === link.page ||
-                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                          }
-                          scrollPosition={scrollPosition}
-                        ></Dropdown>
-                      </>
-                    ) : (
-                      <Link href={link.page}>
-                        <a
-                          className={`
-                          ${
-                            router.pathname === link.page ||
-                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                              ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
-                              : ''
-                          }
-                    py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
-                        >
-                          {link.title}
-                        </a>
-                      </Link>
-                    )}
-                  </li>
-                )
-            )}
+            {links
+              .filter(link => link.type !== 'mobile')
+              .map(link => (
+                <li key={link.title}>
+                  <Link href={link.page}>
+                    <a
+                      className={`
+            ${router.pathname === link.page ||
+                          (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                          ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm' : ''
+                        }
+          py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
+                    >
+                      {link.title}
+                    </a>
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
-        {/* <div className='w-1/5 flex justify-center items-center'> */}
-        <LoginBtn classes={`duration-300 bg-accent-600`} />
-        {/* </div> */}
         <div
           className={`hidden xl:flex w-1/5 gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
         >
@@ -124,9 +94,8 @@ export default function Navbar() {
       </div>
       {/* MOBILE NAV BELOW */}
       <div
-        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
-          isMobileNavOpen ? '' : 'shadow-lg'
-        }`}
+        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${isMobileNavOpen ? '' : 'shadow-lg'
+          }`}
       >
         <Link href='/'>
           <div
@@ -152,39 +121,33 @@ export default function Navbar() {
           )}
         </div>
       </div>
-      {isMobileNavOpen ? (
+      {isMobileNavOpen && (
         <div
-          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${
-            isMobileNavOpen ? 'flex' : 'hidden'
-          } duration-300`}
+          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${isMobileNavOpen ? 'flex' : 'hidden'
+            } duration-300`}
         >
           <div>
             <ul className='flex align-middle justify-center flex-col items-center gap-8'>
-              {links.map(
-                (link) =>
-                  (link.type === 'mobile' || link.type === 'all') && (
+              {links
+                .filter(link => link.type !== 'desktop')
+                .map(
+                  (link) =>
                     <li key={link.title}>
-                      {link.type === 'dropdown' ? (
-                        <DropdownMobile title={link.title} links={link.links} />
-                      ) : (
-                        <Link href={link.page}>
-                          <a
-                            className={`
-                    ${
-                      router.pathname === link.page ||
-                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                        ? 'text-accent-600 font-bold'
-                        : 'text-primary-500'
-                    }
+                      <Link href={link.page}>
+                        <a
+                          className={`
+                    ${router.pathname === link.page ||
+                              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                              ? 'text-accent-600 font-bold'
+                              : 'text-primary-500'
+                            }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}
-                          >
-                            {link.title}
-                          </a>
-                        </Link>
-                      )}
+                        >
+                          {link.title}
+                        </a>
+                      </Link>
                     </li>
-                  )
-              )}
+                )}
             </ul>
           </div>
 
@@ -220,8 +183,6 @@ export default function Navbar() {
             </p>
           </div>
         </div>
-      ) : (
-        ''
       )}
     </>
   )

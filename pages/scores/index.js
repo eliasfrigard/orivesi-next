@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FaHeart, FaStar } from 'react-icons/fa'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
@@ -41,16 +41,6 @@ export default function Home({ scores }) {
     setFilteredScores(sortedArray)
   }, [filteredBy, filteredScores])
 
-  const onChangeFilter = (event) => {
-    const capitalized = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
-
-    setFilteredBy(capitalized)
-  }
-
-  const handleSubmit = (values) => {
-    //
-  }
-
   return (
     <Layout
       pageTitle="Scores"
@@ -80,7 +70,7 @@ export default function Home({ scores }) {
       <div className='flex flex-col gap-16 lg:my-16'>
         <Title>Nuotit</Title>
         <div>
-          <SearchModule handleSubmit={handleSubmit}></SearchModule>
+          <SearchModule />
           <InfiniteScroll dataLength={scoreSublist.length} next={fetchMore} hasMore={hasMore}>
             <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
               {scoreSublist.map((score) => (

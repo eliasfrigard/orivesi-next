@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import NewsPreview from '../../components/Modules/NewsPreview'
 
 export default function News({ news }) {

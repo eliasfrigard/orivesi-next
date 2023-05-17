@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'

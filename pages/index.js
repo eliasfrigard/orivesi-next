@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Image from 'next/image'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 import HighlightText from '../components/Modules/HighlightText'
 import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
