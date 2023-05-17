@@ -73,9 +73,8 @@ export default function ScorePage({ score, slug }) {
             <div className='flex flex-col lg:flex-row gap-10'>
               {score.Scores.data && score.Scores.data.length > 0 ? (
                 <div
-                  className={`flex flex-col w-full ${
-                    score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
-                  } gap-3 md:gap-4`}
+                  className={`flex flex-col w-full ${score.Audio.data ? 'lg:w-3/5' : 'lg:w-full'
+                    } gap-3 md:gap-4`}
                 >
                   {score.Scores.data.map((file) => (
                     <a href={file.attributes.url} key={file.attributes.id} target='_blank' rel='noreferrer'>

@@ -1,4 +1,4 @@
-export default function Title({ children, version, color }) {
+export default function Title({ children, version }) {
   return (
     <>
       {version === 'v1' && (

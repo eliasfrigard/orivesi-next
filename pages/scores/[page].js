@@ -7,7 +7,6 @@ import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
 import Pagination from '../../components/Pagination'
-import InfiniteScroll from 'react-infinite-scroll-component'
 
 export default function Home({ scores, page, pageCount, pageSize, totalScores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -31,10 +30,6 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
     const capitalized = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
 
     setFilteredBy(capitalized)
-  }
-
-  const handleSubmit = (values) => {
-    //
   }
 
   return (
