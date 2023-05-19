@@ -29,16 +29,16 @@ export default function ScoreSearch() {
       pageDescription={`Orivesi All Stars score search and results`}
       pageUrl="/scores/search"
     >
-      <div className='flex flex-col gap-16 lg:my-16'>
+      <div className='flex flex-col gap-16'>
         <Title>Hakutulokset</Title>
         <div>
-          <SearchModule title='Etsitkö jotain muuta?'></SearchModule>
+          <SearchModule title='Etsitkö jotain muuta?' initialValue={query} />
           {scores.length > 0 ? (
             <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
               <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
                 Hakuehdoilla löytyi <b>{scores.length}</b> nuottia.
               </p>
-              <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true}></Score>
+              <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true} />
               {scores.map((score) => (
                 <div
                   key={score.id}
@@ -50,7 +50,7 @@ export default function ScoreSearch() {
                     title={score.Title}
                     type={score.Type}
                     composer={score.Composer}
-                  ></Score>
+                  />
                 </div>
               ))}
             </div>
