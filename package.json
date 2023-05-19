@@ -9,7 +9,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d",
     "build:sitemap": "next-sitemap"
   },
   "dependencies": {
@@ -34,8 +33,12 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "get-youtube-id": "^1.0.1",
     "markdown-it-style": "^1.0.0",
     "postcss": "^8.4.13",
+    "puppeteer": "^20.2.1",
     "tailwindcss": "^3.0.24",
     "tailwindcss-selection-variant": "^0.1.0"
   }
