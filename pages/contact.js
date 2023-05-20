@@ -1,19 +1,16 @@
 import axios from 'axios'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 import ContactCard from '../components/Modules/ContactCard'
-import ContactForm from '../components/Modules/ContactForm'
-import FeedbackForm from '../components/Modules/FeedbackForm'
 import Title from '../components/Title'
+import { validateEmail } from '../utils/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
-    <Layout>
-      <div className='container flex flex-col mb-24 mt-3 lg:mt-16 items-center'>
+    <Layout pageTitle='Contact' pageDescription='Orivesi All Stars contact information' pageUrl='/contact'>
+      <div className='container flex flex-col mt-3 items-center'>
         <Title>Yhteystiedot</Title>
 
-        <ContactForm contacts={contacts}></ContactForm>
-
-        <div className='flex flex-wrap gap-8 justify-center md:my-16'>
+        <div className='flex flex-wrap gap-8 justify-center md:mt-16'>
           {contacts.map((contact) => (
             <div key={contact.id} className='flex flex-wrap gap-8 justify-center'>
               <ContactCard
@@ -25,8 +22,6 @@ export default function Contact({ contacts }) {
             </div>
           ))}
         </div>
-
-        <FeedbackForm></FeedbackForm>
       </div>
     </Layout>
   )
@@ -35,9 +30,11 @@ export default function Contact({ contacts }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/contacts`)
 
+  const contacts = response.data.data.filter((contact) => validateEmail(contact.attributes.Email))
+
   return {
     props: {
-      contacts: response.data.data,
+      contacts,
     },
   }
 }

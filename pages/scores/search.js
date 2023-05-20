@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
@@ -24,25 +24,34 @@ export default function ScoreSearch() {
   }, [query])
 
   return (
-    <Layout>
-      <div className='flex flex-col gap-16 lg:my-16'>
+    <Layout
+      pageTitle="Search"
+      pageDescription={`Orivesi All Stars score search and results`}
+      pageUrl="/scores/search"
+    >
+      <div className='flex flex-col gap-16'>
         <Title>Hakutulokset</Title>
         <div>
-          <SearchModule title='Etsitkö jotain muuta?'></SearchModule>
+          <SearchModule title='Etsitkö jotain muuta?' initialValue={query} />
           {scores.length > 0 ? (
-            <div className='container flex flex-col gap-8 mt-16 mb-8 md:my-16'>
+            <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
               <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>
                 Hakuehdoilla löytyi <b>{scores.length}</b> nuottia.
               </p>
-              <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true}></Score>
+              <Score title='Nimi' type='Tanssilaji' composer='Säveltäjä' isHeader={true} />
               {scores.map((score) => (
-                <Score
+                <div
                   key={score.id}
-                  link={score.id}
-                  title={score.Title}
-                  type={score.Type}
-                  composer={score.Composer}
-                ></Score>
+                  className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-y-16'
+                >
+                  <Score
+                    key={score.id}
+                    link={score.id}
+                    title={score.Title}
+                    type={score.Type}
+                    composer={score.Composer}
+                  />
+                </div>
               ))}
             </div>
           ) : (

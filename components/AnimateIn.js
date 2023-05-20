@@ -1,69 +1,30 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
 
-/**
- * @param distance = distance of the animation in pixels.
- * @param direction = the direction of the animation.
- * @param threshold = amount of pixels in view before effect starts.
- *
- * Set distance to 0 to get a simple fade-in.
- */
-
 const AnimateIn = ({
-  delay = 0,
-  distance = 30,
-  direction = 'up',
   threshold = 0.2,
   triggerOnce = true,
-  opacityDuration = 400,
-  transformDuration = 400,
-  disabled = false,
   children,
-  classes,
+  classes = '',
+  animationType = 'fade',
 }) => {
   const [ref, inView] = useInView({ threshold, triggerOnce })
 
-  // Variable for setting the direction of animation.
-  let translateDirection = direction
-
-  switch (direction) {
-    case 'up':
-    case 'down':
-      translateDirection = 'translateY'
-      break
-    case 'left':
-    case 'right':
-      translateDirection = 'translateX'
-      break
+  const getAnimationClasses = () => {
+    switch (animationType) {
+      case 'slide':
+        return `${classes} duration-1000 ${
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+        }`
+      case 'zoom':
+        return `${classes} duration-1000 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
+      default:
+        return `${classes} duration-[1200ms] ${inView ? 'opacity-100' : 'opacity-0'}`
+    }
   }
 
-  // Variable for setting the distance of animation.
-  let translateDistance = distance
-
-  switch (direction) {
-    case 'up':
-    case 'left':
-      translateDistance = Math.abs(distance)
-      break
-    case 'down':
-    case 'right':
-      translateDistance = -Math.abs(distance)
-      break
-  }
-
-  return disabled ? (
-    <>{children}</>
-  ) : (
-    <div
-      className={classes}
-      ref={ref}
-      style={{
-        transition: `opacity ${500}ms`,
-        // transitionDelay: `${delay}ms`,
-        // transform: `${translateDirection}(${inView ? 0 : translateDistance}px)`,
-        opacity: inView ? 1 : 0,
-      }}
-    >
+  return (
+    <div className={getAnimationClasses()} ref={ref}>
       {children}
     </div>
   )

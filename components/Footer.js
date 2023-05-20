@@ -57,7 +57,7 @@ export default function Footer() {
           <h4 className='text-2xl font-sketch font-bold tracking-wider'>Linkit</h4>
           <div className='flex flex-col gap-3 text-md mt-3'>
             <Link href='/'>
-              <p className='hover:text-accent-500 cursor-pointer'>Home</p>
+              <p className='hover:text-accent-500 cursor-pointer'>Koti</p>
             </Link>
             <Link href='/about'>
               <p className='hover:text-accent-500 cursor-pointer'>All Stars</p>
@@ -73,12 +73,6 @@ export default function Footer() {
             </Link>
             <Link href='/membership'>
               <p className='hover:text-accent-500 cursor-pointer'>Jäsenyys</p>
-            </Link>
-            <Link href='/media/images'>
-              <p className='hover:text-accent-500 cursor-pointer'>Kuvat</p>
-            </Link>
-            <Link href='/media/audio'>
-              <p className='hover:text-accent-500 cursor-pointer'>Äänitteet</p>
             </Link>
             <Link href='/contact'>
               <p className='hover:text-accent-500 cursor-pointer'>Yhteystiedot</p>
@@ -105,7 +99,7 @@ export default function Footer() {
             </a>
           </div>
           <p>Copyright © 2022 Orivesi All Stars</p>
-          <p>
+          <p className='text-sm'>
             Website by{' '}
             <a
               className='text-accent-500 font-bold underline text-md'

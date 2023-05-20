@@ -91,7 +91,7 @@ export default function ContactForm({ contacts }) {
             type='text'
             name='title'
             value={formData.title}
-            placeholder='Mistä asiasta on kyse?'
+            placeholder='Mistä on kyse?'
             required
           />
         </div>
@@ -133,7 +133,7 @@ export default function ContactForm({ contacts }) {
             className='h-[75px] rounded-sm py-8 px-2 outline-none tracking-wide bg-transparent border-b-2 placeholder-slate-400 scrollbar-hide'
             name='body'
             value={formData.body}
-            placeholder='Minkälaista asiaa sinulla olisi?'
+            placeholder='Kirjoita viestisi tähän.'
             required
           ></textarea>
         </div>
@@ -150,7 +150,7 @@ export default function ContactForm({ contacts }) {
             type='email'
             name='email'
             value={formData.email}
-            placeholder='sähköposti@gmail ...'
+            placeholder='sähköposti@gmail...'
             required
           />
         </div>
@@ -189,7 +189,7 @@ export default function ContactForm({ contacts }) {
           />
         </div>
 
-        {submitWasAttempted ? (
+        {submitWasAttempted && (
           <div className='text-center font-bold text-2xl tracking-wider'>
             {submitWasSuccess ? (
               <p className='text-green-500 font-round'>Viesti lähetettiin onnistuneesti!</p>
@@ -197,8 +197,6 @@ export default function ContactForm({ contacts }) {
               <p className='text-red-500 font-round'>Viestin lähettäminen epäonnistui.</p>
             )}
           </div>
-        ) : (
-          ''
         )}
 
         <Button type='submit' width='w-full md:w-2/3' disabled={submitWasSuccess}>

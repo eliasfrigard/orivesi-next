@@ -2,8 +2,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import md from 'markdown-it'
 
-import Title from '../components/Title'
-import Layout from '../components/Layout'
+import Layout from '../components/Layouts/Default'
 
 export default function About({ about }) {
   const myLoader = () => {
@@ -12,38 +11,27 @@ export default function About({ about }) {
 
   return (
     <Layout>
-      <div className='container flex flex-col mb-24 mt-2 lg:mt-16 items-center'>
-        <div className='hidden lg:block'>
-          <h3 className='text-6xl font-sketch uppercase font-bold tracking-wider text-center mb-4'>
-            {about.Supertitle}
-          </h3>
-          <Title>{about.Title}</Title>
-        </div>
-
-        <div className='lg:hidden'>
-          <Title>{about.Supertitle + ' ' + about.Title}</Title>
-        </div>
-
-        <div distance={0} className='w-[90vw] xl:w-[60vw] my-16 aspect-79/52 img relative shadow-xl'>
-          <Image
-            className='rounded'
-            loader={myLoader}
-            src={about.Images.data[0].attributes.url}
-            alt={about.Images.data[0].attributes.alternativeText}
-            width='100%'
-            height='100%'
-            layout='fill'
-            objectFit='cover'
-          />
-        </div>
-
-        <div className='flex gap-16'>
-          <div
-            className='prose max-w-3xl xl:prose-lg leading-[2.1rem]'
-            dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
-          />
+      <div
+        distance={0}
+        className='md:w-[90vw] xl:w-full h-screen md:aspect-79/52 mb-8 img shadow relative -mt-[135px]'
+      >
+        <Image
+          loader={myLoader}
+          src={about.Images.data[0].attributes.url}
+          alt={about.Images.data[0].attributes.alternativeText}
+          layout='fill'
+          objectFit='cover'
+        />
+        <div>
+          <h1 className='block absolute text-white font-bold font-sketch opacity-90 text-4xl md:text-6xl xl:text-8xl text-center top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2'>
+            Suomen suurin pelimanniorkesteri!
+          </h1>
         </div>
       </div>
+      <div
+        className='container mb-24 mt-2 lg:mt-16 items-center prose max-w-4xl leading-loose prose-img:roundedShadow font-work'
+        dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
+      />
     </Layout>
   )
 }

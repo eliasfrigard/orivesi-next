@@ -1,15 +1,14 @@
 import NewsPreview from './NewsPreview'
-import Button from '../Button'
-import Title from '../Title'
 
 export default function NewsHighlights({ news }) {
   return (
     <div className='container flex flex-col	items-center'>
-      <Title version='v1'>TUOREIMMAT UUTISET</Title>
-      {/* // Change back to mt-12 / mt-24 when more news. */}
-      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8 mb-6 xl:mb-12 mt-12 sm:my-16'>
+      <div className='flex flex-row flex-wrap justify-between md:justify-center gap-8'>
         {news.map((item) => (
-          <div key={item.id} classes='flex flex-row flex-wrap justify-between md:justify-centers'>
+          <div
+            key={item.id}
+            className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+          >
             <NewsPreview
               key={item.id}
               link={item.slug}
@@ -27,7 +26,6 @@ export default function NewsHighlights({ news }) {
         {/* Enable left-aligned wrapped items. */}
         {news.length % 2 === 0 ? '' : <div className='w-90 lg:w-[474px] xl:w-[525px]'></div>}
       </div>
-      <Button url='/news'>Lisää Uutisia</Button>
     </div>
   )
 }
