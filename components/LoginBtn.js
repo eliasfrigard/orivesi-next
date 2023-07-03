@@ -1,22 +1,14 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 import { CgProfile } from 'react-icons/cg'
-
-import { Fragment } from 'react'
+import { MdLogout, MdDashboard } from 'react-icons/md'
 import { Menu } from '@headlessui/react'
 
 
 export default function LoginBtn({ classes }) {
-  const links = [
-    { href: '/account-settings', label: 'Account settings' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
-    { href: '/sign-out', label: 'Sign out' },
-  ]
-
   const btnStyle = `${classes} px-6`
 
-  const iconStyle = `text-primary-500 opacity-80`
+  const iconStyle = `opacity-80`
 
   const { data: session } = useSession()
 
@@ -29,23 +21,33 @@ export default function LoginBtn({ classes }) {
   }
   return (
     <Menu>
-      <Menu.Button className="flex justify-center items-center">
-        <button className={btnStyle} id='login' onClick={() => signIn()}>
-          <CgProfile className={iconStyle} />
-        </button>
-      </Menu.Button>
-      <Menu.Items className="absolute flex flex-col bg-secondary-500 text-base p-4 gap-2 rounded shadow top-[83px]">
-        {links.map((link) => (
-          <Menu.Item
-            as="a"
-            key={link.href}
-            href={link.href}
-            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-          >
-            {link.label}
-          </Menu.Item>
-        ))}
-      </Menu.Items>
+      <div className='flex justify-center'>
+        <Menu.Button className="flex justify-center items-center text-base uppercase tracking-widest">
+          <CgProfile className="text-2xl" />
+        </Menu.Button>
+        <Menu.Items className="absolute flex flex-col bg-primary-500 text-base p-5 gap-4 rounded shadow mt-10 text-secondary-500">
+          <div className="flex items-center gap-2">
+            <MdDashboard />
+            <Menu.Item
+              as="a"
+              href="dashboard"
+              className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
+            >
+              Dashboard
+            </Menu.Item>
+          </div>
+          <hr />
+          <div className='flex items-center gap-2'>
+            <MdLogout className={iconStyle} />
+            <Menu.Item
+              as="a"
+              href="sign-out"
+            >
+              Kirjaudu ulos
+            </Menu.Item>
+          </div>
+        </Menu.Items>
+      </div>
     </Menu >
 
 
