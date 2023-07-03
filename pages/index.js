@@ -10,9 +10,8 @@ import AnimateIn from '../components/AnimateIn'
 import TiltedImages from '../components/Modules/TiltedImages'
 
 export default function Home({ welcome, news, events }) {
-  const isPrevious = (event) => {
-    const endDate = event.attributes.End ? new Date(event.attributes.End) : new Date(event.attributes.Start)
-    return endDate.getTime() < Date.now()
+  function isPrevious(date) {
+    return new Date(date).getTime() < Date.now()
   }
 
   // Remove previous and take the next three events with the earliest date.
