@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
+import LoginBtn from './LoginBtn'
 
 export default function Navbar() {
   const router = useRouter()
@@ -90,6 +91,8 @@ export default function Navbar() {
           <a href='mailto:orivesiallstars@gmail.com'>
             <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow' />
           </a>
+
+          <LoginBtn />
         </div>
       </div>
       {/* MOBILE NAV BELOW */}

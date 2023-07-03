@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react'
 import useScrollRestoration from '../utils/hooks/useScrollRestoration'
 
 import '../styles/globals.css'
@@ -11,7 +12,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
   useScrollRestoration(router)
 
   return (
-    <Component {...pageProps} />
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
   )
 }
 
