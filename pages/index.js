@@ -15,7 +15,8 @@ export default function Home({ welcome, news, events }) {
   }
 
   // Remove previous and take the next three events with the earliest date.
-  let nextEvents = events.filter((event) => !isPrevious(event.attributes.End))
+  let nextEvents = events.filter((event) => !isPrevious(event.attributes.End || event.attributes.Start))
+
   nextEvents = nextEvents.slice(0, 3)
 
   // Take the 4 newest news.
