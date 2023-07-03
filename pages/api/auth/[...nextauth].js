@@ -18,10 +18,11 @@ const authOptions = {
 
         if (!email || !password) throw new Error('email/password missing!')
 
-        if (email === 'elias_frigard@hotmail.com' && password === 'password')
-          return { username: 'John', id: '123' }
-
-        throw new Error('username/password do not match!')
+        if (email === 'elias_frigard@hotmail.com' && password === 'password') {
+          return { id: "1", name: "Elias", email: "jsmith@example.com" }
+        } else {
+          return null
+        }
       },
     }),
     GoogleProvider({
