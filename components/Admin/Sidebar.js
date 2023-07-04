@@ -7,19 +7,22 @@ export default function Sidebar() {
 
   return (
     <div className={sidebarStyle}>
-      <h3 className='text-3xl pl-3'>Admin Panel</h3>
+      <h3 className='text-2xl pl-3 tracking-wide'>Dashboard</h3>
       <div>
-        <SidebarLink href="/admin" active={false}>
+        <SidebarLink href="/admin">
           <MdDashboard className='text-2xl' />
           <p>Dashboard</p>
         </SidebarLink>
-        <SidebarLink href="/admin/scores" active={false}>
+        <SidebarLink href="/admin/scores">
+          <MdDashboard className='text-2xl' />
           <p>Nuotit</p>
         </SidebarLink>
-        <SidebarLink href="/admin/news" active={false}>
+        <SidebarLink href="/admin/news">
+          <MdDashboard className='text-2xl' />
           <p>Uutiset</p>
         </SidebarLink >
-        <SidebarLink href="/admin/events" active={false}>
+        <SidebarLink href="/admin/events">
+          <MdDashboard className='text-2xl' />
           <p>Tapahtumat</p>
         </SidebarLink >
       </div>
