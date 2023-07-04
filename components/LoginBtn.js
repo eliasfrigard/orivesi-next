@@ -24,7 +24,7 @@ export default function LoginBtn({ classes }) {
         <Menu.Button className="flex justify-center items-center text-base uppercase tracking-widest px-6">
           <FiUserCheck className="text-2xl" />
         </Menu.Button>
-        <Menu.Items className="absolute flex flex-col bg-primary-500 text-base p-5 gap-4 rounded shadow mt-10 text-secondary-500">
+        <Menu.Items className="absolute flex flex-col bg-primary-500 text-base p-5 gap-4 rounded shadow mt-10 text-secondary-500 min-w-[120px]">
           <div className='flex items-center gap-2 font-medium'>
             <FaUser />
             <p>{`Moi ${session?.user?.name}!`}</p>
@@ -36,7 +36,7 @@ export default function LoginBtn({ classes }) {
             <MdDashboard />
             <Menu.Item
               as="a"
-              href="dashboard"
+              href="admin"
               className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
             >
               Dashboard
@@ -47,7 +47,7 @@ export default function LoginBtn({ classes }) {
             <FiSettings />
             <Menu.Item
               as="a"
-              href="dashboard"
+              href="admin"
               className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
             >
               Asetukset

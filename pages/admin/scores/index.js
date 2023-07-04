@@ -1,5 +1,5 @@
 import AdminLayout from '../../../components/Admin/AdminLayout'
-import Layout from '../../../components/Layout'
+import Layout from '../../../components/Layouts/Default'
 import { useSession } from 'next-auth/react'
 import axios from 'axios'
 import Moment from 'react-moment'

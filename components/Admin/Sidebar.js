@@ -1,14 +1,27 @@
 import SidebarLink from './SidebarLink'
 
+import { MdDashboard } from 'react-icons/md'
+
 export default function Sidebar() {
+  const sidebarStyle = 'fixed flex flex-col gap-4 pt-[calc(83px+2rem)] h-full w-[300px] border-r border-secondary-500 border-opacity-10 shadow-lg px-6'
+
   return (
-    <div className='fixed flex flex-col gap-8 pt-8 h-full w-[300px] border-r-2 border-secondary-200 border-opacity-50 shadow-xl'>
-      <h3 className='text-3xl text-center'>Orivesi Admin</h3>
-      <div id='example-link-group' className='px-4'>
-        <h3 className='pl-4 mb-2 uppercase text-[16px] font-bold font-work tracking-wider'>Hallinta</h3>
-        <SidebarLink title='Nuotit' url='/admin/scores'></SidebarLink>
-        <SidebarLink title='Uutiset' url='/admin/news'></SidebarLink>
-        <SidebarLink title='Tapahtumat' url='/admin/events'></SidebarLink>
+    <div className={sidebarStyle}>
+      <h3 className='text-3xl pl-3'>Admin Panel</h3>
+      <div>
+        <SidebarLink href="/admin" active={false}>
+          <MdDashboard className='text-2xl' />
+          <p>Dashboard</p>
+        </SidebarLink>
+        <SidebarLink href="/admin/scores" active={false}>
+          <p>Nuotit</p>
+        </SidebarLink>
+        <SidebarLink href="/admin/news" active={false}>
+          <p>Uutiset</p>
+        </SidebarLink >
+        <SidebarLink href="/admin/events" active={false}>
+          <p>Tapahtumat</p>
+        </SidebarLink >
       </div>
     </div>
   )

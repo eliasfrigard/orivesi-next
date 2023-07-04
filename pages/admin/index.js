@@ -1,18 +1,18 @@
 import AdminLayout from '../../components/Admin/AdminLayout'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layouts/Default'
 import { useSession } from 'next-auth/react'
 import axios from 'axios'
 
 export default function About({ about }) {
   const { data: session } = useSession()
 
-  if (session) {
-    return (
-      <AdminLayout>
-        <h1>text</h1>
-      </AdminLayout>
-    )
-  }
+  // if (session) {
+  return (
+    <AdminLayout>
+      <p>This is a text from the admin page.</p>
+    </AdminLayout>
+  )
+  // }
 
   return (
     <Layout>
