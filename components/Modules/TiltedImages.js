@@ -4,8 +4,12 @@ import AnimateIn from '../AnimateIn'
 export default function TiltedImages() {
   const renderTiltedImage = (src, delay, tilt) => (
     <AnimateIn delay={delay} opacityDuration={1000}>
-      <div className={`relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl ${tilt === 'left' ? 'rotate-2' : '-rotate-2'} shadow-md`}>
-        <Image alt='top-slice' src={src} layout='fill' objectFit='cover' />
+      <div
+        className={`relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl ${
+          tilt === 'left' ? 'rotate-2' : '-rotate-2'
+        } shadow-md`}
+      >
+        <Image alt='top-slice' src={src} fill className={`object-cover`} />
       </div>
     </AnimateIn>
   )

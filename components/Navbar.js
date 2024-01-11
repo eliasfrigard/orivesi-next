@@ -49,16 +49,18 @@ export default function Navbar() {
         <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
           <ul className='flex align-middle justify-center items-center gap-2'>
             {links
-              .filter(link => link.type !== 'mobile')
-              .map(link => (
+              .filter((link) => link.type !== 'mobile')
+              .map((link) => (
                 <li key={link.title}>
-                  <Link href={link.page}>
+                  <Link href={link.page} legacyBehavior>
                     <a
                       className={`
-            ${router.pathname === link.page ||
-                          (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                          ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm' : ''
-                        }
+            ${
+              router.pathname === link.page ||
+              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
+                : ''
+            }
           py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
                     >
                       {link.title}
@@ -94,8 +96,9 @@ export default function Navbar() {
       </div>
       {/* MOBILE NAV BELOW */}
       <div
-        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${isMobileNavOpen ? '' : 'shadow-lg'
-          }`}
+        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
+          isMobileNavOpen ? '' : 'shadow-lg'
+        }`}
       >
         <Link href='/'>
           <div
@@ -123,31 +126,32 @@ export default function Navbar() {
       </div>
       {isMobileNavOpen && (
         <div
-          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${isMobileNavOpen ? 'flex' : 'hidden'
-            } duration-300`}
+          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${
+            isMobileNavOpen ? 'flex' : 'hidden'
+          } duration-300`}
         >
           <div>
             <ul className='flex align-middle justify-center flex-col items-center gap-8'>
               {links
-                .filter(link => link.type !== 'desktop')
-                .map(
-                  (link) =>
-                    <li key={link.title}>
-                      <Link href={link.page}>
-                        <a
-                          className={`
-                    ${router.pathname === link.page ||
-                              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                              ? 'text-accent-600 font-bold'
-                              : 'text-primary-500'
-                            }
+                .filter((link) => link.type !== 'desktop')
+                .map((link) => (
+                  <li key={link.title}>
+                    <Link href={link.page}>
+                      <a
+                        className={`
+                    ${
+                      router.pathname === link.page ||
+                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                        ? 'text-accent-600 font-bold'
+                        : 'text-primary-500'
+                    }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}
-                        >
-                          {link.title}
-                        </a>
-                      </Link>
-                    </li>
-                )}
+                      >
+                        {link.title}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 
