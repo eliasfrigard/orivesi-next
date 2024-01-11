@@ -86,7 +86,7 @@ export default function Events({ events }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events?sort[0]=Start`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/events?sort[0]=Start&pagination[pageSize]=100`)
 
   let eventsWithSlug = response.data.data.map((event) => {
     return {
