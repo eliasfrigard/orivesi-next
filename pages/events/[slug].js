@@ -50,14 +50,16 @@ export default function EventPage({ event }) {
 
           {/* INFO */}
           <div
-            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
-              }`}
+            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${
+              event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
+            }`}
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
                 className='aspect-3/4 w-full h-full rounded-lg'
-                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
-                  }+${event.City}+${event.Country}&z=14&output=embed`}
+                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
+                  event.Address ? event.Address : event.Location
+                }+${event.City}+${event.Country}&z=14&output=embed`}
                 allowFullScreen=''
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
@@ -166,7 +168,7 @@ export default function EventPage({ event }) {
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events`)
+  const response = await axios.get(`${process.env.API_ADDRESS}/events?pagination[pageSize]=100`)
 
   const paths = response.data.data.map((event) => ({
     params: {
