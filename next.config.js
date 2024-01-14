@@ -8,10 +8,10 @@ const nextConfig = {
     API_DEV_ADDRESS: process.env.API_ADDRESS,
     API_DEV_TOKEN: process.env.API_TOKEN,
   },
-  i18n: {
-    locales: ['fi'],
-    defaultLocale: 'fi',
-  },
+  // i18n: {
+  //   locales: ['fi'],
+  //   defaultLocale: 'fi',
+  // },
 }
 
 module.exports = nextConfig
