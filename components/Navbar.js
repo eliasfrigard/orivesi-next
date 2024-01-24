@@ -30,11 +30,11 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAV BELOW */}
       <div
-        className={`hidden lg:flex fixed w-full justify-center py-1 backdrop-blur bg-opacity-100 z-20 shadow-xl bg-[#003c52]`}
+        className={`hidden lg:grid grid-cols-[1fr_2fr_1fr] items-center fixed h-[83px] w-full backdrop-blur bg-opacity-100 z-20 shadow-xl bg-[#003c52]`}
       >
         <Link href='/'>
           <div
-            className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 tracking-wider scale-90`}
+            className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 tracking-wider scale-90`}
           >
             <p className='font-work font-bold text-2xl md:text-[28px] text-accent-600 leading-none'>
               ORIVESI
@@ -46,7 +46,7 @@ export default function Navbar() {
             </p>
           </div>
         </Link>
-        <div className='container hidden lg:flex justify-center items-center h-[75px] w-3/5'>
+        <div className='container hidden lg:flex justify-center items-center'>
           <ul className='flex align-middle justify-center items-center gap-2'>
             {links
               .filter((link) => link.type !== 'mobile')
@@ -55,12 +55,11 @@ export default function Navbar() {
                   <Link href={link.page} legacyBehavior>
                     <a
                       className={`
-            ${
-              router.pathname === link.page ||
-              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
-                : ''
-            }
+            ${router.pathname === link.page ||
+                          (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                          ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
+                          : ''
+                        }
           py-[12px] px-[14px] whitespace-nowrap active:hover:bg-accent:500 duration-100 hover:text-white rounded font-sans tracking-wide text-[15px] text-primary-500 hover:bg-accent-600 hover:shadow-sm`}
                     >
                       {link.title}
@@ -71,7 +70,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div
-          className={`hidden xl:flex w-1/5 gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
+          className={`hidden xl:flex gap-4 2xl:gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
         >
           <a target='_blank' href='https://www.facebook.com/orivesiallstars/' rel='noopener noreferrer'>
             <BsFacebook className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow' />
@@ -96,13 +95,12 @@ export default function Navbar() {
       </div>
       {/* MOBILE NAV BELOW */}
       <div
-        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${
-          isMobileNavOpen ? '' : 'shadow-lg'
-        }`}
+        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${isMobileNavOpen ? '' : 'shadow-lg'
+          }`}
       >
         <Link href='/'>
           <div
-            className={`leading-4 cursor-pointer flex flex-col justify-center items-center text-center md:w-1/5 text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider mb-1`}
+            className={`leading-4 cursor-pointer flex flex-col justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider mb-1`}
           >
             <p className='font-work font-bold text-2xl md:text-3xl text-accent-600 drop-shadow-md'>ORIVESI</p>
             <p
@@ -126,9 +124,8 @@ export default function Navbar() {
       </div>
       {isMobileNavOpen && (
         <div
-          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${
-            isMobileNavOpen ? 'flex' : 'hidden'
-          } duration-300`}
+          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${isMobileNavOpen ? 'flex' : 'hidden'
+            } duration-300`}
         >
           <div>
             <ul className='flex align-middle justify-center flex-col items-center gap-8'>
@@ -136,15 +133,14 @@ export default function Navbar() {
                 .filter((link) => link.type !== 'desktop')
                 .map((link) => (
                   <li key={link.title}>
-                    <Link href={link.page}>
+                    <Link href={link.page} legacyBehavior>
                       <a
                         className={`
-                    ${
-                      router.pathname === link.page ||
-                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
-                        ? 'text-accent-600 font-bold'
-                        : 'text-primary-500'
-                    }
+                    ${router.pathname === link.page ||
+                            (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                            ? 'text-accent-600 font-bold'
+                            : 'text-primary-500'
+                          }
                     py-[13px] px-[20px] active:hover:bg-accent:500 text-2xl duration-100 hover:text-white rounded font-sans tracking-wide font-medium`}
                       >
                         {link.title}
