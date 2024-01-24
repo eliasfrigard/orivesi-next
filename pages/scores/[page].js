@@ -118,7 +118,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { page } }) {
   const response = await axios.get(
-    `${process.env.API_ADDRESS}/music-scores?fields=Title,Composer,Type,Status&sort=Title:asc&pagination[page]=${page}`
+    `${process.env.API_ADDRESS}/music-scores?pagination[page]=${page}`
   )
 
   let scoreWithSlug = response.data.data.map((score) => {
