@@ -146,7 +146,7 @@ export async function getStaticPaths() {
   const paths = []
 
   for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
-    const res = await axios.get(`${process.env.API_ADDRESS}/music-scores?pagination[page]=${i + 1}`)
+    const res = await axios.get(`${process.env.API_ADDRESS}/music-scores?pagination[page]=${i + 1}&sort=Title`)
 
     res.data.data.forEach((score) => {
       paths.push({

@@ -105,7 +105,7 @@ export async function getStaticProps() {
     page += 1
 
     const res = await axios.get(
-      `${process.env.API_ADDRESS}/music-scores?pagination[page]=${page}`
+      `${process.env.API_ADDRESS}/music-scores?pagination[page]=${page}&sort=Title`
     )
 
     scores = [...scores, ...res.data.data]
