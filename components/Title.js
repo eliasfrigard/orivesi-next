@@ -1,8 +1,8 @@
-export default function Title({ children, version }) {
+export default function Title({ children, version, className }) {
   return (
     <>
       {version === 'v1' && (
-        <h3 className='text-5xl text-center leading-[4rem] tracking-wider text-grey-400'>{children}</h3>
+        <h3 className={`text-5xl text-center -mb-4 leading-[4rem] tracking-wider text-grey-400 ${className}`}>{children}</h3>
       )}
 
       {version === 'v2' && (

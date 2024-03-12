@@ -5,7 +5,6 @@ import HighlightText from '../components/Modules/HighlightText'
 import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
-import SearchModule from '../components/Modules/SearchModule'
 import AnimateIn from '../components/AnimateIn'
 import TiltedImages from '../components/Modules/TiltedImages'
 
@@ -46,17 +45,16 @@ export default function Home({ welcome, news, events }) {
 
       <TiltedImages></TiltedImages>
 
-      <ShortPresentation
-        title={welcome.Title}
-        text={welcome.Text}
-        linkText={welcome.Link_Text}
-        linkUrl={welcome.Link_URL}
-      />
 
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center gap-16'>
+        <ShortPresentation
+          title={welcome.Title}
+          text={welcome.Text}
+          linkText={welcome.Link_Text}
+          linkUrl={welcome.Link_URL}
+        />
+
         <NewsHighlights news={latestNews}></NewsHighlights>
-        <div className='h-16 sm:h-32'></div>
-        <SearchModule></SearchModule>
         <EventHighlights events={nextEvents}></EventHighlights>
       </div>
     </Layout>
@@ -70,9 +68,9 @@ export async function getStaticProps() {
     `${process.env.API_ADDRESS}/posts?_limit=4&sort=createdAt:desc&populate=Images`
   )
 
-  const eventRes = await axios.get(`${process.env.API_ADDRESS}/events?sort=Start:asc`)
+  const eventRes = await axios.get(`${process.env.API_ADDRESS}/events?sort=Start:asc&pagination[pageSize]=100`)
 
-  let newsWithSlug = postRes.data.data.map((post) => {
+  const newsWithSlug = postRes.data.data.map((post) => {
     return {
       slug: post.id,
       ...post,
@@ -80,7 +78,7 @@ export async function getStaticProps() {
   })
 
   //
-  let eventsWithSlug = eventRes.data.data.map((event) => {
+  const eventsWithSlug = eventRes.data.data.map((event) => {
     return {
       slug: event.id,
       ...event,

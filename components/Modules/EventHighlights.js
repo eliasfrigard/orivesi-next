@@ -4,15 +4,13 @@ import Title from '../Title'
 
 export default function EventHighlights({ events }) {
   return (
-    <div className='flex flex-col	items-center mt-16 md:mt-32 md:mb-16 text-grey-500'>
+    <div className='flex flex-col gap-16 items-center text-grey-500'>
       <Title version='v1'>SEURAAVAT TAPAHTUMAT</Title>
 
       {events.length <= 0 ? (
-        <div className='my-16 sm:mb-20'>
-          <Title version='v2'>Ei tulevia tapahtumia.</Title>
-        </div>
+        <Title version='v2'>Ei tulevia tapahtumia.</Title>
       ) : (
-        <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 w-full gap-8 md:gap-10 items-center justify-center my-16 sm:mb-20 '>
+        <div className='w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 w-full gap-8 md:gap-10 items-center justify-center'>
           {events.map((event) => (
             <EventPreview
               key={event.id}

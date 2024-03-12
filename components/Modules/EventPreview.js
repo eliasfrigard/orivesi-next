@@ -14,9 +14,9 @@ export default function EventPreview({
   link,
 }) {
   return (
-    <Link href={'/events/' + link}>
+    <Link href={'/events/' + link} className='w-full max-w-[400px]'>
       <div
-        className={`flex flex-col w-[380px] items-center text-secondary-600 border border-secondary-600 hover:border-opacity-60 border-opacity-40 py-10 px-10 rounded-xl shadow-sm hover:shadow-md duration-200 cursor-pointer active:scale-98 tracking-wide`}
+        className={`flex flex-col items-center text-secondary-600 border border-secondary-600 hover:border-opacity-60 border-opacity-40 py-10 px-10 rounded-xl shadow-sm hover:shadow-md duration-200 cursor-pointer active:scale-98 tracking-wide`}
       >
         {/* Date */}
         <div className='date font-work flex gap-3 justify-center text-left items-center text-secondary-800 border-b pb-5 border-accent-600 border-opacity-30'>
