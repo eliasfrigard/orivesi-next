@@ -25,8 +25,13 @@ export default function ScorePage({ score, slug }) {
   }
 
   return (
-    <Layout pageTitle={score.Title} pageDescription={score.Description} pageUrl={`/score/${slug}`}>
-      <div className='container flex pt-10 flex-col items-center'>
+    <Layout
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
+      pageTitle={score.Title} 
+      pageDescription={score.Description} 
+      pageUrl={`/score/${slug}`}
+    >
+      <div className='container flex pt-10 flex-col items-center my-8 md:my-16'>
         <div className='w-full flex flex-col gap-10 lg:gap-6'>
           <div className='lg:mb-8 lg:mt-2 text-accent-600 flex flex-col gap-4 md:gap-5'>
             <div className='flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>

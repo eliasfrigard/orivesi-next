@@ -4,7 +4,12 @@ import NewsPreview from '../../components/Modules/NewsPreview'
 
 export default function News({ news }) {
   return (
-    <Layout pageTitle='News' pageDescription='Orivesi All Stars latest news' pageUrl='/news'>
+    <Layout 
+      pageTitle='News' 
+      pageDescription='Orivesi All Stars latest news' 
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
+      pageUrl='/news'
+    >
       <div className='flex flex-col	container my-16 gap-12 md:gap-16'>
         <div className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'>
           {news.map((item) => (

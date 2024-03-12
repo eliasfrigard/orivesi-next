@@ -1,4 +1,4 @@
-export default function Title({ children, version, className }) {
+export default function Title({ children, version, className } : { children: React.ReactNode, version?: string, className?: string }) {
   return (
     <>
       {version === 'v1' && (

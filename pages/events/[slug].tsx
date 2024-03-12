@@ -22,8 +22,9 @@ export default function EventPage({ event }) {
       pageTitle={event.Title}
       pageDescription={event.Description?.substring(0, 100)}
       pageUrl={router.asPath}
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
     >
-      <div className='container flex pt-10 flex-col items-start text-grey-500'>
+      <div className='container flex pt-10 flex-col items-start text-grey-500 my-8 md:my-16'>
         <div className='flex flex-col gap-4 md:gap-5'>
           <div className=' flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
             <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
@@ -50,17 +51,15 @@ export default function EventPage({ event }) {
 
           {/* INFO */}
           <div
-            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${
-              event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
-            }`}
+            className={`order-1 flex flex-col xl:flex-row gap-12 w-full text-xl ${event.Description && 'border-b border-secondary-600 border-opacity-30 pb-14'
+              }`}
           >
             <div className='order-2 md:order-1 w-full xl:w-1/2'>
               <iframe
                 className='aspect-3/4 w-full h-full rounded-lg'
-                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${
-                  event.Address ? event.Address : event.Location
-                }+${event.City}+${event.Country}&z=14&output=embed`}
-                allowFullScreen=''
+                src={`https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${event.Address ? event.Address : event.Location
+                  }+${event.City}+${event.Country}&z=14&output=embed`}
+                allowFullScreen
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
               ></iframe>

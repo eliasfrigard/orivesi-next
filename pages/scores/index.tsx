@@ -45,53 +45,57 @@ export default function Home({ scores }) {
     <Layout
       pageTitle="Scores"
       pageDescription="Orivesi All Stars scores mobile view"
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl="/scores"
     >
-      <div className='my-16'>
-        <InfoModule>
-          <div className='flex flex-col gap-6'>
+      <InfoModule>
+        <div className='flex flex-col gap-6'>
+          <FaHeart className='text-xl text-red-500' />
+          <p className='inline'>
+            Yhdellä sydämellä merkityt kappaleet ovat aktiivisoitossa tällä hetkellä. Niistä on siis hyvä
+            aloittaa, jos olet uusi materiaalin parissa.
+          </p>
+          <div className='flex gap-2'>
             <FaHeart className='text-xl text-red-500' />
-            <p className='inline'>
-              Yhdellä sydämellä merkityt kappaleet ovat aktiivisoitossa tällä hetkellä. Niistä on siis hyvä
-              aloittaa, jos olet uusi materiaalin parissa.
-            </p>
-            <div className='flex gap-2'>
-              <FaHeart className='text-xl text-red-500' />
-              <FaHeart className='text-xl text-red-500' />
-            </div>
-            <p>
-              Kahdella sydämellä merkityt ovat monelle vanhaa tuttua ohjelmistoa, joilla tarvittaessa
-              täydennnetään esimerkiksi keikkasettiä.
-            </p>
-            <FaStar className='text-xl text-yellow-500' />
-            <p>Tähdellä merkityt ovat uusimpia tuttavuuksia!</p>
+            <FaHeart className='text-xl text-red-500' />
           </div>
-        </InfoModule>
+          <p>
+            Kahdella sydämellä merkityt ovat monelle vanhaa tuttua ohjelmistoa, joilla tarvittaessa
+            täydennnetään esimerkiksi keikkasettiä.
+          </p>
+          <FaStar className='text-xl text-yellow-500' />
+          <p>Tähdellä merkityt ovat uusimpia tuttavuuksia!</p>
+        </div>
+      </InfoModule>
 
-        <div className='flex flex-col gap-16 lg:my-16'>
-          <Title>Nuotit</Title>
-          <div>
-            <SearchModule />
-            <InfiniteScroll dataLength={scoreSublist.length} next={fetchMore} hasMore={hasMore}>
-              <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
-                {scoreSublist.map((score) => (
-                  <div
-                    key={score.id}
-                    className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-16'
-                  >
-                    <Score
-                      key={score.slug}
-                      link={score.slug}
-                      title={score.attributes.Title}
-                      type={score.attributes.Type}
-                      composer={score.attributes.Composer}
-                      status={score.attributes.Status}
-                    ></Score>
-                  </div>
-                ))}
-              </div>
-            </InfiniteScroll>
-          </div>
+      <div className='flex flex-col gap-16 lg:my-16'>
+        <Title>Nuotit</Title>
+        <div>
+          <SearchModule />
+          <InfiniteScroll 
+            loader={<h4>Ladataan lisää...</h4>}
+            dataLength={scoreSublist.length} 
+            next={fetchMore} 
+            hasMore={hasMore}
+          >
+            <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
+              {scoreSublist.map((score) => (
+                <div
+                  key={score.id}
+                  className='flex flex-wrap flex-row justify-between md:justify-center gap-6 xl:gap-16'
+                >
+                  <Score
+                    key={score.slug}
+                    link={score.slug}
+                    title={score.attributes.Title}
+                    type={score.attributes.Type}
+                    composer={score.attributes.Composer}
+                    status={score.attributes.Status}
+                  ></Score>
+                </div>
+              ))}
+            </div>
+          </InfiniteScroll>
         </div>
       </div>
     </Layout>

@@ -6,8 +6,13 @@ import { validateEmail } from '../utils/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
-    <Layout pageTitle='Contact' pageDescription='Orivesi All Stars contact information' pageUrl='/contact'>
-      <div className='container flex flex-col mt-3 items-center'>
+    <Layout 
+      pageTitle='Contact' 
+      pageDescription='Orivesi All Stars contact information' 
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
+      pageUrl='/contact'
+    >
+      <div className='container flex flex-col mt-3 items-center my-8 lg:my-16'>
         <Title>Yhteystiedot</Title>
 
         <div className='flex flex-wrap gap-8 justify-center md:mt-16'>

@@ -11,7 +11,7 @@ export default function Membership({ membership }) {
       pageDescription='Orivesi All Stars membership information'
       pageUrl='/membership'
     >
-      <div className='container flex flex-col mt-2 items-center gap-16'>
+      <div className='container flex flex-col mt-2 items-center gap-16 py-16'>
         <Title>Liity Jäseneksi</Title>
         <div className='flex gap-16'>
           <div

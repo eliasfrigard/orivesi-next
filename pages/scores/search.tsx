@@ -27,12 +27,13 @@ export default function ScoreSearch() {
     <Layout
       pageTitle="Search"
       pageDescription={`Orivesi All Stars score search and results`}
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl="/scores/search"
     >
-      <div className='flex flex-col gap-16'>
+      <div className='flex flex-col gap-16 my-16'>
         <Title>Hakutulokset</Title>
         <div>
-          <SearchModule title='Etsitkö jotain muuta?' initialValue={query} />
+          <SearchModule title='Etsitkö jotain muuta?' />
           {scores.length > 0 ? (
             <div className='container flex flex-col gap-4 mt-16 mb-8 md:my-16'>
               <p className='text-center font-work font-medium text-lg tracking-wide sm:hidden mt-[-30px]'>

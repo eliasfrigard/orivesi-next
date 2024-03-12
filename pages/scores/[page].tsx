@@ -36,6 +36,7 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
     <Layout
       pageTitle={`Scores ${page}`}
       pageDescription={`Page ${page} of Orivesi All Stars music scores`}
+      pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl={`/scores/${page}`}
     >
       <div className='my-16'>

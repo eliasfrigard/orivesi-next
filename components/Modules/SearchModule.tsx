@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import Router from 'next/router'
 
-export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', scoreCount }) {
+export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', scoreCount } : { title?: string, scoreCount?: number }) {
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleChange = (event) => {
@@ -33,7 +33,7 @@ export default function SearchModule({ title = 'Hae meidän nuottiarkistosta', s
           className='rounded-full p-4 w-full lg:w-3/5 text-grey-500 outline-none px-8 tracking-wider shadow-lg'
           placeholder='Hae nuottiarkistosta ...'
         />
-        <Button type='submit' className='mt-6 lg:mt-0 ' width={`w-full lg:w-2/5`}>
+        <Button width={`w-full lg:w-2/5`}>
           Hae
         </Button>
       </form>

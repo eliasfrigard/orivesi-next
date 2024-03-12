@@ -10,6 +10,15 @@ export default function Score({
   isHeader = false,
   onChangeFilter,
   status = null,
+} : {
+  title: string,
+  type: string,
+  composer: string,
+  link?: string,
+  isHeader?: boolean,
+  onChangeFilter?: (event) => void,
+  status?: string,
+
 }) {
   const [open, setOpen] = useState(false)
   const onMouseClick = () => setOpen(!open)

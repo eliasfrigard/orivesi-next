@@ -9,6 +9,15 @@ export default function Button({
   width = 'min-w-[200px]',
   externalUrl = false,
   disabled = false,
+} : {
+  children: React.ReactNode,
+  url?: string,
+  color?: string,
+  hoverColor?: string,
+  rounded?: string,
+  width?: string,
+  externalUrl?: boolean,
+  disabled?: boolean,
 }) {
   return url ? (
     externalUrl ? (

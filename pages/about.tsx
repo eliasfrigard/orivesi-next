@@ -12,7 +12,7 @@ export default function About({ about }) {
       pageUrl='/about'
     >
       <div
-        className='container my-16 items-center prose max-w-5xl leading-loose prose-img:roundedShadow font-work'
+        className='container my-8 md:my-16 items-center prose max-w-5xl leading-loose prose-img:roundedShadow font-work'
         dangerouslySetInnerHTML={{ __html: md().render(about.Text) }}
       />
     </Layout>
