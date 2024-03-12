@@ -8,6 +8,9 @@ const nextConfig = {
     API_DEV_ADDRESS: process.env.API_ADDRESS,
     API_DEV_TOKEN: process.env.API_TOKEN,
   },
+  images: {
+    domains: ['orivesi-strapi-bucket.s3.eu-north-1.amazonaws.com'],
+  },
   // i18n: {
   //   locales: ['fi'],
   //   defaultLocale: 'fi',

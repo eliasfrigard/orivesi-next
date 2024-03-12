@@ -20,7 +20,7 @@ export default function Events({ events }) {
 
   return (
     <Layout pageTitle='Events' pageDescription='Orivesi All Stars upcoming and past events' pageUrl='/events'>
-      <div className='flex flex-col'>
+      <div className='flex flex-col my-16'>
         {/* Upcoming */}
         <div className='flex flex-col items-center gap-16'>
           <Title>Tulevat Tapahtumat</Title>

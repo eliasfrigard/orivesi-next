@@ -8,6 +8,10 @@ import ShortPresentation from '../components/Modules/ShortPresentation'
 import AnimateIn from '../components/AnimateIn'
 import TiltedImages from '../components/Modules/TiltedImages'
 
+import {
+  Hero
+} from 'eliasfrigard-reusable-components/dist/app'
+
 export default function Home({ welcome, news, events }) {
   function isPrevious(date) {
     return new Date(date).getTime() < Date.now()
@@ -21,6 +25,11 @@ export default function Home({ welcome, news, events }) {
   // Take the 4 newest news.
   let latestNews = news.slice(0, 4)
 
+  const image = {
+    url: '/kaustinen.jpg',
+    altText: 'Orivesi All Stars',
+  }
+
   return (
     <Layout
       pageTitle="Home"
@@ -28,34 +37,44 @@ export default function Home({ welcome, news, events }) {
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl="/"
     >
-      <AnimateIn opacityDuration={1000} delay={1000}>
-        <div className='container lg:hidden mb-7 drop-shadow rounded-lg -mt-2'>
-          <Image
-            className='rounded-xl'
-            src='/kaustinen.jpg'
-            alt='Orivesi All Stars'
-            width='6581'
-            height='3900'
-            layout='responsive'
-            objectFit='cover'
+      {/* <Hero
+        spaced={false}
+        Image={Image}
+        desktopImg={image}
+        mobileImg={image}
+        overlay={false}
+        imagePosition='top'
+      /> */}
+      <div className='my-16'>
+        <AnimateIn>
+          <div className='container lg:hidden mb-7 drop-shadow rounded-lg -mt-2'>
+            <Image
+              className='rounded-xl'
+              src='/kaustinen.jpg'
+              alt='Orivesi All Stars'
+              width='6581'
+              height='3900'
+              layout='responsive'
+              objectFit='cover'
+            />
+          </div>
+        </AnimateIn>
+        <HighlightText title='ORIVESI ALL STARS' subtitle='Suomen Suurin Pelimanniorkesteri'></HighlightText>
+
+        <TiltedImages></TiltedImages>
+
+
+        <div className='flex flex-col justify-center items-center gap-16'>
+          <ShortPresentation
+            title={welcome.Title}
+            text={welcome.Text}
+            linkText={welcome.Link_Text}
+            linkUrl={welcome.Link_URL}
           />
+
+          <NewsHighlights news={latestNews}></NewsHighlights>
+          <EventHighlights events={nextEvents}></EventHighlights>
         </div>
-      </AnimateIn>
-      <HighlightText title='ORIVESI ALL STARS' subtitle='Suomen Suurin Pelimanniorkesteri'></HighlightText>
-
-      <TiltedImages></TiltedImages>
-
-
-      <div className='flex flex-col justify-center items-center gap-16'>
-        <ShortPresentation
-          title={welcome.Title}
-          text={welcome.Text}
-          linkText={welcome.Link_Text}
-          linkUrl={welcome.Link_URL}
-        />
-
-        <NewsHighlights news={latestNews}></NewsHighlights>
-        <EventHighlights events={nextEvents}></EventHighlights>
       </div>
     </Layout>
   )

@@ -9,6 +9,12 @@ export default function Layout({
   pageDescription,
   pageImage = 'https://orivesiadmin.net/oas_image.jpg',
   pageUrl,
+} : {
+  children: React.ReactNode,
+  pageTitle: string,
+  pageDescription: string,
+  pageImage: string,
+  pageUrl: string,
 }) {
   return (
     <div className='bg-primary-500'>
@@ -25,7 +31,7 @@ export default function Layout({
         <meta property='og:url' content={`https://orivesiallstars.com${pageUrl}`} />
       </Head>
       <Navbar />
-      <main className='pt-[calc(83px+3rem)] md:pt-[calc(83px+4rem)] mb-16 min-h-[calc(90vh)]'>
+      <main className='minContainerHeight pt-[83px]'>
         {children}
       </main>
       <Footer />
