@@ -1,16 +1,12 @@
 import axios from 'axios'
 import Image from 'next/image'
 import Layout from '../components/Layouts/Default'
-import HighlightText from '../components/Modules/HighlightText'
 import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
 import AnimateIn from '../components/AnimateIn'
-import TiltedImages from '../components/Modules/TiltedImages'
 
-import {
-  Hero
-} from 'eliasfrigard-reusable-components/dist/app'
+import Hero from '../components/Modules/Hero'
 
 export default function Home({ welcome, news, events }) {
   function isPrevious(date) {
@@ -36,34 +32,28 @@ export default function Home({ welcome, news, events }) {
       pageDescription="Home Page"
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl="/"
+      transparentHeader={true}
     >
-      {/* <Hero
+      <Hero
         spaced={false}
         Image={Image}
         desktopImg={image}
         mobileImg={image}
-        overlay={false}
+        overlay={true}
         imagePosition='top'
-      /> */}
-      <div className='my-16'>
-        <AnimateIn>
-          <div className='container lg:hidden mb-7 drop-shadow rounded-lg -mt-2'>
-            <Image
-              className='rounded-xl'
-              src='/kaustinen.jpg'
-              alt='Orivesi All Stars'
-              width='6581'
-              height='3900'
-              layout='responsive'
-              objectFit='cover'
-            />
-          </div>
+        overlayClasses='bg-gradient-to-b from-transparent to-custom-opacity backdrop-filter backdrop-blur'
+      >
+        <AnimateIn delay={1000} className='container text-center flex flex-col justify-center items-center gap-6'>
+          <h1 className='text-7xl lg:text-8xl font-sketch uppercase font-bold text-accent-500 opacity-90 -mb-3 drop-shadow-2xl tracking-wide'>Orivesi All Stars</h1>
+
+          {/* DIVIDER */}
+          <div className='w-2/3 h-[2px] bg-opacity-30 bg-accent-500 z-10 rounded-full' />
+
+          <h2 className='text-2xl lg:text-5xl font-sketch text-primary-500 opacity-90 lowercase drop-shadow-2xl tracking-wide'>Suomen Suurin Pelimanniorkesteri</h2>
         </AnimateIn>
-        <HighlightText title='ORIVESI ALL STARS' subtitle='Suomen Suurin Pelimanniorkesteri'></HighlightText>
+      </Hero>
 
-        <TiltedImages></TiltedImages>
-
-
+      <div className='mb-16'>
         <div className='flex flex-col justify-center items-center gap-16'>
           <ShortPresentation
             title={welcome.Title}

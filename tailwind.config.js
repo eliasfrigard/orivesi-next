@@ -35,6 +35,7 @@ module.exports = {
         98: '0.98',
       },
       colors: {
+        'custom-opacity': 'rgba(0, 0, 0, 0.5)', // Custom color with opacity
         white: '#FFFFFF',
         primary: {
           500: '#F3F3F3',

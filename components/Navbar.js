@@ -1,4 +1,6 @@
+import React from 'react'
 import Link from 'next/link'
+import Hamburger from './Modules/Hamburger'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -6,8 +8,10 @@ import { useRouter } from 'next/router'
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
 
-export default function Navbar() {
+export default function Navbar({ transparent = false }) {
   const router = useRouter()
+
+  const [scrolled, setScrolled] = React.useState(false)
 
   const links = [
     { title: 'Koti', page: '/', type: 'all' },
@@ -26,11 +30,26 @@ export default function Navbar() {
     setIsMobileNavOpen(!isMobileNavOpen)
   }
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50
+      setScrolled(isScrolled)
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [])
+
   return (
     <>
       {/* DESKTOP NAV BELOW */}
       <div
-        className={`hidden lg:grid grid-cols-[1fr_2fr_1fr] items-center fixed h-[83px] w-full backdrop-blur bg-opacity-100 z-20 shadow-xl bg-[#003c52]`}
+        className={`hidden lg:grid grid-cols-[1fr_2fr_1fr] items-center fixed h-[83px] w-full z-50 ${!transparent || scrolled ? 'bg-secondary-500 bg-opacity-90 shadow-lg backdrop-blur-lg' : 'bg-opacity-0'} duration-500`}
       >
         <Link href='/'>
           <div
@@ -95,36 +114,44 @@ export default function Navbar() {
       </div>
       {/* MOBILE NAV BELOW */}
       <div
-        className={`lg:hidden w-full h-[75px] px-8 flex justify-between items-center fixed z-30 bg-secondary-500 lg:hidden, ${isMobileNavOpen ? '' : 'shadow-lg'
-          }`}
+        className={`
+          lg:hidden
+          flex
+          justify-between
+          items-center
+          h-[85px]
+          w-full
+          tracking-wide
+          ${!transparent || scrolled || isMobileNavOpen ? 'backdrop-blur bg-secondary-500 shadow-xl' : ''}
+          text-primary-300
+          container
+          px-8
+          duration-300
+          fixed
+          z-50
+        `}
       >
-        <Link href='/'>
-          <div
-            className={`leading-4 cursor-pointer flex flex-col justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider mb-1`}
-          >
-            <p className='font-work font-bold text-2xl md:text-3xl text-accent-600 drop-shadow-md'>ORIVESI</p>
-            <p
-              className={`font-work font-bold text-[17px] md:text-[21px] duration-300 drop-shadow-md text-primary-500`}
+        <div>
+          <Link href='/'>
+            <div
+              className={`leading-4 cursor-pointer flex flex-col justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider mb-1`}
             >
-              ALL STARS
-            </p>
-          </div>
-        </Link>
-        <div className='Hamburger' onClick={handleHamburgerClick}>
-          {!isMobileNavOpen ? (
-            <div className='space-y-2'>
-              <span className='block w-8 h-0.5 bg-primary-500'></span>
-              <span className='block w-8 h-0.5 bg-primary-500'></span>
-              <span className='block w-8 h-0.5 bg-primary-500'></span>
+              <p className='font-work font-bold text-2xl md:text-3xl text-accent-600 drop-shadow-md'>ORIVESI</p>
+              <p
+                className={`font-work font-bold text-[17px] md:text-[21px] duration-300 drop-shadow-md text-primary-500`}
+              >
+                ALL STARS
+              </p>
             </div>
-          ) : (
-            <AiOutlineClose className='text-4xl text-primary-500' />
-          )}
+          </Link>
+        </div>
+        <div>
+          <Hamburger handleClick={handleHamburgerClick} active={isMobileNavOpen}></Hamburger>
         </div>
       </div>
       {isMobileNavOpen && (
         <div
-          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-20 ${isMobileNavOpen ? 'flex' : 'hidden'
+          className={`w-full min-h-[calc(100vh-75px)] flex-col gap-20 bg-secondary-500 fixed top-[75px] py-8 z-50 ${isMobileNavOpen ? 'flex' : 'hidden'
             } duration-300`}
         >
           <div>

@@ -9,12 +9,14 @@ export default function Layout({
   pageDescription,
   pageImage = 'https://orivesiadmin.net/oas_image.jpg',
   pageUrl,
+  transparentHeader,
 } : {
   children: React.ReactNode,
   pageTitle: string,
   pageDescription: string,
   pageImage: string,
   pageUrl: string,
+  transparentHeader?: boolean,
 }) {
   return (
     <div className='bg-primary-500'>
@@ -30,7 +32,7 @@ export default function Layout({
         <meta property='og:image' content={pageImage} />
         <meta property='og:url' content={`https://orivesiallstars.com${pageUrl}`} />
       </Head>
-      <Navbar />
+      <Navbar transparent={transparentHeader} />
       <main className='minContainerHeight pt-[83px]'>
         {children}
       </main>

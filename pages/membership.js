@@ -15,7 +15,7 @@ export default function Membership({ membership }) {
         <Title>Liity Jäseneksi</Title>
         <div className='flex gap-16'>
           <div
-            className='prose max-w-4xl leading-loose prose-hr:border-secondary-400 prose-hr:border-opacity-30'
+            className='prose max-w-3xl leading-loose prose-hr:border-secondary-400 prose-hr:border-opacity-30'
             dangerouslySetInnerHTML={{ __html: md().render(membership.Text) }}
           />
         </div>
