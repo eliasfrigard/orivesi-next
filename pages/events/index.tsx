@@ -25,15 +25,16 @@ export default function Events({ events }) {
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl='/events'
     >
-      <div className='flex flex-col my-8 md:my-16'>
+      <div className='flex flex-col my-8 md:my-16 gap-8 lg:gap-16'>
+      <Title>Aikaisempia Tapahtumia</Title>
+
         {/* Upcoming */}
-        <div className='flex flex-col items-center gap-16'>
-          <Title>Tulevat Tapahtumat</Title>
+        <div className='flex flex-col items-center'>
           <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {upcomingEvents.map((event) => (
               <div
-                key={event.id}
-                className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
+              key={event.id}
+              className='flex flex-wrap flex-row justify-between md:justify-center gap-8 xl:gap-y-16'
               >
                 <EventPreview
                   link={event.slug}
@@ -43,22 +44,16 @@ export default function Events({ events }) {
                   city={event.attributes.City}
                   country={event.attributes.Country}
                   key={event.attributes.id}
-                />
+                  />
               </div>
             ))}
           </div>
-          {upcomingEvents.length <= 0 ? (
-            <div className='mb-4 mt-[-50px] sm:mt-0'>
-              <Title version='v2'>Ei tulevia tapahtumia.</Title>
-            </div>
-          ) : (
-            ''
-          )}
         </div>
 
+        <Title>Aikaisempia Tapahtumia</Title>
+        
         {/* Previous */}
-        <div className='flex flex-col items-center gap-16 mt-16'>
-          <Title>Aikaisempia Tapahtumia</Title>
+        <div className='flex flex-col items-center'>
           <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
             {previousEvents.map((event) => (
               <div
@@ -77,13 +72,6 @@ export default function Events({ events }) {
               </div>
             ))}
           </div>
-          {previousEvents.length <= 0 ? (
-            <div className='mb-4 mt-[-50px] sm:mt-0'>
-              <Title version='v2'>Ei aikaisempia tapahtumia.</Title>
-            </div>
-          ) : (
-            ''
-          )}{' '}
         </div>
       </div>
     </Layout>
