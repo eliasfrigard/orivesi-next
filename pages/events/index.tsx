@@ -26,7 +26,7 @@ export default function Events({ events }) {
       pageUrl='/events'
     >
       <div className='flex flex-col my-8 md:my-16 gap-8 lg:gap-16'>
-      <Title>Aikaisempia Tapahtumia</Title>
+      <Title>Tulevat Tapahtumat</Title>
 
         {/* Upcoming */}
         <div className='flex flex-col items-center'>
