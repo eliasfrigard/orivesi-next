@@ -4,6 +4,8 @@ import 'moment/locale/fi'
 import md from 'markdown-it'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { downloadZip } from 'client-zip'
+import { saveAs } from 'file-saver'
 
 import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
@@ -14,8 +16,26 @@ import { BiTimeFive, BiCalendarCheck, BiCalendarX } from 'react-icons/bi'
 import { GiEarthAfricaEurope, GiHouse } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 
-export default function EventPage({ event }) {
+export default function EventPage({ event, musicScores }) {
   const router = useRouter()
+
+  const handleDownloadAll = async () => {
+    try {
+      const requests = musicScores.map((url) => fetch(url).then((res) => res.blob()))
+      const files = await Promise.all(requests)
+  
+      const zippedFiles = files.map((file, index) => ({
+        name: `file${index + 1}.pdf`,
+        input: file,
+      }))
+
+      const zipBlob = await downloadZip(zippedFiles).blob()
+  
+      saveAs(zipBlob, 'files.zip')
+    } catch (error) {
+      console.error('Error downloading files:', error)
+    }
+  }
 
   return (
     <Layout
@@ -162,6 +182,10 @@ export default function EventPage({ event }) {
           </div>
         </div>
       )}
+
+      <div className='container'>
+        <button onClick={handleDownloadAll} className='w-full bg-red-500 py-8 rounded shadow'>download all</button>
+      </div>
     </Layout>
   )
 }
@@ -183,10 +207,27 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}?populate=*`)
+  
+  let musicScores = response.data.data.attributes.music_scores.data 
+  const musicScoreIds = musicScores.map((score) => score.id)
+  
+  const requests = musicScoreIds.map((id) => axios.get(`${process.env.API_ADDRESS}/music-scores/${id}?populate=*`))
+  
+  musicScores = await Promise.all(requests)
+  musicScores = musicScores.map((score) => score.data.data.attributes)
+
+  const scoreLinks = musicScores.map((score) => {
+    const links = score.Scores.data.map((stem) => {
+      return stem.attributes.url
+    })
+
+    return links
+  })
 
   return {
     props: {
       event: response.data.data.attributes,
+      musicScores: scoreLinks.flat(),
     },
   }
 }
