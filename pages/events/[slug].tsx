@@ -182,8 +182,11 @@ export default function EventPage({ event, musicScores }) {
             </div>
           </div>
           <div className='container h-[1px] bg-secondary-700 w-[70%] bg-opacity-20 mb-8 -mt-8'></div>
-          <div className='container'>    
-            <button onClick={handleDownloadAll} className='selection:bg-secondary-500 w-full text-lg lg:h-20 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow cursor-pointer hover:shadow-lg hover:bg-opacity-90 duration-200 flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider leading-relaxed'>Lataa Kaikki Nuotit</button>
+          <div className='container'>
+            <button onClick={handleDownloadAll} className='selection:bg-secondary-500 w-full text-lg h-20 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow cursor-pointer hover:shadow-lg hover:bg-opacity-90 duration-200 flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider leading-relaxed'>
+              <p>Lataa kaikki nuotit</p>
+              <p className='text-xs mt-1 opacity-80'>Painamalla nappia lataat kaikki versiot tapahtumaan liittyvistä nuoteista koneellesi.</p>
+            </button>
           </div>
         </>
       )}
