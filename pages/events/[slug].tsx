@@ -21,21 +21,21 @@ export default function EventPage({ event, musicScores }) {
 
   const handleDownloadAll = async () => {
     try {
-      const requests = musicScores.map((url) => fetch(url).then((res) => res.blob()))
+      const requests = musicScores.map(({ url }) => fetch(url).then((res) => res.blob()))
       const files = await Promise.all(requests)
-  
+      
+      // Map the name correctly from musicScores
       const zippedFiles = files.map((file, index) => ({
-        name: `file${index + 1}.pdf`,
+        name: musicScores[index].name,  // Ensure you reference the name here
         input: file,
       }))
-
-      const zipBlob = await downloadZip(zippedFiles).blob()
   
-      saveAs(zipBlob, 'files.zip')
+      const zipBlob = await downloadZip(zippedFiles).blob()
+      saveAs(zipBlob, `${event.Title}.zip`)
     } catch (error) {
       console.error('Error downloading files:', error)
     }
-  }
+  }  
 
   return (
     <Layout
@@ -168,24 +168,27 @@ export default function EventPage({ event, musicScores }) {
 
       {/* Connected Scores */}
       {event.music_scores.data.length > 0 && (
-        <div className='container my-12 md:my-16'>
-          <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
-            {event.music_scores.data.map((score) => (
-              <Score
+        <>
+          <div className='container my-12 md:my-16'>
+            <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
+              {event.music_scores.data.map((score) => (
+                <Score
                 key={score.slug}
                 link={score.id}
                 title={score.attributes.Title}
                 type={score.attributes.Type}
                 composer={score.attributes.Composer}
-              ></Score>
-            ))}
+                ></Score>
+              ))}
+            </div>
           </div>
-        </div>
+          <div className='container h-[1px] bg-secondary-700 w-[70%] bg-opacity-20 mb-8 -mt-8'></div>
+          <div className='container'>    
+            <button onClick={handleDownloadAll} className='selection:bg-secondary-500 w-full text-lg lg:h-20 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow cursor-pointer hover:shadow-lg hover:bg-opacity-90 duration-200 flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider leading-relaxed'>Lataa Kaikki Nuotit</button>
+          </div>
+        </>
       )}
 
-      <div className='container'>
-        <button onClick={handleDownloadAll} className='w-full bg-red-500 py-8 rounded shadow'>download all</button>
-      </div>
     </Layout>
   )
 }
@@ -212,22 +215,21 @@ export async function getStaticProps({ params: { slug } }) {
   const musicScoreIds = musicScores.map((score) => score.id)
   
   const requests = musicScoreIds.map((id) => axios.get(`${process.env.API_ADDRESS}/music-scores/${id}?populate=*`))
-  
   musicScores = await Promise.all(requests)
-  musicScores = musicScores.map((score) => score.data.data.attributes)
 
+  // Extract both the name and the URL
   const scoreLinks = musicScores.map((score) => {
-    const links = score.Scores.data.map((stem) => {
-      return stem.attributes.url
-    })
-
+    const links = score.data.data.attributes.Scores.data.map((stem) => ({
+      name: stem.attributes.name,
+      url: stem.attributes.url
+    }))
     return links
   })
 
   return {
     props: {
       event: response.data.data.attributes,
-      musicScores: scoreLinks.flat(),
+      musicScores: scoreLinks.flat(),  // Flatten the array of links
     },
   }
 }
