@@ -23,10 +23,9 @@ export default function EventPage({ event, musicScores }) {
     try {
       const requests = musicScores.map(({ url }) => fetch(url).then((res) => res.blob()))
       const files = await Promise.all(requests)
-      
-      // Map the name correctly from musicScores
+
       const zippedFiles = files.map((file, index) => ({
-        name: musicScores[index].name,  // Ensure you reference the name here
+        name: `${musicScores[index].score}/${musicScores[index].name}`,
         input: file,
       }))
   
@@ -211,25 +210,29 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}?populate=*`)
   
-  let musicScores = response.data.data.attributes.music_scores.data 
-  const musicScoreIds = musicScores.map((score) => score.id)
-  
-  const requests = musicScoreIds.map((id) => axios.get(`${process.env.API_ADDRESS}/music-scores/${id}?populate=*`))
-  musicScores = await Promise.all(requests)
+  const musicScoreIds = response.data.data.attributes.music_scores.data.map((score) => score.id)
 
-  // Extract both the name and the URL
-  const scoreLinks = musicScores.map((score) => {
-    const links = score.data.data.attributes.Scores.data.map((stem) => ({
+  let url = `${process.env.API_ADDRESS}/music-scores?populate=*`
+  
+  // Add all music score ids to the query.
+  musicScoreIds.forEach((id) => {
+    url += `&filters[id]=${id}`
+  })
+
+  const musicScores = await axios.get(url)
+
+  const scoreLinks = musicScores.data.data.map((score) => {
+    return score.attributes.Scores.data.map((stem) => ({
+      score: score.attributes.Title,
       name: stem.attributes.name,
       url: stem.attributes.url
     }))
-    return links
   })
 
   return {
     props: {
       event: response.data.data.attributes,
-      musicScores: scoreLinks.flat(),  // Flatten the array of links
+      musicScores: scoreLinks.flat(),
     },
   }
 }
