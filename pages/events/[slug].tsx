@@ -4,6 +4,8 @@ import 'moment/locale/fi'
 import md from 'markdown-it'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { downloadZip } from 'client-zip'
+import { saveAs } from 'file-saver'
 
 import Layout from '../../components/Layouts/Default'
 import Score from '../../components/Modules/ScorePreview'
@@ -14,8 +16,25 @@ import { BiTimeFive, BiCalendarCheck, BiCalendarX } from 'react-icons/bi'
 import { GiEarthAfricaEurope, GiHouse } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 
-export default function EventPage({ event }) {
+export default function EventPage({ event, musicScores }) {
   const router = useRouter()
+
+  const handleDownloadAll = async () => {
+    try {
+      const requests = musicScores.map(({ url }) => fetch(url).then((res) => res.blob()))
+      const files = await Promise.all(requests)
+
+      const zippedFiles = files.map((file, index) => ({
+        name: `${musicScores[index].score}/${musicScores[index].name}`,
+        input: file,
+      }))
+  
+      const zipBlob = await downloadZip(zippedFiles).blob()
+      saveAs(zipBlob, `${event.Title}.zip`)
+    } catch (error) {
+      console.error('Error downloading files:', error)
+    }
+  }  
 
   return (
     <Layout
@@ -148,20 +167,30 @@ export default function EventPage({ event }) {
 
       {/* Connected Scores */}
       {event.music_scores.data.length > 0 && (
-        <div className='container my-12 md:my-16'>
-          <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
-            {event.music_scores.data.map((score) => (
-              <Score
+        <>
+          <div className='container my-12 md:my-16'>
+            <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
+              {event.music_scores.data.map((score) => (
+                <Score
                 key={score.slug}
                 link={score.id}
                 title={score.attributes.Title}
                 type={score.attributes.Type}
                 composer={score.attributes.Composer}
-              ></Score>
-            ))}
+                ></Score>
+              ))}
+            </div>
           </div>
-        </div>
+          <div className='container h-[1px] bg-secondary-700 w-[70%] bg-opacity-20 mb-8 -mt-8'></div>
+          <div className='container'>
+            <button onClick={handleDownloadAll} className='selection:bg-secondary-500 w-full text-lg h-20 bg-accent-500 text-white backdrop-blur-lg rounded-lg shadow cursor-pointer hover:shadow-lg hover:bg-opacity-90 duration-200 flex-1 font-bold text-[1.15rem] lg:text-[1.1rem] tracking-wider leading-relaxed'>
+              <p>Lataa kaikki nuotit</p>
+              <p className='text-xs mt-1 opacity-80'>Painamalla nappia lataat kaikki versiot tapahtumaan liittyvistä nuoteista koneellesi.</p>
+            </button>
+          </div>
+        </>
       )}
+
     </Layout>
   )
 }
@@ -183,10 +212,30 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}?populate=*`)
+  
+  const musicScoreIds = response.data.data.attributes.music_scores.data.map((score) => score.id)
+
+  let url = `${process.env.API_ADDRESS}/music-scores?populate=*`
+  
+  // Add all music score ids to the query.
+  musicScoreIds.forEach((id) => {
+    url += `&filters[id]=${id}`
+  })
+
+  const musicScores = await axios.get(url)
+
+  const scoreLinks = musicScores.data.data.map((score) => {
+    return score.attributes.Scores.data.map((stem) => ({
+      score: score.attributes.Title,
+      name: stem.attributes.name,
+      url: stem.attributes.url
+    }))
+  })
 
   return {
     props: {
       event: response.data.data.attributes,
+      musicScores: scoreLinks.flat(),
     },
   }
 }
