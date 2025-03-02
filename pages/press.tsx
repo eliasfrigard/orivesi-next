@@ -38,7 +38,7 @@ export default function Press({ press }) {
       pageUrl='/press'
     >
       <div className='w-full container my-8 md:my-16'>
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {press.Images.data.map((image, index) => (
             <ImageItem
               key={index}
