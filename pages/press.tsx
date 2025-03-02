@@ -29,17 +29,17 @@ const ImageItem = ({ image }) => {
   )
 }
 
-export default function About({ pressi }) {
+export default function Press({ press }) {
   return (
     <Layout
       pageTitle='Pressi'
       pageDescription='Pressi Page'
-      pageImage={pressi.Images.data[0].attributes.url}
-      pageUrl='/pressi'
+      pageImage={press.Images.data[0].attributes.url}
+      pageUrl='/press'
     >
       <div className='w-full container my-8 md:my-16'>
         <div className='grid grid-cols-3 gap-4'>
-          {pressi.Images.data.map((image, index) => (
+          {press.Images.data.map((image, index) => (
             <ImageItem
               key={index}
               image={image.attributes}
@@ -56,7 +56,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      pressi: response.data.data.attributes,
+      press: response.data.data.attributes,
     },
   }
 }
