@@ -2,8 +2,9 @@ import Image from 'next/image'
 import Moment from 'react-moment'
 import Link from 'next/link'
 
-import { BsPerson } from 'react-icons/bs'
-import { BiTimeFive } from 'react-icons/bi'
+import { BsPerson, BsPersonFill } from 'react-icons/bs'
+import { BiTimeFive, BiSolidTimeFive } from 'react-icons/bi'
+import { HiArrowRight } from 'react-icons/hi'
 import { useState } from 'react'
 
 export default function NewsPreview({ title, post, image, author, date, link, youtube, isFull = false }) {
@@ -18,53 +19,122 @@ export default function NewsPreview({ title, post, image, author, date, link, yo
   return (
     <Link href={'/news/' + link}>
       <div
-        className={`w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
-          }  cursor-pointer p-2 text-grey-500 pb-8 border-b border-secondary-400 hover:border-accent-400 border-opacity-40 duration-300`}
+        className={`group w-90 ${isFull ? '' : 'lg:w-[474px] xl:w-[525px]'
+          } cursor-pointer relative transition-all duration-500 ease-out
+          ${hover ? 'translate-y-[-4px]' : ''}`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        {youtube ? (
-          <div
-            className={`w-full aspect-79/52 overflow-hidden ${hover ? 'rounded-xl shadow-lg' : 'rounded shadow'
-              } duration-300`}
-          >
-            <iframe
-              className='w-full aspect-79/52'
-              src={`https://www.youtube.com/embed/${youtube}`}
-              title='YouTube video player'
-              frameBorder={0}
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              allowFullScreen
-              loading='lazy'
-            ></iframe>
+        {/* Card Container with Modern Shadow */}
+        <div className={`
+          rounded-2xl overflow-hidden bg-white/10 border border-secondary-500/10
+          transition-all duration-500
+          ${hover
+            ? 'shadow-2xl shadow-accent-400/20'
+            : 'shadow-lg shadow-gray-200/50'
+          }
+        `}>
+
+          {/* Media Section with Overlay */}
+          <div className="relative overflow-hidden aspect-79/52">
+            {youtube ? (
+              <div className="w-full h-full">
+                <iframe
+                  className='w-full h-full'
+                  src={`https://www.youtube.com/embed/${youtube}`}
+                  title='YouTube video player'
+                  frameBorder={0}
+                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                  allowFullScreen
+                  loading='lazy'
+                ></iframe>
+              </div>
+            ) : (
+              <>
+                <div className={`
+                  w-full h-full transition-transform duration-500 ease-out
+                  ${hover ? 'scale-110' : 'scale-100'}
+                `}>
+                  <Image
+                    className="object-cover"
+                    loader={myLoader}
+                    src={image.url}
+                    alt={image.alternativeText}
+                    fill
+                  />
+                </div>
+                {/* Gradient Overlay */}
+                <div className={`
+                  absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent
+                  transition-opacity duration-500
+                  ${hover ? 'opacity-70' : 'opacity-40'}
+                `} />
+              </>
+            )}
           </div>
-        ) : (
-          <div className={`aspect-79/52 relative ${hover ? 'rounded-xl shadow-lg' : 'shadow'} duration-300`}>
-            <Image
-              className={`${hover ? 'rounded-xl' : 'rounded'} duration-300 object-cover`}
-              loader={myLoader}
-              src={image.url}
-              alt={image.alternativeText}
-              fill
-            />
-          </div>
-        )}
-        <div className='meta flex flex-col md:flex-row gap-2 md:gap-6 items-start mt-6 mb-4'>
-          <div className='flex gap-4 md:gap-2 items-center justify-center'>
-            <BiTimeFive className='text-lg' />
-            <Moment className='font-work text-lg text-accent-600' format={'LL '}>
-              {date}
-            </Moment>
-          </div>
-          <div className='flex gap-4 md:gap-2 items-center justify-center'>
-            <BsPerson className='text-lg' />
-            <p className='font-work text-lg text-accent-600'>{author}</p>
+
+          {/* Content Section */}
+          <div className="p-6 pb-7">
+            {/* Meta Information as Modern Badges */}
+            <div className='flex flex-wrap gap-3 mb-4'>
+              <div className={`
+                flex items-center gap-2 px-3 py-1.5 rounded-full
+                transition-all duration-500
+                ${hover
+                  ? 'bg-accent-500 text-white'
+                  : 'bg-gray-100 text-gray-600'
+                }
+              `}>
+                {hover ? <BiSolidTimeFive className='text-base' /> : <BiTimeFive className='text-base' />}
+                <Moment className='font-work text-sm font-medium' format={'MMM DD, YYYY'}>
+                  {date}
+                </Moment>
+              </div>
+              <div className={`
+                flex items-center gap-2 px-3 py-1.5 rounded-full
+                transition-all duration-500
+                ${hover
+                  ? 'bg-accent-500 text-white'
+                  : 'bg-gray-100 text-gray-600'
+                }
+              `}>
+                {hover ? <BsPersonFill className='text-base' /> : <BsPerson className='text-base' />}
+                <p className='font-work text-sm font-medium'>{author}</p>
+              </div>
+            </div>
+
+            {/* Title with Modern Typography */}
+            <h2 className={`
+              text-2xl md:text-3xl font-bold leading-tight mb-3
+              transition-all duration-500
+              ${hover ? 'text-accent-600' : 'text-gray-900'}
+            `}>
+              {title}
+            </h2>
+
+            {/* Post Excerpt */}
+            <p className={`
+              text-gray-600 leading-relaxed line-clamp-3 mb-4
+              transition-all duration-500
+              ${hover ? 'text-gray-700' : ''}
+            `}>
+              {post}
+            </p>
+
+            {/* Read More Indicator */}
+            <div className={`
+              flex items-center gap-2 font-semibold
+              transition-all duration-500
+              ${hover
+                ? 'text-accent-600 translate-x-2'
+                : 'text-gray-400 translate-x-0'
+              }
+            `}>
+              <span className="text-sm uppercase tracking-wide">Lue Lisää</span>
+              <HiArrowRight className="text-lg" />
+            </div>
           </div>
         </div>
-        <h2 className='text-2xl my-3 leading-[2.3rem]'>{title}</h2>
-        <p className={`leading-7 ${hover ? 'opacity-100' : 'opacity-70'} duration-200 line-clamp-6`}>
-          {post}
-        </p>
       </div>
     </Link>
   )
