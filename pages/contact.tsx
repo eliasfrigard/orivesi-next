@@ -2,13 +2,12 @@ import axios from 'axios'
 import Layout from '../components/Layouts/Default'
 import ContactCard from '../components/Modules/ContactCard'
 import Title from '../components/Title'
-import { validateEmail } from '../utils/utilFunctions'
 
 export default function Contact({ contacts }) {
   return (
-    <Layout 
-      pageTitle='Contact' 
-      pageDescription='Orivesi All Stars contact information' 
+    <Layout
+      pageTitle='Contact'
+      pageDescription='Orivesi All Stars contact information'
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl='/contact'
     >
@@ -35,7 +34,7 @@ export default function Contact({ contacts }) {
 export async function getStaticProps() {
   const response = await axios.get(`${process.env.API_ADDRESS}/contacts`)
 
-  const contacts = response.data.data.filter((contact) => validateEmail(contact.attributes.Email))
+  const contacts = response.data.data
 
   return {
     props: {
