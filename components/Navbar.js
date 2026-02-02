@@ -22,6 +22,7 @@ export default function Navbar({ transparent = false }) {
     { title: 'Nuotit', page: '/scores', type: 'mobile' },
     { title: 'Jäsenyys', page: '/membership', type: 'all' },
     { title: 'Pressi', page: '/press', type: 'all' },
+    { title: 'Linkit', page: '/links', type: 'all' },
     { title: 'Yhteystiedot', page: '/contact', type: 'all' },
   ]
 
