@@ -5,7 +5,7 @@ export default function Links() {
   const externalLinks = [
     {
       title: "Bandcamp",
-      description: "Osta tai kuuntele julkaisujamme suoraan Bandcampissa.",
+      description: "Osta tai kuuntele julkaisujamme Bandcampissa.",
       url: "https://orivesiallstars.bandcamp.com/",
       buttonText: "Siirry Bandcampiin",
       image: "/a3159776273_16.jpg",
