@@ -11,8 +11,8 @@ export default function Links() {
       image: "/a3159776273_16.jpg",
     },
     {
-      title: "Kolibri Shop",
-      description: "Tilaa Orivesi All Stars -tuotteet kotiin meidän kaupasta.",
+      title: "Orivesi All Stars kauppa",
+      description: "Tilaa Orivesi All Stars -tuotteet meidän kaupasta.",
       url: "https://kolibri-shop.fi/allstars/",
       buttonText: "Siirry kauppaan",
       image: "/All-Stars-clique-miami-huppari-1.jpg",
