@@ -92,5 +92,6 @@ export async function getStaticProps() {
     props: {
       events: eventsWithSlug,
     },
+    revalidate: 60,
   }
 }
