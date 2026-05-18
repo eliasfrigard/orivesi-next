@@ -64,7 +64,7 @@ export default function Home({ welcome, news, events }) {
           <div className="md:mt-3">
             <Button
               color="bg-accent-500"
-              url="https://forms.gle/pgsjWMhun2vAiWgF6"
+              url="https://forms.gle/XXUiZJ9HuNHSgMAA6"
               externalUrl={true}
             >
               <div className="flex flex-col md:flex-row">
@@ -95,7 +95,7 @@ export default function Home({ welcome, news, events }) {
             </p>
             <Button
               color="bg-accent-500"
-              url="https://forms.gle/pgsjWMhun2vAiWgF6"
+              url="https://forms.gle/XXUiZJ9HuNHSgMAA6"
               externalUrl={true}
             >
               Tilaa Ennakkoon
