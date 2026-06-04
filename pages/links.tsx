@@ -4,30 +4,46 @@ import Image from 'next/image'
 export default function Links() {
   const externalLinks = [
     {
-      title: "Bandcamp",
-      description: "Osta tai kuuntele julkaisujamme Bandcampissa.",
-      url: "https://orivesiallstars.bandcamp.com/",
-      buttonText: "Siirry Bandcampiin",
-      image: "/a3159776273_16.jpg",
+      title: 'Musta se vares — Levyn ennakkotilaus',
+      description:
+        'Orivesi All Starsin uuden levyn ennakkotilaus on nyt avoinna! Tilaa omasi lomakkeen kautta.',
+      url: 'https://forms.gle/FSXQmBPHeyuRWH8x5',
+      buttonText: 'Tilaa ennakkoon',
+      image: '/oas-ennakko.jpeg',
     },
     {
-      title: "Orivesi All Stars kauppa",
-      description: "Tilaa Orivesi All Stars -tuotteet meidän kaupasta.",
-      url: "https://kolibri-shop.fi/allstars/",
-      buttonText: "Siirry kauppaan",
-      image: "/All-Stars-clique-miami-huppari-1.jpg",
-    }
-  ];
+      title: 'Yrityksille: Yhteistyökumppaniksi levylle',
+      description:
+        'Haluatko yrityksesi mukaan tukemaan Orivesi All Starsin uutta levyä? Täytä yhteistyökumppanilomake.',
+      url: 'https://forms.gle/7pRrHjKAwKhZvKDq6',
+      buttonText: 'Täytä lomake',
+      image: '/oas-yhteistyokumppani.jpeg',
+    },
+    {
+      title: 'Bandcamp',
+      description: 'Osta tai kuuntele julkaisujamme Bandcampissa.',
+      url: 'https://orivesiallstars.bandcamp.com/',
+      buttonText: 'Siirry Bandcampiin',
+      image: '/a3159776273_16.jpg',
+    },
+    {
+      title: 'Orivesi All Stars kauppa',
+      description: 'Tilaa Orivesi All Stars -tuotteet meidän kaupasta.',
+      url: 'https://kolibri-shop.fi/allstars/',
+      buttonText: 'Siirry kauppaan',
+      image: '/All-Stars-clique-miami-huppari-1.jpg',
+    },
+  ]
 
   return (
     <Layout
-      pageTitle='Linkit'
-      pageDescription='Orivesi All Stars - Linkit ulkopuolisiin palveluihin'
+      pageTitle="Tue meitä!"
+      pageDescription="Orivesi All Stars - Tue meitä! Osta levyjä, tuotteita ja tue toimintaamme."
       pageImage="https://orivesiadmin.net/oas_image.jpg"
-      pageUrl='/links'
+      pageUrl="/links"
     >
-      <div className='container flex flex-col items-center'>
-        <div className='flex flex-col gap-8 w-full max-w-3xl mt-8 md:mt-16'>
+      <div className="container flex flex-col items-center">
+        <div className="flex flex-col gap-8 w-full max-w-3xl mt-8 md:mt-16">
           {externalLinks.map((link, index) => (
             <a
               key={index}
@@ -60,8 +76,19 @@ export default function Links() {
                   </p>
                   <div className="inline-flex items-center text-accent-500 font-bold group-hover:text-accent-600 transition-colors">
                     {link.buttonText}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
                     </svg>
                   </div>
                 </div>

@@ -5,14 +5,10 @@ import Link from 'next/link'
 import md from 'markdown-it'
 
 import Layout from '../../components/Layouts/Default'
-import Title from '../../components/Title'
 import Score from '../../components/Modules/ScorePreview'
 import EventPreview from '../../components/Modules/EventPreview'
 
-import { BsPerson } from 'react-icons/bs'
-import { BiTimeFive } from 'react-icons/bi'
-import { FiChevronRight } from 'react-icons/fi'
-import { MdOutlineArticle } from 'react-icons/md'
+import { HiArrowLeft } from 'react-icons/hi'
 
 export default function NewsPage({ id, post }) {
   const myLoader = () => {
@@ -26,102 +22,111 @@ export default function NewsPage({ id, post }) {
       pageImage={post.Images.data[0].attributes.url}
       pageUrl={`/news/${id}`}
     >
-      <div className='container flex pt-10 flex-col items-center my-8 md:my-16'>
-        <div className='md:container max-w-full flex flex-col gap-4 md:gap-5'>
-          <div className='flex items-center gap-3 text-md mt-[-3rem] text-grey-300'>
-            <div className='flex items-center gap-2 hover:text-grey-800 hover:font-medium duration-75'>
-              <MdOutlineArticle />
-              <Link href='/news'>Uutiset</Link>
-            </div>
-            <div className='flex items-center gap-2'>
-              <FiChevronRight></FiChevronRight>
-              <p className='hidden sm:inline whitespace-nowrap'>{post.Title}</p>
-              <p className='sm:hidden whitespace-nowrap'>{post.Title.substring(0, 15)}...</p>
-            </div>
+      <article className='max-w-3xl mx-auto px-5 pt-12 pb-20'>
+        {/* Back link */}
+        <Link
+          href='/news'
+          className='inline-flex items-center gap-1.5 text-sm font-work text-gray-400 hover:text-gray-600 transition-colors no-underline mb-10'
+        >
+          <HiArrowLeft className='text-sm' />
+          <span>Uutiset</span>
+        </Link>
+
+        {/* Header */}
+        <header className='mb-10'>
+          <h1 className='font-round text-3xl md:text-4xl lg:text-[2.75rem] leading-tight tracking-wide text-secondary-700 mb-5'>
+            {post.Title}
+          </h1>
+          <div className='flex items-center gap-3 font-work text-sm text-gray-400'>
+            <Moment format='LL'>{post.createdAt}</Moment>
+            {post.Author && (
+              <>
+                <span className='text-gray-300'>·</span>
+                <span>{post.Author}</span>
+              </>
+            )}
           </div>
+        </header>
 
-          <Title version='v3'>{post.Title}</Title>
-
-          <div className='meta flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-accent-600'>
-            <div className='flex gap-4 lg:gap-2 items-center justify-center'>
-              <BiTimeFive className='text-xl text-secondary-600' />
-              <Moment className='font-work text-lg' format={'LL '}>
-                {post.createdAt}
-              </Moment>
-            </div>
-            <div className='flex gap-4 lg:gap-2 items-center justify-center'>
-              <BsPerson className='text-xl text-secondary-600' />
-              <p className='font-work text-lg'>{post.Author}</p>
-            </div>
-          </div>
-        </div>
-
+        {/* Featured media */}
         {post.Youtube ? (
-          <div className='w-full my-10 aspect-video overflow-hidden rounded-xl shadow-xl'>
+          <div className='aspect-video overflow-hidden rounded-lg mb-12'>
             <iframe
-              className='w-full aspect-video'
+              className='w-full h-full'
               src={`https://www.youtube.com/embed/${post.Youtube}`}
               title='YouTube video player'
               frameBorder={0}
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
               loading='lazy'
-            ></iframe>
+            />
           </div>
         ) : (
-          <div className='container w-full my-10 aspect-79/52 img relative shadow-md'>
+          <div className='aspect-79/52 relative rounded-lg overflow-hidden mb-12'>
             <Image
-              className='rounded-lg'
               loader={myLoader}
               src={post.Images.data[0].attributes.url}
               alt={post.Images.data[0].attributes.alternativeText}
               layout='fill'
               objectFit='cover'
+              priority
             />
           </div>
         )}
-        <div className='flex flex-col lg:flex-row gap-6 lg:gap-16 mt-4 justify-center items-center md:border border-secondary-500 border-opacity-40 rounded-xl md:shadow md:px-8 lg:px-12 md:py-12'>
-          <div
-            className='prose max-w-4xl leading-[2.1rem]'
-            dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
-          />
-        </div>
-      </div>
+
+        {/* Article body */}
+        <div
+          className='prose prose-lg max-w-none
+            prose-headings:font-round prose-headings:text-secondary-700 prose-headings:tracking-wide
+            prose-p:text-gray-600 prose-p:leading-relaxed
+            prose-a:text-secondary-500 prose-a:underline-offset-2
+            prose-strong:text-gray-700
+            prose-li:text-gray-600
+            prose-img:rounded-lg'
+          dangerouslySetInnerHTML={{ __html: md().render(post.Text) }}
+        />
+      </article>
 
       {/* Associated Scores */}
       {post.music_scores.data.length > 0 && (
-        <div className='container my-16'>
-          <div className='container flex flex-col gap-3 md:gap-4 my-8 px-0'>
-            {post.music_scores.data.map((score) => (
-              <Score
-                key={score.id}
-                link={score.id}
-                title={score.attributes.Title}
-                type={score.attributes.Type}
-                composer={score.attributes.Composer}
-              ></Score>
-            ))}
+        <section className='border-t border-gray-200'>
+          <div className='max-w-3xl mx-auto px-5 py-16'>
+            <h2 className='font-round text-2xl tracking-wide text-secondary-700 mb-6'>Liittyvät nuotit</h2>
+            <div className='flex flex-col gap-3'>
+              {post.music_scores.data.map((score) => (
+                <Score
+                  key={score.id}
+                  link={score.id}
+                  title={score.attributes.Title}
+                  type={score.attributes.Type}
+                  composer={score.attributes.Composer}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* Associated Events */}
       {post.events.data.length > 0 && (
-        <div className='container my-16'>
-          <div className='max-w-[1400px] flex flex-wrap gap-10 justify-center items-center my-8 lg:my-16'>
-            {post.events.data.map((event) => (
-              <EventPreview
-                link={event.id}
-                date={event.attributes.Start}
-                title={event.attributes.Title}
-                location={event.attributes.Location}
-                city={event.attributes.City}
-                country={event.attributes.Country}
-                key={event.attributes.id}
-              />
-            ))}
+        <section className='border-t border-gray-200'>
+          <div className='max-w-3xl mx-auto px-5 py-16'>
+            <h2 className='font-round text-2xl tracking-wide text-secondary-700 mb-6'>Liittyvät tapahtumat</h2>
+            <div className='flex flex-wrap gap-8 justify-center'>
+              {post.events.data.map((event) => (
+                <EventPreview
+                  link={event.id}
+                  date={event.attributes.Start}
+                  title={event.attributes.Title}
+                  location={event.attributes.Location}
+                  city={event.attributes.City}
+                  country={event.attributes.Country}
+                  key={event.attributes.id}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       )}
     </Layout>
   )

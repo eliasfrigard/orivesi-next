@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { BsFacebook } from 'react-icons/bs'
-import { AiFillMail, AiFillInstagram, AiFillYoutube, AiOutlineClose } from 'react-icons/ai'
+import { AiFillMail, AiFillInstagram, AiFillYoutube } from 'react-icons/ai'
 
 export default function Navbar({ transparent = false }) {
   const router = useRouter()
@@ -22,7 +22,7 @@ export default function Navbar({ transparent = false }) {
     { title: 'Nuotit', page: '/scores', type: 'mobile' },
     { title: 'Jäsenyys', page: '/membership', type: 'all' },
     { title: 'Pressi', page: '/press', type: 'all' },
-    { title: 'Linkit', page: '/links', type: 'all' },
+    { title: 'Tue meitä!', page: '/links', type: 'all' },
     { title: 'Yhteystiedot', page: '/contact', type: 'all' },
   ]
 
@@ -52,34 +52,38 @@ export default function Navbar({ transparent = false }) {
       {/* DESKTOP NAV BELOW */}
       <div
         className={`hidden lg:grid grid-cols-[1fr_2fr_1fr] items-center fixed h-[83px] w-full z-50 ${
-          !transparent || scrolled ? 'bg-secondary-500 bg-opacity-90 shadow-lg backdrop-blur-lg' : 'bg-opacity-0'
+          !transparent || scrolled
+            ? 'bg-secondary-500 bg-opacity-90 shadow-lg backdrop-blur-lg'
+            : 'bg-opacity-0'
         } duration-500`}
       >
-        <Link href='/'>
+        <Link href="/">
           <div
             className={`hidden xl:flex leading-4 cursor-pointer md:flex-col gap-2 md:gap-0 justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 tracking-wider scale-90`}
           >
-            <p className='font-work font-bold text-2xl md:text-[28px] text-accent-600 leading-none'>ORIVESI</p>
-            <p className={`font-work font-bold text-2xl md:text-xl duration-300 leading-none text-primary-500`}>
+            <p className="font-work font-bold text-2xl md:text-[28px] text-accent-600 leading-none">
+              ORIVESI
+            </p>
+            <p
+              className={`font-work font-bold text-2xl md:text-xl duration-300 leading-none text-primary-500`}
+            >
               ALL STARS
             </p>
           </div>
         </Link>
-        <div className='container hidden lg:flex justify-center items-center'>
-          <ul className='flex align-middle justify-center items-center gap-1'>
+        <div className="container hidden lg:flex justify-center items-center">
+          <ul className="flex align-middle justify-center items-center gap-1">
             {links
               .filter((link) => link.type !== 'mobile')
               .map((link) => (
                 <li key={link.title}>
-                  <Link
-                    href={link.page}
-                    legacyBehavior
-                  >
+                  <Link href={link.page} legacyBehavior>
                     <a
                       className={`
             ${
               router.pathname === link.page ||
-              (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+              (link.page.includes(router.pathname.split('/')[1]) &&
+                router.pathname !== '/')
                 ? 'bg-accent-600 hover:bg-accent-400 text-white shadow-sm'
                 : ''
             }
@@ -96,31 +100,31 @@ export default function Navbar({ transparent = false }) {
           className={`hidden xl:flex gap-4 2xl:gap-6 text-[1.8rem] justify-center items-center text-primary-500 scale-90 duration-500`}
         >
           <a
-            target='_blank'
-            href='https://www.facebook.com/orivesiallstars/'
-            rel='noopener noreferrer'
+            target="_blank"
+            href="https://www.facebook.com/orivesiallstars/"
+            rel="noopener noreferrer"
           >
-            <BsFacebook className='text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+            <BsFacebook className="text-[1.5rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow" />
           </a>
           <a
-            href='https://www.instagram.com/orivesiallstars/'
-            target='_blank'
-            rel='noopener noreferrer'
+            href="https://www.instagram.com/orivesiallstars/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow' />
+            <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow" />
           </a>
           <a
-            href='https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ'
-            target='_blank'
-            rel='noopener noreferrer'
+            href="https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <AiFillYoutube
-              className='text-[2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150
-            active:scale-110 cursor-pointer drop-shadow'
+              className="text-[2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150
+            active:scale-110 cursor-pointer drop-shadow"
             />
           </a>
-          <a href='mailto:orivesiallstars@gmail.com'>
-            <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow' />
+          <a href="mailto:orivesiallstars@gmail.com">
+            <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow" />
           </a>
         </div>
       </div>
@@ -144,11 +148,13 @@ export default function Navbar({ transparent = false }) {
         `}
       >
         <div>
-          <Link href='/'>
+          <Link href="/">
             <div
               className={`leading-4 cursor-pointer flex flex-col justify-center items-center text-center text-secondary-500 hover:text-secondary-800 duration-150 sm:mt-[-4px] tracking-wider mb-1`}
             >
-              <p className='font-work font-bold text-2xl md:text-3xl text-accent-600 drop-shadow-md'>ORIVESI</p>
+              <p className="font-work font-bold text-2xl md:text-3xl text-accent-600 drop-shadow-md">
+                ORIVESI
+              </p>
               <p
                 className={`font-work font-bold text-[17px] md:text-[21px] duration-300 drop-shadow-md text-primary-500`}
               >
@@ -171,20 +177,18 @@ export default function Navbar({ transparent = false }) {
           } duration-300`}
         >
           <div>
-            <ul className='flex align-middle justify-center flex-col items-center gap-8'>
+            <ul className="flex align-middle justify-center flex-col items-center gap-8">
               {links
                 .filter((link) => link.type !== 'desktop')
                 .map((link) => (
                   <li key={link.title}>
-                    <Link
-                      href={link.page}
-                      legacyBehavior
-                    >
+                    <Link href={link.page} legacyBehavior>
                       <a
                         className={`
                     ${
                       router.pathname === link.page ||
-                      (link.page.includes(router.pathname.split('/')[1]) && router.pathname !== '/')
+                      (link.page.includes(router.pathname.split('/')[1]) &&
+                        router.pathname !== '/')
                         ? 'text-accent-600 font-bold'
                         : 'text-primary-500'
                     }
@@ -199,42 +203,42 @@ export default function Navbar({ transparent = false }) {
           </div>
 
           <div
-            id='right'
-            className='flex flex-col gap-4 text-primary-500 items-center'
+            id="right"
+            className="flex flex-col gap-4 text-primary-500 items-center"
           >
-            <div className='flex gap-6 text-[2rem] duration-500 items-center text-primary-500'>
+            <div className="flex gap-6 text-[2rem] duration-500 items-center text-primary-500">
               <a
-                target='_blank'
-                href='https://www.facebook.com/orivesiallstars/'
-                rel='noopener noreferrer'
+                target="_blank"
+                href="https://www.facebook.com/orivesiallstars/"
+                rel="noopener noreferrer"
               >
-                <BsFacebook className='text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+                <BsFacebook className="text-[1.7rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow" />
               </a>
               <a
-                href='https://www.instagram.com/orivesiallstars/'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://www.instagram.com/orivesiallstars/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <AiFillInstagram className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow' />
+                <AiFillInstagram className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow" />
               </a>
               <a
-                href='https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://www.youtube.com/channel/UChPwmZQ3JgHSd21qpv4JfqQ"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <AiFillYoutube className='text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow' />
+                <AiFillYoutube className="text-[2.2rem] opacity-80 hover:opacity-100 hover:scale-125 hover:text-accent-600 duration-150 active:scale-110 cursor-pointer drop-shadow" />
               </a>
-              <a href='mailto:orivesiallstars@gmail.com'>
-                <AiFillMail className='opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow' />
+              <a href="mailto:orivesiallstars@gmail.com">
+                <AiFillMail className="opacity-80 hover:opacity-100 hover:scale-125 duration-150 hover:text-accent-600 active:scale-110 cursor-pointer drop-shadow" />
               </a>
             </div>
 
             <p>Copyright © 2022 Orivesi All Stars</p>
-            <p className='text-sm'>
+            <p className="text-sm">
               Website by{' '}
               <a
-                className='text-accent-600 font-bold underline text-md'
-                href='mailto:elias_frigard@hotmail.com'
+                className="text-accent-600 font-bold underline text-md"
+                href="mailto:elias_frigard@hotmail.com"
               >
                 Elias Frigård
               </a>

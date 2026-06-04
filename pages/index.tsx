@@ -61,15 +61,25 @@ export default function Home({ welcome, news, events }) {
             Suomen Suurin Pelimanniorkesteri
           </h2>
 
-          <div className="md:mt-3">
+          <div className="md:mt-3 flex flex-col gap-3">
             <Button
               color="bg-accent-500"
-              url="https://forms.gle/XXUiZJ9HuNHSgMAA6"
+              url="https://forms.gle/FSXQmBPHeyuRWH8x5"
               externalUrl={true}
             >
               <div className="flex flex-col md:flex-row">
                 <p>Musta se vares -&nbsp;</p>
                 <p>Levyn ennakkotilaus</p>
+              </div>
+            </Button>
+            <Button
+              color="bg-accent-500"
+              url="https://forms.gle/7pRrHjKAwKhZvKDq6"
+              externalUrl={true}
+            >
+              <div className="flex flex-col md:flex-row">
+                <p>Yrityksille:&nbsp;</p>
+                <p>Yhteistyökumppaniksi levylle</p>
               </div>
             </Button>
           </div>
@@ -95,7 +105,7 @@ export default function Home({ welcome, news, events }) {
             </p>
             <Button
               color="bg-accent-500"
-              url="https://forms.gle/XXUiZJ9HuNHSgMAA6"
+              url="https://forms.gle/FSXQmBPHeyuRWH8x5"
               externalUrl={true}
             >
               Tilaa Ennakkoon
