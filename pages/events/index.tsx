@@ -79,9 +79,19 @@ export default function Events({ events }) {
 }
 
 export async function getStaticProps() {
-  const response = await api.get('/events?sort[0]=Start&pagination[pageSize]=100')
+  let page = 1
+  let events = []
+  let pageCount = 1
 
-  let eventsWithSlug = response.data.data.map((event) => {
+  do {
+    const response = await api.get(`/events?sort[0]=Start&pagination[page]=${page}&pagination[pageSize]=100`)
+
+    events = [...events, ...response.data.data]
+    pageCount = response.data.meta.pagination.pageCount
+    page += 1
+  } while (page <= pageCount)
+
+  let eventsWithSlug = events.map((event) => {
     return {
       slug: event.id,
       ...event,
