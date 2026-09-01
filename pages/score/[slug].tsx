@@ -27,8 +27,8 @@ export default function ScorePage({ score, slug }) {
   return (
     <Layout
       pageImage="https://orivesiadmin.net/oas_image.jpg"
-      pageTitle={score.Title} 
-      pageDescription={score.Description} 
+      pageTitle={score.Title}
+      pageDescription={score.Description}
       pageUrl={`/score/${slug}`}
     >
       <div className='container flex pt-10 flex-col items-center my-8 md:my-16'>
@@ -164,7 +164,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
@@ -176,5 +176,6 @@ export async function getStaticProps({ params: { slug } }) {
       slug,
       score: response.data.data.attributes,
     },
+    revalidate: 60,
   }
 }

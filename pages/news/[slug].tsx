@@ -143,7 +143,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
@@ -155,5 +155,6 @@ export async function getStaticProps({ params: { slug } }) {
       id: response.data.data.id,
       post: response.data.data.attributes,
     },
+    revalidate: 60,
   }
 }
