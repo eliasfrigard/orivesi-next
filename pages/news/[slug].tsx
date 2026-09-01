@@ -1,10 +1,10 @@
-import axios from 'axios'
 import Image from 'next/image'
 import Moment from 'react-moment'
 import Link from 'next/link'
 import md from 'markdown-it'
 
 import Layout from '../../components/Layouts/Default'
+import api from '../../utils/api'
 import Score from '../../components/Modules/ScorePreview'
 import EventPreview from '../../components/Modules/EventPreview'
 
@@ -133,7 +133,7 @@ export default function NewsPage({ id, post }) {
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts`)
+  const response = await api.get('/posts')
 
   const paths = response.data.data.map((post) => ({
     params: {
@@ -148,7 +148,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts/${slug}?populate=*`)
+  const response = await api.get(`/posts/${slug}?populate=*`)
 
   return {
     props: {

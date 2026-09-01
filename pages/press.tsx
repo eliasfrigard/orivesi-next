@@ -1,6 +1,6 @@
-import axios from 'axios'
 import Layout from '../components/Layouts/Default'
 import Image from 'next/image'
+import api from '../utils/api'
 
 const ImageItem = ({ image }) => {
   // You can optionally generate or fetch a blurred low-quality image URL here
@@ -52,7 +52,7 @@ export default function Press({ press }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/pressi?populate=Images`)
+  const response = await api.get('/pressi?populate=Images')
 
   return {
     props: {

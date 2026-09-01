@@ -1,7 +1,7 @@
 import md from 'markdown-it'
-import axios from 'axios'
 
 import Layout from '../components/Layouts/Default'
+import api from '../utils/api'
 
 export default function About({ about }) {
   return (
@@ -20,7 +20,7 @@ export default function About({ about }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/about?populate=Images`)
+  const response = await api.get('/about?populate=Images')
 
   return {
     props: {

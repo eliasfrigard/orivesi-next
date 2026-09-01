@@ -1,8 +1,8 @@
-import axios from 'axios'
 import md from 'markdown-it'
 
 import Title from '../components/Title'
 import Layout from '../components/Layouts/Default'
+import api from '../utils/api'
 
 export default function Membership({ membership }) {
   return (
@@ -25,7 +25,7 @@ export default function Membership({ membership }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/membership`)
+  const response = await api.get('/membership')
 
   return {
     props: {

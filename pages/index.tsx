@@ -1,6 +1,6 @@
-import axios from 'axios'
 import Image from 'next/image'
 import Layout from '../components/Layouts/Default'
+import api from '../utils/api'
 import NewsHighlights from '../components/Modules/NewsHighlights'
 import EventHighlights from '../components/Modules/EventHighlights'
 import ShortPresentation from '../components/Modules/ShortPresentation'
@@ -121,15 +121,11 @@ export default function Home({ welcome, news, events }) {
 }
 
 export async function getStaticProps() {
-  const welcomeRes = await axios.get(`${process.env.API_ADDRESS}/welcome`)
+  const welcomeRes = await api.get('/welcome')
 
-  const postRes = await axios.get(
-    `${process.env.API_ADDRESS}/posts?_limit=4&sort=createdAt:desc&populate=Images`,
-  )
+  const postRes = await api.get('/posts?_limit=4&sort=createdAt:desc&populate=Images')
 
-  const eventRes = await axios.get(
-    `${process.env.API_ADDRESS}/events?sort=Start:asc&pagination[pageSize]=100`,
-  )
+  const eventRes = await api.get('/events?sort=Start:asc&pagination[pageSize]=100')
 
   const newsWithSlug = postRes.data.data.map((post) => {
     return {

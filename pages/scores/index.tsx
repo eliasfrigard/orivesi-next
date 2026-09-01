@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FaHeart, FaStar } from 'react-icons/fa'
 import Layout from '../../components/Layouts/Default'
@@ -7,6 +6,7 @@ import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
 import InfoModule from '../../components/Modules/InfoModule'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import api from '../../utils/api'
 
 export default function Home({ scores }) {
   const [filteredScores, setFilteredScores] = useState(scores)
@@ -72,10 +72,10 @@ export default function Home({ scores }) {
         <Title>Nuotit</Title>
         <div>
           <SearchModule />
-          <InfiniteScroll 
+          <InfiniteScroll
             loader={<h4>Ladataan lisää...</h4>}
-            dataLength={scoreSublist.length} 
-            next={fetchMore} 
+            dataLength={scoreSublist.length}
+            next={fetchMore}
             hasMore={hasMore}
           >
             <div className='container flex flex-col gap-3 md:gap-4 mt-16 mb-8 md:my-16'>
@@ -110,9 +110,7 @@ export async function getStaticProps() {
   while (hasNextPage) {
     page += 1
 
-    const res = await axios.get(
-      `${process.env.API_ADDRESS}/music-scores?pagination[page]=${page}&sort=Title`
-    )
+    const res = await api.get(`/music-scores?pagination[page]=${page}&sort=Title`)
 
     scores = [...scores, ...res.data.data]
     hasNextPage = page < res.data.meta.pagination.pageCount

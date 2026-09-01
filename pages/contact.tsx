@@ -1,6 +1,6 @@
-import axios from 'axios'
 import Layout from '../components/Layouts/Default'
 import ContactCard from '../components/Modules/ContactCard'
+import api from '../utils/api'
 import Title from '../components/Title'
 
 export default function Contact({ contacts }) {
@@ -32,7 +32,7 @@ export default function Contact({ contacts }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/contacts`)
+  const response = await api.get('/contacts')
 
   const contacts = response.data.data
 

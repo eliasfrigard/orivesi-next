@@ -1,12 +1,12 @@
-import axios from 'axios'
 import Layout from '../../components/Layouts/Default'
 import NewsPreview from '../../components/Modules/NewsPreview'
+import api from '../../utils/api'
 
 export default function News({ news }) {
   return (
-    <Layout 
-      pageTitle='News' 
-      pageDescription='Orivesi All Stars latest news' 
+    <Layout
+      pageTitle='News'
+      pageDescription='Orivesi All Stars latest news'
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl='/news'
     >
@@ -38,7 +38,7 @@ export default function News({ news }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/posts?sort=createdAt:desc&populate=Images`)
+  const response = await api.get('/posts?sort=createdAt:desc&populate=Images')
 
   const newsWithSlug = response.data.data.map((post) => {
     return {

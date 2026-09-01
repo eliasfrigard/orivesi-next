@@ -1,7 +1,7 @@
-import axios from 'axios'
 import EventPreview from '../../components/Modules/EventPreview'
 import Layout from '../../components/Layouts/Default'
 import Title from '../../components/Title'
+import api from '../../utils/api'
 
 export default function Events({ events }) {
   const isPrevious = (event) => {
@@ -19,9 +19,9 @@ export default function Events({ events }) {
   })
 
   return (
-    <Layout 
-      pageTitle='Events' 
-      pageDescription='Orivesi All Stars upcoming and past events' 
+    <Layout
+      pageTitle='Events'
+      pageDescription='Orivesi All Stars upcoming and past events'
       pageImage="https://orivesiadmin.net/oas_image.jpg"
       pageUrl='/events'
     >
@@ -51,7 +51,7 @@ export default function Events({ events }) {
         </div>
 
         <Title>Aikaisempia Tapahtumia</Title>
-        
+
         {/* Previous */}
         <div className='flex flex-col items-center'>
           <div className='max-w-full grid grid-flow-row xl:grid-cols-3 lg:grid-cols-2 gap-8 md:gap-10 justify-center items-center mx-8'>
@@ -79,7 +79,7 @@ export default function Events({ events }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events?sort[0]=Start&pagination[pageSize]=100`)
+  const response = await api.get('/events?sort[0]=Start&pagination[pageSize]=100')
 
   let eventsWithSlug = response.data.data.map((event) => {
     return {

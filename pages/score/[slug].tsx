@@ -1,9 +1,9 @@
-import axios from 'axios'
 import Moment from 'react-moment'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 
 import Layout from '../../components/Layouts/Default'
+import api from '../../utils/api'
 import Player from '../../components/Player'
 import Title from '../../components/Title'
 
@@ -146,12 +146,12 @@ export default function ScorePage({ score, slug }) {
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
+  const response = await api.get('/music-scores')
 
   const paths = []
 
   for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
-    const res = await axios.get(`${process.env.API_ADDRESS}/music-scores?pagination[page]=${i + 1}&sort=Title`)
+    const res = await api.get(`/music-scores?pagination[page]=${i + 1}&sort=Title`)
 
     res.data.data.forEach((score) => {
       paths.push({
@@ -169,7 +169,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores/${slug}?populate=*`)
+  const response = await api.get(`/music-scores/${slug}?populate=*`)
 
   return {
     props: {

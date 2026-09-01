@@ -1,7 +1,7 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FaHeart, FaStar } from 'react-icons/fa'
 import Layout from '../../components/Layouts/Default'
+import api from '../../utils/api'
 import Score from '../../components/Modules/ScorePreview'
 import SearchModule from '../../components/Modules/SearchModule'
 import Title from '../../components/Title'
@@ -103,10 +103,10 @@ export default function Home({ scores, page, pageCount, pageSize, totalScores })
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/music-scores`)
-  
+  const response = await api.get('/music-scores')
+
   const paths = []
-  
+
   for (let i = 0; i < response.data.meta.pagination.pageCount; i++) {
     paths.push({
       params: { page: (i + 1).toString() },
@@ -120,9 +120,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { page } }) {
-  const response = await axios.get(
-    `${process.env.API_ADDRESS}/music-scores?pagination[page]=${page}&sort=Title`
-  )
+  const response = await api.get(`/music-scores?pagination[page]=${page}&sort=Title`)
 
   let scoreWithSlug = response.data.data.map((score) => {
     return {

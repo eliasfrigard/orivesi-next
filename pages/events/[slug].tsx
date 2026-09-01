@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Moment from 'react-moment'
 import 'moment/locale/fi'
 import md from 'markdown-it'
@@ -6,6 +5,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import Layout from '../../components/Layouts/Default'
+import api from '../../utils/api'
 import Score from '../../components/Modules/ScorePreview'
 import Title from '../../components/Title'
 
@@ -167,7 +167,7 @@ export default function EventPage({ event }) {
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events?pagination[pageSize]=100`)
+  const response = await api.get('/events?pagination[pageSize]=100')
 
   const paths = response.data.data.map((event) => ({
     params: {
@@ -182,7 +182,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await axios.get(`${process.env.API_ADDRESS}/events/${slug}?populate=*`)
+  const response = await api.get(`/events/${slug}?populate=*`)
 
   return {
     props: {
